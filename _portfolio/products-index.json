@@ -1,0 +1,137 @@
+{
+  "_meta": {
+    "purpose": "Machine-readable index of all products in the SaaS portfolio. Consumed by CampaignBuilder and any other tool that needs to iterate over product specs without parsing markdown.",
+    "schema_version": 1,
+    "last_updated": "2026-05-22",
+    "notes": "Each entry's 'sections' map gives the exact markdown heading text for canonical sections. A consumer can extract a section by finding that heading and reading until the next same-level heading. Sections may be null if the brain does not contain them in this format."
+  },
+  "products": [
+    {
+      "slug": "coreproma",
+      "name": "COREPROMA",
+      "spec_path": "coreproma/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/coreproma/product-spec.md",
+      "sections": {
+        "positioning": "# COREPROMA — Construction Project Management Platform",
+        "audiences": "## Two Distinct Customer Segments",
+        "features": "## Core Features (All Plans)",
+        "features_pro": "## Professional Exclusive Features",
+        "pricing": "## Pricing",
+        "trial": "## Trial",
+        "demos": "## Interactive Demos",
+        "support": "## Support",
+        "value_props": "## Key Value Propositions",
+        "social_descriptions": "## Social Media Descriptions",
+        "faq": null,
+        "legal": null,
+        "ecosystem": null
+      }
+    },
+    {
+      "slug": "emailrelay",
+      "name": "EmailRelay",
+      "spec_path": "emailrelay/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/emailrelay/product-spec.md",
+      "sections": {
+        "positioning": "## 1. One-paragraph description",
+        "problem": "## 2. The problem it solves",
+        "audiences": "## 3. Who it is for",
+        "flow": "## 4. How it works — the end-to-end flow",
+        "differentiation": "## 5. What makes it different (the positioning)",
+        "features": "## 6. Full functionality list",
+        "multi_tenant": "## 7. This is a SaaS — built to serve many organisations",
+        "pricing": "## 8. Pricing (current plan)",
+        "onboarding": "## 9. Onboarding — what a new customer experiences",
+        "legal": "## 10. Compliance & data protection",
+        "tech_stack": "## 11. The technology (for technical enquiries)",
+        "out_of_scope": "## 12. What it does NOT do (yet) — set expectations honestly",
+        "faq": "## 13. Quick answers to likely inbound questions",
+        "ecosystem": null,
+        "value_props": null
+      }
+    },
+    {
+      "slug": "findallproperty",
+      "name": "FindAllProperty",
+      "spec_path": "findallproperty/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/findallproperty/product-spec.md",
+      "sections": {
+        "positioning": "## 1. The Product in One Paragraph",
+        "problem": "## 2. The Problem It Solves",
+        "audiences": "## 3. Who It Is For",
+        "flow": "## 4. How It Works — The Core Flow",
+        "features": "## 5. Full Functionality List",
+        "data_sources": "## 6. Third-Party Data Sources",
+        "ecosystem": "## 7. The Ecosystem It Belongs To",
+        "legal": "## 8. Legal Posture (Summary)",
+        "metrics": "## 9. Success Metrics",
+        "faq": "## 10. Email Automation Knowledge Base",
+        "pricing": null,
+        "value_props": null
+      }
+    },
+    {
+      "slug": "jobstracker",
+      "name": "Jobs Tracker",
+      "spec_path": "jobstracker/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/jobstracker/product-spec.md",
+      "sections": {
+        "positioning": "## What is Job Tracker?",
+        "productisation": "## Pilot & Productisation Path",
+        "two_apps": "## Two Apps, One Platform",
+        "roles": "## User Roles",
+        "features": "## Core Features",
+        "tech_stack": "## Tech Stack",
+        "roadmap": "## Roadmap",
+        "carbon": "## Carbon Reporting Module (Phase 2)",
+        "pilot_context": "## CBES Pilot Context",
+        "support": "## Support & Contact",
+        "value_props": "## Key Value Propositions",
+        "pricing": null,
+        "faq": null,
+        "ecosystem": null
+      }
+    },
+    {
+      "slug": "waypointscreator",
+      "name": "WaypointsCreator Mission Control",
+      "spec_path": "waypointscreator/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/waypointscreator/product-spec.md",
+      "sections": {
+        "positioning": "## 1. Product at a Glance",
+        "audiences": "## 2. Who It's For",
+        "pricing": "## 3. Pricing & Plans",
+        "features": "## 4. Full Feature List",
+        "integrations": "## 5. Integrations & Supported Hardware",
+        "auth": "## 6. Accounts & Authentication",
+        "surfaces": "## 7. Pages & Surfaces",
+        "tech_stack": "## 8. Tech Stack (reference)",
+        "faq": "## 9. FAQ / Auto-Response Library",
+        "value_props": null,
+        "legal": null,
+        "ecosystem": null
+      }
+    }
+  ],
+  "canonical_section_definitions": {
+    "positioning": "One-paragraph or hero description of the product. Safe for marketing.",
+    "problem": "The pain the product addresses. Safe for marketing.",
+    "audiences": "Target users / personas. Safe for marketing.",
+    "flow": "End-to-end user flow. Safe for marketing if free of internal pilot names.",
+    "differentiation": "Why this product beats alternatives. Safe for marketing.",
+    "features": "Capability list. Safe for marketing but long; extract bullets selectively.",
+    "pricing": "Tiers and prices. Verify currency before quoting.",
+    "faq": "Q&A for auto-responder. PRIMARY source for autoreply prompts.",
+    "value_props": "Pre-written value propositions. Highest signal for social posts.",
+    "legal": "Compliance posture. INTERNAL-only unless explicitly cleared.",
+    "ecosystem": "Relationship to other portfolio products. Useful for cross-sell.",
+    "tech_stack": "Engineering details. Customer-facing only when asked.",
+    "pilot_context": "INTERNAL only. Never publish customer names without consent.",
+    "productisation": "INTERNAL only. Strategic information."
+  },
+  "internal_only_sections": [
+    "pilot_context",
+    "productisation",
+    "tech_stack"
+  ]
+}

@@ -1,3 +1,22 @@
+---
+product_name: FindAllProperty
+slug: findallproperty
+status: pre-launch
+stage: bmad-phase-1-complete
+play: 1
+play_name: uk-property-ecosystem
+website: null  # domain not yet secured
+repo: null  # TODO
+languages: [en]
+pricing_currency: [GBP]
+pricing_model: free-for-consumers
+target_audiences: [uk-buyers, uk-renters, uk-homeowners]
+ai_safe_for_autoreply: false  # pre-launch — use canned answers only, do not invent
+ai_safe_for_social_post: true
+spec_last_updated: 2026-05-22
+brain_format_version: numbered-with-counter-metrics
+---
+
 # FindAllProperty — Product Brain
 
 > **Source brain — placed verbatim 2026-05-22.** This brain is the strongest
@@ -290,13 +309,4 @@ does not contain a confirmed date.)
 **Q: I'm an estate agent — can I list with you?**
 Yes, partner agencies feed their listings in directly and get prominent, accurate
 presentation with direct enquiry routing. (Route this enquiry to a human.)
-### 10.4 What an auto-responder must NOT do
-- Do **not** state a launch date, price, or financial figure — none are confirmed
-  here.
-- Do **not** answer legal, partnership-terms or investor questions automatically —
-  route to a human.
-- Do **not** invent features, cities, or data sources not listed in this document.
-- Do **not** promise accuracy beyond "back-tested against public sold prices".
----
-*This document is the canonical product brain. When the concept changes, update this
-file first, then propagate to the PRD and other docs.*
+### 10.4 

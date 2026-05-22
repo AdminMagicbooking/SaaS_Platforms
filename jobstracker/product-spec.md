@@ -1,3 +1,23 @@
+---
+product_name: Jobs Tracker
+slug: jobstracker
+status: pilot
+pilot_customer: CBES (Combined Building & Electrical Services)
+play: 1
+play_name: uk-property-ecosystem
+website: https://jobstracker.work
+pilot_deployment: https://jobstracker.azurewebsites.net
+repo: https://github.com/AdminMagicbooking/BuildersJobsTracker
+languages: [en]
+pricing_currency: [GBP]
+pricing_model: tbd-per-engineer  # see decisions-ouvertes.md D-01
+target_audiences: [uk-construction-firms, building-trades-10-50-engineers]
+ai_safe_for_autoreply: false  # pricing TBD, productisation path open
+ai_safe_for_social_post: true
+spec_last_updated: 2026-05-22
+brain_format_version: engineering-with-pilot-context
+---
+
 # Jobs Tracker — Field Operations Platform for Construction & Trades
 
 > **Source brain — placed verbatim 2026-05-22.** Migration to the
@@ -264,10 +284,4 @@ Monetary-intensity matching only (`kg_co2e_per_£`). Per-unit (kg, m², m³) coe
 - Engineers don't read manuals. Every action is a thumb-tap from the front screen — works with gloves on.
 - Photos straight from the phone, auto-compressed, attached to the right job — no email shuffle.
 - RAMS signed digitally on-site before tap-in — no paper, no chase.
-- Materials and variations captured on the spot — no end-of-day reconstruction from memory.
-- Works offline on flaky site Wi-Fi; queued actions send automatically when signal returns.
-- One-tap navigation: Start Route opens Google Maps directions to the next site.
-### For the Construction Firm Owner
-- Replaces 3–4 disconnected tools (spreadsheets, FleetSmart, paper RAMS, manual Sage entry) with one platform.
-- Pricing model under consideration: per-engineer subscription comparable to FleetSmart's seat cost; ROI from time saved on dispatch and accounting double-entry alone.
-- Pilot deployment cost ~£18/month in cloud infrastructure — production scale economics worked into the SaaS pricing model.
+- Materials and variat

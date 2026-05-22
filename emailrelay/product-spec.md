@@ -1,3 +1,22 @@
+---
+product_name: EmailRelay
+slug: emailrelay
+status: live
+play: 2
+play_name: infrastructure-messaging
+website: null  # per-tenant subdomains on invationai.com
+repo: null  # TODO
+languages: [en]  # interface language
+target_languages: [pt, es, ro, pl, ar, zh, it, fr]
+pricing_currency: [GBP]
+pricing_model: per-seat-monthly-plus-usage
+target_audiences: [uk-estate-agents, uk-lettings, multilingual-businesses]
+ai_safe_for_autoreply: true
+ai_safe_for_social_post: true
+spec_last_updated: 2026-05-22
+brain_format_version: structured-numbered
+---
+
 # brain.md — EmailRelay Product Knowledge Base
 
 > **Source brain — placed verbatim 2026-05-22.** This brain already follows
@@ -328,13 +347,4 @@ available today):
   product is CRM-agnostic and works for any business with the same email-to-
   messaging gap.
 - **"Can it serve more than one office / company?"** Yes — it is multi-tenant
-  SaaS. Each organisation is a fully isolated tenant on shared infrastructure.
-- **"How fast is delivery?"** Typically under 60 seconds end-to-end.
-- **"How is my data protected?"** EU/UK-only hosting, AES-256 encryption,
-  GDPR-compliant, append-only tamper-evident audit log, strict opt-in handling.
-
----
-
-*Maintenance note: when product capabilities change, update sections 6, 8, and
-12 first — those are the ones most likely to produce a wrong automated answer
-if stale. Binding specs: `docs/planning/prd.md`, `docs/planning/architecture.md`.*
+  Saa

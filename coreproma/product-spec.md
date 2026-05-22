@@ -1,3 +1,21 @@
+---
+product_name: COREPROMA
+slug: coreproma
+status: live
+play: 1
+play_name: uk-property-ecosystem
+website: https://coreproma.com
+repo: null  # TODO
+languages: [en, fr]
+pricing_currency: [EUR, GBP]
+pricing_model: annual-subscription
+target_audiences: [construction-professionals, homeowners]
+ai_safe_for_autoreply: true
+ai_safe_for_social_post: true
+spec_last_updated: 2026-05-22
+brain_format_version: legacy
+---
+
 # COREPROMA — Construction Project Management Platform
 
 > **Source brain — placed verbatim 2026-05-22.** This document predates the
@@ -288,10 +306,4 @@ You're building or renovating your home and need a simple way to manage quotes, 
 - No more lost quotes, missing invoices, scattered photos
 - Share progress with family and friends via a public gallery link
 - AI translation for expats building abroad
-- Installable on your phone — capture photos, scan invoices, get push reminders on the go
-- Simple, affordable, all-in-one
-## Social Media Descriptions
-### TikTok (FR, 120 chars)
-COREPROMA — Gérez votre chantier : budget, factures, documents, photos, réunions de chantier. Tout en un.
-### TikTok (EN, 120 chars)
-COREPROMA — Manage your construction project: budget, invoices, documents, photos & site meetings. All in one app.
+- Installable on your 

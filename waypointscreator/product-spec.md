@@ -1,3 +1,21 @@
+---
+product_name: WaypointsCreator Mission Control
+slug: waypointscreator
+status: live
+play: 3
+play_name: standalone-bet
+website: null  # TODO
+repo: null  # TODO
+languages: [en, fr, es, it, de]
+pricing_currency: [EUR]
+pricing_model: monthly-or-annual-subscription
+target_audiences: [dji-drone-pilots, commercial-operators, surveyors, inspectors, cinematographers]
+ai_safe_for_autoreply: true
+ai_safe_for_social_post: true
+spec_last_updated: 2026-05-22
+brain_format_version: structured-with-faq
+---
+
 # brain.md — WaypointsCreator Mission Control
 
 > **Source brain — placed verbatim 2026-05-22.** Migration to the
@@ -169,8 +187,4 @@ A: The planner runs entirely in your browser. The only optional install is a sma
 **Q: What languages is it available in?**
 A: English, French, Spanish, Italian, and German.
 **Q: How do I get help?**
-A: Use the Contact page (categories: General, Support, Billing). Free users have community support, Pro users get email support, and Pro+ users get priority support.
-**Q: Can I sign in with Google?**
-A: Yes — you can sign up and log in with Google, or use an email and password.
----
-*This file is the source of truth for product questions. If a discrepancy is found between this file and the app, verify against the code (`src/lib/featureGating.ts`, `src/lib/locales/en.ts`, `src/components/LandingPage.tsx`) and update this file.*
+A: Use the Contact page (categories
