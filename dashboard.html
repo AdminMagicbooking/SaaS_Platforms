@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaaS Portfolio Dashboard — Franck & Mark</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --panel: #ffffff;
+    --ink: #1f2937;
+    --ink-soft: #4b5563;
+    --ink-muted: #6b7280;
+    --line: #e5e7eb;
+    --line-strong: #d1d5db;
+    --accent: #1d4ed8;
+    --play1: #1d4ed8;
+    --play2: #7c3aed;
+    --play3: #d97706;
+    --play-unknown: #6b7280;
+    --status-live: #047857;
+    --status-pilot: #b45309;
+    --status-pre: #6b7280;
+    --status-todo: #b91c1c;
+    --code-bg: #f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 32px 24px 80px; }
+  header.page {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+  }
+  header.page h1 {
+    margin: 0 0 6px;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  header.page .sub {
+    color: var(--ink-muted);
+    font-size: 14px;
+  }
+  nav.toc {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 32px;
+    font-size: 14px;
+  }
+  nav.toc strong {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  nav.toc a {
+    color: var(--accent);
+    text-decoration: none;
+    margin-right: 16px;
+    display: inline-block;
+    margin-top: 4px;
+  }
+  nav.toc a:hover { text-decoration: underline; }
+
+  section { margin-bottom: 40px; }
+  section > h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--ink);
+    letter-spacing: -0.01em;
+  }
+  section > h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0 10px;
+    color: var(--ink-soft);
+  }
+  p { margin: 0 0 10px; }
+  ul, ol { margin: 0 0 12px; padding-left: 22px; }
+  li { margin-bottom: 4px; }
+
+  a { color: var(--accent); }
+  code, .mono {
+    font-family: "SF Mono", Consolas, "Courier New", monospace;
+    background: var(--code-bg);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+
+  /* Plays */
+  .plays { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .play {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left-width: 4px;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+  .play.p1 { border-left-color: var(--play1); }
+  .play.p2 { border-left-color: var(--play2); }
+  .play.p3 { border-left-color: var(--play3); }
+  .play h3 { margin: 0 0 6px; font-size: 14px; font-weight: 600; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; }
+  .play .name { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .play .products { font-size: 13px; color: var(--ink-muted); }
+
+  /* Product cards */
+  .products-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .product-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 18px 20px;
+    border-top: 3px solid var(--play-unknown);
+  }
+  .product-card.p1 { border-top-color: var(--play1); }
+  .product-card.p2 { border-top-color: var(--play2); }
+  .product-card.p3 { border-top-color: var(--play3); }
+  .product-card .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .product-card h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .product-card .play-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .badge.live { background: #d1fae5; color: var(--status-live); }
+  .badge.pilot { background: #fef3c7; color: var(--status-pilot); }
+  .badge.pre { background: #f3f4f6; color: var(--status-pre); }
+  .badge.todo { background: #fee2e2; color: var(--status-todo); }
+
+  .product-card .tagline { color: var(--ink-muted); font-style: italic; margin: 6px 0 14px; font-size: 13px; }
+  .product-card dl {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 4px 12px;
+    font-size: 13px;
+  }
+  .product-card dt {
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+  .product-card dd {
+    margin: 0;
+    color: var(--ink);
+    word-break: break-word;
+  }
+  .product-card dd a { word-break: break-all; }
+  .product-card .links {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .product-card .links a { margin-right: 14px; }
+
+  .todo {
+    color: var(--status-todo);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .todo::before { content: "TODO — "; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  tr:last-child td { border-bottom: none; }
+
+  /* Decision tags */
+  .dtag {
+    display: inline-block;
+    padding: 1px 6px;
+    background: var(--code-bg);
+    border-radius: 3px;
+    font-family: "SF Mono", Consolas, monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-right: 6px;
+  }
+  .open { color: var(--status-todo); font-weight: 600; }
+
+  /* Account boxes */
+  .accounts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .account-box {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+  .account-box h4 { margin: 0 0 8px; font-size: 14px; font-weight: 600; }
+  .account-box dl { display: grid; grid-template-columns: 110px 1fr; gap: 4px 10px; margin: 0; }
+  .account-box dt { color: var(--ink-muted); }
+  .account-box dd { margin: 0; word-break: break-word; }
+
+  .alert {
+    background: #fef3c7;
+    border-left: 4px solid var(--status-pilot);
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .alert strong { color: #92400e; }
+
+  footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-muted);
+    font-size: 12px;
+    text-align: center;
+  }
+
+  @media (max-width: 800px) {
+    .plays, .products-grid, .accounts-grid { grid-template-columns: 1fr; }
+    .product-card dl, .account-box dl { grid-template-columns: 1fr; }
+    .product-card dt, .account-box dt { margin-top: 6px; }
+  }
+  @media print {
+    body { background: white; }
+    .product-card, .account-box, nav.toc, .play, table { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="page">
+  <h1>SaaS Portfolio Dashboard</h1>
+  <div class="sub">
+    Franck Merlin &nbsp;·&nbsp; Mark Defosse &nbsp;·&nbsp; Generated 2026-05-22 &nbsp;·&nbsp;
+    Folder root: <code>C:\Users\franc\ClaudeProjects\SaaS_Projects</code>
+  </div>
+</header>
+
+<div class="alert">
+  <strong>Read this first.</strong> Items marked <span class="todo">[label]</span> are unknown
+  and need filling in. Items marked with a <span class="dtag">D-NN</span> tag link to open arbitrations
+  in <a href="_portfolio/decisions-ouvertes.md"><code>decisions-ouvertes.md</code></a>.
+  No secrets, API keys, or passwords are stored in this dashboard — only the names of accounts and where to find their credentials.
+</div>
+
+<nav class="toc">
+  <strong>Jump to:</strong>
+  <a href="#big-picture">Big picture</a>
+  <a href="#products">Products</a>
+  <a href="#tech">Tech &amp; infrastructure</a>
+  <a href="#accounts">Accounts &amp; services</a>
+  <a href="#decisions">Open decisions</a>
+  <a href="#all-docs">All documents</a>
+  <a href="#forgot">Things easy to forget</a>
+</nav>
+
+<!-- ============================================================ -->
+<section id="big-picture">
+<h2>1. Big picture</h2>
+
+<p>
+The portfolio is <strong>5 SaaS products</strong> (one more in development) grouped into
+<strong>3 strategic plays</strong>. The plays do <em>not</em> form a single unified ecosystem
+&mdash; pretending they do leads to bad capital-allocation decisions.
+For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portfolio/ecosystem-vision.md</code></a>.
+</p>
+
+<div class="plays">
+  <div class="play p1">
+    <h3>Play 1 — Core bet</h3>
+    <div class="name">UK property ecosystem</div>
+    <div class="products">FindAllProperty → COREPROMA → Jobs Tracker</div>
+  </div>
+  <div class="play p2">
+    <h3>Play 2 — Infrastructure</h3>
+    <div class="name">Cross-vertical messaging</div>
+    <div class="products">EmailRelay (multi-tenant SaaS)</div>
+  </div>
+  <div class="play p3">
+    <h3>Play 3 — Standalone bet</h3>
+    <div class="name">DJI drone planning</div>
+    <div class="products">WaypointsCreator (no overlap with the rest)</div>
+  </div>
+</div>
+
+<h3>Objectives (proposed, awaiting Mark's reaction)</h3>
+<ul>
+  <li><strong>North star:</strong> by end of 2027, Play 1 revenue &gt; Play 2 + Play 3 combined.</li>
+  <li>Play 2 and Play 3 must prove they can stand alone profitably, or be wound down.</li>
+  <li>Cross-product synergies (SSO, design system, hand-offs FindAllProperty → COREPROMA) are real, not aspirational.</li>
+</ul>
+
+<p>Full vision and open strategic questions: <a href="_portfolio/ecosystem-vision.md"><code>_portfolio/ecosystem-vision.md</code></a></p>
+</section>
+
+<!-- ============================================================ -->
+<section id="products">
+<h2>2. Products</h2>
+
+<div class="products-grid">
+
+  <!-- COREPROMA -->
+  <div class="product-card p1">
+    <div class="head">
+      <h3>COREPROMA</h3>
+      <span class="play-label">Play 1</span>
+    </div>
+    <span class="badge live">Live</span>
+    <div class="tagline">All-in-one construction project management for pros and homeowners</div>
+    <dl>
+      <dt>Website</dt><dd><a href="https://coreproma.com" target="_blank">coreproma.com</a></dd>
+      <dt>Demos</dt><dd>
+        <a href="https://coreproma.com/coreproma-demo.html" target="_blank">EN</a> ·
+        <a href="https://coreproma.com/coreproma-demo-fr.html" target="_blank">FR</a> ·
+        <a href="https://cal.eu/coreproma/demo" target="_blank">Book demo</a>
+      </dd>
+      <dt>Support</dt><dd>support@coreproma.com</dd>
+      <dt>Repo</dt><dd><span class="todo">GitHub URL (local: c:\MPS\ClaudeProject\ChiolaConstruction)</span></dd>
+      <dt>Hosting</dt><dd>Azure App Service <code>chiola</code> (Node 20)</dd>
+      <dt>Database</dt><dd>SQL Server (Azure SQL in prod, LocalDB in dev) · <span class="todo">DB name</span></dd>
+      <dt>Stack</dt><dd>Vite + React + TS frontend; Express API; mssql; Application Insights</dd>
+      <dt>CI/CD</dt><dd>Azure Pipelines (<code>azure-pipelines.yml</code>) on push to <code>main</code></dd>
+      <dt>Pricing</dt><dd>Individual €149/yr (£129) · Pro €499/yr (£429) · Enterprise custom · 7-day trial</dd>
+      <dt>Billing</dt><dd>Stripe · <span class="todo">Stripe account name + webhook signing key location</span></dd>
+      <dt>Pilot</dt><dd>Chiola Construction</dd>
+      <dt>Languages</dt><dd>FR/EN</dd>
+    </dl>
+    <div class="links">
+      <a href="coreproma/product-spec.md">product-spec.md</a>
+    </div>
+  </div>
+
+  <!-- FindAllProperty -->
+  <div class="product-card p1">
+    <div class="head">
+      <h3>FindAllProperty</h3>
+      <span class="play-label">Play 1</span>
+    </div>
+    <span class="badge pre">Pre-launch (BMAD Phase 1)</span>
+    <div class="tagline">Free UK property fair-value verdict + neighbourhood intel</div>
+    <dl>
+      <dt>Website</dt><dd><span class="todo">Domain (proposed launch city: Manchester)</span></dd>
+      <dt>Repo</dt><dd><span class="todo">GitHub URL</span></dd>
+      <dt>Hosting</dt><dd><span class="todo">TBD (Azure expected)</span></dd>
+      <dt>Database</dt><dd><span class="todo">TBD</span></dd>
+      <dt>Stack</dt><dd><span class="todo">TBD</span></dd>
+      <dt>Pricing</dt><dd>Free for consumers (no signup required)</dd>
+      <dt>Data sources</dt><dd>HM Land Registry, EPC, ONS, Police.uk, DfE/Ofsted, Environment Agency, NHS/CQC, OHID, UKHSA, BGS, MHCLG IMD, Nomis (all OGL)</dd>
+      <dt>Legal</dt><dd>ICO controller registration required before launch · solicitor sign-off needed before Phase 2</dd>
+      <dt>Stage</dt><dd>Concept locked · PRD next</dd>
+    </dl>
+    <div class="links">
+      <a href="findallproperty/product-spec.md">product-spec.md</a>
+    </div>
+  </div>
+
+  <!-- Jobs Tracker -->
+  <div class="product-card p1">
+    <div class="head">
+      <h3>Jobs Tracker</h3>
+      <span class="play-label">Play 1</span>
+    </div>
+    <span class="badge pilot">Pilot (CBES)</span>
+    <div class="tagline">Field-ops platform for 10–50 engineer construction firms</div>
+    <dl>
+      <dt>Website</dt><dd><a href="https://jobstracker.work" target="_blank">jobstracker.work</a> · <a href="https://jobstracker.azurewebsites.net" target="_blank">pilot deployment</a></dd>
+      <dt>Repo</dt><dd><a href="https://github.com/AdminMagicbooking/BuildersJobsTracker" target="_blank">github.com/AdminMagicbooking/BuildersJobsTracker</a> <span style="color:var(--status-todo)">(rename → <code>jobstracker</code> per D-09)</span></dd>
+      <dt>Hosting</dt><dd>Single Azure App Service (API + React from one origin)</dd>
+      <dt>Database</dt><dd>Azure SQL Database · <span class="todo">DB name</span></dd>
+      <dt>Stack</dt><dd>.NET 9 / ASP.NET Core / EF Core 9 / SignalR; React + TS + MUI; Azure Blob; Vite</dd>
+      <dt>CI/CD</dt><dd>GitHub Actions (<code>.github/workflows/deploy.yml</code>) auto-deploy on push to <code>main</code></dd>
+      <dt>Pricing</dt><dd><span class="todo">TBD (per-engineer, comparable to FleetSmart)</span></dd>
+      <dt>Billing</dt><dd><span class="todo">Stripe planned in Phase 3</span></dd>
+      <dt>Pilot</dt><dd>CBES (Combined Building &amp; Electrical Services) — ~30 engineers, ~8 PMs</dd>
+      <dt>Cost</dt><dd>~£18/mo (App Service B1 + SQL Basic + Storage)</dd>
+      <dt>Strategic</dt><dd><span class="dtag">D-01</span><span class="open">Productisation path open</span> — COREPROMA module vs standalone SaaS</dd>
+    </dl>
+    <div class="links">
+      <a href="jobstracker/product-spec.md">product-spec.md</a>
+    </div>
+  </div>
+
+  <!-- EmailRelay -->
+  <div class="product-card p2">
+    <div class="head">
+      <h3>EmailRelay</h3>
+      <span class="play-label">Play 2</span>
+    </div>
+    <span class="badge live">v1 available</span>
+    <div class="tagline">Multi-tenant SaaS — bridges CRM email to customer WhatsApp</div>
+    <dl>
+      <dt>Parent</dt><dd>"Invation AI platform" — <span class="dtag">D-03</span><span class="open">structural status open</span></dd>
+      <dt>Tenant URLs</dt><dd><code>&lt;tenant&gt;.invationai.com</code></dd>
+      <dt>BCC address</dt><dd><code>whatsapp@&lt;tenant&gt;.invationai.com</code></dd>
+      <dt>Repo</dt><dd><span class="todo">GitHub URL</span></dd>
+      <dt>Hosting</dt><dd>Azure Container Apps, UK South (IaC via Bicep)</dd>
+      <dt>Database</dt><dd>Azure SQL (RLS + ledger tables) · <span class="todo">DB name</span></dd>
+      <dt>Stack</dt><dd>.NET 10 / Aspire — 4 services (SmtpIngest, RoutingTranslation, BspEgress, AdminApi); React 19 + Vite + TS + Tailwind on Azure Static Web Apps</dd>
+      <dt>Identity</dt><dd>Microsoft Entra ID</dd>
+      <dt>Inbound mail</dt><dd>SendGrid Inbound Parse webhook</dd>
+      <dt>WhatsApp BSP</dt><dd>Twilio (adapter pattern — swappable in ~4h)</dd>
+      <dt>Translation</dt><dd>Anthropic Claude (provider interface)</dd>
+      <dt>Voice</dt><dd>Whisper (OpenAI / Azure OpenAI)</dd>
+      <dt>Observability</dt><dd>OpenTelemetry → Application Insights</dd>
+      <dt>Pricing</dt><dd>Hardened δ £29/seat/mo · Hub £49 · Workflow £79 · Vault +£199/office · all + £15/100 conv; concierge onboarding £499</dd>
+      <dt>Billing</dt><dd>Stripe Billing (metered usage) · <span class="todo">Stripe account name</span></dd>
+      <dt>Languages</dt><dd>PT, ES, RO, PL, AR, ZH, IT, FR ↔ EN</dd>
+      <dt>Compliance</dt><dd>UK/EU GDPR, AML-evidence ≥5yr retention, EU/UK data residency only</dd>
+    </dl>
+    <div class="links">
+      <a href="emailrelay/product-spec.md">product-spec.md</a>
+    </div>
+  </div>
+
+  <!-- WaypointsCreator -->
+  <div class="product-card p3">
+    <div class="head">
+      <h3>WaypointsCreator</h3>
+      <span class="play-label">Play 3</span>
+    </div>
+    <span class="badge live">Live</span>
+    <div class="tagline">DJI drone waypoint mission planning — browser-based</div>
+    <dl>
+      <dt>Website</dt><dd><span class="todo">Domain</span></dd>
+      <dt>Repo</dt><dd><span class="todo">GitHub URL</span></dd>
+      <dt>Hosting</dt><dd>Azure App Service (Azure Pipelines CI/CD)</dd>
+      <dt>Database</dt><dd>Azure SQL (mssql) · <span class="todo">DB name</span></dd>
+      <dt>Stack</dt><dd>React 18 + TS strict + Vite + Tailwind; Express CommonJS in <code>server/</code>; Leaflet (2D), CesiumJS (3D); JWT + Google Auth</dd>
+      <dt>Companion app</dt><dd>Standalone <code>.exe</code> / Node server for USB device transfer (<code>server/rc2tool/</code>) — <span class="todo">code-signing cert</span></dd>
+      <dt>Email</dt><dd>SendGrid SMTP (via nodemailer)</dd>
+      <dt>Cesium token</dt><dd><span class="todo">Cesium ion account + token storage</span></dd>
+      <dt>Pricing</dt><dd>Free · Pro €20/mo (€197/yr) · Pro+ €30/mo (€295/yr) — EUR only</dd>
+      <dt>Billing</dt><dd>Stripe (tiered subs, EUR) · <span class="todo">Stripe account name</span></dd>
+      <dt>Supported drones</dt><dd>Mavic 4/3 Pro/3/3 Classic · Air 3S/3 · Mini 5/4/3 Pro (9 models)</dd>
+      <dt>Languages</dt><dd>EN, FR, ES, IT, DE</dd>
+      <dt>Strategic</dt><dd><span class="dtag">D-04</span><span class="open">Outlier — continue, spin out, or wind down?</span></dd>
+    </dl>
+    <div class="links">
+      <a href="waypointscreator/product-spec.md">product-spec.md</a>
+    </div>
+  </div>
+
+  <!-- 6th product -->
+  <div class="product-card">
+    <div class="head">
+      <h3>6th product</h3>
+      <span class="play-label"><span class="todo">Play TBD</span></span>
+    </div>
+    <span class="badge todo">Brief not ready</span>
+    <div class="tagline">In development — placeholder until the brief lands</div>
+    <dl>
+      <dt>Name</dt><dd><span class="todo">Official name</span></dd>
+      <dt>Category</dt><dd><span class="todo">Vertical / category</span></dd>
+      <dt>Stage</dt><dd><span class="todo">Stage</span></dd>
+      <dt>Strategic</dt><dd><span class="dtag">D-10</span><span class="open">Positioning open</span></dd>
+    </dl>
+  </div>
+
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="tech">
+<h2>3. Tech &amp; infrastructure</h2>
+
+<h3>Stack split</h3>
+<table>
+  <thead>
+    <tr><th>Stack</th><th>Products</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Node + Express + React</strong></td>
+      <td>COREPROMA, WaypointsCreator</td>
+      <td>Older products of the portfolio</td>
+    </tr>
+    <tr>
+      <td><strong>.NET 9 / 10 + React</strong></td>
+      <td>Jobs Tracker (.NET 9), EmailRelay (.NET 10 + Aspire)</td>
+      <td>Newer products. Azure-native, Entra ID for EmailRelay</td>
+    </tr>
+    <tr>
+      <td><strong>TBD</strong></td>
+      <td>FindAllProperty, 6th product</td>
+      <td>Stack policy is <span class="dtag">D-05</span> in open decisions</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Hosting (Azure-centric)</h3>
+<table>
+  <thead>
+    <tr><th>Product</th><th>Compute</th><th>Database</th><th>Storage</th><th>Region</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>COREPROMA</td>
+      <td>App Service <code>chiola</code> (Node 20)</td>
+      <td>Azure SQL — <span class="todo">name</span></td>
+      <td>Azure Blob — <span class="todo">account</span></td>
+      <td><span class="todo">region</span></td>
+    </tr>
+    <tr>
+      <td>Jobs Tracker</td>
+      <td>App Service (single, API+SPA)</td>
+      <td>Azure SQL — <span class="todo">name</span></td>
+      <td>Azure Blob (random GUID URLs)</td>
+      <td><span class="todo">region</span></td>
+    </tr>
+    <tr>
+      <td>EmailRelay</td>
+      <td>Azure Container Apps</td>
+      <td>Azure SQL (RLS + ledger) — <span class="todo">name</span></td>
+      <td>Azure Blob + Azure Service Bus</td>
+      <td>UK South</td>
+    </tr>
+    <tr>
+      <td>WaypointsCreator</td>
+      <td>App Service</td>
+      <td>Azure SQL (mssql) — <span class="todo">name</span></td>
+      <td><span class="todo">unknown</span></td>
+      <td><span class="todo">region</span></td>
+    </tr>
+    <tr>
+      <td>FindAllProperty</td>
+      <td colspan="3"><span class="todo">TBD entire stack</span></td>
+      <td><span class="todo">—</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Shared external services (current usage by product)</h3>
+<table>
+  <thead>
+    <tr><th>Service</th><th>Used by</th><th>Account / location</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Stripe</td><td>COREPROMA, WaypointsCreator, EmailRelay (metered)</td><td><span class="todo">One Stripe account or one per product?</span></td></tr>
+    <tr><td>SendGrid (transactional email)</td><td>COREPROMA, EmailRelay (Inbound Parse), WaypointsCreator</td><td><span class="todo">SendGrid account</span></td></tr>
+    <tr><td>Migadu SMTP (STARTTLS:587)</td><td>Jobs Tracker (production sends)</td><td><span class="todo">Migadu account + sending domain</span></td></tr>
+    <tr><td>Anthropic Claude API</td><td>COREPROMA (spellcheck, carbon, PV), EmailRelay (translation), Jobs Tracker (carbon planned)</td><td><span class="todo">Anthropic console workspace</span></td></tr>
+    <tr><td>Whisper (OpenAI / Azure OpenAI)</td><td>EmailRelay (voice transcription), COREPROMA (voice notes)</td><td><span class="todo">OpenAI / Azure OpenAI account</span></td></tr>
+    <tr><td>Twilio (or BSP)</td><td>EmailRelay (WhatsApp Business)</td><td><span class="todo">Twilio account + Meta Business verification</span></td></tr>
+    <tr><td>Google OAuth</td><td>COREPROMA, WaypointsCreator</td><td><span class="todo">Google Cloud project(s)</span></td></tr>
+    <tr><td>Google Maps</td><td>Jobs Tracker (Start Route)</td><td><span class="todo">API key + billing project</span></td></tr>
+    <tr><td>Cesium ion</td><td>WaypointsCreator (3D terrain)</td><td><span class="todo">Cesium account + token</span></td></tr>
+    <tr><td>Microsoft Entra ID</td><td>EmailRelay (identity)</td><td><span class="todo">Tenant ID</span></td></tr>
+    <tr><td>Application Insights</td><td>COREPROMA, EmailRelay, Jobs Tracker</td><td><span class="todo">Workspace name(s)</span></td></tr>
+    <tr><td>VAPID (Web Push)</td><td>COREPROMA, Jobs Tracker</td><td><span class="todo">VAPID keys per app</span></td></tr>
+  </tbody>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<section id="accounts">
+<h2>4. Accounts &amp; services</h2>
+
+<p style="color:var(--ink-muted); font-size:13px;">
+  No credentials are stored here. This is the list of <em>which accounts exist</em> and <em>where to find their credentials</em>.
+  Treat anything <span class="todo">TODO</span> as a knowledge gap to close before either of you is hit by a bus.
+</p>
+
+<div class="accounts-grid">
+
+  <div class="account-box">
+    <h4>Cloud — Azure</h4>
+    <dl>
+      <dt>Subscription</dt><dd><span class="todo">Subscription name + ID</span></dd>
+      <dt>Tenant</dt><dd><span class="todo">Tenant name + ID</span></dd>
+      <dt>Owner</dt><dd><span class="todo">Franck / Mark / shared</span></dd>
+      <dt>Billing</dt><dd><span class="todo">Card / invoice + currency</span></dd>
+      <dt>Resource groups</dt><dd><span class="todo">One per product? Per env?</span></dd>
+    </dl>
+  </div>
+
+  <div class="account-box">
+    <h4>Source control — GitHub</h4>
+    <dl>
+      <dt>Organisation</dt><dd>AdminMagicbooking (Jobs Tracker repo lives here)</dd>
+      <dt>Other orgs?</dt><dd><span class="todo">Any other GitHub orgs in use?</span></dd>
+      <dt>Members</dt><dd><span class="todo">Franck + Mark + ?</span></dd>
+      <dt>Billing</dt><dd><span class="todo">Free / Team / Enterprise plan</span></dd>
+    </dl>
+  </div>
+
+  <div class="account-box">
+    <h4>Payments — Stripe</h4>
+    <dl>
+      <dt>Account(s)</dt><dd><span class="todo">One shared, or one per product?</span></dd>
+      <dt>Products / price IDs</dt><dd><span class="todo">Document price IDs per product per tier</span></dd>
+      <dt>Webhook signing keys</dt><dd><span class="todo">Per-environment, stored where?</span></dd>
+      <dt>Currencies</dt><dd>EUR, GBP — see <span class="dtag">D-06</span></dd>
+      <dt>Tax / invoicing</dt><dd><span class="todo">Stripe Tax enabled? VAT setup?</span></dd>
+    </dl>
+  </div>
+
+  <div class="account-box">
+    <h4>Domains</h4>
+    <dl>
+      <dt>coreproma.com</dt><dd><span class="todo">Registrar + expiry + DNS provider</span></dd>
+      <dt>jobstracker.work</dt><dd><span class="todo">Registrar + expiry + DNS provider</span></dd>
+      <dt>invationai.com</dt><dd><span class="todo">Registrar + expiry + DNS provider</span></dd>
+      <dt>WaypointsCreator domain</dt><dd><span class="todo">Domain + registrar</span></dd>
+      <dt>FindAllProperty</dt><dd><span class="todo">Domain not yet secured</span></dd>
+    </dl>
+  </div>
+
+  <div class="account-box">
+    <h4>Email — sending domains</h4>
+    <dl>
+      <dt>coreproma.com</dt><dd>SendGrid · <span class="todo">SPF/DKIM/DMARC verified?</span></dd>
+      <dt>jobstracker (Migadu)</dt><dd>Migadu SMTP 587 · SPF/DKIM at DNS · <span class="todo">DMARC?</span></dd>
+      <dt>invationai.com</dt><dd>SendGrid Inbound Parse · <span class="todo">SPF/DKIM/DMARC?</span></dd>
+      <dt>WaypointsCreator</dt><dd>SendGrid · <span class="todo">domain + auth records</span></dd>
+    </dl>
+  </div>
+
+  <div class="account-box">
+    <h4>AI providers</h4>
+    <dl>
+      <dt>Anthropic</dt><dd><span class="todo">Workspace name + billing</span></dd>
+      <dt>OpenAI / Azure OpenAI</dt><dd><span class="todo">Account + deployments (Whisper)</span></dd>
+      <dt>Spend caps</dt><dd><span class="todo">Per-product caps set?</span></dd>
+    </dl>
+  </div>
+
+  <div class="account-box">
+    <h4>Messaging — WhatsApp / Meta</h4>
+    <dl>
+      <dt>BSP</dt><dd>Twilio (EmailRelay)</dd>
+      <dt>Meta Business</dt><dd><span class="todo">Verified business name + ID</span></dd>
+      <dt>Tenant numbers</dt><dd>Per EmailRelay tenant (concierge provisioned)</dd>
+      <dt>Template library</dt><dd><span class="todo">Where are approved templates listed?</span></dd>
+    </dl>
+  </div>
+
+  <div class="account-box">
+    <h4>Maps / geo</h4>
+    <dl>
+      <dt>Google Maps API</dt><dd><span class="todo">API key + restricted to which referrers/origins?</span></dd>
+      <dt>Cesium ion</dt><dd><span class="todo">Account + token rotation policy</span></dd>
+      <dt>Leaflet tiles</dt><dd><span class="todo">OpenStreetMap default or custom provider?</span></dd>
+    </dl>
+  </div>
+
+  <div class="account-box">
+    <h4>Legal &amp; compliance</h4>
+    <dl>
+      <dt>ICO registration</dt><dd>Required for FindAllProperty before launch · <span class="todo">Status for other products?</span></dd>
+      <dt>DPA templates</dt><dd>EmailRelay signs DPAs at onboarding · <span class="todo">Where stored?</span></dd>
+      <dt>Insurance</dt><dd><span class="todo">Cyber + PI cover?</span></dd>
+      <dt>Solicitor</dt><dd><span class="todo">Sign-off needed before FindAllProperty Phase 2</span></dd>
+    </dl>
+  </div>
+
+  <div class="account-box">
+    <h4>Demo / sales credentials</h4>
+    <dl>
+      <dt>COREPROMA demo</dt><dd><span class="todo">Demo tenant + login</span></dd>
+      <dt>Jobs Tracker demo</dt><dd>Demo-reset endpoint exists (admin-only) · <span class="todo">Sales login</span></dd>
+      <dt>WaypointsCreator demo</dt><dd><span class="todo">Demo account</span></dd>
+      <dt>EmailRelay demo</dt><dd><span class="todo">Sandbox tenant + test WhatsApp number</span></dd>
+    </dl>
+  </div>
+
+</div>
+</section>
+
+<!-- ============================================================ -->
+<section id="decisions">
+<h2>5. Open decisions (10)</h2>
+
+<p>Full context, options, and trade-offs: <a href="_portfolio/decisions-ouvertes.md"><code>_portfolio/decisions-ouvertes.md</code></a></p>
+
+<table>
+  <thead>
+    <tr><th>ID</th><th>Title</th><th>Owner</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>D-01</code></td><td>Jobs Tracker productisation path (COREPROMA module vs standalone)</td><td>Franck + Mark</td><td class="open">Open</td></tr>
+    <tr><td><code>D-02</code></td><td>Embodied-carbon module: one impl or two?</td><td>Franck</td><td class="open">Open</td></tr>
+    <tr><td><code>D-03</code></td><td>What is "Invation AI"? (holding, brand, platform, vestigial?)</td><td>Mark + Franck</td><td class="open">Open</td></tr>
+    <tr><td><code>D-04</code></td><td>WaypointsCreator — keep, spin out, or wind down?</td><td>Franck + Mark</td><td class="open">Open</td></tr>
+    <tr><td><code>D-05</code></td><td>Stack policy: Node, .NET, or both?</td><td>Franck</td><td class="open">Open</td></tr>
+    <tr><td><code>D-06</code></td><td>Currency and pricing policy across products</td><td>Mark</td><td class="open">Open</td></tr>
+    <tr><td><code>D-07</code></td><td>Pricing-tier naming consistency</td><td>Mark</td><td class="open">Open</td></tr>
+    <tr><td><code>D-08</code></td><td>Brain format standardisation across products</td><td>Franck</td><td class="open">Open</td></tr>
+    <tr><td><code>D-09</code></td><td>Jobs Tracker official name / repo rename</td><td>Franck</td><td class="open">Open</td></tr>
+    <tr><td><code>D-10</code></td><td>Positioning of the 6th product</td><td>Franck + Mark</td><td>Blocked (brief not ready)</td></tr>
+  </tbody>
+</table>
+</section>
+
+<!-- ============================================================ -->
+<section id="all-docs">
+<h2>6. All documents</h2>
+
+<h3>Root</h3>
+<ul>
+  <li><a href="README.md"><code>README.md</code></a> — folder guide for Mark</li>
+  <li><a href="CONVENTIONS.md"><code>CONVENTIONS.md</code></a> — editing rules, git workflow, naming</li>
+  <li><a href="CLAUDE.md"><code>CLAUDE.md</code></a> — AI-assistant context for the COREPROMA codebase</li>
+  <li><a href="dashboard.html"><code>dashboard.html</code></a> — this file</li>
+</ul>
+
+<h3>Portfolio (<code>_portfolio/</code>)</h3>
+<ul>
+  <li><a href="_portfolio/ecosystem-vision.md"><code>ecosystem-vision.md</code></a> — founding strategic narrative</li>
+  <li><a href="_portfolio/product-map.md"><code>product-map.md</code></a> — visual map of all products</li>
+  <li><a href="_portfolio/ownership-roles.md"><code>ownership-roles.md</code></a> — who owns what (TO FILL TOGETHER)</li>
+  <li><a href="_portfolio/portfolio-metrics.md"><code>portfolio-metrics.md</code></a> — consolidated KPIs (TODO)</li>
+  <li><a href="_portfolio/decisions-ouvertes.md"><code>decisions-ouvertes.md</code></a> — 10 open arbitrations</li>
+  <li><a href="_portfolio/glossary.md"><code>glossary.md</code></a> — official names, aliases, vocabulary</li>
+</ul>
+
+<h3>Templates (<code>_templates/</code>)</h3>
+<ul>
+  <li><a href="_templates/product-spec.template.md"><code>product-spec.template.md</code></a> — based on FindAllProperty</li>
+  <li><a href="_templates/strategy.template.md"><code>strategy.template.md</code></a> — per-product strategy</li>
+  <li><a href="_templates/ai-knowledge.template.md"><code>ai-knowledge.template.md</code></a> — autoresponder knowledge base</li>
+</ul>
+
+<h3>Products</h3>
+<ul>
+  <li><a href="coreproma/product-spec.md"><code>coreproma/product-spec.md</code></a></li>
+  <li><a href="emailrelay/product-spec.md"><code>emailrelay/product-spec.md</code></a></li>
+  <li><a href="findallproperty/product-spec.md"><code>findallproperty/product-spec.md</code></a></li>
+  <li><a href="jobstracker/product-spec.md"><code>jobstracker/product-spec.md</code></a></li>
+  <li><a href="waypointscreator/product-spec.md"><code>waypointscreator/product-spec.md</code></a></li>
+</ul>
+</section>
+
+<!-- ============================================================ -->
+<section id="forgot">
+<h2>7. Things easy to forget</h2>
+
+<p>
+  Use this section as a checklist. If you can't immediately point to where a thing is documented or who owns it, it's a knowledge gap.
+</p>
+
+<h3>Renewals &amp; expirations</h3>
+<ul>
+  <li>Domain renewals — <span class="todo">centralised calendar of all 4+ domains</span></li>
+  <li>SSL/TLS certificates — Azure App Service handles most, but custom domains need verification</li>
+  <li>Stripe webhook signing key rotation — <span class="todo">rotation schedule</span></li>
+  <li>Cesium ion token renewal (WaypointsCreator)</li>
+  <li>API key rotations (Anthropic, OpenAI, Google Maps, Twilio)</li>
+  <li>Companion app code-signing certificate (WaypointsCreator <code>.exe</code>)</li>
+  <li>Meta Business verification renewal (EmailRelay)</li>
+</ul>
+
+<h3>Onboarding the other founder / a future employee</h3>
+<ul>
+  <li>Azure subscription invite + RBAC roles</li>
+  <li>GitHub org invite + repo access per product</li>
+  <li>Stripe dashboard access (read vs admin)</li>
+  <li>SendGrid / Migadu access</li>
+  <li>Anthropic / OpenAI workspace invite</li>
+  <li>Twilio account access (EmailRelay)</li>
+  <li>Domain registrar admin access</li>
+  <li>Demo accounts per product</li>
+  <li><a href="_portfolio/ownership-roles.md">Read <code>ownership-roles.md</code></a> (once filled)</li>
+</ul>
+
+<h3>Compliance &amp; legal must-knows</h3>
+<ul>
+  <li>ICO controller registration status per product (UK GDPR)</li>
+  <li>DPA / processor agreements signed with which customers</li>
+  <li>EU AI Act monitoring (EmailRelay translation is in scope)</li>
+  <li>AML evidence retention (EmailRelay, 5 years minimum)</li>
+  <li>Right-to-erasure (Article 17) routes per product</li>
+  <li>Cookie consent / tracking notice per public-facing site</li>
+  <li>Terms &amp; Conditions, Privacy Policy URLs per product</li>
+</ul>
+
+<h3>Disaster scenarios — do we have answers?</h3>
+<ul>
+  <li><span class="todo">Backup strategy per Azure SQL database</span></li>
+  <li><span class="todo">Restore-from-backup runbook</span></li>
+  <li><span class="todo">Account-recovery path if Franck or Mark is unreachable</span></li>
+  <li><span class="todo">Customer support escalation while either founder is on holiday</span></li>
+  <li><span class="todo">Status page / incident communication channel</span></li>
+</ul>
+
+<h3>Brand &amp; identity</h3>
+<ul>
+  <li>Logo files per product — <span class="todo">where stored?</span></li>
+  <li>Brand colour palette per product — <span class="todo">centralised tokens or per-repo?</span></li>
+  <li>Trademark registrations — <span class="todo">any?</span></li>
+  <li>Social media handles per product — <span class="todo">who owns the password?</span></li>
+</ul>
+</section>
+
+<footer>
+  Dashboard generated 2026-05-22 from product briefs and portfolio docs in <code>SaaS_Projects/</code>.
+  Edit this file the same way as any other document in the repo — branch, commit, PR.
+  When a TODO is filled in, replace the <code>&lt;span class="todo"&gt;</code> tag with the value.
+</footer>
+
+</div>
+</body>
+</html>
