@@ -284,4 +284,10 @@ Monetary-intensity matching only (`kg_co2e_per_£`). Per-unit (kg, m², m³) coe
 - Engineers don't read manuals. Every action is a thumb-tap from the front screen — works with gloves on.
 - Photos straight from the phone, auto-compressed, attached to the right job — no email shuffle.
 - RAMS signed digitally on-site before tap-in — no paper, no chase.
-- Materials and variat
+- Materials and variations captured on the spot — no end-of-day reconstruction from memory.
+- Works offline on flaky site Wi-Fi; queued actions send automatically when signal returns.
+- One-tap navigation: Start Route opens Google Maps directions to the next site.
+### For the Construction Firm Owner
+- Replaces 3–4 disconnected tools (spreadsheets, FleetSmart, paper RAMS, manual Sage entry) with one platform.
+- Pricing model under consideration: per-engineer subscription comparable to FleetSmart's seat cost; ROI from time saved on dispatch and accounting double-entry alone.
+- Pilot deployment cost ~£18/month in cloud infrastructure — production scale economics worked into the SaaS pricing model.

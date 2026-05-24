@@ -309,4 +309,13 @@ does not contain a confirmed date.)
 **Q: I'm an estate agent — can I list with you?**
 Yes, partner agencies feed their listings in directly and get prominent, accurate
 presentation with direct enquiry routing. (Route this enquiry to a human.)
-### 10.4 
+### 10.4 What an auto-responder must NOT do
+- Do **not** state a launch date, price, or financial figure — none are confirmed
+  here.
+- Do **not** answer legal, partnership-terms or investor questions automatically —
+  route to a human.
+- Do **not** invent features, cities, or data sources not listed in this document.
+- Do **not** promise accuracy beyond "back-tested against public sold prices".
+---
+*This document is the canonical product brain. When the concept changes, update this
+file first, then propagate to the PRD and other docs.*

@@ -1,14 +1,15 @@
 # Ecosystem Vision — The Founding Narrative
 
-> **Status:** draft v0. Written by Franck on 2026-05-22 from the existing
-> product brains. **Mark must read this and react** — agree, disagree,
-> rewrite. This is the document that defines whether we are aligned.
+> **Status:** draft v0.1. Written by Franck on 2026-05-22 from the existing
+> product brains; updated 2026-05-23 when the GTTourz brain landed.
+> **Mark must read this and react** — agree, disagree, rewrite. This is the
+> document that defines whether we are aligned.
 >
 > **TO FILL TOGETHER:** the open questions at the end.
 
 ## What we are actually building
 
-The five SaaS products documented in this folder do **not** form a single
+The six SaaS products documented in this folder do **not** form a single
 unified platform. They are three distinct strategic plays running in parallel.
 Pretending otherwise would lead to bad decisions.
 
@@ -70,34 +71,56 @@ on WhatsApp has the same problem. EmailRelay solves it once.
   `decisions-ouvertes.md` for the unresolved question of what "Invation AI"
   is.
 
-### Play 3 — WaypointsCreator (outlier / standalone bet)
+### Play 3 — Standalone vertical bets (WaypointsCreator + GTTourz)
 
-WaypointsCreator targets **DJI drone pilots**. No overlap with property,
-construction, messaging, or any of the above. Different vertical, different
-buyer, different revenue model (per-seat consumer SaaS at €20/30 per month).
+Two products in this play. They share nothing with each other except the
+shape of their bet: a deep vertical SaaS for a niche buyer, no overlap with
+the property ecosystem or with EmailRelay.
 
-**Strategic position:** this is either a side-revenue stream, a strategic
-mistake, or an entry point into a future "physical-world operations"
-portfolio (drones → mapping → site surveys → property → ...). We have not
-articulated which.
+**WaypointsCreator** targets **DJI drone pilots**. Per-seat consumer/prosumer
+SaaS at €20/30 per month. Live.
 
-**Open question for Mark:** WaypointsCreator is a clear focus-cost. Is it
-worth the engineering attention given the property bet is unfinished? This
-is in `decisions-ouvertes.md` as D-04.
+**GTTourz** (added 2026-05-23) targets **operators of multi-day supercar
+driving tours**. Two apps share one backend — an admin "Pit Wall" web app
+for operator staff, and a mobile-first guest app for drivers and co-pilots.
+Heavy AI usage (Claude Haiku 4.5) for hotel guest packs, inbox
+review/translate, and receipt OCR. Xero is the accounting back-end.
+Live, but several customer-facing features (online booking, live tracking,
+track-day model, driver-app design port) are not yet built. Pricing model
+is not in the brain — to be decided.
+
+**Strategic position:** the two products *together* either form an emergent
+"physical-world operations" portfolio (drones → maps → routes → tours →
+site surveys → property → ...) or they are two unrelated side-bets that
+dilute attention from Play 1.
+
+**Open question for Mark (D-11, new 2026-05-23):** with GTTourz in the
+portfolio, Play 3 now holds **two** standalone bets. Three live options:
+> 1. Keep them grouped as "vertical experiments" with a hard limit (e.g. no
+>    more than two, no more than 20% of engineering capacity each).
+> 2. Split GTTourz off as a Play 4 and treat it as its own strategic line —
+>    only if we believe a tour-operator vertical can stand alone.
+> 3. Wind one of them down to free capacity for Play 1.
+
+The status quo (D-04 — "WaypointsCreator: keep, spin out, or wind down?")
+already pre-existed. GTTourz makes the answer **more urgent**, not less.
 
 ## Why this matters now
 
 Franck and Mark are two people. Building three plays simultaneously means:
 
-1. **Engineering attention is split between Node and .NET stacks** (see
-   `decisions-ouvertes.md` D-05).
+1. **Engineering attention is now split between three stack families**
+   — Node/Express, .NET 9/10, and Next.js (GTTourz). This sharpens D-05.
 2. **Carbon-tracker module risks being implemented twice in two stacks**
    (D-02).
 3. **Brand and pricing currency are inconsistent** across products (D-06,
    D-07).
-4. **The 6th product** (in development) is unknown — does it belong to
-   property, infrastructure, or another play entirely? Until we see the
-   brief we cannot judge.
+4. **GTTourz has no published pricing or billing model yet** — without it
+   we cannot judge whether Play 3 is investable or a hobby.
+5. **AI dependency is concentrating on Anthropic Claude** across four of
+   six products (COREPROMA, EmailRelay, Jobs Tracker carbon, GTTourz).
+   Single-vendor exposure is a real risk; consider a fallback provider
+   strategy before more product weight lands on it.
 
 If we do not name our plays clearly and rank them by capital allocation,
 each will get diluted attention and none will reach escape velocity.
@@ -121,6 +144,10 @@ finalised. Each maps to an entry in `decisions-ouvertes.md`.
    genuinely equal?**
 3. **What does "Invation AI" mean structurally?** Holding company, brand
    umbrella, single platform, or just the EmailRelay parent?
-4. **Where does the 6th product fit when its brief arrives?**
-5. **Who owns the strategic direction of each play?** Today it is implicit;
+4. **Play 3 framing (D-11):** with GTTourz now in the portfolio alongside
+   WaypointsCreator, do we keep them grouped, split GTTourz into a Play 4,
+   or wind one of them down?
+5. **GTTourz commercial model:** what is the price, who pays, how many
+   operator-customers do we need before it self-funds its engineering cost?
+6. **Who owns the strategic direction of each play?** Today it is implicit;
    it should be explicit (see `ownership-roles.md`).

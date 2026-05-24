@@ -84,3 +84,23 @@ When a portfolio decision (e.g. unifying carbon-tracker between COREPROMA and
 Jobs Tracker) implies engineering work in another repository, log it in
 `_portfolio/decisions-ouvertes.md` **and** open a tracking issue in the
 relevant code repo. This folder is not the issue tracker.
+
+## 9. This repo is consumed by CampaignBuilder
+
+The internal tool **CampaignBuilder** (Azure-hosted) reads `product-spec.md`
+files and `_portfolio/voice-and-tone.md` to generate marketing content and
+autoreply to prospect emails. Cache TTL is 5 minutes, so any edit lands in
+production within minutes.
+
+Before committing a change to any `product-spec.md`:
+
+- Verify the YAML frontmatter at the top is intact and accurate (the
+  `ai_safe_for_autoreply` and `ai_safe_for_social_post` flags in particular).
+- Wrap any pilot customer name, internal decision, or unannounced feature
+  in `<!-- INTERNAL --> ... <!-- /INTERNAL -->` markers so CampaignBuilder
+  strips them before publication.
+- If you change a section heading that appears in `_portfolio/products-index.json`,
+  update the JSON to match. CampaignBuilder locates sections by exact
+  heading text.
+
+See `_portfolio/campaignbuilder-integration.md` for the full data contract.

@@ -1,0 +1,21 @@
+product_slug,month,type,category,line_item,currency,amount,source,notes
+coreproma,2026-05,cost,compute,Azure App Service chiola (Node 20),GBP,0.00,manual,TODO confirm tier + monthly amount from Azure Cost Management
+coreproma,2026-05,cost,database,Azure SQL,GBP,0.00,manual,TODO confirm tier
+coreproma,2026-05,cost,storage,Azure Blob,GBP,0.00,manual,TODO
+coreproma,2026-05,cost,ai,Anthropic Claude (spellcheck + carbon module),GBP,0.00,manual,TODO pull from Anthropic console — need per-product API key
+coreproma,2026-05,cost,messaging,SendGrid transactional,GBP,0.00,manual,TODO confirm sub-user setup
+coreproma,2026-05,cost,billing,Stripe fees,GBP,0.00,manual,TODO compute from Stripe Balance summary
+coreproma,2026-05,cost,monitoring,Application Insights,GBP,0.00,manual,TODO
+coreproma,2026-05,revenue,subscription,Pro plan (€499/yr) — active subscriptions,EUR,0.00,manual,TODO pull active count from Stripe
+coreproma,2026-05,revenue,subscription,Individual plan (€149/yr) — active subscriptions,EUR,0.00,manual,TODO pull active count from Stripe
+findallproperty,2026-05,cost,domain,Domain registration,GBP,0.00,manual,TODO — domain not yet secured (pre-launch)
+findallproperty,2026-05,cost,other,Pre-launch — no infrastructure yet,GBP,0.00,manual,Phase 1 BMAD complete; PRD next. Infra spend begins at v1.0 launch.
+jobstracker,2026-05,cost,compute,Azure App Service B1,GBP,10.00,manual,Confirmed in jobstracker/product-spec.md §Tech Stack
+jobstracker,2026-05,cost,database,Azure SQL Basic,GBP,4.00,manual,Confirmed in jobstracker/product-spec.md §Tech Stack
+jobstracker,2026-05,cost,storage,Azure Blob,GBP,1.00,manual,Confirmed in jobstracker/product-spec.md §Tech Stack
+jobstracker,2026-05,cost,other,Bandwidth,GBP,3.00,manual,Confirmed in jobstracker/product-spec.md §Tech Stack
+jobstracker,2026-05,cost,messaging,Migadu SMTP,GBP,0.00,manual,TODO confirm Migadu plan + cost
+jobstracker,2026-05,cost,monitoring,Application Insights,GBP,0.00,manual,TODO
+jobstracker,2026-05,revenue,subscription,CBES pilot,GBP,0.00,manual,TODO confirm what CBES is paying for the pilot
+shared,2026-05,cost,other,GitHub Organisation (AdminMagicbooking),GBP,0.00,manual,TODO confirm plan + split flat across products with active repos
+shared,2026-05,cost,domain,Magicbooking corporate domain,GBP,0.00,manual,TODO if exists

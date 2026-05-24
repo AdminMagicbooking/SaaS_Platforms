@@ -2,7 +2,7 @@
   "_meta": {
     "purpose": "Machine-readable index of all products in the SaaS portfolio. Consumed by CampaignBuilder and any other tool that needs to iterate over product specs without parsing markdown.",
     "schema_version": 1,
-    "last_updated": "2026-05-22",
+    "last_updated": "2026-05-23",
     "notes": "Each entry's 'sections' map gives the exact markdown heading text for canonical sections. A consumer can extract a section by finding that heading and reading until the next same-level heading. Sections may be null if the brain does not contain them in this format."
   },
   "products": [
@@ -111,6 +111,25 @@
         "legal": null,
         "ecosystem": null
       }
+    },
+    {
+      "slug": "gttourz",
+      "name": "GTTourz",
+      "spec_path": "gttourz/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/gttourz/product-spec.md",
+      "sections": {
+        "positioning": "## 1. Product summary",
+        "features": "## 2. Admin (back-office) capabilities",
+        "features_guest": "## 3. Driver / Co-pilot (front-office) capabilities",
+        "public_site": "## 4. Public landing page",
+        "out_of_scope": "## 5. What GTTourz does **not** do (yet)",
+        "tech_stack": "## 6. Tech foundation (one-liner each)",
+        "faq": "## 7. FAQ — for the email auto-responder",
+        "pricing": null,
+        "value_props": null,
+        "legal": null,
+        "ecosystem": null
+      }
     }
   ],
   "canonical_section_definitions": {
@@ -127,7 +146,10 @@
     "ecosystem": "Relationship to other portfolio products. Useful for cross-sell.",
     "tech_stack": "Engineering details. Customer-facing only when asked.",
     "pilot_context": "INTERNAL only. Never publish customer names without consent.",
-    "productisation": "INTERNAL only. Strategic information."
+    "productisation": "INTERNAL only. Strategic information.",
+    "out_of_scope": "Explicit non-features. Use to set expectations and avoid inventing capabilities.",
+    "features_guest": "Customer-facing app capabilities (used when a product ships a separate guest/customer app).",
+    "public_site": "Public marketing/landing page surfaces."
   },
   "internal_only_sections": [
     "pilot_context",

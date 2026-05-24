@@ -22,16 +22,16 @@ narrative see `ecosystem-vision.md`.
    │   Parent: "Invation AI platform" — status unresolved     │
    └──────────────────────────────────────────────────────────┘
 
-            PLAY 3 — STANDALONE BET
+            PLAY 3 — STANDALONE VERTICAL BETS
    ┌──────────────────────────────────────────────────────────┐
    │   WaypointsCreator Mission Control                       │
-   │   (DJI drone waypoint mission planning)                  │
-   │   No overlap with any other product                      │
-   └──────────────────────────────────────────────────────────┘
-
-            UNKNOWN — 6TH PRODUCT
-   ┌──────────────────────────────────────────────────────────┐
-   │   (brief not yet ready — placeholder)                    │
+   │   (DJI drone waypoint mission planning, €/mo per seat)   │
+   │                                                          │
+   │   GTTourz                                                │
+   │   (supercar driving-tour operator platform — admin web   │
+   │    + driver mobile app, AI guest packs, Xero, WhatsApp)  │
+   │                                                          │
+   │   No overlap between the two. See D-11 for grouping.     │
    └──────────────────────────────────────────────────────────┘
 ```
 
@@ -44,7 +44,7 @@ narrative see `ecosystem-vision.md`.
 | **Jobs Tracker** | 1 | Construction field ops (B2B) | CBES pilot live | .NET 9 + React/MUI | TBD (per-engineer) | GBP (pilot) |
 | **EmailRelay** | 2 | CRM ↔ WhatsApp messaging | v1 "Hardened δ" available | .NET 10 / Aspire + React | £29/seat/mo + £15/100 conv | GBP |
 | **WaypointsCreator** | 3 | DJI drone planning (B2C/B2B) | Live | Node/Express + React + Cesium | €20 / €30 per month | EUR |
-| **6th product** | TBD | TBD | Not yet documented | — | — | — |
+| **GTTourz** | 3 | Supercar driving-tour operator ops (B2B) | Live — several features in progress | Next.js 16 + Prisma 6 + Azure Blob; Claude Haiku 4.5; Google Maps; Twilio; SendGrid; Xero | TBD (not in brain) | TBD |
 
 ## Notable cross-product themes
 
@@ -52,9 +52,24 @@ narrative see `ecosystem-vision.md`.
   planned for Jobs Tracker (.NET stack). At risk of being built twice.
   → see `decisions-ouvertes.md` D-02.
 - **Currency mix** spans GBP and EUR, with COREPROMA dual-listed. No
-  portfolio-level pricing policy. → D-07.
-- **Two tech stacks (Node and .NET)** divide the engineering surface
-  roughly 50/50 by product count. → D-05.
-- **Three of five products** name a recurring auth/identity story (JWT,
-  refresh tokens, magic links, Google sign-in) — opportunity for shared
-  identity, not yet pursued. → potential D-08 in future.
+  portfolio-level pricing policy. → D-07. GTTourz adds a fourth pricing
+  unknown (the brain ships no pricing at all).
+- **Three tech stack families now** — Node/Express (COREPROMA, WaypointsCreator),
+  .NET 9/10 (Jobs Tracker, EmailRelay), Next.js + Prisma (GTTourz).
+  GTTourz pushes D-05 from a 2-stack debate to a 3-stack debate.
+- **Four of six products use Anthropic Claude** (COREPROMA, EmailRelay,
+  Jobs Tracker carbon roadmap, GTTourz). Single-vendor AI exposure is now
+  a portfolio-level dependency — worth a fallback strategy. → potential D-12.
+- **WhatsApp is now used by two products** (EmailRelay and GTTourz, both via
+  Twilio). Opportunity for shared Meta Business setup, BSP contract,
+  template library, and ops runbook. → potential D-13.
+- **Xero appears in only one product** (GTTourz) but the pattern
+  (receipts → Spend Money → reconcile) generalises easily to COREPROMA and
+  Jobs Tracker. Worth flagging as a reuse candidate.
+- **Auth/identity story** — JWT, refresh tokens, magic links, Google sign-in,
+  Entra ID — already inconsistent across the portfolio. GTTourz adds yet
+  another shape (NextAuth v5 + Google-only + email allowlist).
+  Shared identity remains unpursued. → potential D-08.
+- **Three of six products ship a second customer-facing app** on the same
+  backend (Jobs Tracker, EmailRelay tenant portal, GTTourz driver app).
+  Pattern worth naming explicitly.

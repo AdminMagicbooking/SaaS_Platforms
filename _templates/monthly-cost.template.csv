@@ -1,0 +1,17 @@
+product_slug,month,type,category,line_item,currency,amount,source,notes
+coreproma,2026-05,cost,compute,Azure App Service chiola (B1),GBP,0.00,manual,TODO confirm tier and monthly amount
+coreproma,2026-05,cost,database,Azure SQL,GBP,0.00,manual,TODO confirm tier
+coreproma,2026-05,cost,storage,Azure Blob,GBP,0.00,manual,TODO
+coreproma,2026-05,cost,ai,Anthropic Claude (spellcheck + carbon),GBP,0.00,manual,TODO pull from Anthropic console
+coreproma,2026-05,cost,messaging,SendGrid transactional,GBP,0.00,manual,TODO
+coreproma,2026-05,cost,billing,Stripe fees,GBP,0.00,manual,TODO compute as % of revenue
+coreproma,2026-05,revenue,subscription,Pro plan annual,EUR,0.00,manual,TODO pull from Stripe — number of active Pro
+coreproma,2026-05,revenue,subscription,Individual plan annual,EUR,0.00,manual,TODO pull from Stripe — number of active Individual
+findallproperty,2026-05,cost,domain,Domain registration,GBP,0.00,manual,TODO once secured
+findallproperty,2026-05,cost,other,Pre-launch (no infra yet),GBP,0.00,manual,Phase 1 BMAD complete; PRD next
+jobstracker,2026-05,cost,compute,Azure App Service B1,GBP,10.00,manual,Confirmed in product-spec.md
+jobstracker,2026-05,cost,database,Azure SQL Basic,GBP,4.00,manual,Confirmed in product-spec.md
+jobstracker,2026-05,cost,storage,Azure Blob + bandwidth,GBP,4.00,manual,Confirmed in product-spec.md (Storage £1 + bandwidth £3)
+jobstracker,2026-05,revenue,subscription,CBES pilot,GBP,0.00,manual,TODO confirm what CBES is paying
+shared,2026-05,cost,billing,Stripe monthly fees,GBP,0.00,manual,Split across products with paying subscriptions — see cost-allocation-key.md
+shared,2026-05,cost,other,Domain registrar / DNS,GBP,0.00,manual,Per-domain — assign to relevant product where possible

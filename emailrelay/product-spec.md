@@ -347,4 +347,13 @@ available today):
   product is CRM-agnostic and works for any business with the same email-to-
   messaging gap.
 - **"Can it serve more than one office / company?"** Yes — it is multi-tenant
-  Saa
+  SaaS. Each organisation is a fully isolated tenant on shared infrastructure.
+- **"How fast is delivery?"** Typically under 60 seconds end-to-end.
+- **"How is my data protected?"** EU/UK-only hosting, AES-256 encryption,
+  GDPR-compliant, append-only tamper-evident audit log, strict opt-in handling.
+
+---
+
+*Maintenance note: when product capabilities change, update sections 6, 8, and
+12 first — those are the ones most likely to produce a wrong automated answer
+if stale. Binding specs: `docs/planning/prd.md`, `docs/planning/architecture.md`.*

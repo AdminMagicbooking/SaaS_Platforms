@@ -284,7 +284,7 @@
 <header class="page">
   <h1>SaaS Portfolio Dashboard</h1>
   <div class="sub">
-    Franck Merlin &nbsp;·&nbsp; Mark Defosse &nbsp;·&nbsp; Generated 2026-05-22 &nbsp;·&nbsp;
+    Franck Merlin &nbsp;·&nbsp; Mark Defosse &nbsp;·&nbsp; Generated 2026-05-23 &nbsp;·&nbsp;
     Folder root: <code>C:\Users\franc\ClaudeProjects\SaaS_Projects</code>
   </div>
 </header>
@@ -300,6 +300,7 @@
   <strong>Jump to:</strong>
   <a href="#big-picture">Big picture</a>
   <a href="#products">Products</a>
+  <a href="#business-plans">Business plans &amp; costs</a>
   <a href="#tech">Tech &amp; infrastructure</a>
   <a href="#accounts">Accounts &amp; services</a>
   <a href="#decisions">Open decisions</a>
@@ -312,7 +313,7 @@
 <h2>1. Big picture</h2>
 
 <p>
-The portfolio is <strong>5 SaaS products</strong> (one more in development) grouped into
+The portfolio is <strong>6 SaaS products</strong> grouped into
 <strong>3 strategic plays</strong>. The plays do <em>not</em> form a single unified ecosystem
 &mdash; pretending they do leads to bad capital-allocation decisions.
 For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portfolio/ecosystem-vision.md</code></a>.
@@ -330,11 +331,17 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
     <div class="products">EmailRelay (multi-tenant SaaS)</div>
   </div>
   <div class="play p3">
-    <h3>Play 3 — Standalone bet</h3>
-    <div class="name">DJI drone planning</div>
-    <div class="products">WaypointsCreator (no overlap with the rest)</div>
+    <h3>Play 3 — Standalone bets</h3>
+    <div class="name">Vertical niches</div>
+    <div class="products">WaypointsCreator (drones) · GTTourz (supercar tours)</div>
   </div>
 </div>
+
+<p style="font-size: 13px; color: var(--ink-muted); margin-top: -8px;">
+  <strong>Note on Play 3:</strong> with GTTourz added, Play 3 now holds <em>two</em> unrelated standalone bets.
+  Whether to keep both, fold one, or split them into a Play 4 is an open call &mdash; see <span class="dtag">D-11</span> in
+  <a href="_portfolio/decisions-ouvertes.md"><code>decisions-ouvertes.md</code></a>.
+</p>
 
 <h3>Objectives (proposed, awaiting Mark's reaction)</h3>
 <ul>
@@ -493,28 +500,141 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
     </div>
   </div>
 
-  <!-- 6th product -->
-  <div class="product-card">
+  <!-- GTTourz -->
+  <div class="product-card p3">
     <div class="head">
-      <h3>6th product</h3>
-      <span class="play-label"><span class="todo">Play TBD</span></span>
+      <h3>GTTourz</h3>
+      <span class="play-label">Play 3</span>
     </div>
-    <span class="badge todo">Brief not ready</span>
-    <div class="tagline">In development — placeholder until the brief lands</div>
+    <span class="badge live">Live — features in progress</span>
+    <div class="tagline">All-in-one ops platform for multi-day supercar driving tour operators</div>
     <dl>
-      <dt>Name</dt><dd><span class="todo">Official name</span></dd>
-      <dt>Category</dt><dd><span class="todo">Vertical / category</span></dd>
-      <dt>Stage</dt><dd><span class="todo">Stage</span></dd>
-      <dt>Strategic</dt><dd><span class="dtag">D-10</span><span class="open">Positioning open</span></dd>
+      <dt>Website</dt><dd><span class="todo">Public domain</span></dd>
+      <dt>Repo</dt><dd><span class="todo">GitHub URL</span></dd>
+      <dt>Hosting</dt><dd><span class="todo">Azure App Service expected (Next.js)</span></dd>
+      <dt>Database</dt><dd>SQL Server · <span class="todo">DB name + Azure region</span></dd>
+      <dt>Storage</dt><dd>Azure Blob (photos, videos, receipts, attachments, vCards)</dd>
+      <dt>Stack</dt><dd>Next.js 16 App Router (modular monolith) + Prisma 6 + TS; NextAuth v5 + Google OAuth (email allowlist)</dd>
+      <dt>AI</dt><dd>Anthropic Claude (<code>claude-haiku-4-5</code>) — guest packs, comms review/translate, receipt OCR</dd>
+      <dt>Maps</dt><dd>Google Maps JS API</dd>
+      <dt>Email</dt><dd>SendGrid (Inbound Parse for hotel mail) or SMTP</dd>
+      <dt>WhatsApp</dt><dd>Twilio (inbound + outbound, unified inbox)</dd>
+      <dt>Accounting</dt><dd>Xero (<code>xero-node</code>) — receipts → Spend Money, optional auto-reconcile</dd>
+      <dt>Two apps</dt><dd>Admin "Pit Wall" web app + mobile-first Driver/Co-pilot app, same backend</dd>
+      <dt>Pricing</dt><dd><span class="todo">Not in brain — TBD</span></dd>
+      <dt>Billing</dt><dd><span class="todo">Stripe? Xero invoicing? Not yet specified</span></dd>
+      <dt>Pilot</dt><dd><span class="todo">Operator name + tour calendar</span></dd>
+      <dt>Languages</dt><dd>EN (AI translates inbound hotel/supplier messages)</dd>
+      <dt>Not yet</dt><dd>Track-day model · live car tracking · customer-side online booking · driver-app design port · inbound webhook DNS wiring</dd>
+      <dt>Strategic</dt><dd><span class="dtag">D-11</span><span class="open">Play 3 now holds two standalone bets — keep grouped, split, or wind one down?</span></dd>
     </dl>
+    <div class="links">
+      <a href="gttourz/product-spec.md">product-spec.md</a>
+    </div>
   </div>
 
 </div>
 </section>
 
 <!-- ============================================================ -->
+<section id="business-plans">
+<h2>3. Business plans &amp; cost tracking</h2>
+
+<p>
+  Play 1 (UK property ecosystem) business plans are <strong>drafted as of 2026-05-23</strong>. Plays 2 and 3 deferred.
+  Cost tracking is set up with a manual process for now; n8n automation later. Monthly reviews happen on the last Friday of each month.
+</p>
+
+<h3>Play 1 — UK property ecosystem (current focus)</h3>
+<table>
+  <thead>
+    <tr><th>Product</th><th>BP status</th><th>Dominant blocker</th><th>Link</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>FindAllProperty</td>
+      <td>draft v0.1</td>
+      <td>Revenue model not formalised in product-spec</td>
+      <td><a href="findallproperty/business-plan.md">business-plan.md</a></td>
+    </tr>
+    <tr>
+      <td>COREPROMA</td>
+      <td>draft v0.1</td>
+      <td>Currency policy (D-06) · carbon module as buying driver unproven</td>
+      <td><a href="coreproma/business-plan.md">business-plan.md</a></td>
+    </tr>
+    <tr>
+      <td>Jobs Tracker</td>
+      <td>draft v0.1</td>
+      <td><span class="dtag">D-01</span> productisation path</td>
+      <td><a href="jobstracker/business-plan.md">business-plan.md</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  Consolidated view: <a href="_portfolio/play-1-business-plan.md"><code>_portfolio/play-1-business-plan.md</code></a> &mdash;
+  the three products as one strategic bet. Read this first; it includes an honest section on what is and is not built today.
+</p>
+
+<h3>Plays 2 &amp; 3 (deferred)</h3>
+<p style="color: var(--ink-muted); font-size: 13px;">
+  EmailRelay, WaypointsCreator, GTTourz — business plans not yet drafted. Will be picked up after Play 1 BPs stabilise (target: post-2026-Q3).
+</p>
+
+<h3>Cost tracking</h3>
+<table>
+  <thead>
+    <tr><th>Artefact</th><th>Purpose</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="_portfolio/costs/README.md"><code>_portfolio/costs/README.md</code></a></td>
+      <td>CSV schema, monthly refresh process, n8n contract</td>
+      <td>v1 — methodology agreed</td>
+    </tr>
+    <tr>
+      <td><a href="_portfolio/costs/cost-allocation-key.md"><code>cost-allocation-key.md</code></a></td>
+      <td>Rules for splitting shared services (Anthropic, Twilio, GitHub Org, etc.)</td>
+      <td>v1 — draft, needs key TODOs verified (per-product Anthropic keys, SendGrid sub-users)</td>
+    </tr>
+    <tr>
+      <td><a href="_portfolio/costs/monthly/2026-05.csv"><code>monthly/2026-05.csv</code></a></td>
+      <td>First month — Jobs Tracker £18 confirmed; rest TODO</td>
+      <td>seeded · waiting on Azure + Stripe pulls</td>
+    </tr>
+    <tr>
+      <td><a href="_templates/business-plan.template.md"><code>_templates/business-plan.template.md</code></a></td>
+      <td>Universal BP template (10 sections, one-pager strict)</td>
+      <td>v1</td>
+    </tr>
+    <tr>
+      <td><a href="_templates/monthly-cost.template.csv"><code>_templates/monthly-cost.template.csv</code></a></td>
+      <td>Universal CSV template (n8n-ready schema)</td>
+      <td>v1</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Monthly reviews</h3>
+<p>
+  <strong>Cadence:</strong> last Friday of each month, 60 minutes, Franck + Mark.
+  Template at <a href="_portfolio/monthly-reviews/README.md"><code>_portfolio/monthly-reviews/README.md</code></a>.
+  First review skeleton: <a href="_portfolio/monthly-reviews/2026-05.md"><code>2026-05.md</code></a>.
+</p>
+
+<div class="alert">
+  <strong>Action before the first monthly review (2026-05-29):</strong>
+  Fill the TODO lines in <code>_portfolio/costs/monthly/2026-05.csv</code> from Azure Cost Management + Stripe.
+  Set up per-product Anthropic API keys so AI cost can be attributed cleanly.
+  Mark must read all three Play 1 BPs and push back on §7 projection scenarios.
+</div>
+
+</section>
+
+<!-- ============================================================ -->
 <section id="tech">
-<h2>3. Tech &amp; infrastructure</h2>
+<h2>4. Tech &amp; infrastructure</h2>
 
 <h3>Stack split</h3>
 <table>
@@ -533,8 +653,13 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
       <td>Newer products. Azure-native, Entra ID for EmailRelay</td>
     </tr>
     <tr>
+      <td><strong>Next.js (App Router) + Prisma</strong></td>
+      <td>GTTourz (Next.js 16)</td>
+      <td>Modular monolith. Third stack family on Azure — sharpens <span class="dtag">D-05</span>.</td>
+    </tr>
+    <tr>
       <td><strong>TBD</strong></td>
-      <td>FindAllProperty, 6th product</td>
+      <td>FindAllProperty</td>
       <td>Stack policy is <span class="dtag">D-05</span> in open decisions</td>
     </tr>
   </tbody>
@@ -575,6 +700,13 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
       <td><span class="todo">region</span></td>
     </tr>
     <tr>
+      <td>GTTourz</td>
+      <td><span class="todo">App Service (Next.js 16) — confirm</span></td>
+      <td>SQL Server (Prisma) — <span class="todo">name</span></td>
+      <td>Azure Blob — <span class="todo">account</span></td>
+      <td><span class="todo">region</span></td>
+    </tr>
+    <tr>
       <td>FindAllProperty</td>
       <td colspan="3"><span class="todo">TBD entire stack</span></td>
       <td><span class="todo">—</span></td>
@@ -589,16 +721,17 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
   </thead>
   <tbody>
     <tr><td>Stripe</td><td>COREPROMA, WaypointsCreator, EmailRelay (metered)</td><td><span class="todo">One Stripe account or one per product?</span></td></tr>
-    <tr><td>SendGrid (transactional email)</td><td>COREPROMA, EmailRelay (Inbound Parse), WaypointsCreator</td><td><span class="todo">SendGrid account</span></td></tr>
+    <tr><td>SendGrid (transactional email)</td><td>COREPROMA, EmailRelay (Inbound Parse), WaypointsCreator, GTTourz (Inbound Parse for hotel mail)</td><td><span class="todo">SendGrid account</span></td></tr>
     <tr><td>Migadu SMTP (STARTTLS:587)</td><td>Jobs Tracker (production sends)</td><td><span class="todo">Migadu account + sending domain</span></td></tr>
-    <tr><td>Anthropic Claude API</td><td>COREPROMA (spellcheck, carbon, PV), EmailRelay (translation), Jobs Tracker (carbon planned)</td><td><span class="todo">Anthropic console workspace</span></td></tr>
+    <tr><td>Anthropic Claude API</td><td>COREPROMA (spellcheck, carbon, PV), EmailRelay (translation), Jobs Tracker (carbon planned), GTTourz (guest packs, comms translate, receipt OCR — Haiku 4.5)</td><td><span class="todo">Anthropic console workspace</span></td></tr>
     <tr><td>Whisper (OpenAI / Azure OpenAI)</td><td>EmailRelay (voice transcription), COREPROMA (voice notes)</td><td><span class="todo">OpenAI / Azure OpenAI account</span></td></tr>
-    <tr><td>Twilio (or BSP)</td><td>EmailRelay (WhatsApp Business)</td><td><span class="todo">Twilio account + Meta Business verification</span></td></tr>
-    <tr><td>Google OAuth</td><td>COREPROMA, WaypointsCreator</td><td><span class="todo">Google Cloud project(s)</span></td></tr>
-    <tr><td>Google Maps</td><td>Jobs Tracker (Start Route)</td><td><span class="todo">API key + billing project</span></td></tr>
+    <tr><td>Twilio (or BSP)</td><td>EmailRelay (WhatsApp Business), GTTourz (WhatsApp inbox)</td><td><span class="todo">Twilio account + Meta Business verification — confirm GTTourz uses same number pool or separate</span></td></tr>
+    <tr><td>Google OAuth</td><td>COREPROMA, WaypointsCreator, GTTourz (sole sign-in method, email allowlist for admins)</td><td><span class="todo">Google Cloud project(s)</span></td></tr>
+    <tr><td>Google Maps</td><td>Jobs Tracker (Start Route), GTTourz (tour routes, hotel markers, driver-app map)</td><td><span class="todo">API key + billing project</span></td></tr>
     <tr><td>Cesium ion</td><td>WaypointsCreator (3D terrain)</td><td><span class="todo">Cesium account + token</span></td></tr>
+    <tr><td>Xero</td><td>GTTourz (receipts → Spend Money, auto-reconcile)</td><td><span class="todo">Xero developer app + per-operator OAuth tokens</span></td></tr>
     <tr><td>Microsoft Entra ID</td><td>EmailRelay (identity)</td><td><span class="todo">Tenant ID</span></td></tr>
-    <tr><td>Application Insights</td><td>COREPROMA, EmailRelay, Jobs Tracker</td><td><span class="todo">Workspace name(s)</span></td></tr>
+    <tr><td>Application Insights</td><td>COREPROMA, EmailRelay, Jobs Tracker</td><td><span class="todo">Workspace name(s) · should GTTourz also wire this up?</span></td></tr>
     <tr><td>VAPID (Web Push)</td><td>COREPROMA, Jobs Tracker</td><td><span class="todo">VAPID keys per app</span></td></tr>
   </tbody>
 </table>
@@ -606,7 +739,7 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
 
 <!-- ============================================================ -->
 <section id="accounts">
-<h2>4. Accounts &amp; services</h2>
+<h2>5. Accounts &amp; services</h2>
 
 <p style="color:var(--ink-muted); font-size:13px;">
   No credentials are stored here. This is the list of <em>which accounts exist</em> and <em>where to find their credentials</em>.
@@ -655,6 +788,7 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
       <dt>invationai.com</dt><dd><span class="todo">Registrar + expiry + DNS provider</span></dd>
       <dt>WaypointsCreator domain</dt><dd><span class="todo">Domain + registrar</span></dd>
       <dt>FindAllProperty</dt><dd><span class="todo">Domain not yet secured</span></dd>
+      <dt>GTTourz domain</dt><dd><span class="todo">Domain + registrar + MX (SendGrid Inbound Parse) + Twilio webhook DNS</span></dd>
     </dl>
   </div>
 
@@ -665,6 +799,7 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
       <dt>jobstracker (Migadu)</dt><dd>Migadu SMTP 587 · SPF/DKIM at DNS · <span class="todo">DMARC?</span></dd>
       <dt>invationai.com</dt><dd>SendGrid Inbound Parse · <span class="todo">SPF/DKIM/DMARC?</span></dd>
       <dt>WaypointsCreator</dt><dd>SendGrid · <span class="todo">domain + auth records</span></dd>
+      <dt>GTTourz</dt><dd>SendGrid Inbound Parse (hotel/supplier mail) · <span class="todo">MX + SPF/DKIM/DMARC pending (operator-side DNS)</span></dd>
     </dl>
   </div>
 
@@ -680,9 +815,9 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
   <div class="account-box">
     <h4>Messaging — WhatsApp / Meta</h4>
     <dl>
-      <dt>BSP</dt><dd>Twilio (EmailRelay)</dd>
+      <dt>BSP</dt><dd>Twilio (EmailRelay, GTTourz)</dd>
       <dt>Meta Business</dt><dd><span class="todo">Verified business name + ID</span></dd>
-      <dt>Tenant numbers</dt><dd>Per EmailRelay tenant (concierge provisioned)</dd>
+      <dt>Tenant numbers</dt><dd>Per EmailRelay tenant (concierge provisioned) · GTTourz: <span class="todo">one operator number, shared template library</span></dd>
       <dt>Template library</dt><dd><span class="todo">Where are approved templates listed?</span></dd>
     </dl>
   </div>
@@ -713,6 +848,7 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
       <dt>Jobs Tracker demo</dt><dd>Demo-reset endpoint exists (admin-only) · <span class="todo">Sales login</span></dd>
       <dt>WaypointsCreator demo</dt><dd><span class="todo">Demo account</span></dd>
       <dt>EmailRelay demo</dt><dd><span class="todo">Sandbox tenant + test WhatsApp number</span></dd>
+      <dt>GTTourz demo</dt><dd><span class="todo">Demo tour data + admin/driver test accounts</span></dd>
     </dl>
   </div>
 
@@ -721,7 +857,11 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
 
 <!-- ============================================================ -->
 <section id="decisions">
-<h2>5. Open decisions (10)</h2>
+<h2>6. Open decisions (10)</h2>
+<p style="font-size: 13px; color: var(--ink-muted); margin-top: -6px;">
+  D-10 ("6th product positioning") is closed by the GTTourz brain arriving on 2026-05-23. A new
+  D-11 replaces it: should Play 3 hold both standalone bets, or should they be split / one wound down?
+</p>
 
 <p>Full context, options, and trade-offs: <a href="_portfolio/decisions-ouvertes.md"><code>_portfolio/decisions-ouvertes.md</code></a></p>
 
@@ -739,14 +879,15 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
     <tr><td><code>D-07</code></td><td>Pricing-tier naming consistency</td><td>Mark</td><td class="open">Open</td></tr>
     <tr><td><code>D-08</code></td><td>Brain format standardisation across products</td><td>Franck</td><td class="open">Open</td></tr>
     <tr><td><code>D-09</code></td><td>Jobs Tracker official name / repo rename</td><td>Franck</td><td class="open">Open</td></tr>
-    <tr><td><code>D-10</code></td><td>Positioning of the 6th product</td><td>Franck + Mark</td><td>Blocked (brief not ready)</td></tr>
+    <tr><td><code>D-10</code></td><td>Positioning of the 6th product (GTTourz)</td><td>Franck + Mark</td><td>Resolved 2026-05-23 — brain landed, parked in Play 3 pending D-11</td></tr>
+    <tr><td><code>D-11</code></td><td>Play 3 framing: keep WaypointsCreator + GTTourz grouped, split into Play 3 / Play 4, or wind one down?</td><td>Franck + Mark</td><td class="open">Open</td></tr>
   </tbody>
 </table>
 </section>
 
 <!-- ============================================================ -->
 <section id="all-docs">
-<h2>6. All documents</h2>
+<h2>7. All documents</h2>
 
 <h3>Root</h3>
 <ul>
@@ -760,6 +901,7 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
 <ul>
   <li><a href="_portfolio/ecosystem-vision.md"><code>ecosystem-vision.md</code></a> — founding strategic narrative</li>
   <li><a href="_portfolio/product-map.md"><code>product-map.md</code></a> — visual map of all products</li>
+  <li><a href="_portfolio/play-1-business-plan.md"><code>play-1-business-plan.md</code></a> — consolidated Play 1 business plan (draft v0.1)</li>
   <li><a href="_portfolio/ownership-roles.md"><code>ownership-roles.md</code></a> — who owns what (TO FILL TOGETHER)</li>
   <li><a href="_portfolio/portfolio-metrics.md"><code>portfolio-metrics.md</code></a> — consolidated KPIs (TODO)</li>
   <li><a href="_portfolio/decisions-ouvertes.md"><code>decisions-ouvertes.md</code></a> — 10 open arbitrations</li>
@@ -770,26 +912,38 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
   <li><a href="_portfolio/linkedin-drafts/README.md"><code>linkedin-drafts/</code></a> — v0 LinkedIn drafts (review before publish)</li>
 </ul>
 
+<h3>Costs &amp; monthly reviews (<code>_portfolio/costs/</code>, <code>_portfolio/monthly-reviews/</code>)</h3>
+<ul>
+  <li><a href="_portfolio/costs/README.md"><code>costs/README.md</code></a> — methodology, CSV schema, n8n contract</li>
+  <li><a href="_portfolio/costs/cost-allocation-key.md"><code>costs/cost-allocation-key.md</code></a> — rules for splitting shared services</li>
+  <li><a href="_portfolio/costs/monthly/2026-05.csv"><code>costs/monthly/2026-05.csv</code></a> — first month (seeded, mostly TODO)</li>
+  <li><a href="_portfolio/monthly-reviews/README.md"><code>monthly-reviews/README.md</code></a> — review template + cadence</li>
+  <li><a href="_portfolio/monthly-reviews/2026-05.md"><code>monthly-reviews/2026-05.md</code></a> — first review (skeleton)</li>
+</ul>
+
 <h3>Templates (<code>_templates/</code>)</h3>
 <ul>
   <li><a href="_templates/product-spec.template.md"><code>product-spec.template.md</code></a> — based on FindAllProperty</li>
   <li><a href="_templates/strategy.template.md"><code>strategy.template.md</code></a> — per-product strategy</li>
   <li><a href="_templates/ai-knowledge.template.md"><code>ai-knowledge.template.md</code></a> — autoresponder knowledge base</li>
+  <li><a href="_templates/business-plan.template.md"><code>business-plan.template.md</code></a> — universal one-pager (10 sections)</li>
+  <li><a href="_templates/monthly-cost.template.csv"><code>monthly-cost.template.csv</code></a> — cost/revenue CSV (n8n-ready)</li>
 </ul>
 
 <h3>Products</h3>
 <ul>
-  <li><a href="coreproma/product-spec.md"><code>coreproma/product-spec.md</code></a></li>
+  <li><a href="coreproma/product-spec.md"><code>coreproma/product-spec.md</code></a> · <a href="coreproma/business-plan.md">business-plan.md</a></li>
   <li><a href="emailrelay/product-spec.md"><code>emailrelay/product-spec.md</code></a></li>
-  <li><a href="findallproperty/product-spec.md"><code>findallproperty/product-spec.md</code></a></li>
-  <li><a href="jobstracker/product-spec.md"><code>jobstracker/product-spec.md</code></a></li>
+  <li><a href="findallproperty/product-spec.md"><code>findallproperty/product-spec.md</code></a> · <a href="findallproperty/business-plan.md">business-plan.md</a></li>
+  <li><a href="gttourz/product-spec.md"><code>gttourz/product-spec.md</code></a></li>
+  <li><a href="jobstracker/product-spec.md"><code>jobstracker/product-spec.md</code></a> · <a href="jobstracker/business-plan.md">business-plan.md</a></li>
   <li><a href="waypointscreator/product-spec.md"><code>waypointscreator/product-spec.md</code></a></li>
 </ul>
 </section>
 
 <!-- ============================================================ -->
 <section id="forgot">
-<h2>7. Things easy to forget</h2>
+<h2>8. Things easy to forget</h2>
 
 <p>
   Use this section as a checklist. If you can't immediately point to where a thing is documented or who owns it, it's a knowledge gap.
@@ -842,4 +996,18 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
 <h3>Brand &amp; identity</h3>
 <ul>
   <li>Logo files per product — <span class="todo">where stored?</span></li>
-  <li>Brand colour palette per product — <span class="todo">centralised to
+  <li>Brand colour palette per product — <span class="todo">centralised tokens or per-repo?</span></li>
+  <li>Trademark registrations — <span class="todo">any?</span></li>
+  <li>Social media handles per product — <span class="todo">who owns the password?</span></li>
+</ul>
+</section>
+
+<footer>
+  Dashboard generated 2026-05-22 · last updated 2026-05-23 (GTTourz added · Play 1 BPs + cost scaffolding) from product briefs and portfolio docs in <code>SaaS_Projects/</code>.
+  Edit this file the same way as any other document in the repo — branch, commit, PR.
+  When a TODO is filled in, replace the <code>&lt;span class="todo"&gt;</code> tag with the value.
+</footer>
+
+</div>
+</body>
+</html>

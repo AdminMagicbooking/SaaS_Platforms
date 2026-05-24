@@ -306,4 +306,10 @@ You're building or renovating your home and need a simple way to manage quotes, 
 - No more lost quotes, missing invoices, scattered photos
 - Share progress with family and friends via a public gallery link
 - AI translation for expats building abroad
-- Installable on your 
+- Installable on your phone — capture photos, scan invoices, get push reminders on the go
+- Simple, affordable, all-in-one
+## Social Media Descriptions
+### TikTok (FR, 120 chars)
+COREPROMA — Gérez votre chantier : budget, factures, documents, photos, réunions de chantier. Tout en un.
+### TikTok (EN, 120 chars)
+COREPROMA — Manage your construction project: budget, invoices, documents, photos & site meetings. All in one app.
