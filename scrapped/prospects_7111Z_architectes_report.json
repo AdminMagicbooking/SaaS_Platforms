@@ -1,0 +1,18 @@
+{
+  "inputFile": "C:/ClaudePorjects/CoWorkFolders/SaaS_Projects/scrapped/prospects_7111Z_architectes.ndjson",
+  "outputFile": "C:/ClaudePorjects/CoWorkFolders/SaaS_Projects/scrapped/prospects_7111Z_architectes_enriched.ndjson",
+  "elapsedSec": 999,
+  "limit": 0,
+  "stats": {
+    "total": 1775,
+    "processed": 1765,
+    "withSite": 567,
+    "withEmail": 393,
+    "errors": 0,
+    "byDiscovery": {
+      "heuristic": 567
+    },
+    "siteFindRate": 32.1,
+    "emailFindRate": 22.3
+  }
+}

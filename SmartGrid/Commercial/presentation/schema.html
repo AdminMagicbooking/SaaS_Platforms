@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<title>ECOGRID — Schéma de flux</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+:root{
+  --navy:#0B2C3D; --navy2:#0E384C; --ink:#06202C;
+  --teal:#1F7A6D; --teal-br:#34E0C8; --teal-gl:#63E0D2;
+  --solar:#F4B740; --solar2:#FF8A3D;
+  --grid:#7FB2E6; --grey:#8FA3AD; --line:#1d4a5e;
+  --v2g:#a855f7;
+  --paper:#0a2230;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#071a24;}
+.stage{width:1280px;height:720px;position:relative;background:
+   radial-gradient(1200px 500px at 50% -10%, #0f3a4e 0%, transparent 60%),
+   radial-gradient(900px 600px at 85% 110%, rgba(31,122,109,.18) 0%, transparent 55%),
+   linear-gradient(160deg,#0a2735 0%,#071a24 60%,#06141d 100%);
+   font-family:'IBM Plex Sans',sans-serif;color:#dfeef0;overflow:hidden;}
+.hd{position:absolute;top:30px;left:44px;right:44px;display:flex;justify-content:space-between;align-items:flex-end;z-index:5}
+.brand{font-family:'Sora',sans-serif;font-weight:700;font-size:22px;letter-spacing:.5px;color:#fff}
+.brand b{color:var(--teal-gl)}
+.kick{font-family:'Sora';font-weight:600;letter-spacing:4px;font-size:11px;color:var(--teal-gl);text-transform:uppercase}
+.ttl{font-family:'Sora';font-weight:600;font-size:18px;color:#cfe6e3;text-align:right;max-width:520px;line-height:1.3}
+svg{position:absolute;inset:0}
+.flow{stroke-dasharray:3 9;stroke-linecap:round;animation:dash 1.1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-24}}
+.flow-rev{stroke-dasharray:3 9;stroke-linecap:round;animation:dash-rev 1.1s linear infinite}
+@keyframes dash-rev{to{stroke-dashoffset:24}}
+.node text,.lab{font-family:'Sora';fill:#eaf6f5}
+.unit{font-family:'IBM Plex Mono';font-weight:600}
+.legend{position:absolute;left:44px;bottom:26px;display:flex;gap:18px;font-size:12px;color:#bcd2d6;align-items:center;z-index:5;flex-wrap:wrap}
+.dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.cap{position:absolute;right:44px;bottom:26px;font-size:11px;color:#6f8a93;z-index:5}
+</style></head>
+<body>
+<div class="stage">
+  <div class="hd">
+    <div><div class="kick">Comment ça marche</div><div class="brand">ECOGRID&nbsp;RESORT<b>™</b></div></div>
+    <div class="ttl">Solaire · éolien · batteries · V2G — toutes les sources locales<br>orchestrées en temps réel par l'application</div>
+  </div>
+
+  <svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="gNode" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#103445"/><stop offset="1" stop-color="#0b2733"/>
+      </linearGradient>
+      <linearGradient id="gBrain" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#1F7A6D"/><stop offset="1" stop-color="#0d4a47"/>
+      </linearGradient>
+      <linearGradient id="gSun" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#FFD36B"/><stop offset="1" stop-color="#FF8A3D"/>
+      </linearGradient>
+      <linearGradient id="gWind" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#2a4a5e"/><stop offset="1" stop-color="#1a3040"/>
+      </linearGradient>
+      <filter id="sh" x="-30%" y="-30%" width="160%" height="160%">
+        <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000" flood-opacity=".45"/>
+      </filter>
+      <filter id="glow"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    </defs>
+
+    <!-- ===== GROUPE PRODUCTION ===== -->
+    <rect x="46" y="155" width="296" height="280" rx="12" fill="none" stroke="#1d4a5e" stroke-width="1" stroke-dasharray="4 5" opacity=".6"/>
+    <text x="60" y="148" font-size="10" fill="#5d8a94" font-family="Sora" font-weight="600" letter-spacing="2">SOURCES LOCALES D'ÉNERGIE</text>
+
+    <!-- ===== FLUX LINES ===== -->
+    <!-- Solaire -> onduleur -->
+    <path d="M300,230 C380,270 440,310 470,330" fill="none" stroke="var(--solar)" stroke-width="4" class="flow"/>
+    <!-- Éolienne -> onduleur -->
+    <path d="M342,348 C400,348 440,348 468,349" fill="none" stroke="var(--solar2)" stroke-width="3.2" class="flow" opacity=".85"/>
+    <!-- onduleur -> batterie -->
+    <path d="M560,360 C620,360 620,470 560,500" fill="none" stroke="var(--teal-br)" stroke-width="4" class="flow"/>
+    <!-- onduleur -> usages (droite) -->
+    <path d="M610,348 C760,348 800,360 900,360" fill="none" stroke="var(--teal-br)" stroke-width="4" class="flow"/>
+    <!-- batterie -> usages (décharge réseau local) -->
+    <path d="M560,520 C730,520 800,420 900,392" fill="none" stroke="var(--teal-gl)" stroke-width="3.4" class="flow" opacity=".9"/>
+    <!-- réseau <-> onduleur (import/export) -->
+    <path d="M610,300 C780,250 880,230 980,210" fill="none" stroke="var(--grid)" stroke-width="3.6" class="flow"/>
+    <!-- V2G : bornes VE -> onduleur (retour flux) -->
+    <path d="M892,428 C820,414 720,392 610,368" fill="none" stroke="var(--v2g)" stroke-width="2.2" class="flow-rev" opacity=".72"/>
+
+    <!-- ===== LIENS EMS / APP ===== -->
+    <g stroke="#2c6f74" stroke-width="1.4" stroke-dasharray="2 6" opacity=".7" fill="none">
+      <path d="M640,150 L300,195"/><path d="M619,168 L175,330"/><path d="M640,150 L515,310"/><path d="M640,150 L540,500"/>
+      <path d="M640,150 L960,200"/><path d="M640,150 L940,360"/>
+    </g>
+
+    <!-- ===== NOEUDS ===== -->
+    <!-- Solaire / ombrières -->
+    <g filter="url(#sh)">
+      <rect x="62" y="165" width="260" height="78" rx="14" fill="url(#gNode)" stroke="#1f5566"/>
+    </g>
+    <g transform="translate(86,177)">
+      <rect width="54" height="38" rx="4" fill="#0b2a39" stroke="var(--solar)" stroke-width="2"/>
+      <line x1="13" y1="0" x2="13" y2="38" stroke="var(--solar)" stroke-width="1.3" opacity=".7"/>
+      <line x1="27" y1="0" x2="27" y2="38" stroke="var(--solar)" stroke-width="1.3" opacity=".7"/>
+      <line x1="40" y1="0" x2="40" y2="38" stroke="var(--solar)" stroke-width="1.3" opacity=".7"/>
+      <line x1="0" y1="19" x2="54" y2="19" stroke="var(--solar)" stroke-width="1.3" opacity=".7"/>
+    </g>
+    <text class="lab" x="162" y="196" font-size="16" font-weight="600">Solaire sur site</text>
+    <text x="162" y="215" font-size="12" fill="#9fc4bf" font-family="IBM Plex Sans">Ombrières · toitures · pergolas</text>
+    <text class="unit" x="162" y="233" font-size="12.5" fill="var(--solar)">≈ 2 MWc</text>
+
+    <!-- Éolienne (option) -->
+    <g filter="url(#sh)">
+      <rect x="62" y="305" width="256" height="78" rx="14" fill="url(#gWind)" stroke="#2a4a5e"/>
+    </g>
+    <!-- icône éolienne -->
+    <g transform="translate(84,316)">
+      <line x1="21" y1="56" x2="21" y2="22" stroke="var(--solar2)" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="21" cy="22" r="4" fill="var(--solar2)" opacity=".9"/>
+      <path d="M21,22 C18,12 13,5 9,1" stroke="var(--solar2)" stroke-width="2.8" stroke-linecap="round" fill="none" opacity=".85"/>
+      <path d="M21,22 C30,20 38,23 43,27" stroke="var(--solar2)" stroke-width="2.8" stroke-linecap="round" fill="none" opacity=".85"/>
+      <path d="M21,22 C16,30 14,38 14,44" stroke="var(--solar2)" stroke-width="2.8" stroke-linecap="round" fill="none" opacity=".85"/>
+    </g>
+    <text class="lab" x="148" y="332" font-size="16" font-weight="600">Éolienne</text>
+    <text x="148" y="351" font-size="12" fill="#9fc4bf" font-family="IBM Plex Sans">Option · complément de production</text>
+    <text class="unit" x="148" y="368" font-size="12" fill="var(--solar2)">si disponible sur site</text>
+
+    <!-- Onduleur -->
+    <g filter="url(#sh)"><rect x="468" y="306" width="150" height="86" rx="14" fill="url(#gNode)" stroke="#1f5566"/></g>
+    <text class="lab" x="543" y="342" font-size="16" font-weight="600" text-anchor="middle">Onduleur</text>
+    <text x="543" y="362" font-size="11.5" fill="#9fc4bf" text-anchor="middle" font-family="IBM Plex Sans">hybride</text>
+    <text x="543" y="380" font-size="11" fill="#7f9aa1" text-anchor="middle" font-family="IBM Plex Sans">DC ⇄ AC</text>
+
+    <!-- Batterie -->
+    <g filter="url(#sh)"><rect x="430" y="486" width="160" height="92" rx="14" fill="url(#gNode)" stroke="#1f5566"/></g>
+    <g transform="translate(450,506)">
+      <rect width="42" height="44" rx="5" fill="#0b2a39" stroke="var(--teal-br)" stroke-width="2"/>
+      <rect x="14" y="-5" width="14" height="6" rx="2" fill="var(--teal-br)"/>
+      <rect x="6" y="28" width="30" height="10" rx="2" fill="var(--teal-br)"/>
+      <rect x="6" y="16" width="30" height="9" rx="2" fill="var(--teal-gl)" opacity=".7"/>
+    </g>
+    <text class="lab" x="512" y="520" font-size="16" font-weight="600">Batterie</text>
+    <text x="512" y="539" font-size="11.5" fill="#9fc4bf" font-family="IBM Plex Sans">LFP ≈ 6 MWh</text>
+    <text class="unit" x="512" y="556" font-size="12" fill="var(--teal-gl)">SoC 78%</text>
+    <text x="512" y="571" font-size="10.5" fill="var(--v2g)" font-family="IBM Plex Mono" font-weight="600">⇄ V2G prête</text>
+
+    <!-- Réseau -->
+    <g filter="url(#sh)"><rect x="978" y="168" width="150" height="86" rx="14" fill="url(#gNode)" stroke="#1f5566"/></g>
+    <g transform="translate(998,186)" stroke="var(--grid)" stroke-width="2" fill="none">
+      <path d="M10,48 L20,4 L30,48 M4,18 L36,18 M2,30 L38,30"/>
+    </g>
+    <text class="lab" x="1052" y="204" font-size="16" font-weight="600">Réseau</text>
+    <text x="1052" y="224" font-size="11.5" fill="#9fc4bf" font-family="IBM Plex Sans">import / revente</text>
+    <text class="unit" x="1052" y="244" font-size="12" fill="var(--grid)">+ surplus</text>
+
+    <!-- Usages du site -->
+    <g filter="url(#sh)"><rect x="892" y="300" width="236" height="200" rx="16" fill="url(#gNode)" stroke="#1f5566"/></g>
+    <text class="lab" x="910" y="330" font-size="15" font-weight="600">Usages du site</text>
+    <g font-family="IBM Plex Sans" font-size="12.5" fill="#cfe6e3">
+      <text x="924" y="362">🏊  Piscines</text>
+      <text x="924" y="392">❄  Climatisation</text>
+      <text x="1024" y="362">🚿  Eau chaude</text>
+      <text x="1024" y="392">🏕  Bungalows</text>
+      <text x="912" y="424" font-size="12">🔌  Bornes VE (30–50)</text>
+    </g>
+    <text x="912" y="440" font-size="10.5" fill="var(--v2g)" font-family="IBM Plex Mono" font-weight="600">    V2G ⇄ bidirectionnel</text>
+    <rect x="910" y="454" width="200" height="1" fill="#1d4a5e"/>
+    <text x="924" y="476" font-size="12" fill="#9fc4bf" font-family="IBM Plex Sans">Charges pilotables &amp; décalables</text>
+
+    <!-- EMS / APP -->
+    <g filter="url(#glow)">
+      <circle cx="640" cy="120" r="60" fill="url(#gBrain)" stroke="var(--teal-gl)" stroke-width="2"/>
+    </g>
+    <text x="640" y="112" text-anchor="middle" font-family="Sora" font-weight="700" font-size="16" fill="#fff">EMS · IA</text>
+    <text x="640" y="132" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#bdeee6">App ECOGRID</text>
+    <text x="640" y="150" text-anchor="middle" font-family="IBM Plex Sans" font-size="9.5" fill="#8fd6cb">pilotage 24/7</text>
+  </svg>
+
+  <div class="legend">
+    <span><span class="dot" style="background:var(--solar)"></span>Flux solaire</span>
+    <span><span class="dot" style="background:var(--solar2)"></span>Flux éolien</span>
+    <span><span class="dot" style="background:var(--teal-br)"></span>Charge / décharge batterie</span>
+    <span><span class="dot" style="background:var(--grid)"></span>Échange réseau (import / revente)</span>
+    <span><span class="dot" style="background:var(--v2g)"></span>Retour V2G</span>
+    <span><span class="dot" style="background:#2c6f74"></span>Pilotage app / EMS</span>
+  </div>
+  <div class="cap">Schéma conceptuel · dimensionnement pilote indicatif</div>
+</div>
+</body></html>

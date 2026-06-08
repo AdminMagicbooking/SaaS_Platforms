@@ -1,0 +1,18 @@
+{
+  "inputFile": "C:/ClaudePorjects/CoWorkFolders/SaaS_Projects/scrapped/prospects_7112B_ingenierie_maitres_oeuvre.ndjson",
+  "outputFile": "C:/ClaudePorjects/CoWorkFolders/SaaS_Projects/scrapped/prospects_7112B_ingenierie_maitres_oeuvre_enriched.ndjson",
+  "elapsedSec": 3029,
+  "limit": 0,
+  "stats": {
+    "total": 3805,
+    "processed": 3805,
+    "withSite": 1697,
+    "withEmail": 1169,
+    "errors": 0,
+    "byDiscovery": {
+      "heuristic": 1697
+    },
+    "siteFindRate": 44.6,
+    "emailFindRate": 30.7
+  }
+}

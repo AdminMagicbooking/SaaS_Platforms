@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<title>Jobs Tracker — for Ethical Power</title>
+<style>
+  :root {
+    --navy: #0b2545;
+    --navy-soft: #13315c;
+    --amber: #f4a261;
+    --amber-deep: #e76f51;
+    --ink: #1a1a2e;
+    --muted: #5c6b7a;
+    --line: #e2e8f0;
+    --bg: #ffffff;
+    --tile: #f7f9fc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #eef1f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.45;
+    font-size: 11pt;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm 16mm;
+    margin: 14px auto;
+    background: var(--bg);
+    box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* Header band */
+  .hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8mm;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 7mm;
+  }
+  .hdr .brand {
+    font-weight: 700;
+    font-size: 13pt;
+    color: var(--navy);
+    letter-spacing: 0.3px;
+  }
+  .hdr .brand .dot { color: var(--amber-deep); }
+  .hdr .target {
+    text-align: right;
+    font-size: 9pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .hdr .target strong { color: var(--navy); font-size: 11pt; display: block; letter-spacing: 0.5px; }
+
+  h1 {
+    font-size: 22pt;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 4mm;
+    font-weight: 800;
+  }
+  h1 .accent { color: var(--amber-deep); }
+
+  .lede {
+    font-size: 13pt;
+    color: var(--navy-soft);
+    margin-bottom: 7mm;
+    line-height: 1.4;
+    border-left: 3px solid var(--amber);
+    padding-left: 4mm;
+  }
+
+  h2 {
+    font-size: 13pt;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 6mm 0 4mm;
+    font-weight: 700;
+  }
+
+  /* Three-column pain block */
+  .pains {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5mm;
+    margin-bottom: 8mm;
+  }
+  .pain {
+    background: var(--tile);
+    padding: 5mm;
+    border-top: 3px solid var(--amber);
+    border-radius: 2px;
+  }
+  .pain .num {
+    font-size: 9pt;
+    color: var(--amber-deep);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .pain h3 {
+    font-size: 11pt;
+    color: var(--navy);
+    margin: 2mm 0 3mm;
+    line-height: 1.25;
+  }
+  .pain p {
+    font-size: 9.5pt;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+
+  /* Flow diagram */
+  .flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 5mm 0;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .flow .node {
+    flex: 1;
+    padding: 4mm 3mm;
+    text-align: center;
+    background: var(--bg);
+    border-right: 1px solid var(--line);
+  }
+  .flow .node:last-child { border-right: none; }
+  .flow .node .role {
+    font-size: 7.5pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1mm;
+  }
+  .flow .node .name {
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .flow .node.ours {
+    background: var(--navy);
+    color: white;
+  }
+  .flow .node.ours .role { color: var(--amber); }
+  .flow .node.ours .name { color: white; }
+  .flow .arrow {
+    align-self: center;
+    color: var(--amber-deep);
+    font-size: 14pt;
+    padding: 0 1mm;
+  }
+
+  /* Page 2 — capabilities grid */
+  .caps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin-bottom: 7mm;
+  }
+  .cap {
+    display: flex;
+    gap: 3mm;
+    padding: 3.5mm;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: var(--bg);
+  }
+  .cap .icon {
+    width: 8mm;
+    height: 8mm;
+    background: var(--navy);
+    color: var(--amber);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 11pt;
+    flex-shrink: 0;
+  }
+  .cap .body {
+    flex: 1;
+  }
+  .cap .body strong {
+    display: block;
+    font-size: 10pt;
+    color: var(--navy);
+    margin-bottom: 1mm;
+  }
+  .cap .body span {
+    font-size: 9pt;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* Pilot proof block */
+  .pilot {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+    color: white;
+    padding: 5mm;
+    border-radius: 3px;
+    margin-bottom: 6mm;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6mm;
+    align-items: center;
+  }
+  .pilot .stat {
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    padding-right: 5mm;
+  }
+  .pilot .stat .big {
+    font-size: 24pt;
+    color: var(--amber);
+    font-weight: 800;
+    line-height: 1;
+  }
+  .pilot .stat .lbl {
+    font-size: 8pt;
+    color: rgba(255,255,255,0.75);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1mm;
+  }
+  .pilot .pitch-text strong {
+    color: var(--amber);
+    font-size: 10pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 1.5mm;
+  }
+  .pilot .pitch-text p {
+    font-size: 10pt;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.92);
+  }
+
+  /* Stack line */
+  .stack {
+    font-size: 8.5pt;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 3mm 0;
+    text-align: center;
+    margin-bottom: 6mm;
+    letter-spacing: 0.5px;
+  }
+  .stack strong { color: var(--navy); }
+
+  /* CTA */
+  .cta {
+    background: var(--amber);
+    color: var(--navy);
+    padding: 5mm;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .cta h3 {
+    font-size: 14pt;
+    margin-bottom: 2mm;
+    font-weight: 800;
+  }
+  .cta p {
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  /* Footer */
+  .foot {
+    position: absolute;
+    bottom: 8mm;
+    left: 16mm;
+    right: 16mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 3mm;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page">
+
+  <div class="hdr">
+    <div class="brand">JOBS TRACKER<span class="dot">.</span></div>
+    <div class="target">Prepared for<strong>Ethical Power</strong></div>
+  </div>
+
+  <h1>Field operations,<br>built for solar <span class="accent">O&amp;M.</span></h1>
+
+  <div class="lede">
+    Your monitoring tells you <em>what</em> failed.<br>
+    Jobs Tracker runs the engineer who fixes it &mdash; and proves it to the asset owner.
+  </div>
+
+  <h2>Three problems we solve at portfolio scale</h2>
+
+  <div class="pains">
+    <div class="pain">
+      <div class="num">01</div>
+      <h3>Dispatch across a 300&nbsp;MW estate</h3>
+      <p>Drag-and-drop weekly scheduler. Live map of every van across the UK. Conflict detection on leave, training and parallel sites &mdash; no double-booking your in-house engineer network.</p>
+    </div>
+    <div class="pain">
+      <div class="num">02</div>
+      <h3>Proof of intervention, every time</h3>
+      <p>GPS tap-in / tap-out, photos tagged Arrival&nbsp;&middot;&nbsp;Progress&nbsp;&middot;&nbsp;Completion, materials captured with delivery-note evidence. Immutable audit log behind every line of every O&amp;M contract.</p>
+    </div>
+    <div class="pain">
+      <div class="num">03</div>
+      <h3>Electrical RAMS, signed before tap-in</h3>
+      <p>Templates per job type &mdash; HV consignation, BESS thermal-runaway, rooftop fall protection. Server-side gate: no engineer starts work until every required RAMS is signed on the phone.</p>
+    </div>
+  </div>
+
+  <h2>Where Jobs Tracker fits</h2>
+
+  <div class="flow">
+    <div class="node">
+      <div class="role">You already run</div>
+      <div class="name">SCADA &amp;<br>24/7 NOC</div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="node ours">
+      <div class="role">We run</div>
+      <div class="name">Dispatch +<br>Field App</div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="node ours">
+      <div class="role">We run</div>
+      <div class="name">Engineer<br>on site (PWA)</div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="node ours">
+      <div class="role">We run</div>
+      <div class="name">Evidence +<br>Sage export</div>
+    </div>
+    <div class="arrow">&rarr;</div>
+    <div class="node">
+      <div class="role">You deliver</div>
+      <div class="name">Asset-owner<br>report</div>
+    </div>
+  </div>
+
+  <p style="font-size: 9pt; color: var(--muted); margin-top: 4mm; font-style: italic;">
+    We don&rsquo;t replace your monitoring or your NOC. We replace the spreadsheet, the WhatsApp group and the manual Sage entry between a ticket leaving the NOC and an invoice landing on the asset owner&rsquo;s desk.
+  </p>
+
+  <div class="foot">
+    <span>Jobs Tracker &middot; jobstracker.work</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page">
+
+  <div class="hdr">
+    <div class="brand">JOBS TRACKER<span class="dot">.</span></div>
+    <div class="target">Prepared for<strong>Ethical Power</strong></div>
+  </div>
+
+  <h2 style="margin-top: 0;">What you get on day one</h2>
+
+  <div class="caps">
+    <div class="cap">
+      <div class="icon">&#9632;</div>
+      <div class="body">
+        <strong>Drag-and-drop scheduler</strong>
+        <span>Weekly planning grid, every column filterable. Re-schedule by dragging across cells &mdash; saves automatically.</span>
+      </div>
+    </div>
+    <div class="cap">
+      <div class="icon">&#9650;</div>
+      <div class="body">
+        <strong>Live fleet map</strong>
+        <span>Real-time van pins via SignalR, plus colour-coded job sites. Pluggable GPS feed &mdash; OBD-II, TomTom WEBFLEET, FleetSmart.</span>
+      </div>
+    </div>
+    <div class="cap">
+      <div class="icon">&#9679;</div>
+      <div class="body">
+        <strong>Field PWA, offline-first</strong>
+        <span>Installs like a native app on iOS &amp; Android. Big thumb targets that work with gloves. Queues actions on flaky rural Wi-Fi.</span>
+      </div>
+    </div>
+    <div class="cap">
+      <div class="icon">&#9670;</div>
+      <div class="body">
+        <strong>Materials &amp; variations</strong>
+        <span>Inverters, optimisers, fuses, cabling &mdash; logged on site with supplier, qty and delivery-note photo. Variations rolled up per job.</span>
+      </div>
+    </div>
+    <div class="cap">
+      <div class="icon">&#9733;</div>
+      <div class="body">
+        <strong>Sage 50 export, ready for API</strong>
+        <span>Project Charges (timesheets) + Project Records (jobs) drop straight into Sage today. Direct API push on the roadmap; Xero / QuickBooks adapters available.</span>
+      </div>
+    </div>
+    <div class="cap">
+      <div class="icon">&#9678;</div>
+      <div class="body">
+        <strong>Audit log on every change</strong>
+        <span>Who created, updated, deleted what &mdash; with old / new values, timestamps and GPS where relevant. The answer to every &ldquo;who changed this?&rdquo; the asset owner will ask.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pilot">
+    <div class="stat">
+      <div class="big">~38</div>
+      <div class="lbl">Daily users<br>at lead pilot</div>
+    </div>
+    <div class="pitch-text">
+      <strong>Production-deployed today</strong>
+      <p>Live pilot at <strong style="color:white">CBES (Combined Building &amp; Electrical Services)</strong> &mdash; UK electrical contractor running 30 field engineers and 8 office Project Managers on the platform daily. Same architecture, branded and configured for Ethical Power&rsquo;s solar &amp; BESS portfolio in weeks, not months.</p>
+    </div>
+  </div>
+
+  <div class="stack">
+    <strong>Stack:</strong> .NET&nbsp;9 &middot; React&nbsp;+&nbsp;TypeScript &middot; Azure SQL &middot; Azure Blob &middot; SignalR &middot; UK-region hosting &middot; GDPR-compliant &middot; JWT auth with refresh-token rotation &middot; per-tenant data isolation
+  </div>
+
+  <div class="cta">
+    <h3>Let&rsquo;s walk it through on three of your sites.</h3>
+    <p>30 minutes, your CTO and Head of O&amp;M in the room. We&rsquo;ll run a reactive ticket end-to-end &mdash; SCADA alert in, engineer dispatched, RAMS signed, photos captured, Sage entry generated.</p>
+  </div>
+
+  <div class="foot">
+    <span>Franck Merlin &middot; Jobs Tracker &middot; jobstracker.work</span>
+    <span>Page 2 of 2 &middot; May 2026</span>
+  </div>
+</section>
+
+</body>
+</html>

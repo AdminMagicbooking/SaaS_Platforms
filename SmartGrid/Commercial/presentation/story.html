@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<title>ECOGRID — L'histoire</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+:root{--navy:#071a24;--teal:#1F7A6D;--teal-br:#34E0C8;--teal-gl:#63E0D2;--solar:#F4B740;--solar2:#FF8A3D;--grid:#7FB2E6;--txt:#eaf6f5;--mut:#9fc0c6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{display:flex;align-items:center;justify-content:center;background:#04121a;font-family:'IBM Plex Sans',sans-serif}
+.stage{position:relative;width:1280px;height:720px;overflow:hidden;border-radius:0;
+  background:linear-gradient(180deg,#0a2740 0%,#0a2330 45%,#071a24 100%);color:var(--txt)}
+.sky{position:absolute;inset:0;transition:background 1.2s ease}
+.stage[data-s="0"] .sky{background:radial-gradient(700px 380px at 78% 16%, rgba(244,183,64,.25), transparent 60%)}
+.stage[data-s="1"] .sky{background:radial-gradient(800px 420px at 72% 14%, rgba(244,183,64,.33), transparent 60%)}
+.stage[data-s="2"] .sky{background:radial-gradient(900px 460px at 50% 12%, rgba(52,224,200,.20), transparent 62%)}
+.stage[data-s="3"] .sky{background:radial-gradient(1000px 600px at 50% 30%, rgba(31,122,109,.30), transparent 65%)}
+.brand{position:absolute;top:26px;left:34px;font-family:'Sora';font-weight:800;font-size:20px;z-index:9}
+.brand b{color:var(--teal-gl)}
+.dots{position:absolute;top:30px;right:34px;display:flex;gap:9px;z-index:9}
+.dots i{width:9px;height:9px;border-radius:50%;background:#1d4a5e;transition:.3s}
+.dots i.on{background:var(--teal-br);box-shadow:0 0 9px var(--teal-br);width:26px;border-radius:6px}
+.cap{position:absolute;left:34px;bottom:54px;z-index:9;max-width:760px}
+.cap .k{font-family:'Sora';font-weight:600;letter-spacing:3px;font-size:12px;color:var(--teal-gl);text-transform:uppercase}
+.cap .t{font-family:'Sora';font-weight:700;font-size:34px;line-height:1.12;margin-top:8px;opacity:0;transform:translateY(14px);transition:.7s}
+.scene.active .cap-t{opacity:1;transform:none}
+.prog{position:absolute;left:0;bottom:0;height:4px;background:var(--teal-br);width:0;transition:width .25s linear;z-index:9}
+.replay{position:absolute;right:30px;bottom:46px;z-index:10;background:rgba(52,224,200,.12);border:1px solid var(--teal-br);
+  color:var(--teal-gl);font-family:'Sora';font-weight:600;font-size:13px;padding:9px 16px;border-radius:22px;cursor:pointer}
+.scene{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;pointer-events:none}
+.scene.active{opacity:1}
+svg{position:absolute;inset:0}
+/* ground */
+.ground{fill:#0c2a26}
+/* solar grow */
+.panelG{transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.scene.active .panelG{transform:scaleY(1)}
+.ray{stroke:var(--solar);stroke-width:2;opacity:0}
+.scene.active .ray{animation:ray 1.6s ease-in-out infinite}
+@keyframes ray{0%,100%{opacity:.15}50%{opacity:.7}}
+.fl{stroke-dasharray:4 9;stroke-linecap:round}
+.scene.active .fl{animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-26}}
+.batfill{transition:height 2.4s ease, y 2.4s ease}
+/* dashboard cards */
+.kc{opacity:0;transform:translateY(18px)}
+.scene.active .kc{animation:rise .6s forwards}
+.scene.active .kc:nth-child(2){animation-delay:.15s}
+.scene.active .kc:nth-child(3){animation-delay:.3s}
+.scene.active .kc:nth-child(4){animation-delay:.45s}
+@keyframes rise{to{opacity:1;transform:none}}
+.dash{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px}
+.kgrid{display:grid;grid-template-columns:repeat(4,180px);gap:16px}
+.card{background:linear-gradient(180deg,#0e2a37,#0b2330);border:1px solid #1d4a5e;border-radius:14px;padding:16px}
+.card .t{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px;font-weight:600}
+.card .v{font-family:'IBM Plex Mono';font-weight:700;font-size:26px;margin-top:8px}
+.brainwrap{display:flex;align-items:center;gap:14px;font-family:'Sora';font-weight:700;font-size:22px}
+.brainc{width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,#1F7A6D,#0c3a37);border:2px solid var(--teal-gl);
+  display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 0 26px rgba(52,224,200,.4)}
+.num{font-family:'IBM Plex Mono';font-weight:700}
+</style></head>
+<body>
+<div class="stage" data-s="0" id="stage">
+  <div class="sky"></div>
+  <div class="brand">ECOGRID&nbsp;RESORT<b>™</b></div>
+  <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+
+  <!-- SCENE 0 : the site -->
+  <div class="scene active" id="sc0">
+    <svg viewBox="0 0 1280 720">
+      <ellipse cx="980" cy="150" rx="64" ry="64" fill="url(#sun)"/>
+      <defs><radialGradient id="sun"><stop offset="0" stop-color="#FFE08A"/><stop offset="1" stop-color="#F4B740"/></radialGradient></defs>
+      <path class="ground" d="M0,520 C300,480 900,480 1280,520 L1280,720 L0,720 Z"/>
+      <!-- pool -->
+      <ellipse cx="320" cy="600" rx="150" ry="42" fill="#0f5e7a" stroke="#2aa0bf" stroke-width="2"/>
+      <ellipse cx="320" cy="596" rx="150" ry="42" fill="#127a9c" opacity=".5"/>
+      <!-- bungalows -->
+      <g>
+        <g transform="translate(620,470)"><rect width="120" height="90" rx="6" fill="#15384a" stroke="#23586b"/><path d="M-8,0 L60,-40 L128,0 Z" fill="#1d4a5e"/><rect x="44" y="44" width="32" height="46" fill="#0b2330"/></g>
+        <g transform="translate(770,485)"><rect width="120" height="76" rx="6" fill="#15384a" stroke="#23586b"/><path d="M-8,0 L60,-34 L128,0 Z" fill="#1d4a5e"/><rect x="46" y="38" width="28" height="38" fill="#0b2330"/></g>
+        <g transform="translate(915,492)"><rect width="110" height="68" rx="6" fill="#15384a" stroke="#23586b"/><path d="M-8,0 L55,-30 L118,0 Z" fill="#1d4a5e"/></g>
+      </g>
+      <!-- empty parking (will get panels) -->
+      <rect x="150" y="470" width="320" height="20" rx="4" fill="#123040" opacity=".7"/>
+      <text x="150" y="455" font-family="IBM Plex Sans" font-size="14" fill="#6f8a93">parking · toitures · surfaces inutilisées</text>
+    </svg>
+    <div class="cap"><div class="k">01 · Le site</div><div class="t cap-t">Un camping énergivore.<br>Des surfaces qui ne produisent rien.</div></div>
+  </div>
+
+  <!-- SCENE 1 : install solar -->
+  <div class="scene" id="sc1">
+    <svg viewBox="0 0 1280 720">
+      <path class="ground" d="M0,520 C300,480 900,480 1280,520 L1280,720 L0,720 Z"/>
+      <!-- sun rays -->
+      <g><line class="ray" x1="980" y1="150" x2="500" y2="380"/><line class="ray" x1="1000" y1="150" x2="320" y2="420" style="animation-delay:.4s"/><line class="ray" x1="960" y1="150" x2="240" y2="400" style="animation-delay:.8s"/></g>
+      <ellipse cx="980" cy="150" rx="64" ry="64" fill="url(#sun2)"/>
+      <defs><radialGradient id="sun2"><stop offset="0" stop-color="#FFE08A"/><stop offset="1" stop-color="#F4B740"/></radialGradient>
+        <linearGradient id="pv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b2a39"/><stop offset="1" stop-color="#0a3a4a"/></linearGradient></defs>
+      <!-- ombrière with panels (grows) -->
+      <g class="panelG">
+        <rect x="150" y="360" width="360" height="14" rx="3" fill="#1d4a5e"/>
+        <line x1="180" y1="374" x2="180" y2="470" stroke="#1d4a5e" stroke-width="8"/>
+        <line x1="480" y1="374" x2="480" y2="470" stroke="#1d4a5e" stroke-width="8"/>
+        <g transform="translate(150,330)">
+          <rect width="360" height="40" rx="4" fill="url(#pv)" stroke="var(--solar)" stroke-width="2"/>
+          <g stroke="var(--solar)" stroke-width="1" opacity=".6">
+            <line x1="60" y1="0" x2="60" y2="40"/><line x1="120" y1="0" x2="120" y2="40"/><line x1="180" y1="0" x2="180" y2="40"/><line x1="240" y1="0" x2="240" y2="40"/><line x1="300" y1="0" x2="300" y2="40"/><line x1="0" y1="20" x2="360" y2="20"/>
+          </g>
+        </g>
+      </g>
+      <text x="150" y="320" font-family="IBM Plex Sans" font-size="14" fill="var(--solar)">ombrières solaires · ≈ 2 MWc</text>
+    </svg>
+    <div class="cap"><div class="k">02 · On déploie le solaire</div><div class="t cap-t">On installe panneaux, onduleur et batterie.</div></div>
+  </div>
+
+  <!-- SCENE 2 : flux to battery -->
+  <div class="scene" id="sc2">
+    <svg viewBox="0 0 1280 720">
+      <defs><linearGradient id="pv2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b2a39"/><stop offset="1" stop-color="#0a3a4a"/></linearGradient></defs>
+      <!-- panels -->
+      <g transform="translate(150,200)"><rect width="300" height="44" rx="5" fill="url(#pv2)" stroke="var(--solar)" stroke-width="2"/>
+        <g stroke="var(--solar)" stroke-width="1" opacity=".6"><line x1="60" y1="0" x2="60" y2="44"/><line x1="120" y1="0" x2="120" y2="44"/><line x1="180" y1="0" x2="180" y2="44"/><line x1="240" y1="0" x2="240" y2="44"/><line x1="0" y1="22" x2="300" y2="22"/></g>
+      </g>
+      <text x="150" y="190" font-family="IBM Plex Sans" font-size="13" fill="var(--solar)">Solaire · 418 kW</text>
+      <!-- inverter -->
+      <rect x="560" y="300" width="120" height="74" rx="12" fill="#10303f" stroke="#23586b"/>
+      <text x="620" y="335" text-anchor="middle" font-family="Sora" font-size="13" fill="#eaf6f5">Onduleur</text>
+      <text x="620" y="355" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="var(--mut)">DC ⇄ AC</text>
+      <!-- battery -->
+      <g transform="translate(840,360)">
+        <rect width="140" height="220" rx="14" fill="#0c2734" stroke="var(--teal-br)" stroke-width="2"/>
+        <rect x="52" y="-12" width="36" height="12" rx="3" fill="var(--teal-br)"/>
+        <rect class="batfill" x="10" y="206" width="120" height="4" rx="6" fill="url(#bf)"/>
+        <defs><linearGradient id="bf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--teal-gl)"/><stop offset="1" stop-color="var(--teal)"/></linearGradient></defs>
+        <text x="70" y="120" text-anchor="middle" font-family="IBM Plex Mono" font-weight="700" font-size="30" fill="#eaf6f5" id="socTxt">0%</text>
+        <text x="70" y="250" text-anchor="middle" font-family="IBM Plex Sans" font-size="13" fill="var(--mut)">Batterie LFP</text>
+      </g>
+      <!-- flux -->
+      <path class="fl" d="M300,250 C460,250 470,330 558,335" fill="none" stroke="var(--solar)" stroke-width="4"/>
+      <path class="fl" d="M682,340 C760,345 780,430 838,440" fill="none" stroke="var(--teal-br)" stroke-width="4"/>
+    </svg>
+    <div class="cap"><div class="k">03 · L’énergie circule</div><div class="t cap-t">Le surplus solaire est stocké, prêt à servir.</div></div>
+  </div>
+
+  <!-- SCENE 3 : dashboard -->
+  <div class="scene" id="sc3">
+    <div class="dash">
+      <div class="brainwrap"><div class="brainc">EMS·IA</div> Piloté en temps réel</div>
+      <div class="kgrid">
+        <div class="card kc"><div class="t">Production</div><div class="v" style="color:var(--solar)">1 642 kWh</div></div>
+        <div class="card kc"><div class="t">Autoconso.</div><div class="v" style="color:var(--teal-gl)">91 %</div></div>
+        <div class="card kc"><div class="t">Batterie</div><div class="v" style="color:var(--teal-gl)">78 %</div></div>
+        <div class="card kc"><div class="t">Gain / jour</div><div class="v">+1 970 €</div></div>
+      </div>
+    </div>
+    <div class="cap"><div class="k">04 · Piloté par ECOGRID</div><div class="t cap-t">Production, stockage et usages, optimisés 24/7.</div></div>
+  </div>
+
+  <div class="prog" id="prog"></div>
+  <button class="replay" id="replay">↻ Rejouer</button>
+</div>
+
+<script>
+const stage=document.getElementById('stage');
+const scenes=['sc0','sc1','sc2','sc3'];
+const dots=document.querySelectorAll('.dots i');
+const prog=document.getElementById('prog');
+const DUR=[3600,3800,4200,4600];
+let idx=0,timer=null,progTimer=null;
+function show(i){
+  scenes.forEach((id,k)=>document.getElementById(id).classList.toggle('active',k===i));
+  dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+  stage.dataset.s=i;
+  // animate battery on scene 2
+  if(i===2){const f=document.querySelector('.batfill');const t=document.getElementById('socTxt');
+    setTimeout(()=>{f.setAttribute('y','46');f.setAttribute('height','164');},60);
+    let v=0;clearInterval(window._c);window._c=setInterval(()=>{v+=3;if(v>=78){v=78;clearInterval(window._c);}t.textContent=v+'%';},90);}
+  // progress bar
+  prog.style.transition='none';prog.style.width='0';
+  requestAnimationFrame(()=>{prog.style.transition='width '+DUR[i]+'ms linear';prog.style.width='100%';});
+}
+function next(){idx++;if(idx>=scenes.length){return;}show(idx);schedule();}
+function schedule(){clearTimeout(timer);timer=setTimeout(next,DUR[idx]);}
+function play(){idx=0;show(0);schedule();}
+document.getElementById('replay').onclick=play;
+play();
+</script>
+</body></html>

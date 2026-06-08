@@ -1,0 +1,71 @@
+{
+  "files": [
+    {
+      "inputFile": "C:\\ClaudePorjects\\CoWorkFolders\\SaaS_Projects\\scrapped\\prospects_4120A_constructeurs_maisons_individuelles_enriched.ndjson",
+      "outFile": "C:\\ClaudePorjects\\CoWorkFolders\\SaaS_Projects\\scrapped\\prospects_4120A_constructeurs_maisons_individuelles_cleaned.ndjson",
+      "counts": {
+        "total": 1500,
+        "hadEmail": 332,
+        "kept": 332,
+        "byConfidence": {
+          "high": 221,
+          "medium": 55,
+          "low": 56
+        },
+        "byReason": {
+          "no-email-from-enrich": 1168
+        }
+      }
+    },
+    {
+      "inputFile": "C:\\ClaudePorjects\\CoWorkFolders\\SaaS_Projects\\scrapped\\prospects_7111Z_architectes_enriched.ndjson",
+      "outFile": "C:\\ClaudePorjects\\CoWorkFolders\\SaaS_Projects\\scrapped\\prospects_7111Z_architectes_cleaned.ndjson",
+      "counts": {
+        "total": 1775,
+        "hadEmail": 394,
+        "kept": 389,
+        "byConfidence": {
+          "high": 322,
+          "medium": 27,
+          "low": 40
+        },
+        "byReason": {
+          "no-email-from-enrich": 1381,
+          "suspicious-provider:wpalex": 1,
+          "suspicious-provider:big-happy": 1,
+          "suspicious-provider:willow-creation": 1,
+          "suspicious-provider:nouvellevague": 1,
+          "bad-tld:js": 1
+        }
+      }
+    },
+    {
+      "inputFile": "C:\\ClaudePorjects\\CoWorkFolders\\SaaS_Projects\\scrapped\\prospects_7112B_ingenierie_maitres_oeuvre_enriched.ndjson",
+      "outFile": "C:\\ClaudePorjects\\CoWorkFolders\\SaaS_Projects\\scrapped\\prospects_7112B_ingenierie_maitres_oeuvre_cleaned.ndjson",
+      "counts": {
+        "total": 3805,
+        "hadEmail": 1169,
+        "kept": 1167,
+        "byConfidence": {
+          "high": 983,
+          "medium": 42,
+          "low": 142
+        },
+        "byReason": {
+          "no-email-from-enrich": 2636,
+          "suspicious-provider:webflow": 1,
+          "bad-tld:js": 1
+        }
+      }
+    }
+  ],
+  "totals": {
+    "total": 7080,
+    "hadEmail": 1895,
+    "kept": 1888,
+    "high": 1526,
+    "medium": 124,
+    "low": 238,
+    "dropped": 7
+  }
+}

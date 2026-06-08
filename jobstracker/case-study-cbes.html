@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<title>Case Study — CBES on Jobs Tracker</title>
+<style>
+  :root {
+    --navy: #0b2545;
+    --navy-soft: #13315c;
+    --amber: #f4a261;
+    --amber-deep: #e76f51;
+    --ink: #1a1a2e;
+    --muted: #5c6b7a;
+    --line: #e2e8f0;
+    --bg: #ffffff;
+    --tile: #f7f9fc;
+    --before: #fef3ec;
+    --before-ink: #9a3412;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #eef1f5;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.45;
+    font-size: 11pt;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm 16mm;
+    margin: 14px auto;
+    background: var(--bg);
+    box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+    position: relative;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  /* Header */
+  .hdr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8mm;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 7mm;
+  }
+  .hdr .brand {
+    font-weight: 700;
+    font-size: 13pt;
+    color: var(--navy);
+    letter-spacing: 0.3px;
+  }
+  .hdr .brand .dot { color: var(--amber-deep); }
+  .hdr .target {
+    text-align: right;
+    font-size: 9pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .hdr .target strong { color: var(--navy); font-size: 11pt; display: block; letter-spacing: 0.5px; }
+
+  h1 {
+    font-size: 22pt;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 4mm;
+    font-weight: 800;
+  }
+  h1 .accent { color: var(--amber-deep); }
+
+  .lede {
+    font-size: 12pt;
+    color: var(--navy-soft);
+    margin-bottom: 7mm;
+    line-height: 1.45;
+    border-left: 3px solid var(--amber);
+    padding-left: 4mm;
+  }
+
+  h2 {
+    font-size: 12pt;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 5mm 0 3mm;
+    font-weight: 700;
+  }
+
+  /* Customer card */
+  .customer {
+    background: var(--tile);
+    border-left: 4px solid var(--navy);
+    padding: 4mm 5mm;
+    margin-bottom: 6mm;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5mm;
+    align-items: center;
+  }
+  .customer .who strong {
+    display: block;
+    font-size: 12pt;
+    color: var(--navy);
+    margin-bottom: 1mm;
+  }
+  .customer .who span {
+    font-size: 9.5pt;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .customer .metrics {
+    display: flex;
+    gap: 5mm;
+    border-left: 1px solid var(--line);
+    padding-left: 5mm;
+  }
+  .customer .metrics .m {
+    text-align: center;
+  }
+  .customer .metrics .m .num {
+    font-size: 18pt;
+    color: var(--amber-deep);
+    font-weight: 800;
+    line-height: 1;
+  }
+  .customer .metrics .m .lbl {
+    font-size: 7.5pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 1mm;
+  }
+
+  /* Before / after columns */
+  .ba {
+    display: grid;
+    grid-template-columns: 1fr 8mm 1fr;
+    gap: 0;
+    margin-bottom: 6mm;
+    align-items: stretch;
+  }
+  .ba .col {
+    padding: 4mm 5mm;
+    border-radius: 3px;
+  }
+  .ba .col.before {
+    background: var(--before);
+    border: 1px solid #fbd5b5;
+  }
+  .ba .col.after {
+    background: #e8f3e8;
+    border: 1px solid #b8d8b8;
+  }
+  .ba .col h3 {
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 3mm;
+  }
+  .ba .col.before h3 { color: var(--before-ink); }
+  .ba .col.after h3 { color: #2d6a2d; }
+  .ba .col ul {
+    list-style: none;
+    padding: 0;
+  }
+  .ba .col li {
+    font-size: 9.5pt;
+    padding: 1.5mm 0;
+    line-height: 1.4;
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
+  }
+  .ba .col li:last-child { border-bottom: none; }
+  .ba .col li::before {
+    content: "—";
+    margin-right: 2mm;
+    color: var(--muted);
+  }
+  .ba .arrow-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--amber-deep);
+    font-size: 18pt;
+    font-weight: 800;
+  }
+
+  /* Day in the life */
+  .daily {
+    background: var(--tile);
+    padding: 4mm 5mm;
+    border-radius: 3px;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+  .daily strong { color: var(--navy); }
+  .daily em {
+    font-style: normal;
+    background: var(--amber);
+    color: var(--navy);
+    padding: 0 1mm;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+
+  /* Mapping table (page 2) */
+  .map {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 6mm;
+    font-size: 9.5pt;
+  }
+  .map th {
+    background: var(--navy);
+    color: white;
+    text-align: left;
+    padding: 3mm 4mm;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+  .map th:nth-child(2) { background: var(--navy-soft); }
+  .map th:nth-child(3) { background: var(--amber-deep); }
+  .map td {
+    padding: 3mm 4mm;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .map td:first-child { font-weight: 600; color: var(--navy); width: 22%; }
+  .map td:nth-child(2) { color: var(--ink); width: 39%; }
+  .map td:nth-child(3) { color: var(--ink); width: 39%; background: #fdf6ee; }
+  .map tr:nth-child(even) td { background: var(--tile); }
+  .map tr:nth-child(even) td:nth-child(3) { background: #fbeedb; }
+
+  /* Stack line */
+  .stack {
+    font-size: 8.5pt;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 3mm 0;
+    text-align: center;
+    margin-bottom: 6mm;
+    letter-spacing: 0.5px;
+  }
+  .stack strong { color: var(--navy); }
+
+  /* CTA */
+  .cta {
+    background: var(--amber);
+    color: var(--navy);
+    padding: 5mm;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .cta h3 {
+    font-size: 14pt;
+    margin-bottom: 2mm;
+    font-weight: 800;
+  }
+  .cta p {
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  /* Footer */
+  .foot {
+    position: absolute;
+    bottom: 8mm;
+    left: 16mm;
+    right: 16mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    padding-top: 3mm;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<section class="page">
+
+  <div class="hdr">
+    <div class="brand">JOBS TRACKER<span class="dot">.</span></div>
+    <div class="target">Case study<strong>CBES &mdash; UK contractor</strong></div>
+  </div>
+
+  <h1>One platform for 38 daily users.<br>Built in a pilot, <span class="accent">running in production.</span></h1>
+
+  <div class="lede">
+    CBES asked us to retire a tangle of spreadsheets, paper RAMS, WhatsApp groups and manual Sage entry. We shipped a single field-operations platform &mdash; office app for the planners, phone-installed PWA for the engineers &mdash; updating live between the two.
+  </div>
+
+  <div class="customer">
+    <div class="who">
+      <strong>Combined Building &amp; Electrical Services (CBES)</strong>
+      <span>UK building &amp; electrical contractor. In-house engineer network across multiple sites. Sponsor: Lynsey, Operations.</span>
+    </div>
+    <div class="metrics">
+      <div class="m"><div class="num">~30</div><div class="lbl">Field<br>engineers</div></div>
+      <div class="m"><div class="num">~8</div><div class="lbl">Office<br>PMs</div></div>
+      <div class="m"><div class="num">~38</div><div class="lbl">Daily<br>users</div></div>
+    </div>
+  </div>
+
+  <h2>What changed</h2>
+
+  <div class="ba">
+    <div class="col before">
+      <h3>Before</h3>
+      <ul>
+        <li>Excel schedule, re-typed every Monday</li>
+        <li>WhatsApp groups for dispatch and updates</li>
+        <li>Paper RAMS, signed and lost in vans</li>
+        <li>Job references typed twice into Sage</li>
+        <li>Photos emailed back, sorted by hand</li>
+        <li>&ldquo;Where&rsquo;s the van?&rdquo; calls every hour</li>
+        <li>Variations remembered from end-of-day notes</li>
+      </ul>
+    </div>
+    <div class="arrow-col">&rarr;</div>
+    <div class="col after">
+      <h3>After</h3>
+      <ul>
+        <li>Drag-and-drop weekly scheduler, conflict-checked</li>
+        <li>Job-scoped messaging, real-time via SignalR</li>
+        <li>RAMS signed on the phone before tap-in</li>
+        <li>Sage Project Charges + Records CSV export</li>
+        <li>Photos snapped in app, tagged, auto-uploaded</li>
+        <li>Live van map &mdash; click for driver and site</li>
+        <li>Materials &amp; variations captured on site</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>A day in the life, now</h2>
+
+  <div class="daily">
+    Tracey in the office books a reactive job in <strong>under 30 seconds</strong> while still on the phone with the client. Scott opens the worker app on his phone, sees today&rsquo;s jobs, taps <em>Start Route</em> &mdash; Google Maps opens to the site. On arrival he taps <em>Arrived</em>; the job flips to <strong>InProgress</strong>, the office dashboard updates instantly. The RAMS gate blocks his first action until he signs the template on screen. He fits the parts, snaps a delivery-note photo against the materials list, taps out. The timesheet builds itself. End of week, the office exports <strong>Sage Project Charges CSV</strong> &mdash; the manual data entry step is gone.
+  </div>
+
+  <div class="foot">
+    <span>Jobs Tracker &middot; jobstracker.work</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 ============ -->
+<section class="page">
+
+  <div class="hdr">
+    <div class="brand">JOBS TRACKER<span class="dot">.</span></div>
+    <div class="target">Translated for<strong>Ethical Power</strong></div>
+  </div>
+
+  <h1>Same engine.<br>Configured for <span class="accent">solar O&amp;M.</span></h1>
+
+  <div class="lede">
+    CBES runs an electrical-contracting workflow on Jobs Tracker today. The platform is multi-tenant by design &mdash; every piece below maps to a job your in-house engineer network already does, every day, across your 300&nbsp;MW estate.
+  </div>
+
+  <h2>What CBES uses &rarr; what Ethical Power gets</h2>
+
+  <table class="map">
+    <thead>
+      <tr>
+        <th>Capability</th>
+        <th>CBES today</th>
+        <th>Ethical Power tomorrow</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dispatch</td>
+        <td>Weekly scheduler across electrical jobs in a regional service area</td>
+        <td>Multi-site planning across utility-scale PV, BESS and rooftop assets nationwide</td>
+      </tr>
+      <tr>
+        <td>RAMS gate</td>
+        <td>Templates for electrical install &amp; refurb &mdash; signed before first tap-in</td>
+        <td>Templates for HV consignation, BESS thermal-runaway, rooftop fall protection</td>
+      </tr>
+      <tr>
+        <td>Evidence pack</td>
+        <td>Arrival / Progress / Completion photos against each reactive job</td>
+        <td>Same flow, framed as proof-of-intervention for the O&amp;M contract SLA</td>
+      </tr>
+      <tr>
+        <td>Materials capture</td>
+        <td>Cable, fittings, sundries &mdash; with delivery-note photo</td>
+        <td>Inverters, optimisers, fuses, replacement modules &mdash; same flow, your suppliers</td>
+      </tr>
+      <tr>
+        <td>Live fleet map</td>
+        <td>Vans across a regional service area, colour-coded by job status</td>
+        <td>Engineer vans across the UK estate &mdash; click any van for site and ETA</td>
+      </tr>
+      <tr>
+        <td>Accounting export</td>
+        <td>Sage 50 Project Charges + Records CSV &mdash; weekly</td>
+        <td>Same export, plus per-asset-owner billing splits ready for monthly invoicing</td>
+      </tr>
+      <tr>
+        <td>Client reporting</td>
+        <td>Client Weekly Report &mdash; the spreadsheet for the client meeting</td>
+        <td>Asset-owner monthly report &mdash; configurable layout per owner / fund</td>
+      </tr>
+      <tr>
+        <td>Audit log</td>
+        <td>Every mutation logged with old / new values &mdash; for compliance Qs</td>
+        <td>Same log, framed as the answer to every asset-owner audit question</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="stack">
+    <strong>Same stack, same code:</strong> .NET&nbsp;9 &middot; React &middot; Azure SQL &middot; Azure Blob &middot; SignalR &middot; UK-region hosting &middot; GDPR-compliant &middot; per-tenant data isolation
+  </div>
+
+  <div class="cta">
+    <h3>See it running, today, on a live deployment.</h3>
+    <p>30 minutes, your CTO and Head of O&amp;M in the room. We&rsquo;ll walk through CBES&rsquo;s production system end-to-end &mdash; reactive job created, engineer dispatched, RAMS signed, evidence captured, Sage entry exported &mdash; then sketch the solar-O&amp;M configuration on the same screen.</p>
+  </div>
+
+  <div class="foot">
+    <span>Franck Merlin &middot; Jobs Tracker &middot; jobstracker.work</span>
+    <span>Page 2 of 2 &middot; May 2026</span>
+  </div>
+</section>
+
+</body>
+</html>

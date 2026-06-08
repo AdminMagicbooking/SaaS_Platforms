@@ -8,7 +8,7 @@
 
 ## 0. En une phrase
 
-ECOGRID RESORT™ est une **plateforme de services énergétiques** (SaaS + actifs) qui transforme campings et villages vacances d'Europe du Sud en **micro-réseaux intelligents** — production solaire, stockage, pilotage IA et application client — déployable site par site puis en réseau européen.
+ECOGRID RESORT™ est une **plateforme de services énergétiques** (SaaS + actifs) qui transforme campings et villages vacances d'Europe du Sud en **micro-réseaux intelligents** — production solaire & éolienne, stockage bidirectionnel (V2G), pilotage IA et application vacancier — déployable site par site puis en réseau européen.
 
 **La thèse :** l'avantage n'est pas le matériel solaire, c'est **la distribution** — l'accès déjà existant aux exploitants via l'écosystème COREPROMA. La valeur long terme vient du logiciel récurrent et du réseau de sites connectés, pas de la vente d'équipement.
 
@@ -29,10 +29,10 @@ ECOGRID RESORT™ agit comme le « système d'exploitation » énergétique du s
 
 | Brique | Contenu |
 |---|---|
-| **Produire** | Solaire sur site : ombrières, toitures, pergolas. Transforme les surfaces inertes en actifs productifs. |
-| **Stocker & piloter** | Batteries LFP (résilience + arbitrage) ; EMS piloté par IA, 24/7. |
-| **Distribuer & recharger** | Pilotage piscines, clim, eau chaude (ECS) ; bornes VE et recharge intelligente. |
-| **Impliquer & mesurer** | App client (EcoScore, réservation VE, récompenses) ; reporting carbone / ESG. |
+| **Produire** | Solaire sur site (ombrières, toitures, pergolas) + **éolienne en option** (complément si disponible sur site). Toutes les sources locales capables d'injecter de l'énergie sur le réseau interne. |
+| **Stocker & dispatcher** | Batteries LFP **V2G-prêtes** : résilience, arbitrage & injection réseau local. EMS piloté par IA 24/7 sur l'ensemble des sources (solaire, éolien, V2G). |
+| **Distribuer & recharger** | Pilotage piscines, clim, eau chaude (ECS) ; 30–50 bornes VE — recharge intelligente + **retour V2G vers le réseau local**. |
+| **Impliquer & mesurer** | **App vacancier** : EcoScore, suivi économies & CO₂ en temps réel pendant le séjour, réservation VE, récompenses V2G, bilan personnalisé au départ. Reporting carbone / ESG exploitant. |
 
 Un **cœur logiciel identique** se déploie sur campings, villages, resorts et îles — kits standardisés, équipements adaptés au site.
 

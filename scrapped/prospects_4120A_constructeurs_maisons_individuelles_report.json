@@ -1,0 +1,18 @@
+{
+  "inputFile": "C:/ClaudePorjects/CoWorkFolders/SaaS_Projects/scrapped/prospects_4120A_constructeurs_maisons_individuelles.ndjson",
+  "outputFile": "C:/ClaudePorjects/CoWorkFolders/SaaS_Projects/scrapped/prospects_4120A_constructeurs_maisons_individuelles_enriched.ndjson",
+  "elapsedSec": 931,
+  "limit": 0,
+  "stats": {
+    "total": 1500,
+    "processed": 1500,
+    "withSite": 505,
+    "withEmail": 332,
+    "errors": 0,
+    "byDiscovery": {
+      "heuristic": 505
+    },
+    "siteFindRate": 33.7,
+    "emailFindRate": 22.1
+  }
+}
