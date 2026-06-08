@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+<title>ECOGRID — Cockpit exploitant</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+:root{
+  --navy:#071a24; --panel:#0e2a37; --panel2:#103445; --line:#1d4a5e;
+  --teal:#1F7A6D; --teal-br:#34E0C8; --teal-gl:#63E0D2;
+  --solar:#F4B740; --solar2:#FF8A3D; --grid:#7FB2E6; --bad:#FF6B6B;
+  --txt:#dfeef0; --mut:#8fa9b1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1440px;height:900px;background:
+  radial-gradient(900px 500px at 80% -10%, rgba(31,122,109,.20), transparent 60%),
+  linear-gradient(155deg,#0a2330,#071a24 70%);
+  font-family:'IBM Plex Sans',sans-serif;color:var(--txt);overflow:hidden}
+.num{font-family:'IBM Plex Mono';font-weight:700}
+.app{display:grid;grid-template-rows:64px 1fr;height:900px}
+/* top bar */
+.top{display:flex;align-items:center;gap:20px;padding:0 26px;border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#0d2937,#0a222e)}
+.logo{font-family:'Sora';font-weight:800;font-size:19px;letter-spacing:.4px}
+.logo b{color:var(--teal-gl)}
+.site{display:flex;align-items:center;gap:8px;background:#0c2531;border:1px solid var(--line);
+  padding:7px 13px;border-radius:9px;font-weight:600;font-size:13.5px}
+.site .ch{color:var(--mut);font-weight:400}
+.spacer{flex:1}
+.pill{display:flex;align-items:center;gap:8px;background:rgba(52,224,200,.12);border:1px solid rgba(52,224,200,.4);
+  color:var(--teal-gl);padding:7px 13px;border-radius:20px;font-weight:600;font-size:13px}
+.led{width:9px;height:9px;border-radius:50%;background:var(--teal-br);box-shadow:0 0 9px var(--teal-br)}
+.occ{font-size:13px;color:var(--mut)}
+.occ b{color:var(--solar);font-family:'IBM Plex Mono'}
+.body{display:grid;grid-template-columns:1fr 360px;gap:18px;padding:18px 22px;min-height:0}
+.col{display:flex;flex-direction:column;gap:16px;min-height:0}
+/* KPI row */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{background:linear-gradient(180deg,var(--panel),#0c2734);border:1px solid var(--line);border-radius:14px;padding:14px 15px;position:relative;overflow:hidden}
+.kpi .t{font-size:11.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px;font-weight:600}
+.kpi .v{font-size:27px;margin-top:8px;line-height:1}
+.kpi .v small{font-size:13px;color:var(--mut);font-family:'IBM Plex Sans';font-weight:500}
+.kpi .d{font-size:11.5px;margin-top:7px;font-weight:600}
+.up{color:var(--teal-gl)} .dn{color:var(--solar)}
+.kpi .bar{position:absolute;left:0;top:0;width:4px;height:100%}
+.spark{position:absolute;right:10px;bottom:10px;opacity:.55}
+/* panels */
+.panel{background:linear-gradient(180deg,var(--panel),#0b2330);border:1px solid var(--line);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;min-height:0}
+.ph{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.ph h3{font-family:'Sora';font-weight:600;font-size:15px}
+.ph .sub{font-size:11.5px;color:var(--mut)}
+.grow{flex:1;min-height:0}
+/* flow widget */
+.flowwrap{display:grid;grid-template-columns:1fr 1.15fr;gap:16px}
+.flow text{font-family:'IBM Plex Sans'}
+.fl{stroke-dasharray:3 8;stroke-linecap:round;animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-22}}
+/* right controls */
+.mode{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:6px}
+.mbtn{background:#0c2532;border:1px solid var(--line);border-radius:10px;padding:9px;text-align:center;font-size:12.5px;font-weight:600;color:var(--mut)}
+.mbtn.on{background:linear-gradient(180deg,#13564f,#0e3f3b);border-color:var(--teal-br);color:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid #14394a;font-size:13px}
+.row:last-child{border:0}
+.row .k{color:var(--mut)} .row .val{font-family:'IBM Plex Mono';font-weight:600}
+.slider{height:7px;border-radius:6px;background:#0c2532;position:relative;margin:9px 0 2px}
+.slider .fillb{position:absolute;left:0;top:0;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--teal),var(--teal-br));width:30%}
+.slider .knob{position:absolute;left:30%;top:50%;transform:translate(-50%,-50%);width:15px;height:15px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(52,224,200,.25)}
+.scn{display:flex;gap:7px;flex-wrap:wrap}
+.chip{background:#0c2532;border:1px solid var(--line);border-radius:18px;padding:6px 11px;font-size:12px;color:var(--txt)}
+.chip.on{background:rgba(244,183,64,.14);border-color:var(--solar);color:var(--solar)}
+.alerts{display:flex;flex-direction:column;gap:8px}
+.al{display:flex;gap:9px;align-items:center;font-size:12.5px;background:#0c2532;border:1px solid var(--line);border-left:3px solid var(--teal-br);border-radius:8px;padding:8px 11px}
+.al.warn{border-left-color:var(--solar)}
+.legend{display:flex;gap:14px;font-size:11px;color:var(--mut);margin-top:8px}
+.legend .dot{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:5px;vertical-align:0}
+</style></head>
+<body>
+<div class="app">
+  <!-- TOP -->
+  <div class="top">
+    <div class="logo">ECOGRID&nbsp;RESORT<b>™</b></div>
+    <div class="site">📍 Marine de Caprone <span class="ch">· Ghisonaccia (2B) ▾</span></div>
+    <div class="spacer"></div>
+    <div class="occ">Occupation <b>82%</b> · haute saison</div>
+    <div class="pill"><span class="led"></span> Autonomie 78% · temps réel</div>
+  </div>
+
+  <div class="body">
+    <!-- LEFT -->
+    <div class="col">
+      <div class="kpis">
+        <div class="kpi"><div class="bar" style="background:var(--solar)"></div>
+          <div class="t">Production solaire</div><div class="v num" style="color:var(--solar)">1 642 <small>kWh</small></div>
+          <div class="d up">▲ aujourd’hui · 2,0 MWc</div>
+          <svg class="spark" width="64" height="26"><polyline points="0,24 10,20 20,12 30,5 40,7 52,16 64,22" fill="none" stroke="var(--solar)" stroke-width="2"/></svg>
+        </div>
+        <div class="kpi"><div class="bar" style="background:var(--teal-br)"></div>
+          <div class="t">Autoconsommation</div><div class="v num" style="color:var(--teal-gl)">91<small>%</small></div>
+          <div class="d up">▲ +6 pts vs hier</div>
+        </div>
+        <div class="kpi"><div class="bar" style="background:var(--teal-gl)"></div>
+          <div class="t">Batterie · SoC</div><div class="v num" style="color:var(--teal-gl)">78<small>%</small></div>
+          <div class="d up">⇅ décharge 240 kW</div>
+          <svg class="spark" width="64" height="26"><rect x="0" y="6" width="60" height="14" rx="7" fill="none" stroke="var(--teal-gl)" stroke-width="1.5"/><rect x="2" y="8" width="46" height="10" rx="5" fill="var(--teal-gl)" opacity=".6"/></svg>
+        </div>
+        <div class="kpi"><div class="bar" style="background:var(--grid)"></div>
+          <div class="t">Réseau</div><div class="v num" style="color:var(--grid)">+312 <small>kWh</small></div>
+          <div class="d up">revente surplus du jour</div>
+        </div>
+        <div class="kpi"><div class="bar" style="background:var(--teal)"></div>
+          <div class="t">CO₂ évité</div><div class="v num">0,84 <small>t/j</small></div>
+          <div class="d up">▲ 218 t cumulées</div>
+        </div>
+        <div class="kpi"><div class="bar" style="background:var(--solar)"></div>
+          <div class="t">Gain énergie</div><div class="v num">+1 970 <small>€/j</small></div>
+          <div class="d up">éco. + revente + flex</div>
+        </div>
+        <div class="kpi"><div class="bar" style="background:var(--teal-br)"></div>
+          <div class="t">Bornes VE</div><div class="v num">14<small>/42</small></div>
+          <div class="d up">sessions actives</div>
+        </div>
+        <div class="kpi"><div class="bar" style="background:var(--grid)"></div>
+          <div class="t">Flex / VPP</div><div class="v num">120 <small>kW</small></div>
+          <div class="d up">capacité offerte ZNI</div>
+        </div>
+      </div>
+
+      <!-- flow + chart -->
+      <div class="panel grow">
+        <div class="ph"><h3>Flux énergétique en temps réel</h3><span class="sub">mise à jour 3 s · 12:40</span></div>
+        <div class="flowwrap grow">
+          <!-- live flow -->
+          <svg class="flow" viewBox="0 0 360 320" width="100%" height="100%">
+            <!-- nodes -->
+            <g font-family="Sora" font-weight="600" font-size="12" fill="#eaf6f5">
+              <circle cx="60" cy="60" r="34" fill="#10303f" stroke="var(--solar)" stroke-width="2"/>
+              <text x="60" y="56" text-anchor="middle" font-size="11">Solaire</text>
+              <text x="60" y="72" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="var(--solar)">418 kW</text>
+
+              <circle cx="180" cy="160" r="40" fill="url(#bg)" stroke="var(--teal-gl)" stroke-width="2"/>
+              <text x="180" y="156" text-anchor="middle" font-size="11">EMS</text>
+              <text x="180" y="172" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="var(--teal-gl)">pilotage</text>
+
+              <circle cx="300" cy="60" r="34" fill="#10303f" stroke="var(--grid)" stroke-width="2"/>
+              <text x="300" y="56" text-anchor="middle" font-size="11">Réseau</text>
+              <text x="300" y="72" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="var(--grid)">+96 kW</text>
+
+              <circle cx="60" cy="260" r="34" fill="#10303f" stroke="var(--teal-br)" stroke-width="2"/>
+              <text x="60" y="256" text-anchor="middle" font-size="11">Batterie</text>
+              <text x="60" y="272" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="var(--teal-br)">78%</text>
+
+              <circle cx="300" cy="260" r="34" fill="#10303f" stroke="var(--teal-gl)" stroke-width="2"/>
+              <text x="300" y="256" text-anchor="middle" font-size="11">Usages</text>
+              <text x="300" y="272" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="var(--teal-gl)">322 kW</text>
+            </g>
+            <defs><radialGradient id="bg"><stop offset="0" stop-color="#1F7A6D"/><stop offset="1" stop-color="#0c3a37"/></radialGradient></defs>
+            <g fill="none">
+              <path class="fl" d="M88,76 C140,110 150,120 152,134" stroke="var(--solar)" stroke-width="3.5"/>
+              <path class="fl" d="M208,140 C250,110 270,90 276,78" stroke="var(--grid)" stroke-width="3"/>
+              <path class="fl" d="M152,186 C120,210 100,225 84,236" stroke="var(--teal-br)" stroke-width="3.2"/>
+              <path class="fl" d="M210,184 C250,210 270,225 282,238" stroke="var(--teal-gl)" stroke-width="3.4"/>
+            </g>
+          </svg>
+          <!-- 24h chart -->
+          <div style="display:flex;flex-direction:column">
+            <div class="sub" style="margin-bottom:6px">Production · consommation · batterie — 24 h</div>
+            <svg viewBox="0 0 520 240" width="100%" height="100%" preserveAspectRatio="none" style="flex:1">
+              <g stroke="#143b4c" stroke-width="1">
+                <line x1="0" y1="60" x2="520" y2="60"/><line x1="0" y1="120" x2="520" y2="120"/><line x1="0" y1="180" x2="520" y2="180"/>
+              </g>
+              <!-- consumption -->
+              <path d="M0,150 C60,150 80,120 120,110 C170,98 200,70 260,66 C320,62 360,150 420,150 C470,150 500,120 520,118 L520,240 L0,240 Z" fill="rgba(99,224,210,.10)" stroke="var(--teal-gl)" stroke-width="2"/>
+              <!-- production (solar bell) -->
+              <path d="M0,210 C90,210 120,205 160,150 C210,80 250,40 280,40 C320,40 360,90 400,160 C430,205 470,210 520,210" fill="none" stroke="var(--solar)" stroke-width="2.5"/>
+              <path d="M0,210 C90,210 120,205 160,150 C210,80 250,40 280,40 C320,40 360,90 400,160 C430,205 470,210 520,210 L520,240 L0,240 Z" fill="rgba(244,183,64,.10)" stroke="none"/>
+              <!-- battery soc line -->
+              <path d="M0,170 C60,150 110,120 160,120 C220,120 240,60 300,60 C360,60 400,110 460,140 C490,155 510,160 520,160" fill="none" stroke="var(--teal-br)" stroke-width="2" stroke-dasharray="5 4"/>
+            </svg>
+            <div class="legend">
+              <span><span class="dot" style="background:var(--solar)"></span>Production</span>
+              <span><span class="dot" style="background:var(--teal-gl)"></span>Consommation</span>
+              <span><span class="dot" style="background:var(--teal-br)"></span>Batterie SoC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: pilotage -->
+    <div class="col">
+      <div class="panel">
+        <div class="ph"><h3>Pilotage</h3><span class="sub">mode actif</span></div>
+        <div class="mode">
+          <div class="mbtn on">Autoconso.</div><div class="mbtn">Revente</div>
+          <div class="mbtn">Charge forcée</div><div class="mbtn">Backup</div>
+        </div>
+        <div class="row"><span class="k">Fenêtre de charge</span><span class="val">02:00 – 05:30</span></div>
+        <div class="row"><span class="k">SoC minimum réseau</span><span class="val">30 %</span></div>
+        <div class="slider"><div class="fillb"></div><div class="knob"></div></div>
+        <div class="row"><span class="k">Limite d’export</span><span class="val">500 kW</span></div>
+        <div class="row"><span class="k">Tarif (day-ahead)</span><span class="val" style="color:var(--solar)">0,21 €/kWh</span></div>
+      </div>
+
+      <div class="panel">
+        <div class="ph"><h3>Scénario IA</h3><span class="sub">prévision occupation + météo</span></div>
+        <div class="scn">
+          <span class="chip on">☀ Haute saison</span><span class="chip">Pré-refroidissement</span>
+          <span class="chip">Pic d’arrivées 16 h</span><span class="chip">Recharge VE nuit</span>
+        </div>
+        <div class="row" style="margin-top:10px"><span class="k">Charge prévue (J+1)</span><span class="val">+12% · 31 °C</span></div>
+        <div class="row"><span class="k">Reco. dispatch</span><span class="val" style="color:var(--teal-gl)">stocker 14–16 h</span></div>
+      </div>
+
+      <div class="panel grow">
+        <div class="ph"><h3>Alertes &amp; santé</h3><span class="sub">site OK</span></div>
+        <div class="alerts">
+          <div class="al">✓ 8 onduleurs en ligne · 0 défaut</div>
+          <div class="al warn">⚠ String PV-3 : −7% rendement (à inspecter)</div>
+          <div class="al">✓ Batterie : SoH 99% · temp. 24 °C</div>
+          <div class="al">✓ Reporting carbone ESG à jour (CSRD)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECOGRID RESORT™ — Présentation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Mono:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+:root{--navy:#071a24;--navy2:#0a2330;--teal:#1F7A6D;--teal-br:#34E0C8;--teal-gl:#63E0D2;--solar:#F4B740;--grid:#7FB2E6;--txt:#e7f3f3;--mut:#9fbac1;--line:#1d4a5e}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'IBM Plex Sans',sans-serif;color:var(--txt);background:var(--navy);overflow-x:hidden;scroll-snap-type:y mandatory;overflow-y:scroll;height:100vh}
+.slide{min-height:100vh;width:100vw;display:flex;flex-direction:column;justify-content:flex-start;align-items:center;
+  padding:84px 7vw 70px;position:relative;scroll-snap-align:start;
+  background:radial-gradient(1100px 500px at 80% -10%,rgba(31,122,109,.14),transparent 60%),linear-gradient(165deg,#0a2533,#071a24 70%)}
+.slide:nth-child(even){background:radial-gradient(900px 500px at 15% 110%,rgba(31,122,109,.16),transparent 60%),linear-gradient(165deg,#08202c,#06161f 70%)}
+.slide.center{justify-content:center}
+.kick{font-family:'Sora';font-weight:600;letter-spacing:4px;font-size:12px;color:var(--teal-gl);text-transform:uppercase;margin-bottom:12px}
+h1.big{font-family:'Sora';font-weight:800;font-size:clamp(30px,5vw,62px);line-height:1.05;letter-spacing:-.5px}
+h2{font-family:'Sora';font-weight:700;font-size:clamp(24px,3.4vw,40px);line-height:1.1;margin-bottom:8px}
+.lead{color:var(--mut);font-size:clamp(15px,1.5vw,20px);max-width:920px;margin-top:14px;line-height:1.5}
+.wrap{width:100%;max-width:1180px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.card{background:linear-gradient(180deg,#0e2a37,#0b2330);border:1px solid var(--line);border-top:3px solid var(--teal);border-radius:14px;padding:20px 22px}
+.card.solar{border-top-color:var(--solar)} .card.grid{border-top-color:var(--grid)}
+.card h3{font-family:'Sora';font-size:17px;margin-bottom:12px;color:#fff}
+.card ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.card li{font-size:14.5px;color:#cfe4e3;padding-left:18px;position:relative;line-height:1.4}
+.card li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:2px;background:var(--teal-br)}
+.card.solar li::before{background:var(--solar)} .card.grid li::before{background:var(--grid)}
+.kv{font-family:'IBM Plex Mono';color:var(--teal-gl);font-weight:700}
+.framebox{width:100%;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:hidden;margin-top:14px}
+.stagebox{transform-origin:center center;flex:none}
+iframe{border:0;display:block;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.note{margin-top:14px;font-size:12.5px;color:#6f8a93}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px;width:100%}
+.step{background:linear-gradient(180deg,#0e2a37,#0b2330);border:1px solid var(--line);border-radius:14px;padding:18px}
+.step .y{font-family:'IBM Plex Mono';font-weight:700;color:var(--teal-gl);font-size:18px}
+.step p{font-size:14px;color:#cfe4e3;margin-top:8px;line-height:1.4}
+.tag-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.tg{background:#0c2532;border:1px solid var(--line);border-radius:20px;padding:8px 15px;font-size:14px;color:#cfe4e3}
+.tg b{color:var(--teal-gl)}
+.topbar{position:fixed;top:0;left:0;right:0;height:58px;display:flex;align-items:center;gap:18px;padding:0 24px;z-index:50;background:linear-gradient(180deg,rgba(7,26,36,.92),rgba(7,26,36,.4));backdrop-filter:blur(6px)}
+.logo{font-family:'Sora';font-weight:800;font-size:17px}.logo b{color:var(--teal-gl)}
+.sp{flex:1}
+.toggle{display:flex;background:#0c2532;border:1px solid var(--line);border-radius:22px;overflow:hidden;font-size:13px;font-weight:600}
+.toggle button{background:transparent;border:0;color:var(--mut);padding:8px 16px;cursor:pointer;font-family:inherit}
+.toggle button.on{background:linear-gradient(180deg,#13564f,#0e3f3b);color:#fff}
+.counter{font-family:'IBM Plex Mono';font-size:13px;color:var(--mut)}
+.nav{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:11px}
+.nav a{width:11px;height:11px;border-radius:50%;background:#1d4a5e;transition:.25s;cursor:pointer;display:block}
+.nav a.on{background:var(--teal-br);box-shadow:0 0 9px var(--teal-br);height:26px;border-radius:6px}
+.arrows{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:10px}
+.arrows button{background:#0c2532;border:1px solid var(--line);color:var(--teal-gl);width:42px;height:36px;border-radius:9px;font-size:17px;cursor:pointer}
+.hint{position:fixed;bottom:24px;right:22px;z-index:50;font-size:12px;color:#5d7780}
+</style></head>
+<body>
+
+<div class="topbar">
+  <div class="logo">ECOGRID&nbsp;RESORT<b>™</b></div>
+  <div class="sp"></div>
+  <span class="counter" id="counter">01 / 09</span>
+  <div class="toggle"><button id="bFR" class="on">Français</button><button id="bEN">English</button></div>
+</div>
+
+<div class="nav" id="nav"></div>
+<div class="arrows"><button id="prev">↑</button><button id="next">↓</button></div>
+<div class="hint" data-i18n="hint">← → / molette pour naviguer</div>
+
+<div id="deck">
+
+  <section class="slide" data-label="Intro">
+    <div class="framebox"><div class="stagebox" data-w="1280" data-h="720"><iframe data-base="story.html" src="story.html" width="1280" height="720" scrolling="no"></iframe></div></div>
+  </section>
+
+  <section class="slide" data-label="Concept">
+    <div class="wrap">
+      <div class="kick" data-i18n="c.kick">01 · Le concept</div>
+      <h1 class="big" data-i18n="c.h1">Une plateforme de services,<br>pas un installateur.</h1>
+      <p class="lead" data-i18n="c.lead">ECOGRID RESORT™ est le « système d’exploitation » énergétique du site : il orchestre en temps réel des actifs multi-marques pour maximiser l’autoconsommation, écrêter la pointe et préserver le confort client.</p>
+      <div class="cards">
+        <div class="card"><h3 data-i18n="c.are.h">Ce que nous sommes</h3><ul><li data-i18n="c.are.1">La plateforme SaaS qui orchestre plusieurs marques de matériel</li><li data-i18n="c.are.2">Le vertical tourisme : app client, occupation, ESG, labels</li><li data-i18n="c.are.3">L’accès distribution via l’écosystème COREPROMA</li></ul></div>
+        <div class="card solar"><h3 data-i18n="c.arent.h">Ce que nous ne sommes pas</h3><ul><li data-i18n="c.arent.1">Un fabricant de matériel (onduleurs, batteries)</li><li data-i18n="c.arent.2">Un simple EMS d’onduleur — une commodité</li><li data-i18n="c.arent.3">Verrouillé à une seule marque</li></ul></div>
+        <div class="card grid"><h3 data-i18n="c.moat.h">Notre fossé</h3><ul><li data-i18n="c.moat.1">Distribution : accès déjà existant au segment</li><li data-i18n="c.moat.2">Donnée d’occupation → prévision de charge IA</li><li data-i18n="c.moat.3">Orchestration multi-marques + couche tourisme/ESG</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="Fonctionnement">
+    <div class="kick" data-i18n="hw.kick">02 · Comment ça marche</div>
+    <h2 style="text-align:center" data-i18n="hw.h2">Le micro-réseau du site, orchestré en temps réel</h2>
+    <div class="framebox"><div class="stagebox" data-w="1280" data-h="720"><iframe data-base="schema.html" src="schema.html" width="1280" height="720" scrolling="no"></iframe></div></div>
+  </section>
+
+  <section class="slide" data-label="App">
+    <div class="kick" data-i18n="app.kick">03 · L’application</div>
+    <h2 style="text-align:center" data-i18n="app.h2">Un cockpit pour piloter l’installation</h2>
+    <div class="framebox"><div class="stagebox" data-w="1440" data-h="900"><iframe data-base="cockpit.html" src="cockpit.html" width="1440" height="900" scrolling="no"></iframe></div></div>
+    <div class="note" data-i18n="app.note">Maquette de démonstration — données illustratives (scénario pilote non audité).</div>
+  </section>
+
+  <section class="slide" data-label="Marché">
+    <div class="wrap">
+      <div class="kick" data-i18n="mk.kick">04 · Le marché</div>
+      <h2 data-i18n="mk.h2">Tourisme de plein air en Europe du Sud</h2>
+      <div class="cards">
+        <div class="card"><h3 data-i18n="mk1.h">Cible</h3><ul><li data-i18n="mk1.1">Campings, villages vacances, resorts &amp; éco-destinations</li><li data-i18n="mk1.2">Espagne, Italie, Corse, Sardaigne</li><li data-i18n="mk1.3"><span class="kv">≈ 12 000 sites</span> (ordre de grandeur à confirmer)</li></ul></div>
+        <div class="card solar"><h3 data-i18n="mk2.h">La douleur</h3><ul><li data-i18n="mk2.1">Factures volatiles : clim, piscines, ECS, restauration</li><li data-i18n="mk2.2">Contraintes de raccordement en zone touristique</li><li data-i18n="mk2.3">Besoin d’une preuve bas carbone mesurable</li></ul></div>
+        <div class="card grid"><h3 data-i18n="mk3.h">Vent réglementaire</h3><ul><li data-i18n="mk3.1">EPBD 2024/1275 · loi APER (ombrières parkings)</li><li data-i18n="mk3.2">CSRD — reporting durabilité</li><li data-i18n="mk3.3"><b>Îles d’abord</b> : ZNI, soutien &amp; résilience maximaux</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-label="Modèle">
+    <div class="wrap">
+      <div class="kick" data-i18n="md.kick">05 · Le modèle économique</div>
+      <h2 data-i18n="md.h2">Un hybride actifs + SaaS</h2>
+      <div class="cards" style="grid-template-columns:repeat(4,1fr)">
+        <div class="card"><h3 data-i18n="md1.h">Construire</h3><ul><li data-i18n="md1.1">Ingénierie, fourniture &amp; installation</li><li data-i18n="md1.2">Marge EPC par site</li></ul></div>
+        <div class="card"><h3 data-i18n="md2.h">Logiciel &amp; O&amp;M</h3><ul><li data-i18n="md2.1">Licence SaaS (EMS, ESG)</li><li data-i18n="md2.2">Supervision 24/7 — récurrent</li></ul></div>
+        <div class="card solar"><h3 data-i18n="md3.h">Valeur énergie</h3><ul><li data-i18n="md3.1">Autoconso, revente surplus</li><li data-i18n="md3.2">Recharge VE, flexibilité / VPP</li></ul></div>
+        <div class="card grid"><h3 data-i18n="md4.h">Plateforme</h3><ul><li data-i18n="md4.1">Energy-as-a-service, conseil ESG</li><li data-i18n="md4.2">Franchise / licence de marque</li></ul></div>
+      </div>
+      <p class="lead" data-i18n="md.foot">À maturité, la valeur vient du réseau de sites connectés et des revenus récurrents — pas de la vente de matériel.</p>
+    </div>
+  </section>
+
+  <section class="slide" data-label="Investir">
+    <div class="wrap">
+      <div class="kick" data-i18n="inv.kick">06 · Investir &amp; co-développer</div>
+      <h2 data-i18n="inv.h2">Un modèle ouvert — trois profils</h2>
+      <div class="cards">
+        <div class="card"><h3 data-i18n="inv1.h">Industriel / EPC</h3><ul><li data-i18n="inv1.1">Co-investit en fonds propres</li><li data-i18n="inv1.2">Pilote installation &amp; achats</li><li data-i18n="inv1.3">Marge EPC + rendement d’actif</li></ul></div>
+        <div class="card solar"><h3 data-i18n="inv2.h">Infrastructure / ombrières</h3><ul><li data-i18n="inv2.1">Fournit &amp; finance les structures PV</li><li data-i18n="inv2.2">Abritant onduleurs &amp; batteries</li><li data-i18n="inv2.3">Participe à l’installation</li></ul></div>
+        <div class="card grid"><h3 data-i18n="inv3.h">Financier (fonds / VC)</h3><ul><li data-i18n="inv3.1">Apport en capital</li><li data-i18n="inv3.2">Rendement financier</li></ul></div>
+      </div>
+      <p class="lead" data-i18n="inv.core"><b style="color:var(--teal-gl)">COREPROMA apporte (constant)</b> : le cœur logiciel EMS/IA, la marque, l’O&amp;M, le reporting ESG et l’accès marché. Véhicule : un SPV d’actifs par site, cœur logiciel partagé.</p>
+    </div>
+  </section>
+
+  <section class="slide" data-label="Roadmap">
+    <div class="wrap">
+      <div class="kick" data-i18n="rd.kick">07 · Feuille de route</div>
+      <h2 data-i18n="rd.h2">De la vitrine corse à la plateforme européenne</h2>
+      <div class="steps">
+        <div class="step"><div class="y">2026-27</div><p data-i18n="rd1">Pilote insulaire (Corse) : études, permis, financement, construction</p></div>
+        <div class="step"><div class="y">2028</div><p data-i18n="rd2">Exploitation, preuves KPI, premiers contrats</p></div>
+        <div class="step"><div class="y">2029-31</div><p data-i18n="rd3">Industrialisation : France · Italie · Espagne</p></div>
+        <div class="step"><div class="y">2032+</div><p data-i18n="rd4">Plateforme européenne, 100+ sites connectés</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide center" data-label="Clôture">
+    <div class="wrap" style="text-align:center">
+      <div class="kick">ECOGRID RESORT™</div>
+      <h1 class="big" data-i18n="cl.h1">L’énergie intelligente<br>au service du tourisme durable.</h1>
+      <p class="lead" style="margin-left:auto;margin-right:auto" data-i18n="cl.lead">Transformer chaque destination en un écosystème autonome, performant et responsable.</p>
+      <div class="tag-row" style="justify-content:center"><span class="tg" data-i18n="cl.tg1"><b>Teaser</b> · Concept 2-pages</span><span class="tg" data-i18n="cl.tg2"><b>Expérience</b> · cette présentation</span><span class="tg" data-i18n="cl.tg3"><b>Leave-behind</b> · deck investisseur</span></div>
+      <div class="note" data-i18n="cl.note">COREPROMA · Document de présentation · 2026 · confidentiel</div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const EN={
+ 'hint':'← → / wheel to navigate',
+ 'c.kick':'01 · The concept','c.h1':'A services platform,<br>not an installer.',
+ 'c.lead':'ECOGRID RESORT™ is the energy “operating system” of the site: it orchestrates multi-brand assets in real time to maximise self-consumption, shave peaks and protect guest comfort.',
+ 'c.are.h':'What we are','c.are.1':'The SaaS platform that orchestrates multiple hardware brands','c.are.2':'The tourism vertical: guest app, occupancy, ESG, labels','c.are.3':'Distribution access via the COREPROMA ecosystem',
+ 'c.arent.h':'What we are not','c.arent.1':'A hardware manufacturer (inverters, batteries)','c.arent.2':'A mere inverter EMS — a commodity','c.arent.3':'Locked to a single brand',
+ 'c.moat.h':'Our moat','c.moat.1':'Distribution: already-existing access to the segment','c.moat.2':'Occupancy data → AI load forecasting','c.moat.3':'Multi-brand orchestration + tourism/ESG layer',
+ 'hw.kick':'02 · How it works','hw.h2':'The site micro-grid, orchestrated in real time',
+ 'app.kick':'03 · The app','app.h2':'A cockpit to pilot the installation','app.note':'Demo mockup — illustrative data (unaudited pilot scenario).',
+ 'mk.kick':'04 · The market','mk.h2':'Open-air tourism in Southern Europe',
+ 'mk1.h':'Target','mk1.1':'Campsites, holiday villages, resorts &amp; eco-destinations','mk1.2':'Spain, Italy, Corsica, Sardinia','mk1.3':'<span class="kv">≈ 12,000 sites</span> (order of magnitude to confirm)',
+ 'mk2.h':'The pain','mk2.1':'Volatile bills: A/C, pools, hot water, catering','mk2.2':'Connection constraints in tourist areas','mk2.3':'Need for measurable low-carbon proof',
+ 'mk3.h':'Regulatory tailwind','mk3.1':'EPBD 2024/1275 · loi APER (car-park solar)','mk3.2':'CSRD — sustainability reporting','mk3.3':'<b>Islands first</b>: non-interconnected, max support &amp; resilience',
+ 'md.kick':'05 · The business model','md.h2':'A hybrid of assets + SaaS',
+ 'md1.h':'Build','md1.1':'Engineering, supply &amp; installation','md1.2':'EPC margin per site',
+ 'md2.h':'Software &amp; O&amp;M','md2.1':'SaaS licence (EMS, ESG)','md2.2':'24/7 supervision — recurring',
+ 'md3.h':'Energy value','md3.1':'Self-consumption, surplus resale','md3.2':'EV charging, flexibility / VPP',
+ 'md4.h':'Platform','md4.1':'Energy-as-a-service, ESG advisory','md4.2':'Franchise / brand licence',
+ 'md.foot':'At maturity, value comes from the network of connected sites and recurring revenue — not from selling hardware.',
+ 'inv.kick':'06 · Invest &amp; co-develop','inv.h2':'An open model — three profiles',
+ 'inv1.h':'Industrial / EPC','inv1.1':'Co-invests equity','inv1.2':'Leads installation &amp; procurement','inv1.3':'EPC margin + asset returns',
+ 'inv2.h':'Infrastructure / carports','inv2.1':'Supplies &amp; finances the PV structures','inv2.2':'Housing inverters &amp; batteries','inv2.3':'Takes part in installation',
+ 'inv3.h':'Financial (fund / VC)','inv3.1':'Capital contribution','inv3.2':'Financial return',
+ 'inv.core':'<b style="color:var(--teal-gl)">COREPROMA brings (constant)</b>: the EMS/AI software core, the brand, O&amp;M, ESG reporting and market access. Vehicle: one asset SPV per site, shared software core.',
+ 'rd.kick':'07 · Roadmap','rd.h2':'From the Corsican showcase to the European platform',
+ 'rd1':'Island pilot (Corsica): studies, permits, financing, build','rd2':'Operation, KPI proof, first contracts','rd3':'Industrialisation: France · Italy · Spain','rd4':'European platform, 100+ connected sites',
+ 'cl.h1':'Smart energy<br>for sustainable tourism.','cl.lead':'Turning every destination into an autonomous, high-performing and responsible ecosystem.',
+ 'cl.tg1':'<b>Teaser</b> · 2-page concept','cl.tg2':'<b>Experience</b> · this presentation','cl.tg3':'<b>Leave-behind</b> · investor deck',
+ 'cl.note':'COREPROMA · Presentation document · 2026 · confidential'
+};
+const i18n=[...document.querySelectorAll('[data-i18n]')];
+const FR={}; i18n.forEach(el=>FR[el.dataset.i18n]=el.innerHTML);
+const bFR=document.getElementById('bFR'),bEN=document.getElementById('bEN');
+function setLang(l){
+  i18n.forEach(el=>{const k=el.dataset.i18n;const v=(l==='en')?(EN[k]!==undefined?EN[k]:FR[k]):FR[k];el.innerHTML=v;});
+  document.documentElement.lang=l;
+  document.querySelectorAll('iframe[data-base]').forEach(f=>{const b=f.dataset.base;f.src=(l==='en'?b.replace('.html','.en.html'):b);});
+  bFR.classList.toggle('on',l==='fr');bEN.classList.toggle('on',l==='en');
+}
+bFR.onclick=()=>setLang('fr');bEN.onclick=()=>setLang('en');
+
+// navigation
+const slides=[...document.querySelectorAll('.slide')];
+const nav=document.getElementById('nav');const counter=document.getElementById('counter');let cur=0;
+slides.forEach((s,i)=>{const a=document.createElement('a');a.onclick=()=>go(i);nav.appendChild(a);});
+const dots=[...nav.children];
+const p2=n=>String(n).padStart(2,'0');
+function setActive(i){cur=i;dots.forEach((d,k)=>d.classList.toggle('on',k===i));counter.textContent=p2(i+1)+' / '+p2(slides.length);}
+function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:'smooth'});}
+addEventListener('keydown',e=>{if(['ArrowDown','ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();go(cur+1);}if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(cur-1);}});
+document.getElementById('next').onclick=()=>go(cur+1);document.getElementById('prev').onclick=()=>go(cur-1);
+const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting)setActive(slides.indexOf(en.target));})},{threshold:.55});
+slides.forEach(s=>io.observe(s));
+function fit(){document.querySelectorAll('.stagebox').forEach(b=>{const w=+b.dataset.w,h=+b.dataset.h;const p=b.parentElement;const s=Math.min(p.clientWidth/w,p.clientHeight/h);b.style.transform='scale('+s+')';});}
+addEventListener('resize',fit);setTimeout(fit,300);setTimeout(fit,1200);fit();
+setActive(0);setLang('fr');
+</script>
+</body></html>
