@@ -45,6 +45,9 @@ SaaS_Projects/
   gttourz/                   supercar driving-tour operator platform
   jobstracker/               field-ops platform for construction trades
                              (product-spec.md + business-plan.md)
+  SmartGrid/                 EcoGrid Resort — solar micro-grid platform for
+                             southern-European resorts & campsites
+                             (product-spec.md + commercial / investor decks)
   waypointscreator/          DJI drone mission planning
 ```
 
@@ -94,8 +97,10 @@ Take it as an invitation to schedule a short sync.
 
 ## Status
 
-- **Products documented:** **6 of 6** (COREPROMA, EmailRelay, FindAllProperty,
-  GTTourz, Jobs Tracker, WaypointsCreator). GTTourz brain landed 2026-05-23.
+- **Products documented:** **7 of 7** (COREPROMA, EmailRelay, FindAllProperty,
+  GTTourz, Jobs Tracker, WaypointsCreator, EcoGrid Resort). GTTourz brain landed
+  2026-05-23; EcoGrid Resort added 2026-06-02 as **Play 4 (Energy / Smart Grid)**,
+  at commercial / investor stage (no code yet).
 - **Business plans:** Play 1 only (FindAllProperty, COREPROMA, Jobs Tracker)
   — draft v0.1 created 2026-05-23. One consolidated Play 1 plan at
   `_portfolio/play-1-business-plan.md`. Plays 2 and 3 deferred.
@@ -127,7 +132,8 @@ product's `business-plan.md` §10 for detail):
 
 ## Note on CLAUDE.md
 
-The `CLAUDE.md` at the root is a context file for AI coding assistants
-working on the **COREPROMA codebase** (located at
-`c:\MPS\ClaudeProject\ChiolaConstruction`). It is not relevant to the other
-products and can be ignored when working on strategy or other-product docs.
+The `CLAUDE.md` at the root is the AI-assistant context file for **this
+portfolio workspace** — it explains that `SaaS_Projects` is a planning /
+command-center repo (not production code) and points to each venture's folder.
+It was previously coupled to the COREPROMA codebase; that coupling was removed
+so the file now describes the workspace itself.

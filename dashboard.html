@@ -17,6 +17,7 @@
     --play1: #1d4ed8;
     --play2: #7c3aed;
     --play3: #d97706;
+    --play4: #0d9488;
     --play-unknown: #6b7280;
     --status-live: #047857;
     --status-pilot: #b45309;
@@ -102,7 +103,7 @@
   }
 
   /* Plays */
-  .plays { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .plays { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
   .play {
     background: var(--panel);
     border: 1px solid var(--line);
@@ -114,6 +115,7 @@
   .play.p1 { border-left-color: var(--play1); }
   .play.p2 { border-left-color: var(--play2); }
   .play.p3 { border-left-color: var(--play3); }
+  .play.p4 { border-left-color: var(--play4); }
   .play h3 { margin: 0 0 6px; font-size: 14px; font-weight: 600; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; }
   .play .name { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
   .play .products { font-size: 13px; color: var(--ink-muted); }
@@ -130,6 +132,7 @@
   .product-card.p1 { border-top-color: var(--play1); }
   .product-card.p2 { border-top-color: var(--play2); }
   .product-card.p3 { border-top-color: var(--play3); }
+  .product-card.p4 { border-top-color: var(--play4); }
   .product-card .head {
     display: flex;
     justify-content: space-between;
@@ -313,8 +316,8 @@
 <h2>1. Big picture</h2>
 
 <p>
-The portfolio is <strong>6 SaaS products</strong> grouped into
-<strong>3 strategic plays</strong>. The plays do <em>not</em> form a single unified ecosystem
+The portfolio is <strong>7 SaaS products</strong> grouped into
+<strong>4 strategic plays</strong>. The plays do <em>not</em> form a single unified ecosystem
 &mdash; pretending they do leads to bad capital-allocation decisions.
 For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portfolio/ecosystem-vision.md</code></a>.
 </p>
@@ -334,6 +337,11 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
     <h3>Play 3 — Standalone bets</h3>
     <div class="name">Vertical niches</div>
     <div class="products">WaypointsCreator (drones) · GTTourz (supercar tours)</div>
+  </div>
+  <div class="play p4">
+    <h3>Play 4 — Energy</h3>
+    <div class="name">Resort smart-grid</div>
+    <div class="products">EcoGrid Resort (solar micro-grids)</div>
   </div>
 </div>
 
@@ -533,6 +541,32 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
     </div>
   </div>
 
+  <!-- EcoGrid Resort -->
+  <div class="product-card p4">
+    <div class="head">
+      <h3>EcoGrid Resort</h3>
+      <span class="play-label">Play 4</span>
+    </div>
+    <span class="badge pre">Concept / investor stage</span>
+    <div class="tagline">Solar micro-grid platform turning southern-European resorts &amp; campsites into smart grids</div>
+    <dl>
+      <dt>Brand</dt><dd>ECOGRID RESORT™ — owned in-house by COREPROMA / the team (no co-brand partner)</dd>
+      <dt>Positioning</dt><dd>Smart-grid module of the COREPROMA ecosystem; sold site-by-site, then as a European network</dd>
+      <dt>Model</dt><dd>Hybrid: EPC asset margin + recurring SaaS (AI/EMS, ESG reporting) + energy value (self-consumption, EV, VPP) + franchise/licence</dd>
+      <dt>Market</dt><dd>Campsites, holiday villages, resorts — Spain, Italy, Corsica, Sardinia (~12k sites, unaudited order of magnitude)</dd>
+      <dt>Pilot</dt><dd>Marine de Caprone, Ghisonaccia (Corsica) — ~2 MWc solar · ~6 MWh LFP storage · 30–50 EV chargers · CAPEX ~€5.7M (non-audited)</dd>
+      <dt>Roadmap</dt><dd>2026–27 island pilot · 2028 ops + KPI proof · 2029–31 FR/IT/ES · 2032+ European platform (100+ sites)</dd>
+      <dt>Software</dt><dd>AI-driven EMS, client app (EcoScore, EV booking), carbon/ESG reporting · <span class="todo">stack not yet defined (no code)</span></dd>
+      <dt>Repo</dt><dd><span class="todo">No code yet — commercial / investor stage</span></dd>
+      <dt>Blocker</dt><dd>Audited pilot financial model + signed investor / EPC partner before any build</dd>
+    </dl>
+    <div class="links">
+      <a href="SmartGrid/product-spec.md">product-spec.md</a>
+      <a href="SmartGrid/Commercial/ECOGRID_RESORT_Investors_EN.pdf">Investor deck (EN)</a>
+      <a href="SmartGrid/Commercial/ECOGRID_RESORT_Investisseurs_FR.pdf">Deck investisseur (FR)</a>
+    </div>
+  </div>
+
 </div>
 </section>
 
@@ -577,9 +611,10 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
   the three products as one strategic bet. Read this first; it includes an honest section on what is and is not built today.
 </p>
 
-<h3>Plays 2 &amp; 3 (deferred)</h3>
+<h3>Plays 2, 3 &amp; 4 (deferred)</h3>
 <p style="color: var(--ink-muted); font-size: 13px;">
   EmailRelay, WaypointsCreator, GTTourz — business plans not yet drafted. Will be picked up after Play 1 BPs stabilise (target: post-2026-Q3).
+  EcoGrid Resort (Play 4) has investor decks and a 2-pager in <code>SmartGrid/Commercial/</code> but no template-form business plan yet.
 </p>
 
 <h3>Cost tracking</h3>
@@ -658,9 +693,9 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
       <td>Modular monolith. Third stack family on Azure — sharpens <span class="dtag">D-05</span>.</td>
     </tr>
     <tr>
-      <td><strong>TBD</strong></td>
-      <td>FindAllProperty</td>
-      <td>Stack policy is <span class="dtag">D-05</span> in open decisions</td>
+      <td><strong>TBD / none yet</strong></td>
+      <td>FindAllProperty · EcoGrid Resort</td>
+      <td>FindAllProperty stack policy is <span class="dtag">D-05</span>. EcoGrid Resort is concept-stage — no code written yet.</td>
     </tr>
   </tbody>
 </table>
@@ -709,6 +744,11 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
     <tr>
       <td>FindAllProperty</td>
       <td colspan="3"><span class="todo">TBD entire stack</span></td>
+      <td><span class="todo">—</span></td>
+    </tr>
+    <tr>
+      <td>EcoGrid Resort</td>
+      <td colspan="3"><span class="todo">No infrastructure yet — concept / investor stage</span></td>
       <td><span class="todo">—</span></td>
     </tr>
   </tbody>
@@ -893,7 +933,7 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
 <ul>
   <li><a href="README.md"><code>README.md</code></a> — folder guide for Mark</li>
   <li><a href="CONVENTIONS.md"><code>CONVENTIONS.md</code></a> — editing rules, git workflow, naming</li>
-  <li><a href="CLAUDE.md"><code>CLAUDE.md</code></a> — AI-assistant context for the COREPROMA codebase</li>
+  <li><a href="CLAUDE.md"><code>CLAUDE.md</code></a> — AI-assistant context for this portfolio workspace</li>
   <li><a href="dashboard.html"><code>dashboard.html</code></a> — this file</li>
 </ul>
 
@@ -937,6 +977,7 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
   <li><a href="findallproperty/product-spec.md"><code>findallproperty/product-spec.md</code></a> · <a href="findallproperty/business-plan.md">business-plan.md</a></li>
   <li><a href="gttourz/product-spec.md"><code>gttourz/product-spec.md</code></a></li>
   <li><a href="jobstracker/product-spec.md"><code>jobstracker/product-spec.md</code></a> · <a href="jobstracker/business-plan.md">business-plan.md</a></li>
+  <li><a href="SmartGrid/product-spec.md"><code>SmartGrid/product-spec.md</code></a> — EcoGrid Resort (+ commercial / investor decks in <code>SmartGrid/Commercial/</code>)</li>
   <li><a href="waypointscreator/product-spec.md"><code>waypointscreator/product-spec.md</code></a></li>
 </ul>
 </section>
@@ -1003,7 +1044,7 @@ For the full narrative see <a href="_portfolio/ecosystem-vision.md"><code>_portf
 </section>
 
 <footer>
-  Dashboard generated 2026-05-22 · last updated 2026-05-23 (GTTourz added · Play 1 BPs + cost scaffolding) from product briefs and portfolio docs in <code>SaaS_Projects/</code>.
+  Dashboard generated 2026-05-22 · last updated 2026-06-02 (EcoGrid Resort added as Play 4 · 2026-05-23 GTTourz + Play 1 BPs + cost scaffolding) from product briefs and portfolio docs in <code>SaaS_Projects/</code>.
   Edit this file the same way as any other document in the repo — branch, commit, PR.
   When a TODO is filled in, replace the <code>&lt;span class="todo"&gt;</code> tag with the value.
 </footer>

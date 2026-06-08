@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLM Council — Play 1 Three Blockers</title>
+<style>
+  :root{
+    --ink:#1a1d24; --muted:#5b6472; --line:#e4e7ec; --bg:#f7f8fa; --card:#fff;
+    --accent:#2f6df0; --warn:#d97706; --agree:#16a34a; --clash:#dc2626;
+    --contrarian:#dc2626; --first:#7c3aed; --expand:#0891b2; --outsider:#ca8a04; --executor:#16a34a;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:16px}
+  .wrap{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+  header.top{border-bottom:2px solid var(--ink);padding-bottom:20px;margin-bottom:32px}
+  .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  h1{font-size:28px;margin:8px 0 6px;line-height:1.25}
+  .sub{color:var(--muted);font-size:14px}
+  .q{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:8px;padding:18px 20px;margin:24px 0;font-size:15px}
+  .q strong{color:var(--ink)}
+  h2{font-size:20px;margin:40px 0 14px;display:flex;align-items:center;gap:10px}
+  .dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+  .verdict{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 24px 18px;
+    box-shadow:0 1px 3px rgba(16,24,40,.04)}
+  .verdict h3{font-size:16px;margin:22px 0 8px}
+  .verdict ol,.verdict ul{margin:8px 0;padding-left:22px}
+  .verdict li{margin:7px 0}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    padding:2px 8px;border-radius:20px;color:#fff;vertical-align:middle}
+  .first-do{background:linear-gradient(135deg,#2f6df0,#1e40af);color:#fff;border-radius:10px;
+    padding:20px 24px;margin:18px 0 0}
+  .first-do .lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.85;font-weight:700}
+  .first-do p{margin:6px 0 0;font-size:17px;font-weight:500}
+
+  /* alignment grid */
+  .matrix{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
+    border-radius:10px;overflow:hidden;font-size:13.5px;margin-top:6px}
+  .matrix th,.matrix td{padding:10px 12px;text-align:center;border-bottom:1px solid var(--line)}
+  .matrix th{background:#f0f2f5;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+  .matrix td:first-child,.matrix th:first-child{text-align:left;font-weight:600;white-space:nowrap}
+  .matrix tr:last-child td{border-bottom:none}
+  .cell-agree{color:var(--agree);font-weight:700}
+  .cell-diff{color:var(--clash);font-weight:700}
+  .legend{font-size:12px;color:var(--muted);margin:10px 2px 0}
+  .legend b{color:var(--agree)}
+
+  details{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:10px 0;overflow:hidden}
+  details[open]{box-shadow:0 1px 3px rgba(16,24,40,.05)}
+  summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;display:flex;align-items:center;gap:10px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";margin-left:auto;color:var(--muted);font-size:18px;font-weight:400}
+  details[open] summary::after{content:"–"}
+  .body{padding:0 18px 16px;font-size:14.5px;color:#33383f}
+  .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;color:#fff}
+  .t-contrarian{background:var(--contrarian)} .t-first{background:var(--first)}
+  .t-expand{background:var(--expand)} .t-outsider{background:var(--outsider)} .t-executor{background:var(--executor)}
+  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  .note{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:14px 18px;font-size:14px;margin:14px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="eyebrow">LLM Council · Verdict</div>
+    <h1>Play 1 — UK Property Ecosystem: the three blockers</h1>
+    <div class="sub">5 advisors · anonymised peer review · chairman synthesis — 2026-06-05</div>
+  </header>
+
+  <div class="q">
+    <strong>The question:</strong> Two founders, bootstrapped, must resolve the 3 blockers gating Play 1
+    (FindAllProperty → COREPROMA → Jobs Tracker — an aspirational, not-yet-built funnel).
+    <strong>B1:</strong> FindAllProperty revenue model (free consumer tool, partner-referral revenue, no contract/price yet — build the valuation stack or buy PropertyData?).
+    <strong>B2:</strong> D-01 Jobs Tracker — module in COREPROMA Pro (A), standalone SaaS (B), or both (C)? One pilot (CBES).
+    <strong>B3:</strong> D-06 currency — launch-market (A), all GBP (B), or dual-list (C)?
+    What is the right resolution per blocker, and the right <strong>order &amp; timing</strong> given two-founder bandwidth?
+  </div>
+
+  <h2><span class="dot" style="background:var(--accent)"></span>Chairman's verdict</h2>
+  <div class="verdict">
+
+    <h3>Where the council agrees <span class="pill" style="background:var(--agree)">high confidence</span></h3>
+    <ol>
+      <li><strong>Buy PropertyData — never build the valuation stack.</strong> Unanimous. £28–96/mo is noise; the 20–30 dev-weeks are the only scarce asset.</li>
+      <li><strong>Blocker 1 is the <em>only</em> real blocker</strong> — and it's not "build vs buy." It's <em>"will anyone pay for referrals from a free tool with zero traffic?"</em> A sales task, not an engineering task.</li>
+      <li><strong>Blocker 2 → Option A</strong> (module in COREPROMA Pro). You have one customer, not a market. Standalone multi-tenant = premature scaling.</li>
+      <li><strong>Blocker 3 → Option B</strong> (all GBP). UK-only play, clean investor P&amp;L. A 10-minute decision that gates nothing.</li>
+      <li><strong>The ecosystem is an investor story, not yet a product.</strong> No single human walks search→renovate→operate today.</li>
+    </ol>
+
+    <h3>Where the council clashes <span class="pill" style="background:var(--clash)">tension</span></h3>
+    <ul>
+      <li><strong>What an LOI must contain.</strong> Executor: a light LOI from 15 cold emails is the kill test. Contrarian: a bare LOI is "a polite email" — demand a <em>price AND volume</em> commitment. A reviewer pushes further: a zero-traffic tool can't promise volume, so run a <em>concierge test</em> (hand-deliver real leads) before trusting any signature.</li>
+      <li><strong>Multi-tenant now or later.</strong> The Expansionist alone wants auth/billing built multi-tenant "from day one." Everyone else calls it the trap — speculative plumbing for a market of one.</li>
+      <li><strong>The intent-dataset upside.</strong> The boldest idea (a "UK property operating system" on proprietary intent data) is also the most attacked — assumes traffic that doesn't exist and data rights (GDPR / OGL) you may not have.</li>
+    </ul>
+
+    <h3>Blind spots the peer review caught</h3>
+    <ul>
+      <li><strong>Founder-market fit as a kill criterion.</strong> FindAllProperty is consumer <em>adtech/volume</em>; COREPROMA &amp; Jobs Tracker are <em>B2B seat-sales</em>. Two founders running both may be running two companies. Does Play 1 deserve <em>any</em> bandwidth vs the one product with paying customers?</li>
+      <li><strong>CBES concentration risk.</strong> One pilot underwrites two products. What if it churns?</li>
+      <li><strong>The LOI may be unprovable on paper</strong> — concierge lead delivery is more honest than a signature.</li>
+      <li><strong>GDPR / data-licensing</strong> undercut the intent-data thesis.</li>
+    </ul>
+
+    <h3>The recommendation</h3>
+    <p>Treat this as <strong>one real blocker + two ten-minute clean-ups</strong>, and run the real one as a sales experiment, not a build:</p>
+    <ol>
+      <li><strong>Currency — today.</strong> All GBP for Play 1. Close D-06.</li>
+      <li><strong>D-01 — this week.</strong> Option A: Jobs Tracker = a COREPROMA Pro field module reusing existing auth. Keep CBES on its current build. <em>Defer the standalone decision until 5+ paying firms exist.</em> Hits the 2026-07-23 deadline by shrinking the question.</li>
+      <li><strong>FindAllProperty — 3-week LOI-or-kill, starting now. Stop writing the PRD.</strong> Buy PropertyData (£96/mo, zero dev). Pitch ~15 local agents/brokers; get one on a call; secure a <em>priced LOI with a volume expectation</em> — or run a concierge lead test. No priced commitment in 3–4 weeks ⇒ the consumer-funnel thesis is dead, and you've saved 20+ dev-weeks.</li>
+    </ol>
+    <div class="note">⚠ The uncomfortable consensus: <strong>let the B1 result decide whether Play 1 exists at all.</strong> If FindAllProperty can't validate, fold your bandwidth into COREPROMA + the Jobs Tracker module — the only place with real revenue.</div>
+
+    <div class="first-do">
+      <div class="lbl">The one thing to do first</div>
+      <p>This week, send the one-page referral pitch to 15 UK estate agents/brokers and book one call — before any PRD, any code, any PropertyData integration. That conversation tells you what a lead is worth and whether the entire Play 1 funnel has a foundation.</p>
+    </div>
+  </div>
+
+  <h2><span class="dot" style="background:var(--first)"></span>How the advisors aligned</h2>
+  <table class="matrix">
+    <tr>
+      <th>Blocker</th><th>Contrarian</th><th>First Principles</th><th>Expansionist</th><th>Outsider</th><th>Executor</th>
+    </tr>
+    <tr>
+      <td>B1 · Build vs buy valuation</td>
+      <td class="cell-agree">Buy</td><td class="cell-agree">Buy</td><td class="cell-agree">Buy</td><td class="cell-agree">Buy*</td><td class="cell-agree">Buy</td>
+    </tr>
+    <tr>
+      <td>B1 · The real question</td>
+      <td class="cell-agree">Validate demand</td><td class="cell-agree">Validate demand</td><td class="cell-diff">Build dataset</td><td class="cell-agree">Validate demand</td><td class="cell-agree">Validate demand</td>
+    </tr>
+    <tr>
+      <td>B2 · Jobs Tracker</td>
+      <td class="cell-agree">A (module)</td><td class="cell-diff">Defer / let sales decide</td><td class="cell-diff">Both (A first)</td><td class="cell-agree">A (module)</td><td class="cell-agree">A (module)</td>
+    </tr>
+    <tr>
+      <td>B3 · Currency</td>
+      <td class="cell-agree">B (all GBP)</td><td class="cell-diff">Launch-cur → GBP P&amp;L</td><td class="cell-agree">B (all GBP)</td><td class="cell-agree">B (all GBP)</td><td class="cell-agree">B (all GBP)</td>
+    </tr>
+    <tr>
+      <td>Order: B1 first?</td>
+      <td class="cell-agree">Yes</td><td class="cell-agree">Yes</td><td class="cell-agree">Yes</td><td class="cell-diff">No (B3 first)</td><td class="cell-agree">Yes</td>
+    </tr>
+  </table>
+  <p class="legend"><b>Green</b> = aligned with the council majority · <span style="color:var(--clash);font-weight:700">red</span> = diverges. *Outsider implies "buy" via "don't build before validating." Strong convergence on every row except the Expansionist's dataset/multi-tenant ambition and the Outsider's ordering nuance.</p>
+
+  <h2><span class="dot" style="background:var(--executor)"></span>The five advisors in full</h2>
+
+  <details>
+    <summary><span class="tag t-contrarian">Contrarian</span> Only Blocker 1 is real — everything else is procrastination dressed as strategy</summary>
+    <div class="body">
+      <p>Three blockers, but only Blocker 1 is real. A free consumer tool monetised by referral kickbacks is the most overcrowded, lowest-trust corner of UK proptech — Rightmove, Zoopla and a dozen affiliates own those agent/mortgage relationships. "Free OGL data" is zero moat (free to competitors too). The LOI plan is right but raise the bar: an LOI with a <strong>price AND volume commitment</strong>, or it's a polite email. Buy PropertyData; building a stack to save £96/mo while unvalidated is insane.</p>
+      <p>Blocker 2 is a trap disguised as a choice — one pilot, productising n=1 is premature; pick A (module), defer standalone until 5+ paying firms. Blocker 3 is a spreadsheet formatting preference — pick B (all GBP) in ten minutes; treating it as gating is the tell the team is avoiding Blocker 1. Order: LOI-or-kill on FindAllProperty first; everything else waits.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="tag t-first">First Principles</span> Two "blockers" are documentation problems; one is a real bet you haven't made</summary>
+    <div class="body">
+      <p>Strip this down. Blocker 3 (currency) is not a blocker — a reporting-layer formatting choice; pick launch-market currency, normalise to GBP in the investor P&amp;L, done in an afternoon. It gates nothing. Blocker 2 is a false trilemma — you have one pilot, choosing a GTM architecture for a market of one; keep CBES on existing .NET 9, sell to two more firms manually, let <em>their</em> buying behaviour tell you A vs B; the deadline is fake.</p>
+      <p>Blocker 1 isn't build-vs-buy valuation — it's "does anyone pay for referrals from a free tool with zero traffic?" Buy PropertyData (£28/mo is noise), spend 100% of founder energy on one signed LOI. No LOI, no v1.0, no ecosystem. "Play 1" is a story you're telling investors before you've proven a single hand-off has value. You're gated by one unproven revenue thesis, not three blockers.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="tag t-expand">Expansionist</span> FindAllProperty isn't a referral tool — it's a UK property-intent dataset</summary>
+    <div class="body">
+      <p>Buy PropertyData — don't build the valuation stack. FindAllProperty is a <strong>UK property-intent dataset</strong>: every valuation search signals who's about to buy/renovate/let. Referral fees are the floor, not the ceiling — once you have intent volume you sell enriched lead packages, then a property-intent API back to the same agents/lenders. Land the LOI but price it as data access, not a finder's fee.</p>
+      <p>Blocker 2: do BOTH — ship as a COREPROMA Pro module first (fast revenue, CBES validates) but architect auth/billing multi-tenant from day one so the standalone is a config flip, not a rebuild. Blocker 3: all GBP — clean P&amp;L an acquirer can underwrite. Order: PropertyData+LOI first, multi-tenant-arch module second, currency last. The upside nobody's pricing: three products + one identity + a proprietary intent dataset = a UK property operating system.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="tag t-outsider">Outsider</span> Who is the single human walking this funnel? If you can't name them, it's a slide</summary>
+    <div class="body">
+      <p>I don't know your industry, but the story doesn't hold. You call it an ecosystem (search → renovate → operate) but the three products serve totally different people: FindAllProperty is a <strong>consumer</strong> checking a house; Jobs Tracker is a <strong>trades-firm boss</strong> with 38 engineers; COREPROMA is construction management. Who is the single human walking this funnel? If you can't name them, the funnel is a slide, not a product.</p>
+      <p>Blocker 1: a free consumer tool monetised by referral kickbacks is <strong>adtech/price-comparison</strong> (a millions-of-visits volume game), not SaaS — a different skillset from selling COREPROMA seats; two founders running both sounds like two companies. Order: (1) Blocker 3 first, trivial — all GBP today. (2) Blocker 2 — pick A, the module. (3) Blocker 1 last but reframe: get the signed LOI before any PRD or build-vs-buy. Don't build the bridge between three islands before checking anyone wants to cross.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="tag t-executor">Executor</span> Stop writing the PRD — Monday, email 15 estate agents</summary>
+    <div class="body">
+      <p>Build the valuation stack and you've spent your only 20–30 dev-weeks on plumbing. Buy PropertyData (£96/mo tier) — £1,152/yr is a rounding error. Blocker 1 first, but it's a <strong>SALES task, not a dev task</strong>: stop writing the PRD; this week send a one-page email to 15 local estate agents ("free tool sends you qualified vendor leads, pay £X per completion"). You price referrals by getting one agent on a call. Make the ≥1 LOI gate the literal next action. No LOI from 15 emails in 3 weeks ⇒ the thesis is dead and you saved 20 weeks.</p>
+      <p>Blocker 2: Option A, module in COREPROMA Pro — you have one customer, not a market; reuse existing auth; hit 2026-07-23 by descoping to "module," not "platform." Blocker 3: Option B, all GBP, one afternoon. Order: LOI emails this week, module build after LOI lands, currency rule today.</p>
+    </div>
+  </details>
+
+  <h2><span class="dot" style="background:var(--warn)"></span>Peer-review highlights</h2>
+  <details>
+    <summary>What the reviewers converged on (5 anonymised reviews)</summary>
+    <div class="body">
+      <p><strong>Strongest response:</strong> unanimous for the <em>First Principles</em> reframe (reviewed as "A") — for separating the one real bet from two non-decisions and recasting B1 as "does anyone pay from a zero-traffic tool." The <em>Executor</em> was the consistent runner-up for turning it into a concrete this-week test.</p>
+      <p><strong>Biggest blind spot:</strong> unanimous against the <em>Expansionist</em>'s plan — the intent-dataset/property-OS thesis prices the upside of a tool with zero users, and "multi-tenant from day one" burns the scarce founder-weeks the whole council says to protect.</p>
+      <p><strong>What all five advisors missed (only surfaced in review):</strong></p>
+      <ul>
+        <li><strong>Founder-market fit as a kill criterion</strong> — adtech volume vs B2B sales are two companies; should Play 1 exist at all?</li>
+        <li><strong>CBES concentration risk</strong> — one pilot underwrites two products.</li>
+        <li><strong>The LOI may be unprovable on paper</strong> — a concierge lead test beats a signature.</li>
+        <li><strong>GDPR / OGL data-licensing</strong> constraints on monetising property-intent data.</li>
+      </ul>
+    </div>
+  </details>
+
+  <footer>
+    Generated by the LLM Council · 5 advisors (Contrarian, First Principles, Expansionist, Outsider, Executor),
+    anonymised peer review, chairman synthesis. Counciled on <strong>2026-06-05</strong> ·
+    topic: Play 1 three blockers (FindAllProperty revenue model, D-01 Jobs Tracker productisation, D-06 currency).
+    Full transcript: <code>council-transcript-2026-06-05-2353.md</code>.
+    Methodology by Andrej Karpathy.
+  </footer>
+
+</div>
+</body>
+</html>
