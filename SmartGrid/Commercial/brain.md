@@ -230,6 +230,10 @@ Clef Verte / Green Key · Écolabel Européen · Travelife · Biosphere · Green
 | `ECOGRID_Note_Recherche_Marche_Aides_FR.docx` | Note de recherche sourcée (marché + aides + certifications). |
 | `FoxESS_OpenAPI_reference.md` | Référence API FoxESS Cloud (auth, OAuth, endpoints, variables, limites). |
 | `Energy_APIs_MultiVendor_reference.md` | Comparatif des API multi-marques (onduleurs, OCPP/VE, batteries, compteurs, ENTSO-E) + philosophie d'intégration. |
+| `BP/ECOGRID_Business_Plan_FR.docx` / `_EN.docx` | Business plan investisseurs (juin 2026) — 2 modèles commerciaux, équipe, projections 10 ans. |
+| `BP/ECOGRID_Financial_Model_v1.xlsx` | Modèle financier 10 ans (hypothèses modifiables) — site economics, projections, financement. |
+| `BP/BP_interview_notes.md` | Notes d'interview Franck (modèles, équipe, coûts, pricing) — 10/06/2026. |
+| `BP/BP_research_verification_2026-06.md` | Vérification sourcée : marché Eurostat, statut des aides FR/ES/IT, prix électricité, EPBD/APER. |
 
 ### Sources officielles à reconfirmer
 France : INSEE, DGE Tourisme, FNHPA, CRE (ZNI), ADEME, France 2030 · Espagne : INE, IDAE · Italie : ISTAT, Faita-Federcamping, GSE, MIMIT · UE : Commission/CINEA (Fonds innovation, LIFE, Horizon), BEI ; Eurostat (dataset tour_cap_nat).
