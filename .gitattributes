@@ -1,0 +1,110 @@
+# =============================================================
+# .gitattributes — SaaS_Platforms
+# Normalize line endings across platforms; treat binaries as binary.
+# After committing this, run a one-time renormalization:
+#   git add --renormalize .
+#   git commit -m "Normalize line endings via .gitattributes"
+# =============================================================
+
+# Default: let Git decide text vs binary, and normalize stored EOLs to LF.
+# Working-tree EOLs follow each user's core.autocrlf setting.
+* text=auto
+
+# -------------------------------------------------------------
+# Explicit text files — force LF in the repo regardless of platform.
+# -------------------------------------------------------------
+*.md       text eol=lf
+*.txt      text eol=lf
+*.html     text eol=lf
+*.htm      text eol=lf
+*.css      text eol=lf
+*.js       text eol=lf
+*.mjs      text eol=lf
+*.cjs      text eol=lf
+*.jsx      text eol=lf
+*.ts       text eol=lf
+*.tsx      text eol=lf
+*.json     text eol=lf
+*.ndjson   text eol=lf
+*.jsonl    text eol=lf
+*.yml      text eol=lf
+*.yaml     text eol=lf
+*.xml      text eol=lf
+*.svg      text eol=lf
+*.csv      text eol=lf
+*.tsv      text eol=lf
+*.py       text eol=lf
+*.sh       text eol=lf
+*.toml     text eol=lf
+*.ini      text eol=lf
+*.cfg      text eol=lf
+*.sql      text eol=lf
+*.log      text eol=lf
+*.mermaid  text eol=lf
+*.env      text eol=lf
+.gitattributes text eol=lf
+.gitignore     text eol=lf
+
+# Windows-only scripts keep CRLF.
+*.bat      text eol=crlf
+*.cmd      text eol=crlf
+*.ps1      text eol=crlf
+
+# -------------------------------------------------------------
+# Binary files — never EOL-normalized or diffed as text.
+# -------------------------------------------------------------
+# Office documents
+*.docx     binary
+*.doc      binary
+*.xlsx     binary
+*.xls      binary
+*.xlsm     binary
+*.pptx     binary
+*.ppt      binary
+*.odt      binary
+*.ods      binary
+*.odp      binary
+
+# PDF
+*.pdf      binary
+
+# Images
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.bmp      binary
+*.tif      binary
+*.tiff     binary
+*.ico      binary
+*.webp     binary
+*.heic     binary
+
+# Vector / design
+*.ai       binary
+*.eps      binary
+*.psd      binary
+*.sketch   binary
+*.fig      binary
+
+# Audio / video
+*.mp3      binary
+*.wav      binary
+*.mp4      binary
+*.mov      binary
+*.avi      binary
+*.webm     binary
+
+# Fonts
+*.woff     binary
+*.woff2    binary
+*.ttf      binary
+*.otf      binary
+*.eot      binary
+
+# Archives
+*.zip      binary
+*.gz       binary
+*.tar      binary
+*.7z       binary
+*.rar      binary
