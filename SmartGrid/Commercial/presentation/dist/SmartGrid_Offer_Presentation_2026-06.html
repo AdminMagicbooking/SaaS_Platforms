@@ -105,22 +105,10 @@
     table{font-size:12.5px} th,td{padding:8px 9px}
     .slide{padding:60px 18px}
   }
-  /* ---- caret dropdown menu ---- */
-  #caretMenu{position:fixed;top:12px;right:54px;z-index:70}
-  #caretBtn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.92);border:1px solid var(--line);border-radius:22px;padding:7px 14px;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.12);backdrop-filter:blur(4px);transition:.2s}
-  #caretBtn:hover{background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.16)}
-  #caretBtn .arrow{font-size:10px;transition:transform .2s;color:var(--muted)}
-  #caretMenu.open #caretBtn .arrow{transform:rotate(180deg)}
-  #caretDrop{display:none;position:absolute;top:calc(100% + 8px);right:0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.15);min-width:220px;overflow:hidden}
-  #caretMenu.open #caretDrop{display:block}
-  #caretDrop a{display:flex;align-items:center;gap:10px;padding:12px 18px;font-size:13.5px;color:var(--ink);text-decoration:none;transition:.15s}
-  #caretDrop a:hover{background:var(--green-l);color:var(--green-d)}
-  #caretDrop a .mn{font-size:11px;font-weight:700;color:var(--muted);min-width:18px}
-  #caretDrop .sep{height:1px;background:var(--line);margin:2px 0}
   @media print{
     main{height:auto;overflow:visible}
     .slide{min-height:auto;page-break-after:always;border:none}
-    #bar,#dots,.navhint,#caretMenu{display:none}
+    #bar,#dots,.navhint{display:none}
   }
 </style>
 </head>
@@ -128,20 +116,6 @@
 <div id="bar"></div>
 <nav id="dots"></nav>
 <div class="navhint">Use <b>↑ ↓</b> / arrows · click dots · <b>P</b> to print</div>
-
-<!-- caret dropdown menu -->
-<div id="caretMenu">
-  <button id="caretBtn" onclick="document.getElementById('caretMenu').classList.toggle('open')">
-    ☰ Navigate <span class="arrow">▾</span>
-  </button>
-  <div id="caretDrop">
-    <a href="#" onclick="goSlide(0);closeMenu();return false"><span class="mn">①</span> The Offer</a>
-    <div class="sep"></div>
-    <a href="#" onclick="goSlide(8);closeMenu();return false"><span class="mn">②</span> How It Works</a>
-    <div class="sep"></div>
-    <a href="#" onclick="document.getElementById('slide-corsica').scrollIntoView({behavior:'smooth'});closeMenu();return false"><span class="mn">③</span> 🗺️ Corsica Opportunities</a>
-  </div>
-</div>
 
 <main id="deck">
 
@@ -435,129 +409,12 @@
     </div>
   </section>
 
-  <!-- CORSICA OPPORTUNITIES -->
-  <section class="slide" id="slide-corsica" style="background:#f4f7f6;padding-top:80px;padding-bottom:80px">
-    <div class="wrap" style="max-width:1100px">
-      <div class="kicker"><span class="n">③</span> Market opportunity</div>
-      <h2>Corsica — 29 premium campsites, mapped</h2>
-      <p class="lede">Non-exhaustive survey of 4★ and 5★ campsites across the island — the highest-priority segment for EcoGrid Resort™ deployment. Island grid constraints (ZNI), high energy intensity and strong tourism footfall make Corsica the ideal launch market.</p>
-
-      <!-- MAP -->
-      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-      <div style="position:relative;margin-top:22px">
-        <div id="corsica-map" style="height:430px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)"></div>
-        <div style="position:absolute;bottom:10px;left:10px;z-index:800;background:rgba(255,255,255,.92);padding:8px 12px;border-radius:10px;font-size:12px;backdrop-filter:blur(4px);box-shadow:0 2px 8px rgba(0,0,0,.15)">
-          <div><span style="color:#b91c1c;font-size:15px">●</span> Very high priority</div>
-          <div><span style="color:#d97706;font-size:15px">●</span> High priority</div>
-          <div><span style="color:#2563eb;font-size:15px">●</span> Medium priority</div>
-        </div>
-        <div style="position:absolute;top:10px;left:10px;z-index:800;background:rgba(255,255,255,.92);padding:8px 14px;border-radius:10px;font-size:12px;backdrop-filter:blur(4px);box-shadow:0 2px 8px rgba(0,0,0,.15)">
-          <span style="display:inline-block;margin:2px 2px 0 0;padding:4px 8px;border-radius:6px;background:#0f766e;color:white;cursor:pointer;font-size:11px" onclick="cmapFilter('all')">All</span>
-          <span style="display:inline-block;margin:2px 2px 0 0;padding:4px 8px;border-radius:6px;background:#0f766e;color:white;cursor:pointer;font-size:11px" onclick="cmapFilter('5')">5★</span>
-          <span style="display:inline-block;margin:2px 2px 0 0;padding:4px 8px;border-radius:6px;background:#0f766e;color:white;cursor:pointer;font-size:11px" onclick="cmapFilter('4')">4★</span>
-        </div>
-      </div>
-      <p class="small" style="margin-top:6px">⚠ Coordinates and pitch counts are consolidated estimates for prospecting purposes — verify before commercial campaign.</p>
-
-      <!-- SITE RECAP TABLE -->
-      <h3 style="margin-top:32px;font-size:20px">All 29 sites — reference overview</h3>
-      <div style="overflow-x:auto;margin-top:10px">
-        <table style="font-size:13px;min-width:900px">
-          <thead><tr><th>#</th><th>Site name</th><th>City</th><th>★</th><th>Pitches (est.)</th><th>Access / Context</th><th>Priority</th><th>Score /10</th><th>EcoGrid tier</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td class="em">Camping Arinella Bianca</td><td>Ghisonaccia</td><td>5★</td><td>500</td><td>Sea access, water park, spa</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>10</td><td class="em">L</td></tr>
-            <tr><td>2</td><td class="em">Camping Marina d'Erba Rossa</td><td>Ghisonaccia</td><td>4★</td><td>450</td><td>Sea access, large estate</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>10</td><td class="em">L</td></tr>
-            <tr><td>3</td><td>Camping Golfo Di Sogno</td><td>Porto-Vecchio</td><td>4★</td><td>600</td><td>Sea access, large zone</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">L</td></tr>
-            <tr><td>4</td><td>Camping La Pinède</td><td>Calvi</td><td>4★</td><td>300</td><td>Seafront, water park</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">M</td></tr>
-            <tr><td>5</td><td>Camping Sole di Sari</td><td>Solenzara</td><td>4★</td><td>170</td><td>Eco-village, river, near sea</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">M</td></tr>
-            <tr><td>6</td><td>Camping Lacasa</td><td>Calcatoggio</td><td>4★</td><td>200</td><td>Seafront, 4 ha</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">M</td></tr>
-            <tr><td>7</td><td>Camping U Farniente de Pertamina</td><td>Bonifacio</td><td>4★</td><td>180</td><td>Water park, near beaches</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">M</td></tr>
-            <tr><td>8</td><td>Camping Perla di Mare</td><td>Ghisonaccia</td><td>4★</td><td>220</td><td>Sea access, wellness</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">M</td></tr>
-            <tr><td>9</td><td>Camping Le Campoloro</td><td>Cervione</td><td>4★</td><td>250</td><td>Sea access, water park</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">M</td></tr>
-            <tr><td>10</td><td>Camping Merendella</td><td>San-Nicolao</td><td>4★</td><td>200</td><td>Sea access, 6.5 ha estate</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">M</td></tr>
-            <tr><td>11</td><td>Camping San Damiano</td><td>Biguglia</td><td>4★</td><td>300</td><td>Sea access, near Bastia</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">M</td></tr>
-            <tr><td>12</td><td>Camping Marina d'Aléria</td><td>Aléria</td><td>4★</td><td>300</td><td>Sea access, water park</td><td style="color:#b91c1c;font-weight:700">Very high</td><td>9</td><td class="em">M</td></tr>
-            <tr><td>13</td><td>Camping Acqua e Sole</td><td>Ste-Lucie-de-Porto-Vecchio</td><td>4★</td><td>170</td><td>River, near beaches</td><td style="color:#d97706;font-weight:700">High</td><td>8</td><td class="em">M</td></tr>
-            <tr><td>14</td><td>Camping Benista</td><td>Porticcio</td><td>4★</td><td>190</td><td>River, near beach</td><td style="color:#d97706;font-weight:700">High</td><td>8</td><td class="em">M</td></tr>
-            <tr><td>15</td><td>Camping Kalliste</td><td>Saint-Florent</td><td>4★</td><td>250</td><td>Sea / river access</td><td style="color:#d97706;font-weight:700">High</td><td>8</td><td class="em">M</td></tr>
-            <tr><td>16</td><td>Camping U Pirellu</td><td>Porto-Vecchio</td><td>4★</td><td>120</td><td>Pool, near Porto-Vecchio</td><td style="color:#d97706;font-weight:700">High</td><td>8</td><td class="em">S</td></tr>
-            <tr><td>17</td><td>Camping La Dolce Vita</td><td>Calvi</td><td>4★</td><td>250</td><td>Sea / river access</td><td style="color:#d97706;font-weight:700">High</td><td>8</td><td class="em">M</td></tr>
-            <tr><td>18</td><td>Camping Le Sagone</td><td>Sagone</td><td>4★</td><td>300</td><td>Pool, family facilities</td><td style="color:#d97706;font-weight:700">High</td><td>8</td><td class="em">M</td></tr>
-            <tr><td>19</td><td>Camping Bagheera (Naturist)</td><td>Bravone</td><td>4★</td><td>250</td><td>Sea access, large naturist estate</td><td style="color:#d97706;font-weight:700">High</td><td>8</td><td class="em">M</td></tr>
-            <tr><td>20</td><td>Camping Les Castors</td><td>Calvi</td><td>4★</td><td>180</td><td>Sea &lt;1 km, water park</td><td style="color:#d97706;font-weight:700">High</td><td>8</td><td class="em">M</td></tr>
-            <tr><td>21</td><td>Camping Riva Bella (Naturist) <span class="pill g">Pilot site</span></td><td>Aléria</td><td>4★</td><td>200</td><td>Sea access, wellness</td><td style="color:#d97706;font-weight:700">High</td><td>8</td><td class="em">M</td></tr>
-            <tr><td>22</td><td>Camping Colomba</td><td>Propriano</td><td>4★</td><td>150</td><td>Sea &lt;1 km</td><td style="color:#d97706;font-weight:700">High</td><td>7</td><td class="em">S</td></tr>
-            <tr><td>23</td><td>Camping Les Iles</td><td>Bonifacio</td><td>4★</td><td>150</td><td>Sea &lt;1 km</td><td style="color:#d97706;font-weight:700">High</td><td>7</td><td class="em">S</td></tr>
-            <tr><td>24</td><td>Camping La Vetta</td><td>Porto-Vecchio</td><td>4★</td><td>160</td><td>Seafront, Porto-Vecchio area</td><td style="color:#d97706;font-weight:700">High</td><td>7</td><td class="em">M</td></tr>
-            <tr><td>25</td><td>Camping Les Oliviers</td><td>Porto</td><td>4★</td><td>150</td><td>Sea/river, pool</td><td style="color:#d97706;font-weight:700">High</td><td>7</td><td class="em">S</td></tr>
-            <tr><td>26</td><td>Camping Lecci e Murta</td><td>Belvédère-Campomoro</td><td>4★</td><td>120</td><td>Sea &lt;1 km, nature</td><td style="color:#d97706;font-weight:700">High</td><td>7</td><td class="em">S</td></tr>
-            <tr><td>27</td><td>Camping U Prunelli</td><td>Grosseto-Prugna</td><td>4★</td><td>180</td><td>River, near sea</td><td style="color:#d97706;font-weight:700">High</td><td>7</td><td class="em">M</td></tr>
-            <tr><td>28</td><td>Camping Kalypso</td><td>Santa-Maria-Poggio</td><td>4★</td><td>150</td><td>Sea/river access, nature</td><td style="color:#d97706;font-weight:700">High</td><td>7</td><td class="em">S</td></tr>
-            <tr><td>29</td><td>Camping L'Arutoli</td><td>Porto-Vecchio</td><td>4★</td><td>180</td><td>Near Porto-Vecchio</td><td style="color:#2563eb;font-weight:700">Medium</td><td>6</td><td class="em">M</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- FINANCIAL PROJECTION TABLE -->
-      <h3 style="margin-top:36px;font-size:20px">Financial projection by EcoGrid tier — Corsica portfolio</h3>
-      <p class="small" style="margin-top:4px">Based on the 29 surveyed sites. CAPEX, savings and margins are indicative (±40%) — see Sizing &amp; Returns slide for methodology.</p>
-      <table style="margin-top:12px">
-        <thead>
-          <tr>
-            <th>Tier</th><th>Pitch range</th><th>Corsica sites</th><th>Total pitches (est.)</th>
-            <th>Solar PV / site</th><th>Battery / site</th><th>CAPEX / site</th>
-            <th>Annual savings / site</th><th>M1 EPC margin / site</th>
-            <th>SaaS + O&amp;M / yr</th><th>Portfolio total CAPEX</th><th>Portfolio savings / yr</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="em">S</td><td>50–150</td><td>6 sites</td><td>≈ 810</td>
-            <td>50–80 kWp</td><td>0.15–0.25 MWh</td><td>€0.20–0.35M</td>
-            <td>€12k–€30k</td><td class="marg">≈ €38k avg</td>
-            <td>€6.5k/site</td><td>€1.7M–€2.1M</td><td style="color:var(--muted)">€72k–€180k</td>
-          </tr>
-          <tr>
-            <td class="em">M</td><td>150–350</td><td>20 sites</td><td>≈ 4,210</td>
-            <td>250–350 kWp</td><td>0.8–1.0 MWh</td><td>€0.9–1.2M</td>
-            <td>€70k–€130k</td><td>≈ €150k avg</td>
-            <td>€11k/site</td><td>€18M–€24M</td><td>€1.4M–€2.6M</td>
-          </tr>
-          <tr>
-            <td class="em">L</td><td>350–700</td><td>3 sites</td><td>≈ 1,550</td>
-            <td>700–900 kWp</td><td>2.1–2.7 MWh</td><td>€2.1–2.7M</td>
-            <td>€190k–€350k</td><td class="prio">≈ €360k avg</td>
-            <td>€15k/site</td><td>€6.3M–€8.1M</td><td class="prio">€570k–€1.05M</td>
-          </tr>
-          <tr style="background:var(--green-l)">
-            <td class="em" style="color:var(--green-d)">Total</td><td>—</td>
-            <td style="font-weight:700">29 sites</td><td style="font-weight:700">≈ 6,570</td>
-            <td colspan="2" style="color:var(--muted);font-size:12px">Mixed sizing</td>
-            <td style="font-weight:700">€0.2M–€2.7M</td>
-            <td style="font-weight:700">€12k–€350k</td>
-            <td style="font-weight:700;color:var(--green-d)">≈ €3.7M total M1</td>
-            <td style="font-weight:700;color:var(--green-d)">≈ €281k / yr</td>
-            <td style="font-weight:700;color:var(--green-d)">€26M–€34.2M</td>
-            <td style="font-weight:700;color:var(--green-d)">€2.0M–€3.8M / yr</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="note" style="margin-top:18px">
-        <b>🏝️ Why Corsica first — the ZNI edge.</b>
-        As a non-interconnected island (ZNI), Corsica carries the strongest public support for local energy production (CRE ZNI calls, FEDER grants) and the highest resilience value. With 20 M-tier and 3 L-tier priority sites already identified, the full Corsica portfolio represents <span class="hl">€26M–€34M in addressable CAPEX</span> and <span class="hl">€2M–€3.8M in annual recurring savings</span> — a deployable pipeline of 3–5 years building on the Riva Bella pilot.
-      </div>
-
-      <p class="tag">Survey: 1×5★, 28×4★ Corsican sites. Tier classification follows EcoGrid pitch-count bands (S &lt;150 · M 150–350 · L 350–700). All CAPEX and savings figures are indicative ±40%, pre-audit. Portfolio totals assume full conversion — actual pipeline will be a subset. ZNI subsidy rates to confirm with EDF SEI. Source: map survey June 2026 + BP §4 sizing rules.</p>
-    </div>
-  </section>
-
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script>
 (function(){
   function initCharts(){
+    // Donut — M1 Year 1
     var ctx1 = document.getElementById('chartM1');
     if(ctx1 && !ctx1._chartInited){
       ctx1._chartInited = true;
@@ -565,25 +422,61 @@
         type: 'doughnut',
         data: {
           labels: ['EPC Margin', 'SaaS + Maintenance'],
-          datasets:[{data: [855000, 15000],backgroundColor:['#1f8a5b','#f2a51a'],borderWidth:2,borderColor:'#fff',hoverOffset:10}]
+          datasets:[{
+            data: [855000, 15000],
+            backgroundColor:['#1f8a5b','#f2a51a'],
+            borderWidth:2, borderColor:'#fff',
+            hoverOffset:10
+          }]
         },
-        options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){var v=c.parsed;return ' €'+v.toLocaleString('fr-FR')+' ('+((v/870000)*100).toFixed(1)+'%)';}}}},cutout:'62%'}
+        options:{
+          responsive:true, maintainAspectRatio:true,
+          plugins:{
+            legend:{display:false},
+            tooltip:{callbacks:{label:function(c){
+              var v=c.parsed;
+              return ' €'+v.toLocaleString('fr-FR')+' ('+((v/870000)*100).toFixed(1)+'%)';
+            }}}
+          },
+          cutout:'62%'
+        }
       });
     }
+    // Bar — Cumulative P&L
     var ctx2 = document.getElementById('chartCompare');
     if(ctx2 && !ctx2._chartInited){
       ctx2._chartInited = true;
       new Chart(ctx2, {
         type: 'bar',
-        data:{labels:['Year 5','Year 10','Year 15','Year 20'],datasets:[
-          {label:'Model 1 (k€)',data:[930,1005,1080,1155],backgroundColor:'#1f8a5b',borderRadius:5,borderSkipped:false},
-          {label:'Model 2 net P&L (k€)',data:[-3400,-1900,-420,2100],backgroundColor:['#e8532b','#e8822b','#e8b02b','#1f8a5b'],borderRadius:5,borderSkipped:false}
-        ]},
-        options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' '+c.dataset.label+': €'+c.parsed.y.toLocaleString('fr-FR')+'k';}}}},scales:{y:{ticks:{callback:function(v){return '€'+(v/1000).toFixed(1)+'M';}},grid:{color:'rgba(0,0,0,.06)'}},x:{grid:{display:false}}}}
+        data:{
+          labels:['Year 5','Year 10','Year 15','Year 20'],
+          datasets:[
+            {label:'Model 1 (k€)', data:[930,1005,1080,1155], backgroundColor:'#1f8a5b', borderRadius:5, borderSkipped:false},
+            {label:'Model 2 net P&L (k€)', data:[-3400,-1900,-420,2100], backgroundColor:['#e8532b','#e8822b','#e8b02b','#1f8a5b'], borderRadius:5, borderSkipped:false}
+          ]
+        },
+        options:{
+          responsive:true, maintainAspectRatio:true,
+          plugins:{
+            legend:{display:false},
+            tooltip:{callbacks:{label:function(c){return ' '+c.dataset.label+': €'+c.parsed.y.toLocaleString('fr-FR')+'k';}}}
+          },
+          scales:{
+            y:{
+              ticks:{callback:function(v){return '€'+(v/1000).toFixed(1)+'M';}},
+              grid:{color:'rgba(0,0,0,.06)'}
+            },
+            x:{grid:{display:false}}
+          }
+        }
       });
     }
   }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initCharts);}else{initCharts();}
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', initCharts);
+  } else {
+    initCharts();
+  }
 })();
 </script>
 
@@ -621,64 +514,6 @@
     else if(e.key==='End'){e.preventDefault();slides[slides.length-1].scrollIntoView({behavior:'smooth'});}
     else if(e.key.toLowerCase()==='p'){window.print();}
   });
-  function goSlide(i){const s=[...document.querySelectorAll('.slide')];if(s[i])s[i].scrollIntoView({behavior:'smooth'});}
-  function closeMenu(){document.getElementById('caretMenu').classList.remove('open');}
-  document.addEventListener('click',function(e){const m=document.getElementById('caretMenu');if(m&&!m.contains(e.target))m.classList.remove('open');});
-</script>
-
-<script>
-(function initCorsicaMap(){
-  if(typeof L === 'undefined'){setTimeout(initCorsicaMap,300);return;}
-  var cmap=L.map('corsica-map').setView([42.08,9.05],8);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(cmap);
-  var csites=[
-    {name:"Camping Arinella Bianca",emplacements:500,city:"Ghisonaccia",stars:"5",lat:42.015,lon:9.438,access:"Sea access, water park, spa",priority:"Very high",score:10},
-    {name:"Camping Marina d'Erba Rossa",emplacements:450,city:"Ghisonaccia",stars:"4",lat:42.016,lon:9.446,access:"Sea access, large estate",priority:"Very high",score:10},
-    {name:"Camping Acqua e Sole",emplacements:170,city:"Ste-Lucie-de-Porto-Vecchio",stars:"4",lat:41.696,lon:9.344,access:"River, near beaches",priority:"High",score:8},
-    {name:"Camping Benista",emplacements:190,city:"Porticcio",stars:"4",lat:41.899,lon:8.799,access:"River, near beach",priority:"High",score:8},
-    {name:"Camping Kalliste",emplacements:250,city:"Saint-Florent",stars:"4",lat:42.676,lon:9.304,access:"Sea / river access",priority:"High",score:8},
-    {name:"Camping La Pinede",emplacements:300,city:"Calvi",stars:"4",lat:42.552,lon:8.775,access:"Seafront, water park",priority:"Very high",score:9},
-    {name:"Camping Sole di Sari",emplacements:170,city:"Solenzara",stars:"4",lat:41.858,lon:9.398,access:"Eco-village, river, near sea",priority:"Very high",score:9},
-    {name:"Camping Colomba",emplacements:150,city:"Propriano",stars:"4",lat:41.672,lon:8.903,access:"Sea less than 1 km",priority:"High",score:7},
-    {name:"Camping Lacasa",emplacements:200,city:"Calcatoggio",stars:"4",lat:42.055,lon:8.746,access:"Seafront, 4 ha",priority:"Very high",score:9},
-    {name:"Camping Golfo Di Sogno",emplacements:600,city:"Porto-Vecchio",stars:"4",lat:41.637,lon:9.320,access:"Sea access, large zone",priority:"Very high",score:9},
-    {name:"Camping U Pirellu",emplacements:120,city:"Porto-Vecchio",stars:"4",lat:41.607,lon:9.315,access:"Pool, near Porto-Vecchio",priority:"High",score:8},
-    {name:"Camping La Dolce Vita",emplacements:250,city:"Calvi",stars:"4",lat:42.557,lon:8.778,access:"Sea / river access",priority:"High",score:8},
-    {name:"Camping Le Sagone",emplacements:300,city:"Sagone",stars:"4",lat:42.110,lon:8.694,access:"Pool, family facilities",priority:"High",score:8},
-    {name:"Camping Bagheera Naturist",emplacements:250,city:"Bravone",stars:"4",lat:42.206,lon:9.552,access:"Sea access, large naturist estate",priority:"High",score:8},
-    {name:"Camping L'Arutoli",emplacements:180,city:"Porto-Vecchio",stars:"4",lat:41.600,lon:9.285,access:"Near Porto-Vecchio",priority:"Medium",score:6},
-    {name:"Camping La Vetta",emplacements:160,city:"Porto-Vecchio",stars:"4",lat:41.620,lon:9.270,access:"Seafront, Porto-Vecchio area",priority:"High",score:7},
-    {name:"Camping Les Castors",emplacements:180,city:"Calvi",stars:"4",lat:42.555,lon:8.766,access:"Sea less than 1 km, water park",priority:"High",score:8},
-    {name:"Camping U Farniente de Pertamina",emplacements:180,city:"Bonifacio",stars:"4",lat:41.407,lon:9.185,access:"Water park, near beaches",priority:"Very high",score:9},
-    {name:"Camping Les Iles",emplacements:150,city:"Bonifacio",stars:"4",lat:41.392,lon:9.159,access:"Sea less than 1 km",priority:"High",score:7},
-    {name:"Camping Perla di Mare",emplacements:220,city:"Ghisonaccia",stars:"4",lat:42.028,lon:9.452,access:"Sea access, wellness",priority:"Very high",score:9},
-    {name:"Camping Le Campoloro",emplacements:250,city:"Cervione",stars:"4",lat:42.336,lon:9.544,access:"Sea access, water park",priority:"Very high",score:9},
-    {name:"Camping Merendella",emplacements:200,city:"San-Nicolao",stars:"4",lat:42.379,lon:9.531,access:"Sea access, 6.5 ha estate",priority:"Very high",score:9},
-    {name:"Camping Les Oliviers",emplacements:150,city:"Porto",stars:"4",lat:42.270,lon:8.698,access:"Sea/river, pool",priority:"High",score:7},
-    {name:"Camping Riva Bella Naturist - PILOT",emplacements:200,city:"Aleria",stars:"4",lat:42.139,lon:9.552,access:"Sea access, wellness",priority:"High",score:8},
-    {name:"Camping San Damiano",emplacements:300,city:"Biguglia",stars:"4",lat:42.614,lon:9.478,access:"Sea access, near Bastia",priority:"Very high",score:9},
-    {name:"Camping Lecci e Murta",emplacements:120,city:"Belvedere-Campomoro",stars:"4",lat:41.633,lon:8.814,access:"Sea less than 1 km, nature",priority:"High",score:7},
-    {name:"Camping Marina d'Aleria",emplacements:300,city:"Aleria",stars:"4",lat:42.114,lon:9.533,access:"Sea access, water park",priority:"Very high",score:9},
-    {name:"Camping U Prunelli",emplacements:180,city:"Grosseto-Prugna",stars:"4",lat:41.888,lon:8.815,access:"River, near sea",priority:"High",score:7},
-    {name:"Camping Kalypso",emplacements:150,city:"Santa-Maria-Poggio",stars:"4",lat:42.346,lon:9.526,access:"Sea/river access, nature",priority:"High",score:7}
-  ];
-  function ccolor(p){return p==='Very high'?'#b91c1c':p==='High'?'#d97706':'#2563eb';}
-  var callLayer=L.featureGroup().addTo(cmap);
-  var cmarkers=[];
-  csites.forEach(function(s){
-    var ico=L.divIcon({className:'',html:'<div style="background:'+ccolor(s.priority)+';width:22px;height:22px;border-radius:50%;border:3px solid white;box-shadow:0 1px 6px rgba(0,0,0,.45);text-align:center;color:white;font-size:11px;line-height:22px;font-weight:bold">'+s.stars+'</div>',iconSize:[28,28],iconAnchor:[14,14]});
-    var m=L.marker([s.lat,s.lon],{icon:ico,stars:s.stars}).bindPopup('<div style="min-width:230px"><b>'+s.name+'</b><br><b>City:</b> '+s.city+'<br><b>Access:</b> '+s.access+'<br><b>Pitches (est.):</b> '+s.emplacements+'<br><b>Priority:</b> '+s.priority+' ('+s.score+'/10)<hr style="margin:6px 0"><b>Commercial angles:</b><br>• Solar self-consumption<br>• Battery storage / seasonal microgrid<br>• EV charging points<br>• Premium modular accommodation</div>');
-    m.addTo(callLayer);cmarkers.push(m);
-  });
-  cmap.fitBounds(callLayer.getBounds(),{padding:[30,30]});
-  window.cmapFilter=function(stars){
-    callLayer.clearLayers();
-    cmarkers.forEach(function(m){if(stars==='all'||m.options.stars===stars){callLayer.addLayer(m);}});
-    if(callLayer.getLayers().length)cmap.fitBounds(callLayer.getBounds(),{padding:[30,30]});
-  };
-  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){cmap.invalidateSize();cmap.fitBounds(callLayer.getBounds(),{padding:[30,30]});}});},{threshold:0.3});
-  var sec=document.getElementById('slide-corsica');if(sec)obs.observe(sec);
-})();
 </script>
 </body>
 </html>

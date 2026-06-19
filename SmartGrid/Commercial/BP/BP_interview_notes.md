@@ -43,9 +43,9 @@
 ## 4. Running costs (OPEX) — Franck's inputs
 - Equipment: PC, phone, Claude licence (per person)
 - Staff: €3k/month × 3 (Joseph, secretary, grant specialist) — Carl's status (SH vs staff) TBC
-- Shareholders: €5k/month × **5 SH** (Franck, Mark, Boris, Pierre, Michael), paid from day 1
+- Shareholders: €3k/month × **5 SH** (Franck, Mark, Boris, Pierre, Michael), paid from day 1
 - 1 office: €2k/month
-- Software dev: €250k year 1, includes Azure hosting
+- Software dev: **€250k one-time CAPEX (Year 0)** — includes Azure setup/hosting
 - Marketing: €10k/month, starting month 3
 - Travel: €5k/month
 
@@ -58,4 +58,4 @@
 - **Model 2**: SmartGrid keeps **50% of the invoice reduction (EDF)** — duration **10–15 years** (being refined; Boris: 30-yr lease to consider)
 
 ## 6. Year-1 OPEX rough total (computed)
-Staff 108k + SH 300k + office 24k + software dev/Azure 250k + marketing 100k (from M3) + travel 60k ≈ **€842k**, plus equipment/insurance/legal/misc → **≈ €900k year 1**.
+Staff 108k + SH 180k (3k × 5 × 12) + office 24k + marketing 100k (from M3) + travel 60k ≈ **€532k recurring OPEX year 1**, plus equipment/insurance/legal/misc → **≈ €590k year 1 OPEX**. Software dev **€250k treated as CAPEX Year 0** (separate from recurring OPEX).

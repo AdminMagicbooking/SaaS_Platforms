@@ -132,22 +132,39 @@ Construit avec des partenaires investisseurs. **Modèle ouvert à trois profils*
 
 ---
 
-## 6. Le site pilote — Marine de Caprone (Ghisonaccia, Corse)
+## 6. Le site pilote — Camping Riva Bella (Linguizzetta, Corse)
 
-| Indicateur | Valeur cible |
+Données réelles issues du rapport FusionSolar/SmartDesign (BET Performance).
+
+| Indicateur | Valeur réelle |
 |---|---|
-| CAPEX pilote indicatif | **5,7 M€** |
-| Gains annuels cible | ≈ 860 k€ |
-| Retour indicatif | 6–8 ans |
-| CO₂ évité (cible) | 70–90 % |
+| Investissement initial | **98 600 €** (100 % fonds propres) |
+| Subvention | 38 720 € → investissement net **59 880 €** |
+| Système PV | **88 kWc** · 176 modules · onduleur 100 kW |
+| Économies annuelles (an 1) | **12 099 €/an** |
+| Bénéfice net cumulé 25 ans | **615 906 €** |
+| VAN | 338 794 € |
+| TRI | **28,91 %** |
+| Retour sur investissement | **3,84 ans** |
+| LCOE | 0,03 €/kWh |
+| CO₂ évité (an 1) | **49,54 tonnes** |
 
-**Dimensionnement cible :** ~2 MWc solaire · ~6 MWh stockage LFP · 30–50 bornes VE · EMS IA 24/7.
-
-**Mix de financement indicatif (5,7 M€) :** 1,4 M€ fonds propres · 3,4 M€ dette verte senior · 0,6 M€ aides · 0,3 M€ leasing.
-
-> ⚠ Chiffres = **scénario central non audité**. À confirmer par étude d'ingénierie énergie, devis fournisseurs et modèle financier détaillé.
+**Phase 1 déployée :** 88 kWc solaire · autoconsommation + revente surplus · EMS FusionSolar. Phase 2 (stockage LFP, bornes VE, EMS IA 24/7) prévue selon retour Phase 1.
 
 **Pourquoi commencer par les îles :** Corse et Sardaigne sont **non interconnectées (ZNI)** — le PV + stockage y bénéficie du soutien public le plus fort et de la plus forte valeur de résilience. Vitrine la plus crédible.
+
+### Alerte Viabilité Modèle 2 / Model 2 Viability Warning (June 2026)
+
+With 500,000 EUR conservative savings floor (XL site):
+- SmartGrid net income/yr: 295,000 EUR
+- Net CAPEX to recover: 4,845,000 EUR
+- Payback: 16.4 years — EXCEEDS 15-year contract
+- 15-year net P&L: -420,000 EUR (net loss within contract period)
+
+Recommendation: Model 2 preferred for M-size sites. L/XL -> Model 1 preferred.
+Minimum savings for M2 XL viability at 60% share: ~580,000 EUR/yr.
+Post-contract (yr 16+): SmartGrid owns asset and earns full client savings.
+Long-term value exists but materializes outside the 15-year contract term.
 
 ---
 

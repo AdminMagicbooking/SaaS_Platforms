@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECOGRID RESORT™ — The SmartGrid Offer (June 2026)</title>
+<title>ECOGRID RESORT™ — SmartGrid Offer / Offre SmartGrid (2026)</title>
 <style>
   :root{
     --ink:#0d1b2a; --ink-soft:#33475b; --muted:#6b7c8f;
@@ -117,6 +117,12 @@
   #caretDrop a:hover{background:var(--green-l);color:var(--green-d)}
   #caretDrop a .mn{font-size:11px;font-weight:700;color:var(--muted);min-width:18px}
   #caretDrop .sep{height:1px;background:var(--line);margin:2px 0}
+
+  /* ---- language toggle ---- */
+  #langToggle{position:fixed;top:12px;left:12px;z-index:70;display:flex;align-items:center;gap:0;border-radius:22px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.14);border:1px solid var(--line)}
+  #langToggle button{padding:6px 14px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:.15s;background:rgba(255,255,255,.88);color:var(--muted);backdrop-filter:blur(4px)}
+  #langToggle button.active{background:var(--green-d);color:#fff}
+  #langToggle button:hover:not(.active){background:#fff;color:var(--ink)}
   @media print{
     main{height:auto;overflow:visible}
     .slide{min-height:auto;page-break-after:always;border:none}
@@ -127,7 +133,7 @@
 <body>
 <div id="bar"></div>
 <nav id="dots"></nav>
-<div class="navhint">Use <b>↑ ↓</b> / arrows · click dots · <b>P</b> to print</div>
+<div class="navhint">Use <b>↑ ↓</b> / arrows · click dots · <b>P</b> to print</span></div>
 
 <!-- caret dropdown menu -->
 <div id="caretMenu">
@@ -135,12 +141,18 @@
     ☰ Navigate <span class="arrow">▾</span>
   </button>
   <div id="caretDrop">
-    <a href="#" onclick="goSlide(0);closeMenu();return false"><span class="mn">①</span> The Offer</a>
+    <a href="#" onclick="goSlide(0);closeMenu();return false"><span class="mn">①</span> <span data-t="menu1">The Offer</span></a>
     <div class="sep"></div>
-    <a href="#" onclick="goSlide(8);closeMenu();return false"><span class="mn">②</span> How It Works</a>
+    <a href="#" onclick="goSlide(8);closeMenu();return false"><span class="mn">②</span> <span data-t="menu2">How It Works</span></a>
     <div class="sep"></div>
-    <a href="#" onclick="document.getElementById('slide-corsica').scrollIntoView({behavior:'smooth'});closeMenu();return false"><span class="mn">③</span> 🗺️ Corsica Opportunities</a>
+    <a href="#" onclick="document.getElementById('slide-corsica').scrollIntoView({behavior:'smooth'});closeMenu();return false"><span class="mn">③</span> 🗺️ <span data-t="menu3">Corsica Opportunities</span></a>
   </div>
+</div>
+
+<!-- language toggle -->
+<div id="langToggle">
+  <button id="btnEN" class="active" onclick="setLang('en')">EN</button>
+  <button id="btnFR" onclick="setLang('fr')">FR</button>
 </div>
 
 <main id="deck">
@@ -148,15 +160,15 @@
   <!-- 1 TITLE -->
   <section class="slide" style="background:linear-gradient(160deg,#0d1b2a 0%,#13643f 100%);color:#fff;border:none">
     <div class="wrap" style="text-align:center">
-      <div class="kicker" style="background:rgba(255,255,255,.12);color:#bff0d4">Smart Grid module of the COREPROMA ecosystem</div>
+      <div class="kicker" style="background:rgba(255,255,255,.12);color:#bff0d4"><span data-t="s1_kicker">Smart Grid module of the COREPROMA ecosystem</span></div>
       <h1 style="color:#fff">ECOGRID&nbsp;RESORT™</h1>
-      <p class="lede" style="color:#d4e6dd;margin-left:auto;margin-right:auto">The energy-services platform that turns Southern-European campsites &amp; holiday villages into smart microgrids — solar, storage, V2G, AI-driven control and a guest app.</p>
-      <p class="brandline" style="color:#9fc6b2">Brand: ECOGRID RESORT™ &nbsp;·&nbsp; Operating venture: SmartGrid &nbsp;·&nbsp; June 2026 — Confidential — v2.0</p>
+      <p class="lede" style="color:#d4e6dd;margin-left:auto;margin-right:auto" data-t="s1_lede">The energy-services platform that turns Southern-European campsites &amp; holiday villages into smart microgrids — solar, storage, V2G, AI-driven control and a guest app.</p>
+      <p class="brandline" style="color:#9fc6b2" data-t="s1_brand">Brand: ECOGRID RESORT™ &nbsp;·&nbsp; Operating venture: SmartGrid &nbsp;·&nbsp; June 2026 — Confidential — v2.0</p>
       <div class="stats" style="margin-top:34px">
-        <div class="stat" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="num" style="color:#7fe3ab">SaaS + assets</div><div class="lab" style="color:#bcd6c9">Hybrid model</div></div>
-        <div class="stat" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="num" style="color:#7fe3ab">≈11,800</div><div class="lab" style="color:#bcd6c9">Campsites FR+IT+ES</div></div>
+        <div class="stat" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="num" style="color:#7fe3ab" data-t="s1_stat1n">SaaS + assets</div><div class="lab" style="color:#bcd6c9" data-t="s1_stat1l">Hybrid model</div></div>
+        <div class="stat" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="num" style="color:#7fe3ab">≈11,800</div><div class="lab" style="color:#bcd6c9" data-t="s1_stat2l">Campsites FR+IT+ES</div></div>
         <div class="stat" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="num" style="color:#7fe3ab">Corsica</div><div class="lab" style="color:#bcd6c9">Pilot — Camping Riva Bella</div></div>
-        <div class="stat" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="num" style="color:#7fe3ab">2028</div><div class="lab" style="color:#bcd6c9">EBITDA-positive (central)</div></div>
+        <div class="stat" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)"><div class="num" style="color:#7fe3ab">2028</div><div class="lab" style="color:#bcd6c9" data-t="s1_stat4l">EBITDA-positive (central)</div></div>
       </div>
     </div>
   </section>
@@ -164,9 +176,9 @@
   <!-- 2 THE OFFER IN ONE LINE -->
   <section class="slide">
     <div class="wrap">
-      <div class="kicker"><span class="n">1</span> What is the offer</div>
-      <h2>An energy operating system for outdoor hospitality</h2>
-      <p class="lede">ECOGRID RESORT™ orchestrates a site's energy in real time — maximising solar self-consumption, cutting grid peaks and protecting guest comfort — sold as software plus integrated assets, deployed site by site and then as a European network.</p>
+      <div class="kicker"><span class="n">1</span> <span data-t="s2_kicker">What is the offer</span></div>
+      <h2 data-t="s2_h2">An energy operating system for outdoor hospitality</h2>
+      <p class="lede" data-t="s2_lede">ECOGRID RESORT™ orchestrates a site's energy in real time — maximising solar self-consumption, cutting grid peaks and protecting guest comfort — sold as software plus integrated assets, deployed site by site and then as a European network.</p>
       <div class="note" style="background:var(--green-l);border-color:#a9d8bf;border-left-color:var(--green);color:var(--green-d)">
         <b>The thesis — the edge is distribution, not hardware.</b>
         Solar and EMS hardware are commodities (FoxESS, SolarEdge, Huawei, SMA, Victron). The defensible advantage is <span class="hl">existing access to operators through COREPROMA</span>, the <span class="hl">tourism-vertical software</span> on top, and <span class="hl">COREPROMA occupancy data feeding AI load forecasting</span> — something no generic EMS has. Long-term value comes from recurring software and the network of connected sites, not equipment sales.
@@ -178,16 +190,16 @@
   <!-- 3 THE PROBLEM -->
   <section class="slide" style="background:#fff">
     <div class="wrap">
-      <div class="kicker"><span class="n">1</span> Why now</div>
-      <h2>The customer pain — and three regulatory tailwinds</h2>
+      <div class="kicker"><span class="n">1</span> <span data-t="s3_kicker">Why now</span></div>
+      <h2 data-t="s3_h2">The customer pain — and three regulatory tailwinds</h2>
       <div class="grid g2">
         <div class="card">
-          <span class="ico">⚡</span><h3>Operator pain points</h3>
-          <p>Volatile electricity bills (A/C, pools, catering, hot water, lighting); high subscribed power and grid-connection constraints in tourist zones; rising guest EV-charging demand; pressure for visible, measurable low-carbon proof; and the administrative complexity of permits and aid applications.</p>
+          <span class="ico">⚡</span><h3 data-t="s3_c1h3">Operator pain points</h3>
+          <p data-t="s3_c1p">Volatile electricity bills (A/C, pools, catering, hot water, lighting); high subscribed power and grid-connection constraints in tourist zones; rising guest EV-charging demand; pressure for visible, measurable low-carbon proof; and the administrative complexity of permits and aid applications.</p>
         </div>
         <div class="card">
-          <span class="ico">📜</span><h3>Regulatory drivers (verified June 2026)</h3>
-          <p><b>EPBD (EU/2024/1275):</b> solar mandatory on existing non-residential &gt;500&nbsp;m² at major renovation (by 31/12/2027); new &gt;250&nbsp;m² from end-2026.<br>
+          <span class="ico">📜</span><h3 data-t="s3_c2h3">Regulatory drivers (verified June 2026)</h3>
+          <p data-t="s3_c2p"><b>EPBD (EU/2024/1275):</b> solar mandatory on existing non-residential &gt;500&nbsp;m² at major renovation (by 31/12/2027); new &gt;250&nbsp;m² from end-2026.<br>
           <b>APER law (FR):</b> solar carports on car parks &gt;1,500&nbsp;m² (2026/2028 — softened 2025, under legal challenge; use with caution).<br>
           <b>End of FR self-consumption premium (decree 1 June 2026):</b> surplus feed-in cut to €0.011/kWh — a self-consumed kWh is now worth ~20× an exported one, exactly what the EMS + storage maximise.</p>
         </div>
@@ -199,9 +211,9 @@
   <!-- 4 TARGET CUSTOMERS -->
   <section class="slide">
     <div class="wrap">
-      <div class="kicker"><span class="n">1</span> Target customers</div>
-      <h2>Campsites &amp; holiday villages, Southern Europe</h2>
-      <p class="lede">Target: campsites, holiday villages, resorts, tourism residences and eco-destinations. Priority geographies: Corsica &amp; Sardinia first (non-interconnected islands), then mainland France, Italy, Spain. Segmented on two independent axes — <span class="hl">size</span> (pitches → contract value) and <span class="hl">energy intensity</span> (stars/equipment).</p>
+      <div class="kicker"><span class="n">1</span> <span data-t="s4_kicker">Target customers</span></div>
+      <h2 data-t="s4_h2">Campsites &amp; holiday villages, Southern Europe</h2>
+      <p class="lede" data-t="s4_lede">Target: campsites, holiday villages, resorts, tourism residences and eco-destinations. Priority geographies: Corsica &amp; Sardinia first (non-interconnected islands), then mainland France, Italy, Spain. Segmented on two independent axes — <span class="hl">size</span> (pitches → contract value) and <span class="hl">energy intensity</span> (stars/equipment).</p>
       <table>
         <thead><tr><th>Tier</th><th>Pitches</th><th>Typical profile &amp; equipment</th><th>Consumption</th><th>Annual bill*</th><th>Commercial fit</th></tr></thead>
         <tbody>
@@ -218,15 +230,15 @@
   <!-- 5 FOUR BUILDING BLOCKS -->
   <section class="slide" style="background:#fff">
     <div class="wrap">
-      <div class="kicker"><span class="n">2</span> What's included</div>
-      <h2>Four building blocks, one software core</h2>
+      <div class="kicker"><span class="n">2</span> <span data-t="s5_kicker">What's included</span></div>
+      <h2 data-t="s5_h2">Four building blocks, one software core</h2>
       <div class="grid g4">
-        <div class="card"><span class="ico">☀️</span><h3>Generate</h3><p>On-site solar (carports, roofs, pergolas) + optional wind. All local sources able to inject into the internal grid.</p></div>
-        <div class="card"><span class="ico">🔋</span><h3>Store &amp; dispatch</h3><p>V2G-ready LFP batteries for resilience, arbitrage and local-grid injection. AI-driven EMS, 24/7, across all sources.</p></div>
-        <div class="card"><span class="ico">🚗</span><h3>Distribute &amp; charge</h3><p>Control of pools, A/C and hot water; 30–50 EV chargers with smart charging and V2G feedback to the local grid.</p></div>
-        <div class="card"><span class="ico">📱</span><h3>Engage &amp; measure</h3><p>Guest app — EcoScore, real-time savings &amp; CO₂, EV booking, V2G rewards — plus operator carbon/ESG reporting.</p></div>
+        <div class="card"><span class="ico">☀️</span><h3 data-t="s5_c1h3">Generate</h3><p data-t="s5_c1p">On-site solar (carports, roofs, pergolas) + optional wind. All local sources able to inject into the internal grid.</p></div>
+        <div class="card"><span class="ico">🔋</span><h3 data-t="s5_c2h3">Store &amp; dispatch</h3><p data-t="s5_c2p">V2G-ready LFP batteries for resilience, arbitrage and local-grid injection. AI-driven EMS, 24/7, across all sources.</p></div>
+        <div class="card"><span class="ico">🚗</span><h3 data-t="s5_c3h3">Distribute &amp; charge</h3><p data-t="s5_c3p">Control of pools, A/C and hot water; 30–50 EV chargers with smart charging and V2G feedback to the local grid.</p></div>
+        <div class="card"><span class="ico">📱</span><h3 data-t="s5_c4h3">Engage &amp; measure</h3><p data-t="s5_c4p">Guest app — EcoScore, real-time savings &amp; CO₂, EV booking, V2G rewards — plus operator carbon/ESG reporting.</p></div>
       </div>
-      <p class="lede" style="margin-top:24px">A single identical software core deploys on campsites, villages, resorts and islands — standardised kits, equipment adapted to the site.</p>
+      <p class="lede" style="margin-top:24px" data-t="s5_lede">A single identical software core deploys on campsites, villages, resorts and islands — standardised kits, equipment adapted to the site.</p>
       <p class="tag">Source: BP §3 (table); brain.md §2; Master v2 §1 (Value proposition).</p>
     </div>
   </section>
@@ -234,20 +246,20 @@
   <!-- 6 DELIVERABLES (hardware + software + services) -->
   <section class="slide">
     <div class="wrap">
-      <div class="kicker"><span class="n">2</span> What's included — full stack</div>
-      <h2>Hardware, software and embedded services</h2>
+      <div class="kicker"><span class="n">2</span> <span data-t="s6_kicker">What's included — full stack</span></div>
+      <h2 data-t="s6_h2">Hardware, software and embedded services</h2>
       <div class="grid g3">
         <div class="card">
-          <span class="ico">🛠️</span><h3>Hardware (integrated, multi-brand)</h3>
-          <p>Solar panels, carport structures, hybrid inverters, LFP batteries (V2G-ready), EV chargers, smart meters and sensors. Integrated via Modbus, OCPP, MQTT and vendor APIs — multi-brand by design.</p>
+          <span class="ico">🛠️</span><h3 data-t="s6_c1h3">Hardware (integrated, multi-brand)</h3>
+          <p data-t="s6_c1p">Solar panels, carport structures, hybrid inverters, LFP batteries (V2G-ready), EV chargers, smart meters and sensors. Integrated via Modbus, OCPP, MQTT and vendor APIs — multi-brand by design.</p>
         </div>
         <div class="card">
-          <span class="ico">💻</span><h3>Software platform</h3>
-          <p>Operator dashboard · AI forecasting (weather + COREPROMA occupancy) · energy-matrix engine · load optimisation · invoice parser (OCR/NLP) · permit (DP) support · grant-optimisation engine · guest app · API integrations.</p>
+          <span class="ico">💻</span><h3 data-t="s6_c2h3">Software platform</h3>
+          <p data-t="s6_c2p">Operator dashboard · AI forecasting (weather + COREPROMA occupancy) · energy-matrix engine · load optimisation · invoice parser (OCR/NLP) · permit (DP) support · grant-optimisation engine · guest app · API integrations.</p>
         </div>
         <div class="card">
-          <span class="ico">🤝</span><h3>Embedded services</h3>
-          <p>24/7 supervision &amp; O&amp;M; ESG / carbon reporting; productised label support (Green Key, ISO 50001…); and an in-house grants specialist who manages aid applications (CRE ZNI, FEDER, GSE, IDAE) on the client's behalf.</p>
+          <span class="ico">🤝</span><h3 data-t="s6_c3h3">Embedded services</h3>
+          <p data-t="s6_c3p">24/7 supervision &amp; O&amp;M; ESG / carbon reporting; productised label support (Green Key, ISO 50001…); and an in-house grants specialist who manages aid applications (CRE ZNI, FEDER, GSE, IDAE) on the client's behalf.</p>
         </div>
       </div>
       <div class="note">
@@ -261,12 +273,12 @@
   <!-- 7 PRICING / MODELS -->
   <section class="slide" style="background:#fff">
     <div class="wrap">
-      <div class="kicker"><span class="n">1</span> Pricing &amp; model</div>
-      <h2>Two ways to buy — recurring revenue either way</h2>
+      <div class="kicker"><span class="n">1</span> <span data-t="s7_kicker">Pricing &amp; model</span></div>
+      <h2 data-t="s7_h2">Two ways to buy — recurring revenue either way</h2>
       <div class="two">
         <div class="model m1">
-          <h3>Model 1 — Direct sale</h3>
-          <div class="sub">Client pays CAPEX · keeps 100% of savings</div>
+          <h3 data-t="s7_m1h3">Model 1 — Direct sale</h3>
+          <div class="sub" data-t="s7_m1sub">Client pays CAPEX · keeps 100% of savings</div>
           <ul>
             <li>Client buys the plant (pays the quote); keeps 100% of the bill reduction</li>
             <li>SmartGrid earns an <b>EPC margin ≈ 15%</b> on installation (≈ €855k on the reference site)</li>
@@ -276,8 +288,8 @@
           </ul>
         </div>
         <div class="model m2">
-          <h3>Model 2 — Financed &amp; savings share</h3>
-          <div class="sub">Zero client investment · Energy-as-a-Service</div>
+          <h3 data-t="s7_m2h3">Model 2 — Financed &amp; savings share</h3>
+          <div class="sub" data-t="s7_m2sub">Zero client investment · Energy-as-a-Service</div>
           <ul>
             <li>SmartGrid finances, installs and <b>owns</b> the plant — €0 for the operator</li>
             <li><b>60% SmartGrid / 40% client</b> savings split, <b>15-year</b> contract</li>
@@ -294,8 +306,8 @@
   <!-- 8 ECONOMICS BY TIER -->
   <section class="slide">
     <div class="wrap">
-      <div class="kicker"><span class="n">1</span> Indicative economics</div>
-      <h2>Sizing &amp; returns scale with site size</h2>
+      <div class="kicker"><span class="n">1</span> <span data-t="s8_kicker">Indicative economics</span></div>
+      <h2 data-t="s8_h2">Sizing &amp; returns scale with site size</h2>
       <table>
         <thead><tr><th>Tier</th><th>Solar PV</th><th>Battery (LFP)</th><th>EV chargers</th><th>Indicative CAPEX</th><th>Savings (€/yr)**</th><th>Client payback (M1)</th></tr></thead>
         <tbody>
@@ -312,9 +324,9 @@
   <!-- 9 SETUP / ONBOARDING -->
   <section class="slide" style="background:#fff">
     <div class="wrap">
-      <div class="kicker"><span class="n">3</span> Setup &amp; onboarding</div>
-      <h2>How a site gets connected</h2>
-      <p class="lede">From first contact to live operation. The deployment funnel (Master v2 §5 "How it works") plus the indicative timeline from the grant-application template (§2).</p>
+      <div class="kicker"><span class="n">3</span> <span data-t="s9_kicker">Setup &amp; onboarding</span></div>
+      <h2 data-t="s9_h2">How a site gets connected</h2>
+      <p class="lede" data-t="s9_lede">From first contact to live operation. The deployment funnel (Master v2 §5 "How it works") plus the indicative timeline from the grant-application template (§2).</p>
       <div class="steps">
         <div class="step"><div class="body"><span class="when">Qualification</span><h3>Satellite analysis &amp; invoice extraction</h3><p>Site solar potential assessed from satellite imagery; 12 months of energy bills parsed (OCR/NLP). A bottom-up consumption model (equipment × hours × season × occupancy) is collectable in a single sales call.</p></div></div>
         <div class="step"><div class="body"><span class="when">Design</span><h3>Energy matrix &amp; solar/battery sizing</h3><p>Loads mapped (pools, restaurant, mobile homes, EV); PV, storage and charger capacity sized from the matrix. Tier and energy-intensity overlay set the offer (Model 1 vs Model 2).</p></div></div>
@@ -331,14 +343,14 @@
   <!-- 10 PILOT -->
   <section class="slide">
     <div class="wrap">
-      <div class="kicker"><span class="n">+</span> Proof point</div>
-      <h2>The kickoff — Camping Riva Bella, Corsica</h2>
-      <p class="lede">Phase 1 live deployment (88 kWp solar PV) with real FusionSolar/SmartDesign simulation data. Islands first — non-interconnected zones (ZNI) carry the strongest public support and highest resilience value. Phase 2 (LFP storage, EV chargers, 24/7 AI EMS) planned following Phase 1 results.</p>
+      <div class="kicker"><span class="n">+</span> <span data-t="s10_kicker">Proof point</span></div>
+      <h2 data-t="s10_h2">The kickoff — Camping Riva Bella, Corsica</h2>
+      <p class="lede" data-t="s10_lede">Phase 1 live deployment (88 kWp solar PV) with real FusionSolar/SmartDesign simulation data. Islands first — non-interconnected zones (ZNI) carry the strongest public support and highest resilience value. Phase 2 (LFP storage, EV chargers, 24/7 AI EMS) planned following Phase 1 results.</p>
       <div class="stats">
-        <div class="stat"><div class="num">€98,600</div><div class="lab">Initial investment (Phase 1)</div></div>
-        <div class="stat"><div class="num">€12,099/yr</div><div class="lab">Year-1 savings</div></div>
-        <div class="stat"><div class="num">49.54 t</div><div class="lab">CO₂ avoided (yr 1)</div></div>
-        <div class="stat"><div class="num">3.84 yrs · 28.91%</div><div class="lab">Payback · IRR — 88 kWp PV</div></div>
+        <div class="stat"><div class="num">€98,600</div><div class="lab" data-t="s10_stat1l">Initial investment (Phase 1)</div></div>
+        <div class="stat"><div class="num">€12,099/yr</div><div class="lab" data-t="s10_stat2l">Year-1 savings</div></div>
+        <div class="stat"><div class="num">49.54 t</div><div class="lab" data-t="s10_stat3l">CO₂ avoided (yr 1)</div></div>
+        <div class="stat"><div class="num">3.84 yrs · 28.91%</div><div class="lab" data-t="s10_stat4l">Payback · IRR — 88 kWp PV</div></div>
       </div>
       <p class="lede" style="margin-top:22px">Funding: <span class="hl">€98,600 equity</span> · <span class="hl">€38,720 subsidy</span> → net investment <span class="hl">€59,880</span>. 25-year cumulative profit: <span class="hl">€615,906</span> · NPV <span class="hl">€338,794</span>.</p>
       <p class="tag">Real simulation data — FusionSolar/SmartDesign report by BET Performance. Source: CAMPING RIVA BELLA_Retour investissement.pdf; brain.md §6.</p>
@@ -348,8 +360,8 @@
   <!-- 11 DATA NOTE / CAVEATS -->
   <section class="slide" style="background:#fff">
     <div class="wrap">
-      <div class="kicker"><span class="n">!</span> Data integrity &amp; open items</div>
-      <h2>What to confirm before this is used externally</h2>
+      <div class="kicker"><span class="n">!</span> <span data-t="s11_kicker">Data integrity</span> &amp; open items</div>
+      <h2 data-t="s11_h2">What to confirm before this is used externally</h2>
       <div class="note red">
         <b>Discrepancy flagged — BP narrative vs its own financial model (2035).</b>
         The business-plan documents headline <b>≈ €37.1M revenue / +€34.5M EBITDA</b> for 2035, but ECOGRID_Financial_Model_v1.xlsx computes <b>≈ €42.1M revenue / ≈ €39.5M EBITDA</b> (and a slightly different site ramp: model 14/40/109 sites in 2030/32/35 vs 13/39/109 in the docx). Both come from the same commit. The deck uses the document figures; the two need reconciling before any external pitch.
@@ -359,10 +371,10 @@
         BP text says <b>≈ 9.5-yr payback / ≈ 3.2× over the lease</b> (net of aids, 30-yr basis). The model dashboard reports <b>11.15-yr payback / 1.34× multiple on gross CAPEX</b>. Same plant, different bases (net-of-aids + lifetime tail vs gross + contract only) — label which basis is quoted.
       </div>
       <div class="grid g2" style="margin-top:18px">
-        <div class="card"><h3>Confirmed / verified (June 2026)</h3>
+        <div class="card"><h3 data-t="s11_c1h3">Confirmed / verified (June 2026)</h3>
           <p>Eurostat campsite counts (FR 7,996 · IT 2,380 · ES 1,412); FR self-consumption premium abolished (decree 1 June 2026); ES RD 477/2021 closed; IT Transizione 5.0 closed. These are well-sourced.</p>
         </div>
-        <div class="card"><h3>Open / unaudited (per the docs)</h3>
+        <div class="card"><h3 data-t="s11_c2h3">Open / unaudited (per the docs)</h3>
           <p>Pilot CAPEX, savings and €/Wp ratios are unaudited (±40%) pending engineering study and supplier quotes; Corsica ZNI feed-in rates to confirm with EDF SEI; EPC margin, size-based pricing tiers and surnames of two shareholders still TBD.</p>
         </div>
       </div>
@@ -373,8 +385,8 @@
   <!-- 12 CLOSE -->
   <section class="slide" style="background:linear-gradient(160deg,#13643f 0%,#0d1b2a 100%);color:#fff;border:none">
     <div class="wrap" style="text-align:center">
-      <div class="kicker" style="background:rgba(255,255,255,.12);color:#bff0d4">In one sentence</div>
-      <h2 style="color:#fff;max-width:900px;margin:0 auto">Own the distribution and the software layer for energy in outdoor hospitality — start on the islands, scale to a European network of connected sites.</h2>
+      <div class="kicker" style="background:rgba(255,255,255,.12);color:#bff0d4"><span data-t="s12_kicker">In one sentence</span></div>
+      <h2 style="color:#fff;max-width:900px;margin:0 auto" data-t="s12_h2">Own the distribution and the software layer for energy in outdoor hospitality — start on the islands, scale to a European network of connected sites.</h2>
       <p class="brandline" style="color:#9fc6b2;margin-top:28px">ECOGRID RESORT™ · Smart Grid module of COREPROMA · Confidential working document, June 2026.<br>Projections rely on unaudited assumptions; they are neither an offer nor a promise of returns.</p>
       <p class="tag" style="color:#7fa790">Built from: ECOGRID_Business_Plan_EN.docx · SmartGridResort_Master_2026-06_v2.docx · ECOGRID_Financial_Model_v1.xlsx · BP_interview_notes.md · BP_research_verification_2026-06.md · notes_segmentation_energie_2026-06-12.md · brain.md (commit 3240421).</p>
     </div>
@@ -383,14 +395,14 @@
   <!-- 13 REVENUE COMPARISON -->
   <section class="slide" id="slide-revenue">
     <div class="wrap">
-      <div class="kicker"><span class="n">◈</span> Revenue model comparison</div>
-      <h2>Model 1 vs Model 2 — which path to profitability?</h2>
-      <p class="lede" style="margin-bottom:20px">Per XL site deal (≥€500k/yr savings). Model 1 delivers an immediate EPC margin; Model 2 is a long-term asset-ownership play that turns cash-flow positive only after Year 16.</p>
+      <div class="kicker"><span class="n">◈</span> <span data-t="s13_kicker">Revenue model comparison</span></div>
+      <h2 data-t="s13_h2">Model 1 vs Model 2 — which path to profitability?</h2>
+      <p class="lede" style="margin-bottom:20px" data-t="s13_lede">Per XL site deal (≥€500k/yr savings). Model 1 delivers an immediate EPC margin; Model 2 is a long-term asset-ownership play that turns cash-flow positive only after Year 16.</p>
 
       <div class="two" style="align-items:start">
         <!-- Left: donut M1 Year 1 -->
         <div class="card" style="padding:24px">
-          <h3 style="margin-bottom:4px">Model 1 — Year 1 Revenue per XL site</h3>
+          <h3 style="margin-bottom:4px" data-t="s13_c1h3">Model 1 — Year 1 Revenue per XL site</h3>
           <p class="small" style="margin-bottom:16px">Total <b>€870,000</b> — positive from day 1</p>
           <div style="position:relative;max-height:210px;display:flex;justify-content:center">
             <canvas id="chartM1" style="max-height:210px"></canvas>
@@ -403,7 +415,7 @@
 
         <!-- Right: bar cumulative P&L -->
         <div class="card" style="padding:24px">
-          <h3 style="margin-bottom:4px">Cumulative Net P&L — 1 XL Site</h3>
+          <h3 style="margin-bottom:4px" data-t="s13_c2h3">Cumulative Net P&L — 1 XL Site</h3>
           <p class="small" style="margin-bottom:16px">After CAPEX · Model 2 breakeven ≈ <b>Year 16.4</b></p>
           <div style="position:relative;max-height:210px">
             <canvas id="chartCompare" style="max-height:210px"></canvas>
@@ -438,9 +450,9 @@
   <!-- CORSICA OPPORTUNITIES -->
   <section class="slide" id="slide-corsica" style="background:#f4f7f6;padding-top:80px;padding-bottom:80px">
     <div class="wrap" style="max-width:1100px">
-      <div class="kicker"><span class="n">③</span> Market opportunity</div>
-      <h2>Corsica — 29 premium campsites, mapped</h2>
-      <p class="lede">Non-exhaustive survey of 4★ and 5★ campsites across the island — the highest-priority segment for EcoGrid Resort™ deployment. Island grid constraints (ZNI), high energy intensity and strong tourism footfall make Corsica the ideal launch market.</p>
+      <div class="kicker"><span class="n">③</span> <span data-t="sc_kicker">Market opportunity</span></div>
+      <h2 data-t="sc_h2">Corsica — 29 premium campsites, mapped</h2>
+      <p class="lede" data-t="sc_lede">Non-exhaustive survey of 4★ and 5★ campsites across the island — the highest-priority segment for EcoGrid Resort™ deployment. Island grid constraints (ZNI), high energy intensity and strong tourism footfall make Corsica the ideal launch market.</p>
 
       <!-- MAP -->
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -448,9 +460,9 @@
       <div style="position:relative;margin-top:22px">
         <div id="corsica-map" style="height:430px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)"></div>
         <div style="position:absolute;bottom:10px;left:10px;z-index:800;background:rgba(255,255,255,.92);padding:8px 12px;border-radius:10px;font-size:12px;backdrop-filter:blur(4px);box-shadow:0 2px 8px rgba(0,0,0,.15)">
-          <div><span style="color:#b91c1c;font-size:15px">●</span> Very high priority</div>
-          <div><span style="color:#d97706;font-size:15px">●</span> High priority</div>
-          <div><span style="color:#2563eb;font-size:15px">●</span> Medium priority</div>
+          <div><span style="color:#b91c1c;font-size:15px">●</span> <span data-t="map_leg1">Very high priority</span></div>
+          <div><span style="color:#d97706;font-size:15px">●</span> <span data-t="map_leg2">High priority</span></div>
+          <div><span style="color:#2563eb;font-size:15px">●</span> <span data-t="map_leg3">Medium priority</span></div>
         </div>
         <div style="position:absolute;top:10px;left:10px;z-index:800;background:rgba(255,255,255,.92);padding:8px 14px;border-radius:10px;font-size:12px;backdrop-filter:blur(4px);box-shadow:0 2px 8px rgba(0,0,0,.15)">
           <span style="display:inline-block;margin:2px 2px 0 0;padding:4px 8px;border-radius:6px;background:#0f766e;color:white;cursor:pointer;font-size:11px" onclick="cmapFilter('all')">All</span>
@@ -461,7 +473,7 @@
       <p class="small" style="margin-top:6px">⚠ Coordinates and pitch counts are consolidated estimates for prospecting purposes — verify before commercial campaign.</p>
 
       <!-- SITE RECAP TABLE -->
-      <h3 style="margin-top:32px;font-size:20px">All 29 sites — reference overview</h3>
+      <h3 style="margin-top:32px;font-size:20px" data-t="sc_t1h">All 29 sites — reference overview</h3>
       <div style="overflow-x:auto;margin-top:10px">
         <table style="font-size:13px;min-width:900px">
           <thead><tr><th>#</th><th>Site name</th><th>City</th><th>★</th><th>Pitches (est.)</th><th>Access / Context</th><th>Priority</th><th>Score /10</th><th>EcoGrid tier</th></tr></thead>
@@ -500,7 +512,7 @@
       </div>
 
       <!-- FINANCIAL PROJECTION TABLE -->
-      <h3 style="margin-top:36px;font-size:20px">Financial projection by EcoGrid tier — Corsica portfolio</h3>
+      <h3 style="margin-top:36px;font-size:20px" data-t="sc_t2h">Financial projection by EcoGrid tier — Corsica portfolio</h3>
       <p class="small" style="margin-top:4px">Based on the 29 surveyed sites. CAPEX, savings and margins are indicative (±40%) — see Sizing &amp; Returns slide for methodology.</p>
       <table style="margin-top:12px">
         <thead>
@@ -680,5 +692,294 @@
   var sec=document.getElementById('slide-corsica');if(sec)obs.observe(sec);
 })();
 </script>
+<script>
+// ── Translation dictionary ─────────────────────────────────────────────
+const T = {
+  // nav
+  menu1:   {en:"The Offer",                  fr:"L'Offre"},
+  menu2:   {en:"How It Works",               fr:"Comment ça marche"},
+  menu3:   {en:"Corsica Opportunities",      fr:"Opportunités Corse"},
+  navhint: {en:"Use <b>↑ ↓</b> / arrows · click dots · <b>P</b> to print",
+            fr:"Utilisez <b>↑ ↓</b> / flèches · cliquez les points · <b>P</b> pour imprimer"},
+  // slide 1
+  s1_kicker:{en:"Smart Grid module of the COREPROMA ecosystem",
+             fr:"Module Smart Grid de l'écosystème COREPROMA"},
+  s1_lede:  {en:"The energy-services platform that turns Southern-European campsites &amp; holiday villages into smart microgrids — solar, storage, V2G, AI-driven control and a guest app.",
+             fr:"La plateforme de services énergétiques qui transforme les campings et villages vacances d'Europe du Sud en micro-réseaux intelligents — solaire, stockage, V2G, pilotage IA et application vacancier."},
+  s1_brand: {en:"Brand: ECOGRID RESORT™ &nbsp;·&nbsp; Operating venture: SmartGrid &nbsp;·&nbsp; June 2026 — Confidential — v2.0",
+             fr:"Marque : ECOGRID RESORT™ &nbsp;·&nbsp; Entité opératrice : SmartGrid &nbsp;·&nbsp; Juin 2026 — Confidentiel — v2.0"},
+  s1_stat1n:{en:"SaaS + assets",    fr:"SaaS + actifs"},
+  s1_stat1l:{en:"Hybrid model",     fr:"Modèle hybride"},
+  s1_stat2l:{en:"Campsites FR+IT+ES",fr:"Campings FR+IT+ES"},
+  s1_stat4l:{en:"EBITDA-positive (central)",fr:"EBITDA positif (scénario central)"},
+  // slide 2
+  s2_kicker:{en:"What is the offer",   fr:"L'offre"},
+  s2_h2:    {en:"An energy operating system for outdoor hospitality",
+             fr:"Un système d'exploitation énergétique pour l'hôtellerie de plein air"},
+  s2_lede:  {en:"ECOGRID RESORT™ orchestrates a site's energy in real time — maximising solar self-consumption, cutting grid peaks and protecting guest comfort — sold as software plus integrated assets, deployed site by site and then as a European network.",
+             fr:"ECOGRID RESORT™ orchestre l'énergie d'un site en temps réel — maximise l'autoconsommation solaire, réduit les pics réseau et préserve le confort des vacanciers — vendu en mode logiciel + actifs intégrés, déployé site par site puis en réseau européen."},
+  s2_note:  {en:"<b>The thesis — the edge is distribution, not hardware.</b> Solar and EMS hardware are commodities (FoxESS, SolarEdge, Huawei, SMA, Victron). The defensible advantage is <span class=\"hl\">existing access to operators through COREPROMA</span>, the <span class=\"hl\">tourism-vertical software</span> on top, and <span class=\"hl\">COREPROMA occupancy data feeding AI load forecasting</span> — something no generic EMS has. Long-term value comes from recurring software and the network of connected sites, not equipment sales.",
+             fr:"<b>La thèse — l'avantage est dans la distribution et le logiciel, pas dans le matériel.</b> Le matériel solaire et les EMS sont des commodités (FoxESS, SolarEdge, Huawei, SMA, Victron). L'avantage défendable repose sur <span class=\"hl\">l'accès existant aux opérateurs via COREPROMA</span>, le <span class=\"hl\">logiciel vertical tourisme</span> par-dessus, et les <span class=\"hl\">données d'occupation COREPROMA alimentant la prévision IA des charges</span> — ce qu'aucun EMS générique ne possède. La valeur long terme vient du logiciel récurrent et du réseau de sites connectés, pas de la vente d'équipements."},
+  // slide 3
+  s3_kicker:{en:"Why now",              fr:"Pourquoi maintenant"},
+  s3_h2:    {en:"The customer pain — and three regulatory tailwinds",
+             fr:"La douleur client — et trois vents réglementaires favorables"},
+  s3_c1h3:  {en:"Operator pain points", fr:"Points de douleur des opérateurs"},
+  s3_c1p:   {en:"Volatile electricity bills (A/C, pools, catering, hot water, lighting); high subscribed power and grid-connection constraints in tourist zones; rising guest EV-charging demand; pressure for visible, measurable low-carbon proof; and the administrative complexity of permits and aid applications.",
+             fr:"Factures électriques volatiles (clim, piscines, restauration, eau chaude, éclairage) ; puissance souscrite élevée et contraintes de raccordement en zones touristiques ; demande croissante de recharge VE des vacanciers ; pression pour une preuve carbone visible et mesurable ; complexité administrative des permis et dossiers d'aides."},
+  s3_c2h3:  {en:"Regulatory drivers (verified June 2026)", fr:"Moteurs réglementaires (vérifiés juin 2026)"},
+  s3_c2p:   {en:"<b>EPBD (EU/2024/1275):</b> solar mandatory on existing non-residential &gt;500&nbsp;m² at major renovation (by 31/12/2027); new &gt;250&nbsp;m² from end-2026.<br><b>APER law (FR):</b> solar carports on car parks &gt;1,500&nbsp;m² (2026/2028 — softened 2025, under legal challenge; use with caution).<br><b>End of FR self-consumption premium (decree 1 June 2026):</b> surplus feed-in cut to €0.011/kWh — a self-consumed kWh is now worth ~20× an exported one, exactly what the EMS + storage maximise.",
+             fr:"<b>DPEB (UE/2024/1275) :</b> solaire obligatoire sur les bâtiments non résidentiels existants &gt; 500 m² lors d'une rénovation majeure (avant le 31/12/2027) ; neuf &gt; 250 m² dès fin 2026.<br><b>Loi APER (FR) :</b> ombrières solaires sur parkings &gt; 1 500 m² (2026/2028 — assouplie 2025, sous recours juridique ; à utiliser avec précaution).<br><b>Fin de la prime à l'autoconsommation FR (décret 1er juin 2026) :</b> revente du surplus réduite à 0,011 €/kWh — un kWh autoconsommé vaut désormais ~20× un kWh exporté, exactement ce que maximisent l'EMS + le stockage."},
+  // slide 4
+  s4_kicker:{en:"Target customers",                 fr:"Clients cibles"},
+  s4_h2:    {en:"Campsites &amp; holiday villages, Southern Europe",
+             fr:"Campings &amp; villages vacances, Europe du Sud"},
+  s4_lede:  {en:"Target: campsites, holiday villages, resorts, tourism residences and eco-destinations. Priority geographies: Corsica &amp; Sardinia first (non-interconnected islands), then mainland France, Italy, Spain. Segmented on two independent axes — <span class=\"hl\">size</span> (pitches → contract value) and <span class=\"hl\">energy intensity</span> (stars/equipment).",
+             fr:"Cible : campings, villages vacances, resorts, résidences de tourisme et éco-destinations. Géographies prioritaires : Corse &amp; Sardaigne en premier (îles non interconnectées), puis France métropolitaine, Italie, Espagne. Segmentés sur deux axes indépendants — <span class=\"hl\">taille</span> (emplacements → valeur contrat) et <span class=\"hl\">intensité énergétique</span> (étoiles/équipements)."},
+  s4_th1:   {en:"Pitches",              fr:"Emplacements"},
+  s4_th2:   {en:"Typical profile &amp; equipment", fr:"Profil type &amp; équipements"},
+  s4_th3:   {en:"Consumption",          fr:"Consommation"},
+  s4_th4:   {en:"Annual bill*",         fr:"Facture annuelle*"},
+  s4_th5:   {en:"Commercial fit",       fr:"Adéquation commerciale"},
+  // slide 5
+  s5_kicker:{en:"What's included",   fr:"Ce qui est inclus"},
+  s5_h2:    {en:"Four building blocks, one software core",
+             fr:"Quatre briques, un cœur logiciel"},
+  s5_c1h3:  {en:"Generate",          fr:"Produire"},
+  s5_c1p:   {en:"On-site solar (carports, roofs, pergolas) + optional wind. All local sources able to inject into the internal grid.",
+             fr:"Solaire sur site (ombrières, toitures, pergolas) + éolien optionnel. Toutes sources locales capables d'injecter dans le réseau interne."},
+  s5_c2h3:  {en:"Store &amp; dispatch", fr:"Stocker &amp; dispatcher"},
+  s5_c2p:   {en:"V2G-ready LFP batteries for resilience, arbitrage and local-grid injection. AI-driven EMS, 24/7, across all sources.",
+             fr:"Batteries LFP V2G-prêtes pour résilience, arbitrage et injection réseau local. EMS piloté par IA 24/7 sur l'ensemble des sources."},
+  s5_c3h3:  {en:"Distribute &amp; charge", fr:"Distribuer &amp; recharger"},
+  s5_c3p:   {en:"Control of pools, A/C and hot water; 30–50 EV chargers with smart charging and V2G feedback to the local grid.",
+             fr:"Pilotage piscines, climatisation et eau chaude ; 30–50 bornes VE avec recharge intelligente et retour V2G vers le réseau local."},
+  s5_c4h3:  {en:"Engage &amp; measure", fr:"Engager &amp; mesurer"},
+  s5_c4p:   {en:"Guest app — EcoScore, real-time savings &amp; CO₂, EV booking, V2G rewards — plus operator carbon/ESG reporting.",
+             fr:"Application vacancier — EcoScore, économies &amp; CO₂ en temps réel, réservation VE, récompenses V2G — plus reporting carbone/ESG opérateur."},
+  s5_lede:  {en:"A single identical software core deploys on campsites, villages, resorts and islands — standardised kits, equipment adapted to the site.",
+             fr:"Un seul cœur logiciel identique se déploie sur les campings, villages, resorts et îles — kits standardisés, équipements adaptés au site."},
+  // slide 6
+  s6_kicker:{en:"What's included — full stack", fr:"Ce qui est inclus — stack complet"},
+  s6_h2:    {en:"Hardware, software and embedded services", fr:"Matériel, logiciel et services intégrés"},
+  s6_c1h3:  {en:"Hardware (integrated, multi-brand)",  fr:"Matériel (intégré, multi-marque)"},
+  s6_c1p:   {en:"Solar panels, carport structures, hybrid inverters, LFP batteries (V2G-ready), EV chargers, smart meters and sensors. Integrated via Modbus, OCPP, MQTT and vendor APIs — multi-brand by design.",
+             fr:"Panneaux solaires, structures ombrières, onduleurs hybrides, batteries LFP (V2G-prêtes), bornes VE, compteurs intelligents et capteurs. Intégration via Modbus, OCPP, MQTT et APIs constructeurs — multi-marque par conception."},
+  s6_c2h3:  {en:"Software platform",   fr:"Plateforme logicielle"},
+  s6_c2p:   {en:"Operator dashboard · AI forecasting (weather + COREPROMA occupancy) · energy-matrix engine · load optimisation · invoice parser (OCR/NLP) · permit (DP) support · grant-optimisation engine · guest app · API integrations.",
+             fr:"Tableau de bord opérateur · prévision IA (météo + occupation COREPROMA) · moteur matrice énergétique · optimisation des charges · parseur de factures (OCR/NLP) · aide au permis (DP) · moteur d'optimisation des aides · application vacancier · intégrations API."},
+  s6_c3h3:  {en:"Embedded services",   fr:"Services intégrés"},
+  s6_c3p:   {en:"24/7 supervision &amp; O&amp;M; ESG / carbon reporting; productised label support (Green Key, ISO 50001…); and an in-house grants specialist who manages aid applications (CRE ZNI, FEDER, GSE, IDAE) on the client's behalf.",
+             fr:"Supervision &amp; O&amp;M 24/7 ; reporting ESG/carbone ; accompagnement labels (Green Key, ISO 50001…) ; et un spécialiste aides en interne qui gère les dossiers (CRE ZNI, FEDER, GSE, IDAE) pour le compte du client."},
+  s6_note:  {en:"<b>Architecture (from Master v2 §4).</b> UI (operator dashboard + guest app) → API gateway → auth · invoice parser · energy-matrix engine · forecasting engine · smart-control engine · grant-optimisation engine. Forecasting draws on a weather API and the COREPROMA occupancy feed; smart control drives inverters, meters, EV chargers and V2G batteries. Data layer: SQL + time-series DB + object storage, hosted on Azure.",
+             fr:"<b>Architecture (d'après Master v2 §4).</b> UI (tableau de bord opérateur + app vacancier) → API gateway → auth · parseur factures · moteur matrice énergétique · moteur de prévision · moteur de contrôle intelligent · moteur d'optimisation des aides. La prévision s'appuie sur une API météo et le flux d'occupation COREPROMA ; le contrôle intelligent pilote onduleurs, compteurs, bornes VE et batteries V2G. Couche données : SQL + BDD time-series + stockage objet, hébergé sur Azure."},
+  // slide 7
+  s7_kicker:{en:"Pricing &amp; model",  fr:"Tarification &amp; modèle"},
+  s7_h2:    {en:"Two ways to buy — recurring revenue either way",
+             fr:"Deux façons d'acheter — revenus récurrents dans les deux cas"},
+  s7_m1h3:  {en:"Model 1 — Direct sale",         fr:"Modèle 1 — Vente directe"},
+  s7_m1sub: {en:"Client pays CAPEX · keeps 100% of savings",
+             fr:"Le client finance le CAPEX · conserve 100 % des économies"},
+  s7_m1li1: {en:"Client buys the plant (pays the quote); keeps 100% of the bill reduction",
+             fr:"Le client achète la centrale (règle le devis) ; conserve 100 % de la réduction de facture"},
+  s7_m1li2: {en:"SmartGrid earns an <b>EPC margin ≈ 15%</b> on installation (≈ €855k on the reference site)",
+             fr:"SmartGrid perçoit une <b>marge EPC ≈ 15 %</b> sur l'installation (≈ 855 k€ sur le site de référence)"},
+  s7_m1li3: {en:"<b>SaaS €5k/yr</b> — all updates &amp; support included",
+             fr:"<b>SaaS 5 k€/an</b> — toutes mises à jour &amp; support inclus"},
+  s7_m1li4: {en:"<b>Maintenance €10k/yr</b> base (size-based tiers in progress)",
+             fr:"<b>Maintenance 10 k€/an</b> de base (grilles par taille en cours)"},
+  s7_m1li5: {en:"Client payback ≈ <b>6–7 yrs</b> on ≈ €860k/yr savings",
+             fr:"Retour client ≈ <b>6–7 ans</b> sur ≈ 860 k€/an d'économies"},
+  s7_m2h3:  {en:"Model 2 — Financed &amp; savings share", fr:"Modèle 2 — Financé &amp; partage d'économies"},
+  s7_m2sub: {en:"Zero client investment · Energy-as-a-Service",
+             fr:"Zéro investissement client · Énergie-en-tant-que-service"},
+  s7_m2li1: {en:"SmartGrid finances, installs and <b>owns</b> the plant — €0 for the operator",
+             fr:"SmartGrid finance, installe et <b>possède</b> la centrale — 0 € pour l'opérateur"},
+  s7_m2li2: {en:"<b>60% SmartGrid / 40% client</b> savings split, <b>15-year</b> contract",
+             fr:"Partage des économies <b>60 % SmartGrid / 40 % client</b>, contrat <b>15 ans</b>"},
+  s7_m2li3: {en:"SaaS still sold; maintenance borne by SmartGrid; <b>30-year</b> land/roof lease",
+             fr:"SaaS toujours vendu ; maintenance à la charge de SmartGrid ; bail terrain/toiture <b>30 ans</b>"},
+  s7_m2li4: {en:"Plants sit in <b>asset SPVs</b> (equity + green debt + aids), off the opco balance sheet",
+             fr:"Les centrales logent dans des <b>SPV actifs</b> (fonds propres + dette verte + aides), hors bilan de l'opco"},
+  s7_m2li5: {en:"Volume option: become an <b>aggregator / VPP</b> — pure upside, not in projections",
+             fr:"Option à volume : devenir <b>agrégateur / VPP</b> — upside pur, hors projections"},
+  // slide 8
+  s8_kicker:{en:"Indicative economics",   fr:"Économie indicative"},
+  s8_h2:    {en:"Sizing &amp; returns scale with site size",
+             fr:"Dimensionnement &amp; rendements croissants avec la taille"},
+  s8_th1:   {en:"Solar PV",              fr:"Solaire PV"},
+  s8_th2:   {en:"Battery (LFP)",         fr:"Batterie (LFP)"},
+  s8_th3:   {en:"EV chargers",           fr:"Bornes VE"},
+  s8_th4:   {en:"Indicative CAPEX",      fr:"CAPEX indicatif"},
+  s8_th5:   {en:"Savings (€/yr)**",      fr:"Économies (€/an)**"},
+  s8_th6:   {en:"Client payback (M1)",   fr:"Retour client (M1)"},
+  // slide 9
+  s9_kicker:{en:"Setup &amp; onboarding",    fr:"Déploiement &amp; onboarding"},
+  s9_h2:    {en:"How a site gets connected", fr:"Comment un site se connecte"},
+  s9_lede:  {en:"From first contact to live operation. The deployment funnel (Master v2 §5 "How it works") plus the indicative timeline from the grant-application template (§2).",
+             fr:"Du premier contact à la mise en service. L'entonnoir de déploiement (Master v2 §5 « Comment ça marche ») et le calendrier indicatif du modèle de dossier d'aides (§2)."},
+  s9_st1w:  {en:"Qualification",    fr:"Qualification"},
+  s9_st1h3: {en:"Satellite analysis &amp; invoice extraction",
+             fr:"Analyse satellitaire &amp; extraction factures"},
+  s9_st1p:  {en:"Site solar potential assessed from satellite imagery; 12 months of energy bills parsed (OCR/NLP). A bottom-up consumption model (equipment × hours × season × occupancy) is collectable in a single sales call.",
+             fr:"Potentiel solaire du site évalué par imagerie satellite ; 12 mois de factures d'énergie parsées (OCR/NLP). Un modèle de consommation bottom-up (équipements × heures × saison × taux d'occupation) est collectible en un seul rendez-vous commercial."},
+  s9_st2w:  {en:"Design",           fr:"Conception"},
+  s9_st2h3: {en:"Energy matrix &amp; solar/battery sizing",
+             fr:"Matrice énergétique &amp; dimensionnement solaire/stockage"},
+  s9_st2p:  {en:"Loads mapped (pools, restaurant, mobile homes, EV); PV, storage and charger capacity sized from the matrix. Tier and energy-intensity overlay set the offer (Model 1 vs Model 2).",
+             fr:"Charges cartographiées (piscines, restaurant, mobil-homes, VE) ; capacités PV, stockage et bornes dimensionnées à partir de la matrice. Overlay tier &amp; intensité énergétique fixe l'offre (Modèle 1 vs Modèle 2)."},
+  s9_st3w:  {en:"Months 1–2",       fr:"Mois 1–2"},
+  s9_st3h3: {en:"Engineering study", fr:"Étude d'ingénierie"},
+  s9_st3p:  {en:"Detailed design, supplier quotes and a confirmed financial plan (CAPEX/OPEX/savings/payback) exported from the ECOGRID financial model.",
+             fr:"Conception détaillée, devis fournisseurs et plan financier confirmé (CAPEX/OPEX/économies/retour) exporté depuis le modèle financier ECOGRID."},
+  s9_st4w:  {en:"Months 2–4",       fr:"Mois 2–4"},
+  s9_st4h3: {en:"Permits &amp; grid connection",
+             fr:"Permis &amp; raccordement réseau"},
+  s9_st4p:  {en:"Permit (DP) support module; grid-connection request; aid applications pre-filled by the grant-optimisation engine and run by the in-house grants specialist. Model 2: secure the land/roof lease (≈30-yr).",
+             fr:"Module d'aide au permis (DP) ; demande de raccordement réseau ; dossiers d'aides pré-remplis par le moteur d'optimisation et gérés par le spécialiste interne. Modèle 2 : sécurisation du bail terrain/toiture (≈ 30 ans)."},
+  s9_st5w:  {en:"Months 4–8",       fr:"Mois 4–8"},
+  s9_st5h3: {en:"Installation",     fr:"Installation"},
+  s9_st5p:  {en:"Carports/roofs, inverters, LFP batteries, EV chargers, smart meters and sensors installed and integrated (Modbus / OCPP / MQTT, multi-brand).",
+             fr:"Ombrières/toitures, onduleurs, batteries LFP, bornes VE, compteurs intelligents et capteurs installés et intégrés (Modbus / OCPP / MQTT, multi-marque)."},
+  s9_st6w:  {en:"Month 9",          fr:"Mois 9"},
+  s9_st6h3: {en:"Commissioning &amp; 24/7 AI operation",
+             fr:"Mise en service &amp; pilotage IA 24/7"},
+  s9_st6p:  {en:"EMS goes live; operator dashboard and guest app activated; ESG/carbon reporting enabled; continuous AI optimisation on weather + occupancy, with 24/7 supervision.",
+             fr:"L'EMS entre en service ; tableau de bord opérateur et application vacancier activés ; reporting ESG/carbone activé ; optimisation IA continue sur météo + occupation, avec supervision 24/7."},
+  s9_note:  {en:"<b>Required from the client to start (grant template §10 attachments).</b> Company documents &amp; national ID/SIRET · 12 months of energy bills · site map / satellite view · and — for Model 2 — a signed land-lease agreement.",
+             fr:"<b>Ce que le client doit fournir pour démarrer (pièces jointes modèle dossier §10).</b> Documents société &amp; carte d'identité/SIRET · 12 mois de factures d'énergie · plan de masse/vue satellite · et — pour le Modèle 2 — un bail signé."},
+  // slide 10
+  s10_kicker:{en:"Proof point",      fr:"Preuve concrète"},
+  s10_h2:   {en:"The kickoff — Camping Riva Bella, Corsica",
+             fr:"Le lancement — Camping Riva Bella, Corse"},
+  s10_lede: {en:"Phase 1 live deployment (88 kWp solar PV) with real FusionSolar/SmartDesign simulation data. Islands first — non-interconnected zones (ZNI) carry the strongest public support and highest resilience value. Phase 2 (LFP storage, EV chargers, 24/7 AI EMS) planned following Phase 1 results.",
+             fr:"Déploiement Phase 1 en cours (88 kWc solaire PV) avec données de simulation réelles FusionSolar/SmartDesign. Les îles d'abord — les zones non interconnectées (ZNI) bénéficient du soutien public le plus fort et de la valeur de résilience la plus élevée. Phase 2 (stockage LFP, bornes VE, EMS IA 24/7) prévue selon les résultats de la Phase 1."},
+  s10_stat1l:{en:"Initial investment (Phase 1)", fr:"Investissement initial (Phase 1)"},
+  s10_stat2l:{en:"Year-1 savings",   fr:"Économies année 1"},
+  s10_stat3l:{en:"CO₂ avoided (yr 1)",fr:"CO₂ évité (an 1)"},
+  s10_stat4l:{en:"Payback · IRR — 88 kWp PV", fr:"Retour · TRI — 88 kWc PV"},
+  s10_lede2:{en:"Funding: <span class=\"hl\">€98,600 equity</span> · <span class=\"hl\">€38,720 subsidy</span> → net investment <span class=\"hl\">€59,880</span>. 25-year cumulative profit: <span class=\"hl\">€615,906</span> · NPV <span class=\"hl\">€338,794</span>.",
+             fr:"Financement : <span class=\"hl\">98 600 € fonds propres</span> · <span class=\"hl\">38 720 € subvention</span> → investissement net <span class=\"hl\">59 880 €</span>. Bénéfice net cumulé 25 ans : <span class=\"hl\">615 906 €</span> · VAN <span class=\"hl\">338 794 €</span>."},
+  // slide 11
+  s11_kicker:{en:"Data integrity &amp; open items",
+              fr:"Intégrité des données &amp; points ouverts"},
+  s11_h2:   {en:"What to confirm before this is used externally",
+             fr:"Ce qu'il faut confirmer avant toute diffusion externe"},
+  s11_note1:{en:"<b>Discrepancy flagged — BP narrative vs its own financial model (2035).</b> The business-plan documents headline <b>≈ €37.1M revenue / +€34.5M EBITDA</b> for 2035, but ECOGRID_Financial_Model_v1.xlsx computes <b>≈ €42.1M revenue / ≈ €39.5M EBITDA</b> (and a slightly different site ramp: model 14/40/109 sites in 2030/32/35 vs 13/39/109 in the docx). Both come from the same commit. The deck uses the document figures; the two need reconciling before any external pitch.",
+             fr:"<b>Écart signalé — narrative BP vs son propre modèle financier (2035).</b> Les documents du business plan affichent <b>≈ 37,1 M€ de revenus / +34,5 M€ d'EBITDA</b> pour 2035, alors qu'ECOGRID_Financial_Model_v1.xlsx calcule <b>≈ 42,1 M€ de revenus / ≈ 39,5 M€ d'EBITDA</b> (avec une rampe de sites légèrement différente : modèle 14/40/109 sites en 2030/32/35 vs 13/39/109 dans le docx). Les deux proviennent du même commit. Le deck utilise les chiffres des documents ; les deux doivent être réconciliés avant toute présentation externe."},
+  s11_note2:{en:"<b>Model 2 payback — two numbers in circulation.</b> BP text says <b>≈ 9.5-yr payback / ≈ 3.2× over the lease</b> (net of aids, 30-yr basis). The model dashboard reports <b>11.15-yr payback / 1.34× multiple on gross CAPEX</b>. Same plant, different bases (net-of-aids + lifetime tail vs gross + contract only) — label which basis is quoted.",
+             fr:"<b>Retour sur investissement Modèle 2 — deux chiffres en circulation.</b> Le BP indique <b>≈ 9,5 ans de retour / ≈ 3,2× sur la durée du bail</b> (net d'aides, base 30 ans). Le dashboard du modèle affiche <b>11,15 ans / 1,34× multiple sur CAPEX brut</b>. Même centrale, bases différentes (net d'aides + queue de durée vs brut + contrat seul) — préciser quelle base est citée."},
+  s11_c1h3:{en:"Confirmed / verified (June 2026)",  fr:"Confirmé / vérifié (juin 2026)"},
+  s11_c1p: {en:"Eurostat campsite counts (FR 7,996 · IT 2,380 · ES 1,412); FR self-consumption premium abolished (decree 1 June 2026); ES RD 477/2021 closed; IT Transizione 5.0 closed. These are well-sourced.",
+            fr:"Comptages Eurostat de campings (FR 7 996 · IT 2 380 · ES 1 412) ; prime à l'autoconsommation FR supprimée (décret 1er juin 2026) ; RD 477/2021 ES clôturé ; IT Transizione 5.0 clôturé. Ces données sont bien sourcées."},
+  s11_c2h3:{en:"Open / unaudited (per the docs)",  fr:"Ouvert / non audité (selon les docs)"},
+  s11_c2p: {en:"Pilot CAPEX, savings and €/Wp ratios are unaudited (±40%) pending engineering study and supplier quotes; Corsica ZNI feed-in rates to confirm with EDF SEI; EPC margin, size-based pricing tiers and surnames of two shareholders still TBD.",
+            fr:"CAPEX pilote, économies et ratios €/Wc non audités (± 40 %) en attente d'étude d'ingénierie et de devis fournisseurs ; tarifs d'achat ZNI Corse à confirmer avec EDF SEI ; marge EPC, grilles de tarification par taille et noms de deux associés encore à définir."},
+  // slide 12
+  s12_kicker:{en:"In one sentence",  fr:"En une phrase"},
+  s12_h2:   {en:"Own the distribution and the software layer for energy in outdoor hospitality — start on the islands, scale to a European network of connected sites.",
+             fr:"Posséder la couche de distribution et le logiciel pour l'énergie dans l'hôtellerie de plein air — commencer par les îles, scaler en réseau européen de sites connectés."},
+  s12_brand:{en:"ECOGRID RESORT™ · Smart Grid module of COREPROMA · Confidential working document, June 2026.<br>Projections rely on unaudited assumptions; they are neither an offer nor a promise of returns.",
+             fr:"ECOGRID RESORT™ · Module Smart Grid de COREPROMA · Document de travail confidentiel, juin 2026.<br>Les projections reposent sur des hypothèses non auditées ; elles ne constituent ni une offre ni une promesse de rendement."},
+  // slide 13 (revenue)
+  s13_kicker:{en:"Revenue model comparison",       fr:"Comparaison des modèles de revenus"},
+  s13_h2:   {en:"Model 1 vs Model 2 — which path to profitability?",
+             fr:"Modèle 1 vs Modèle 2 — quel chemin vers la rentabilité ?"},
+  s13_lede: {en:"Per XL site deal (≥€500k/yr savings). Model 1 delivers an immediate EPC margin; Model 2 is a long-term asset-ownership play that turns cash-flow positive only after Year 16.",
+             fr:"Par site XL (économies ≥ 500 k€/an). Le Modèle 1 génère une marge EPC immédiate ; le Modèle 2 est une stratégie de possession d'actif à long terme qui devient positif seulement après l'année 16."},
+  s13_c1h3:{en:"Model 1 — Year 1 Revenue per XL site",
+            fr:"Modèle 1 — Revenus Année 1 par site XL"},
+  s13_c1p: {en:"Total <b>€870,000</b> — positive from day 1",
+            fr:"Total <b>870 000 €</b> — positif dès le premier jour"},
+  s13_c2h3:{en:"Cumulative Net P&amp;L — 1 XL Site",
+            fr:"P&amp;L Net cumulé — 1 site XL"},
+  s13_c2p: {en:"After CAPEX · Model 2 breakeven ≈ <b>Year 16.4</b>",
+            fr:"Après CAPEX · Seuil rentabilité M2 ≈ <b>Année 16,4</b>"},
+  s13_th1: {en:"Horizon",            fr:"Horizon"},
+  s13_th2: {en:"M1 cumulative P&amp;L", fr:"M1 cumulé"},
+  s13_th3: {en:"M2 gross revenue",   fr:"M2 revenu brut"},
+  s13_th4: {en:"M2 net P&amp;L",     fr:"M2 net P&amp;L"},
+  s13_th5: {en:"Verdict",            fr:"Verdict"},
+  s13_y5:  {en:"Year 5",             fr:"Année 5"},
+  s13_y10: {en:"Year 10",            fr:"Année 10"},
+  s13_y15: {en:"Year 15",            fr:"Année 15"},
+  s13_y20: {en:"Year 20",            fr:"Année 20"},
+  s13_y15pill:{en:"end contract",    fr:"fin contrat"},
+  s13_y20pill:{en:"100% savings",    fr:"100 % économies"},
+  s13_y5v: {en:"M2 deep in CAPEX recovery", fr:"M2 en récupération CAPEX"},
+  s13_y10v:{en:"M2 halfway to breakeven",   fr:"M2 à mi-chemin du seuil"},
+  s13_y15v:{en:"M2 near breakeven, owns asset", fr:"M2 quasi à l'équilibre, actif détenu"},
+  s13_y20v:{en:"M2 outperforms M1",         fr:"M2 surpasse M1"},
+  s13_note:{en:"<b>⚡ Key insight — when to use each model</b> <b>Model 1</b> is cash-flow positive from Year 1 and capital-efficient — ideal for scaling quickly. <b>Model 2</b> requires deep pockets (€4.8M CAPEX per XL site) and patience: it only becomes viable when savings exceed <b>€580k/yr</b> (XL sites) and when SmartGrid can finance or raise green debt. The real value of M2 lies post-contract: once the 15-year lease expires, SmartGrid owns a fully-paid solar asset generating 100% of savings — a permanent income stream worth ~€500k+/yr per site.",
+            fr:"<b>⚡ Enseignement clé — quel modèle choisir ?</b> Le <b>Modèle 1</b> est positif dès l'année 1 et économe en capital — idéal pour scaler rapidement. Le <b>Modèle 2</b> nécessite des fonds importants (4,8 M€ CAPEX par site XL) et de la patience : il n'est viable que si les économies dépassent <b>580 k€/an</b> (sites XL) et si SmartGrid peut financer ou lever de la dette verte. La vraie valeur du M2 est post-contrat : après 15 ans, SmartGrid possède un actif solaire intégralement amorti qui génère 100 % des économies — un flux de revenus pérenne d'environ 500 k€+/an par site."},
+  // slide 14 corsica
+  sc_kicker:{en:"Market opportunity", fr:"Opportunité de marché"},
+  sc_h2:    {en:"Corsica — 29 premium campsites, mapped",
+             fr:"Corse — 29 campings haut de gamme, cartographiés"},
+  sc_lede:  {en:"Non-exhaustive survey of 4★ and 5★ campsites across the island — the highest-priority segment for EcoGrid Resort™ deployment. Island grid constraints (ZNI), high energy intensity and strong tourism footfall make Corsica the ideal launch market.",
+             fr:"Cartographie non exhaustive des campings 4★ et 5★ de l'île — le segment le plus prioritaire pour le déploiement d'EcoGrid Resort™. Les contraintes du réseau insulaire (ZNI), la forte intensité énergétique et la fréquentation touristique élevée font de la Corse le marché de lancement idéal."},
+  sc_map_note:{en:"⚠ Coordinates and pitch counts are consolidated estimates for prospecting purposes — verify before commercial campaign.",
+               fr:"⚠ Les coordonnées et nombres d'emplacements sont des estimations consolidées à des fins de prospection — à vérifier avant toute campagne commerciale."},
+  sc_t1h:   {en:"All 29 sites — reference overview", fr:"Les 29 sites — vue d'ensemble de référence"},
+  sc_t1sm:  {en:"Pitches are indicative estimates. Priority scores are EcoGrid-internal assessments.",
+             fr:"Les emplacements sont des estimations indicatives. Les scores de priorité sont des évaluations internes EcoGrid."},
+  sc_th1:   {en:"Site name",      fr:"Nom du site"},
+  sc_th3:   {en:"Pitches (est.)", fr:"Emplacements (est.)"},
+  sc_th4:   {en:"Access / Context",fr:"Accès / Contexte"},
+  sc_th5:   {en:"Priority",       fr:"Priorité"},
+  sc_th6:   {en:"Score /10",      fr:"Score /10"},
+  sc_th7:   {en:"EcoGrid tier",   fr:"Tier EcoGrid"},
+  sc_t2h:   {en:"Financial projection by EcoGrid tier — Corsica portfolio",
+             fr:"Projection financière par tier EcoGrid — portefeuille Corse"},
+  sc_t2sm:  {en:"Based on the 29 surveyed sites. CAPEX, savings and margins are indicative (±40%) — see Sizing &amp; Returns slide for methodology.",
+             fr:"Basé sur les 29 sites recensés. CAPEX, économies et marges sont indicatifs (±40 %) — voir la diapositive Dimensionnement &amp; Rendements pour la méthodologie."},
+  sc_ft2_1: {en:"Pitch range",    fr:"Plage d'emplacements"},
+  sc_ft2_2: {en:"Corsica sites",  fr:"Sites Corse"},
+  sc_ft2_3: {en:"Total pitches (est.)", fr:"Emplacements totaux (est.)"},
+  sc_ft2_4: {en:"Solar PV / site", fr:"Solaire PV / site"},
+  sc_ft2_5: {en:"Battery / site",  fr:"Batterie / site"},
+  sc_ft2_6: {en:"CAPEX / site",    fr:"CAPEX / site"},
+  sc_ft2_7: {en:"Annual savings / site", fr:"Économies annuelles / site"},
+  sc_ft2_8: {en:"M1 EPC margin / site", fr:"Marge EPC M1 / site"},
+  sc_ft2_9: {en:"SaaS + O&amp;M / yr", fr:"SaaS + O&amp;M / an"},
+  sc_ft2_10:{en:"Portfolio total CAPEX", fr:"CAPEX total portefeuille"},
+  sc_ft2_11:{en:"Portfolio savings / yr", fr:"Économies portefeuille / an"},
+  sc_note:  {en:"<b>🏝️ Why Corsica first — the ZNI edge.</b> As a non-interconnected island (ZNI), Corsica carries the strongest public support for local energy production (CRE ZNI calls, FEDER grants) and the highest resilience value. With 20 M-tier and 3 L-tier priority sites already identified, the full Corsica portfolio represents <span class=\"hl\">€26M–€34M in addressable CAPEX</span> and <span class=\"hl\">€2M–€3.8M in annual recurring savings</span> — a deployable pipeline of 3–5 years building on the Riva Bella pilot.",
+             fr:"<b>🏝️ Pourquoi la Corse en premier — l'avantage ZNI.</b> En tant qu'île non interconnectée (ZNI), la Corse bénéficie du soutien public le plus fort pour la production locale d'énergie (appels CRE ZNI, subventions FEDER) et de la valeur de résilience la plus élevée. Avec 20 sites prioritaires de tier M et 3 de tier L déjà identifiés, le portefeuille Corse représente <span class=\"hl\">26–34 M€ de CAPEX adressable</span> et <span class=\"hl\">2–3,8 M€ d'économies annuelles récurrentes</span> — un pipeline déployable de 3 à 5 ans à partir du pilote Riva Bella."},
+  // priority labels in map popup
+  map_vh:   {en:"Very high", fr:"Très haute"},
+  map_h:    {en:"High",      fr:"Haute"},
+  map_m:    {en:"Medium",    fr:"Moyenne"},
+  map_leg1: {en:"Very high priority", fr:"Priorité très haute"},
+  map_leg2: {en:"High priority",      fr:"Priorité haute"},
+  map_leg3: {en:"Medium priority",    fr:"Priorité moyenne"},
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    if (T[key] && T[key][lang] !== undefined) el.innerHTML = T[key][lang];
+  });
+  // update toggle button state
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnFR').classList.toggle('active', lang === 'fr');
+  // update chart labels
+  if (window._charts) {
+    const yrs = lang === 'fr'
+      ? ['Année 5','Année 10','Année 15','Année 20']
+      : ['Year 5','Year 10','Year 15','Year 20'];
+    window._charts.forEach(c => { c.data.labels = yrs; c.update(); });
+  }
+}
+
+// Apply on load
+document.addEventListener('DOMContentLoaded', () => setLang(currentLang));
+</script>
+
 </body>
 </html>
