@@ -164,4 +164,54 @@ svg{position:absolute;inset:0}
     <div class="cap">
       <div class="k">04 · Why now</div>
       <div class="t cap-t">≈22,800–23,200 campsites across Europe. A market still without a dedicated platform.</div>
-      <div class="s cap-s">France is the first European market with ≈8,100 sites, followed by Italy (≈2,300) and Spain (≈1,200). Our 2031 target: 
+      <div class="s cap-s">France is the first European market with ≈8,100 sites, followed by Italy (≈2,300) and Spain (≈1,200). Our 2031 target: 535 connected sites, roughly 2.3% of the European market — the first step of an energy platform built for outdoor hospitality.</div>
+    </div>
+  </div>
+
+  <!-- SCENE 4 : vision -->
+  <div class="scene" id="sc4">
+    <svg viewBox="0 0 1280 720">
+      <text x="120" y="180" font-family="Sora" font-weight="700" font-size="20" fill="#fff">Growth trajectory</text>
+      <g font-family="IBM Plex Mono" font-size="13" fill="var(--mut)">
+        <rect class="fundbar" x="120" y="220" width="90" height="26" rx="4" fill="var(--teal)"/>
+        <text x="220" y="238">2027 · 15 sites · €4.56M</text>
+        <rect class="fundbar f2" x="120" y="264" width="220" height="26" rx="4" fill="var(--teal-br)"/>
+        <text x="350" y="282">2029 · 135 sites · €24.54M</text>
+        <rect class="fundbar f3" x="120" y="308" width="420" height="26" rx="4" fill="var(--green-br)"/>
+        <text x="550" y="326">2031 · 535 sites · €77.14M</text>
+      </g>
+      <text x="120" y="420" font-family="Sora" font-weight="700" font-size="16" fill="#fff">Camping Riva Bella</text>
+      <text x="120" y="446" font-family="IBM Plex Sans" font-size="13" fill="#cfe6e3">199 pitches · official technical &amp; commercial demonstrator · 2027</text>
+    </svg>
+    <div class="cap">
+      <div class="k">05 · The vision</div>
+      <div class="t cap-t">Becoming the energy operating system of outdoor hospitality.</div>
+      <div class="s cap-s">Camping Riva Bella, our demonstrator site (199 pitches, €80k/yr energy spend, €250k Smart Grid budget), leads the way. Then a €2-3M seed round in 2027, followed by a €5-8M acceleration round in 2028-2029, to reach 535 sites and €27.75M gross margin by 2031.</div>
+    </div>
+  </div>
+
+  <div class="prog" id="prog"></div>
+  <button class="replay" id="replay">↻ Replay</button>
+</div>
+
+<script>
+const stage=document.getElementById('stage');
+const scenes=['sc0','sc1','sc2','sc3','sc4'];
+const dots=document.querySelectorAll('.dots i');
+const prog=document.getElementById('prog');
+const DUR=[5200,5200,5600,5600,6200];
+let idx=0,timer=null;
+function show(i){
+  scenes.forEach((id,k)=>document.getElementById(id).classList.toggle('active',k===i));
+  dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+  stage.dataset.s=i;
+  prog.style.transition='none';prog.style.width='0';
+  requestAnimationFrame(()=>{prog.style.transition='width '+DUR[i]+'ms linear';prog.style.width='100%';});
+}
+function next(){idx++;if(idx>=scenes.length){return;}show(idx);schedule();}
+function schedule(){clearTimeout(timer);timer=setTimeout(next,DUR[idx]);}
+function play(){idx=0;show(0);schedule();}
+document.getElementById('replay').onclick=play;
+play();
+</script>
+</body></html>
