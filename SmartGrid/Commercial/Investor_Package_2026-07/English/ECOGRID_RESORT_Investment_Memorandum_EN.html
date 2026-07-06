@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECOGRID RESORT&trade; - Investment Memorandum</title>
+<style>
+  :root{
+    --navy-dark:#0B2A4A;
+    --navy:#163B5B;
+    --teal:#1B6E82;
+    --green:#2E8B45;
+    --green-light:#E8F4EA;
+    --gold-accent:#F2B705;
+    --gray-bg:#F5F7F8;
+    --gray-card:#FFFFFF;
+    --text-dark:#1C2B36;
+    --text-muted:#5B6B75;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; padding:0; background:var(--gray-bg); color:var(--text-dark); font-family:Arial, Helvetica, sans-serif; line-height:1.6; }
+  .wordmark{ font-family:Arial, Helvetica, sans-serif; font-weight:900; line-height:1; }
+  .wordmark .eco{ color:var(--navy-dark); }
+  .wordmark .grid{ color:var(--green); }
+  .wordmark .resort{ display:block; letter-spacing:6px; font-size:0.30em; font-weight:700; color:var(--navy-dark); margin-top:2px; }
+
+  .hero{ background:linear-gradient(120deg, var(--navy-dark) 0%, var(--teal) 100%); color:#fff; padding:64px 8vw 56px; text-align:center; }
+  .hero .wordmark{ font-size:44px; margin-bottom:20px; }
+  .hero .wordmark .eco{ color:#fff; } .hero .wordmark .grid{ color:#8CE0A8; } .hero .wordmark .resort{ color:#DCEFEA; }
+  .hero h1{ color:#fff; font-size:26px; font-weight:700; margin:0 0 8px; letter-spacing:0.5px; }
+  .hero p{ color:#E4F0EE; font-size:15px; margin:4px 0; }
+  .hero .meta{ margin-top:22px; display:inline-block; border:1px solid rgba(255,255,255,0.4); border-radius:30px; padding:8px 22px; font-size:13px; font-weight:700; letter-spacing:0.5px; }
+
+  .kpi-strip{ background:var(--navy-dark); padding:0 8vw 40px; }
+  .kpi-grid{ max-width:1180px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .kpi-card{ background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); border-radius:12px; padding:18px 14px; text-align:center; }
+  .kpi-card .val{ color:#8CE0A8; font-size:22px; font-weight:900; }
+  .kpi-card .lbl{ color:#DCEFEA; font-size:11.5px; margin-top:4px; text-transform:uppercase; letter-spacing:0.5px; }
+
+  nav.toc{ max-width:1180px; margin:-30px auto 50px; background:#fff; border-radius:14px; box-shadow:0 6px 24px rgba(11,42,74,0.12); padding:30px 34px; position:relative; z-index:2; }
+  nav.toc h2{ color:var(--navy-dark); font-size:20px; margin:0 0 16px; }
+  nav.toc ol{ column-count:2; column-gap:40px; padding-left:20px; margin:0; }
+  nav.toc li{ margin-bottom:9px; font-size:13.5px; break-inside:avoid; }
+  nav.toc a{ color:var(--navy); text-decoration:none; }
+  nav.toc a:hover{ text-decoration:underline; }
+
+  main{ max-width:1180px; margin:0 auto; padding:0 8vw 60px; }
+  section.chapter{ background:#fff; border-radius:14px; padding:38px 42px; margin-bottom:28px; box-shadow:0 3px 14px rgba(11,42,74,0.06); }
+  section.chapter h1{ color:var(--navy-dark); font-size:24px; margin:0 0 18px; padding-bottom:12px; border-bottom:3px solid var(--green-light); }
+  section.chapter h1 .chnum{ color:var(--green); margin-right:10px; }
+  section.chapter h2{ color:var(--teal); font-size:16px; text-transform:uppercase; letter-spacing:0.5px; margin:24px 0 12px; }
+  section.chapter p{ font-size:14.5px; color:var(--text-dark); margin:0 0 14px; }
+  section.chapter ul{ margin:0 0 16px; padding-left:22px; }
+  section.chapter ul li{ font-size:14.5px; margin-bottom:7px; }
+  section.chapter ol.steps{ margin:0 0 16px; padding-left:0; list-style:none; counter-reset:step; }
+  section.chapter ol.steps li{ counter-increment:step; position:relative; padding-left:38px; margin-bottom:10px; font-size:14.5px; }
+  section.chapter ol.steps li::before{ content:counter(step); position:absolute; left:0; top:0; width:26px; height:26px; border-radius:50%; background:var(--green); color:#fff; font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center; }
+
+  table{ border-collapse:collapse; width:100%; margin:16px 0 22px; font-size:13.5px; }
+  th{ background:var(--navy); color:#fff; font-weight:700; padding:10px 12px; text-align:left; }
+  td{ padding:9px 12px; border-bottom:1px solid #E7ECEE; }
+  tr:nth-child(even) td{ background:#F5F7F8; }
+  td.num, th.num{ text-align:right; }
+  .positive{ color:var(--green); font-weight:700; }
+
+  .card-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:16px 0 20px; }
+  .mini-card{ background:var(--green-light); border:1px solid #cfe8d4; border-radius:10px; padding:16px; }
+  .mini-card .t{ font-weight:800; color:var(--navy-dark); font-size:13.5px; margin-bottom:4px; }
+  .mini-card .d{ font-size:12.5px; color:var(--text-muted); }
+
+  .callout{ background:var(--green-light); border-left:4px solid var(--green); border-radius:0 10px 10px 0; padding:14px 18px; font-size:14px; margin:16px 0; }
+
+  footer{ background:var(--navy-dark); color:#fff; padding:44px 8vw; text-align:center; }
+  footer .wordmark{ font-size:22px; margin-bottom:14px;}
+  footer .wordmark .eco{color:#fff;} footer .wordmark .grid{color:#8CE0A8;} footer .wordmark .resort{color:#B9CBD6;}
+  footer .contact-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:28px; font-size:14px; margin:14px 0; color:#DCE8ED; }
+  footer .fine{ color:#7C93A0; font-size:11.5px; margin-top:20px; }
+
+  @media(max-width:760px){
+    .kpi-grid{ grid-template-columns:repeat(2,1fr); }
+    nav.toc ol{ column-count:1; }
+    section.chapter{ padding:26px 20px; }
+    .card-row{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wordmark"><span class="eco">ECO</span><span class="grid">GRID</span><span class="resort">RESORT&trade;</span></div>
+  <h1>INVESTMENT MEMORANDUM</h1>
+  <p>Performance ENR &mdash; Confidential &mdash; July 2026</p>
+  <div class="meta">Full Version &mdash; 30 Chapters</div>
+</div>
+
+<div class="kpi-strip">
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="val">535</div><div class="lbl">Connected sites by 2031</div></div>
+    <div class="kpi-card"><div class="val">&euro;77.14M</div><div class="lbl">2031 annual revenue</div></div>
+    <div class="kpi-card"><div class="val">&euro;27.75M</div><div class="lbl">2031 gross margin</div></div>
+    <div class="kpi-card"><div class="val">&asymp;2.3%</div><div class="lbl">European market share</div></div>
+  </div>
+</div>
+
+<nav class="toc">
+  <h2>Table of Contents</h2>
+  <ol>
+    <li><a href="#ch1">1. Executive Summary</a></li>
+    <li><a href="#ch2">2. Findings</a></li>
+    <li><a href="#ch3">3. Market Opportunity</a></li>
+    <li><a href="#ch4">4. Target Market</a></li>
+    <li><a href="#ch5">5. Vision</a></li>
+    <li><a href="#ch6">6. The Solution ECOGRID RESORT&trade;</a></li>
+    <li><a href="#ch7">7. Turnkey Offer</a></li>
+    <li><a href="#ch8">8. ECOGRID OS&trade;</a></li>
+    <li><a href="#ch9">9. Case Study &ndash; Camping Riva Bella</a></li>
+    <li><a href="#ch10">10. Business Model</a></li>
+    <li><a href="#ch11">11. Business Model &amp; Growth Strategy</a></li>
+    <li><a href="#ch12">12. Commercial Strategy &amp; Go-to-Market</a></li>
+    <li><a href="#ch13">13. Organization &amp; Operational Scale-Up</a></li>
+    <li><a href="#ch14">14. Business Plan &amp; Financial Forecasts</a></li>
+    <li><a href="#ch15">15. Fundraising Strategy</a></li>
+    <li><a href="#ch16">16. Risk Analysis &amp; Mitigation Strategy</a></li>
+    <li><a href="#ch17">17. Strategic Roadmap 2027-2031</a></li>
+    <li><a href="#ch18">18. Conclusion &amp; Investment Opportunity</a></li>
+    <li><a href="#ch19">19. Why Performance ENR Will Succeed</a></li>
+    <li><a href="#ch20">20. General Conclusion &amp; Vision 2035</a></li>
+    <li><a href="#ch21">21. Appendices &ndash; Financial Assumptions &amp; KPIs</a></li>
+    <li><a href="#ch22">22. Long-Term Development &amp; Value Creation Outlook</a></li>
+    <li><a href="#ch23">23. Operational Execution Plan 2027-2031</a></li>
+    <li><a href="#ch24">24. Competitive Analysis &amp; Strategic Positioning</a></li>
+    <li><a href="#ch25">25. Barriers to Entry &amp; Sustainable Competitive Advantages</a></li>
+    <li><a href="#ch26">26. ECOGRID OS&trade; Product Roadmap 2027-2035</a></li>
+    <li><a href="#ch27">27. Performance ENR Valuation &amp; Value Creation</a></li>
+    <li><a href="#ch28">28. ESG Impact &amp; Contribution to the Energy Transition</a></li>
+    <li><a href="#ch29">29. Leadership Team, Governance &amp; Advisory Board</a></li>
+    <li><a href="#ch30">30. Funding Needs &amp; Use of Funds</a></li>
+  </ol>
+</nav>
+
+<main>
+<section class="chapter" id="ch1">
+<h1><span class="chnum">1</span>Executive Summary</h1>
+<p>ECOGRID RESORT&trade; is a technology platform developed by Performance ENR to support the energy transition of campsites, holiday villages and resorts. The goal is to transform every establishment into an intelligent energy micro-grid capable of producing, storing, controlling and optimizing its energy.</p>
+<p>The solution combines engineering, integration, works, the proprietary ECOGRID OS&trade; software, supervision, maintenance and continuous optimization. It addresses the current fragmentation of energy equipment: solar PV, batteries, EV charging stations, building management systems (BMS), pools, pumps, air conditioning and meters still too often operate in silos.</p>
+<h2>Three revenue engines</h2>
+<ul>
+<li>Engine 1 &ndash; Integration &amp; Smart Grid Works: &euro;300k excl. VAT per site, 35% target gross margin, activity concentrated in Q1 and Q4.</li>
+<li>Engine 2 &ndash; ECOGRID OS&trade;: annual license of &euro;3,000 excl. VAT per site, high-margin recurring revenue.</li>
+<li>Engine 3 &ndash; Operations &amp; Maintenance: annual contract of &euro;1,000 excl. VAT per site, supervision, after-sales service and continuous optimization.</li>
+</ul>
+<table>
+<tr><th>Year</th><th class="num">New sites</th><th class="num">Cumulative sites</th><th class="num">Total revenue</th><th class="num">Gross margin</th></tr>
+<tr><td>2027</td><td class="num">15</td><td class="num">15</td><td class="num">&euro;4.56M</td><td class="num">&euro;1.62M</td></tr>
+<tr><td>2028</td><td class="num">40</td><td class="num">55</td><td class="num">&euro;12.22M</td><td class="num">&euro;4.35M</td></tr>
+<tr><td>2029</td><td class="num">80</td><td class="num">135</td><td class="num">&euro;24.54M</td><td class="num">&euro;8.78M</td></tr>
+<tr><td>2030</td><td class="num">150</td><td class="num">285</td><td class="num">&euro;46.14M</td><td class="num">&euro;16.55M</td></tr>
+<tr><td>2031</td><td class="num">250</td><td class="num">535</td><td class="num">&euro;77.14M</td><td class="num">&euro;27.75M</td></tr>
+</table>
+<p>The ambition is to make Performance ENR not merely a Smart Grid integrator, but a European Energy Tech player specialized in outdoor hospitality.</p>
+</section>
+
+<section class="chapter" id="ch2">
+<h1><span class="chnum">2</span>Findings</h1>
+<p>Campsites are moving upmarket: air-conditioned mobile homes, swimming pools, restaurants, spas, EV charging stations, connected equipment and digital services are sharply increasing consumption. Energy is becoming a factor of competitiveness rather than a simple cost.</p>
+<ul>
+<li>Equipment is controlled separately through manufacturer portals.</li>
+<li>Data is scattered across inverters, batteries, charging stations, BMS, meters and internal tools.</li>
+<li>Self-consumption remains limited due to a lack of overall orchestration.</li>
+<li>Batteries, pumps, pools and charging stations are not optimized together.</li>
+<li>Maintenance remains mostly reactive.</li>
+</ul>
+<p>This fragmentation creates an opportunity: moving from an equipment-based logic to an energy operating system logic.</p>
+</section>
+
+<section class="chapter" id="ch3">
+<h1><span class="chnum">3</span>Market Opportunity</h1>
+<table>
+<tr><th>Zone</th><th class="num">Approximate number of campsites</th></tr>
+<tr><td>France</td><td class="num">&asymp; 8,100</td></tr>
+<tr><td>Italy</td><td class="num">&asymp; 2,300</td></tr>
+<tr><td>Spain</td><td class="num">&asymp; 1,200</td></tr>
+<tr><td>Europe</td><td class="num">&asymp; 22,800 to 23,200</td></tr>
+</table>
+<p>France is the leading European market, followed by Italy and Spain. High-end, multi-service, energy-intensive establishments form the core target of ECOGRID RESORT&trade;.</p>
+<table>
+<tr><th>Indicator</th><th class="num">Value</th></tr>
+<tr><td>European market</td><td class="num">&asymp; 23,000 sites</td></tr>
+<tr><td>2031 target</td><td class="num">535 sites</td></tr>
+<tr><td>2031 penetration</td><td class="num">&asymp; 2.3% of the European market</td></tr>
+</table>
+<ul>
+<li>Rising energy costs.</li>
+<li>Growth of solar PV and storage.</li>
+<li>Massive arrival of EV charging stations.</li>
+<li>Digitalization of buildings and equipment.</li>
+<li>Absence of a vertical leader dedicated to outdoor hospitality.</li>
+</ul>
+</section>
+
+<section class="chapter" id="ch4">
+<h1><span class="chnum">4</span>Target Market</h1>
+<p>Performance ENR's strategy is selective: target first the establishments where the value created is strongest and where the return on investment is most readily demonstrated.</p>
+<ul>
+<li>4-star and 5-star campsites: several hundred pitches, pools, restaurants, air conditioning and technical equipment.</li>
+<li>Holiday villages: multiple buildings, distributed energy uses and a need for centralized supervision.</li>
+<li>Tourist resorts: high requirement for continuity of service and strong environmental image.</li>
+<li>Multi-site groups: need for standardization, consolidated reporting and centralized supervision.</li>
+</ul>
+<table>
+<tr><th>Selection criterion</th><th>Target level</th></tr>
+<tr><td>Size</td><td>&gt;150 pitches</td></tr>
+<tr><td>Consumption</td><td>Significant and seasonal</td></tr>
+<tr><td>Equipment</td><td>Pools, catering, HVAC, EV charging infrastructure</td></tr>
+<tr><td>Energy potential</td><td>Solar PV, storage, control</td></tr>
+</table>
+</section>
+
+<section class="chapter" id="ch5">
+<h1><span class="chnum">5</span>Vision</h1>
+<p>Performance ENR's vision is to build the European reference for Smart Grids in outdoor hospitality. Energy will become a lever of competitiveness as important as the quality of accommodation and services.</p>
+<p>ECOGRID RESORT&trade; enables operators to regain control of their energy: produce locally, maximize self-consumption, reduce costs, intelligently control usage and simplify technical operations.</p>
+<p>In the long term, campsites will evolve into intelligent energy micro-grids integrating solar PV production, batteries, charging stations, HVAC, hot water, pumps, lighting and operational data. The value will lie in the orchestration of these assets by ECOGRID OS&trade;.</p>
+</section>
+
+<section class="chapter" id="ch6">
+<h1><span class="chnum">6</span>The Solution ECOGRID RESORT&trade;</h1>
+<p>ECOGRID RESORT&trade; is an integrated solution designed to control the energy of campsites and holiday villages. It rests on four pillars: produce, store, consume intelligently and optimize.</p>
+<table>
+<tr><th>Pillar</th><th>Description</th></tr>
+<tr><td>Produce</td><td>Rooftop solar PV, carports, local installations and self-consumption.</td></tr>
+<tr><td>Store</td><td>Batteries controlled according to production, consumption, weather and priorities.</td></tr>
+<tr><td>Consume</td><td>Control of pools, pumps, HVAC, hot water, lighting, EV charging stations.</td></tr>
+<tr><td>Optimize</td><td>Algorithms, alerts, predictive maintenance, reporting and energy arbitrage.</td></tr>
+</table>
+<p>The offer covers the entire life cycle: energy audit, engineering, works execution, digitalization via ECOGRID OS&trade;, operations, maintenance and continuous optimization.</p>
+</section>
+
+<section class="chapter" id="ch7">
+<h1><span class="chnum">7</span>Turnkey Offer</h1>
+<p>Performance ENR replaces the coordination of multiple parties with a single point of contact responsible for the design, execution and follow-up of the project.</p>
+<ol class="steps">
+<li>Energy audit: analysis of bills, power ratings, usage and solar potential.</li>
+<li>Studies and engineering: sizing of PV, batteries, charging stations, Smart Grid architecture and ROI.</li>
+<li>Works: supply, installation, integration, testing and commissioning.</li>
+<li>ECOGRID OS&trade; integration: connectors, dashboards, alerts, scenarios.</li>
+<li>Training: onboarding of operations teams.</li>
+<li>Operations and maintenance: supervision, after-sales service, updates, optimization.</li>
+</ol>
+<table>
+<tr><th>Quarter</th><th>Main activity</th></tr>
+<tr><td>Q1</td><td>Works, commissioning, acceptance</td></tr>
+<tr><td>Q2</td><td>Studies, preparation, software, maintenance</td></tr>
+<tr><td>Q3</td><td>Supervision, after-sales service, support, sales</td></tr>
+<tr><td>Q4</td><td>Works, installations, extensions</td></tr>
+</table>
+</section>
+
+<section class="chapter" id="ch8">
+<h1><span class="chnum">8</span>ECOGRID OS&trade;</h1>
+<p>ECOGRID OS&trade; is the energy operating system for outdoor hospitality. It supervises, controls and optimizes all of a site's energy infrastructure from a single interface.</p>
+<ul>
+<li>Real-time supervision: production, consumption, batteries, charging stations, alarms.</li>
+<li>Energy control: batteries, charging stations, pumps, HVAC, hot water, lighting.</li>
+<li>Self-consumption optimization: storage, arbitrage, usage priorities.</li>
+<li>Predictive maintenance: detecting drift before failure.</li>
+<li>Energy and ESG reporting: savings, CO2 avoided, self-consumption rate.</li>
+<li>Multi-site management for campsite groups.</li>
+</ul>
+<p>The open architecture targets integration with leading manufacturers: Huawei, SMA, Sungrow, GoodWe, Fronius, SolarEdge, Schneider, ABB, Socomec, Siemens and other compatible manufacturers.</p>
+</section>
+
+<section class="chapter" id="ch9">
+<h1><span class="chnum">9</span>Case Study &ndash; Camping Riva Bella</h1>
+<table>
+<tr><th>Indicator</th><th class="num">Value</th></tr>
+<tr><td>Number of pitches</td><td class="num">199</td></tr>
+<tr><td>Annual energy spend</td><td class="num">&euro;80,000</td></tr>
+<tr><td>Smart Grid budget</td><td class="num">&euro;250,000</td></tr>
+<tr><td>Role</td><td class="num">Technical &amp; commercial demonstrator</td></tr>
+</table>
+<p>Riva Bella serves as the official demonstrator. It will validate the Smart Grid's operation under real conditions, test ECOGRID OS&trade;, produce measurable indicators and provide a commercial showcase.</p>
+<ul>
+<li>Reduce energy expenses.</li>
+<li>Maximize self-consumption.</li>
+<li>Control technical equipment.</li>
+<li>Create a commercial reference.</li>
+<li>Standardize methods for future deployments.</li>
+</ul>
+</section>
+
+<section class="chapter" id="ch10">
+<h1><span class="chnum">10</span>Business Model</h1>
+<p>The model rests on three complementary engines that do not share the same seasonality, the same margin, nor the same valuation logic.</p>
+<table>
+<tr><th>Engine</th><th>Revenue</th><th>Margin / strategic role</th></tr>
+<tr><td>Integration &amp; Smart Grid Works</td><td>&euro;300,000 excl. VAT / site</td><td>35% gross margin; finances growth</td></tr>
+<tr><td>ECOGRID OS&trade;</td><td>&euro;3,000 excl. VAT / site / year</td><td>SaaS, recurring, high margin</td></tr>
+<tr><td>Operations &amp; Maintenance</td><td>&euro;1,000 excl. VAT / site / year</td><td>Recurring revenue, loyalty, after-sales service</td></tr>
+</table>
+<table>
+<tr><th>Activity</th><th class="num">Q1</th><th class="num">Q2</th><th class="num">Q3</th><th class="num">Q4</th></tr>
+<tr><td>Works</td><td class="num">45%</td><td class="num">5%</td><td class="num">5%</td><td class="num">45%</td></tr>
+<tr><td>Software</td><td class="num">25%</td><td class="num">25%</td><td class="num">25%</td><td class="num">25%</td></tr>
+<tr><td>Maintenance</td><td class="num">25%</td><td class="num">25%</td><td class="num">25%</td><td class="num">25%</td></tr>
+</table>
+</section>
+
+<section class="chapter" id="ch11">
+<h1><span class="chnum">11</span>Business Model &amp; Growth Strategy</h1>
+<p>Growth takes place in three phases: model validation, industrialization and then European acceleration. Each new client creates immediate margin, recurring revenue and data that enriches ECOGRID OS&trade;.</p>
+<table>
+<tr><th>Phase</th><th>Period</th><th>Objective</th></tr>
+<tr><td>Validation</td><td>2027</td><td>Riva Bella demonstrator, 15 sites, ECOGRID OS&trade; V1</td></tr>
+<tr><td>Industrialization</td><td>2028-2029</td><td>55 then 135 sites, standardized processes, software in-house development</td></tr>
+<tr><td>European acceleration</td><td>2030-2031</td><td>285 then 535 sites, multi-site groups, Southern Europe</td></tr>
+</table>
+<p>The strategy aims to evolve Performance ENR from a project integrator into a technology platform generating recurring revenue.</p>
+</section>
+
+<section class="chapter" id="ch12">
+<h1><span class="chnum">12</span>Commercial Strategy and Go-to-Market</h1>
+<p>The go-to-market approach relies on proof, demonstrators, references and partnerships. The objective is not to immediately cover the whole of Europe, but to quickly build strong references in priority tourist areas.</p>
+<ul>
+<li>Direct sales to 4-star and 5-star campsites.</li>
+<li>Development of regional and multi-site groups.</li>
+<li>Partnerships with engineering firms, manufacturers and specialized installers.</li>
+<li>Presence at trade shows: SETT, Atlantica, EquipHotel, EnerGa&iuml;a.</li>
+<li>Digital marketing: white papers, webinars, case studies, LinkedIn.</li>
+</ul>
+<table>
+<tr><th>Year</th><th class="num">Sales managers</th></tr>
+<tr><td>2027</td><td class="num">1</td></tr>
+<tr><td>2028</td><td class="num">2</td></tr>
+<tr><td>2029</td><td class="num">4</td></tr>
+<tr><td>2030</td><td class="num">7</td></tr>
+<tr><td>2031</td><td class="num">10</td></tr>
+</table>
+</section>
+
+<section class="chapter" id="ch13">
+<h1><span class="chnum">13</span>Organization and Operational Scale-Up</h1>
+<p>The success of the plan depends on the ability to structure teams at the pace of growth. The organization is built around management, engineering, software, sales, after-sales service and support functions.</p>
+<table>
+<tr><th>Function</th><th class="num">2027</th><th class="num">2028</th><th class="num">2029</th><th class="num">2030</th><th class="num">2031</th></tr>
+<tr><td>Management</td><td class="num">2</td><td class="num">2</td><td class="num">3</td><td class="num">3</td><td class="num">4</td></tr>
+<tr><td>Engineering / design office</td><td class="num">3</td><td class="num">6</td><td class="num">11</td><td class="num">17</td><td class="num">23</td></tr>
+<tr><td>Developers</td><td class="num">0</td><td class="num">2</td><td class="num">4</td><td class="num">6</td><td class="num">8</td></tr>
+<tr><td>Sales</td><td class="num">1</td><td class="num">2</td><td class="num">4</td><td class="num">7</td><td class="num">10</td></tr>
+<tr><td>Field service &amp; supervision</td><td class="num">1</td><td class="num">2</td><td class="num">4</td><td class="num">7</td><td class="num">10</td></tr>
+<tr><td>Administration / finance</td><td class="num">2</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">4</td></tr>
+<tr><td><strong>Total</strong></td><td class="num"><strong>9</strong></td><td class="num"><strong>16</strong></td><td class="num"><strong>29</strong></td><td class="num"><strong>44</strong></td><td class="num"><strong>59</strong></td></tr>
+</table>
+<p>Structure costs increase sharply from 2029 onward to finance the opening of regional agencies, in-house software development, strengthening of support functions and financial structuring.</p>
+<table>
+<tr><th>Year</th><th class="num">Structure costs</th></tr>
+<tr><td>2027</td><td class="num">&euro;1.10M</td></tr>
+<tr><td>2028</td><td class="num">&euro;1.50M</td></tr>
+<tr><td>2029</td><td class="num">&euro;2.40M</td></tr>
+<tr><td>2030</td><td class="num">&euro;3.80M</td></tr>
+<tr><td>2031</td><td class="num">&euro;5.80M</td></tr>
+</table>
+</section>
+
+<section class="chapter" id="ch14">
+<h1><span class="chnum">14</span>Business Plan &amp; Financial Forecasts</h1>
+<p>The Business Plan is based on progressive growth in the number of sites, a 35% gross margin on works, recurring software and maintenance revenue, and prudent management of seasonality.</p>
+<table>
+<tr><th>Year</th><th class="num">Works</th><th class="num">Software</th><th class="num">Maintenance</th><th class="num">Total revenue</th></tr>
+<tr><td>2027</td><td class="num">&euro;4.50M</td><td class="num">&euro;45k</td><td class="num">&euro;15k</td><td class="num">&euro;4.56M</td></tr>
+<tr><td>2028</td><td class="num">&euro;12.00M</td><td class="num">&euro;165k</td><td class="num">&euro;55k</td><td class="num">&euro;12.22M</td></tr>
+<tr><td>2029</td><td class="num">&euro;24.00M</td><td class="num">&euro;405k</td><td class="num">&euro;135k</td><td class="num">&euro;24.54M</td></tr>
+<tr><td>2030</td><td class="num">&euro;45.00M</td><td class="num">&euro;855k</td><td class="num">&euro;285k</td><td class="num">&euro;46.14M</td></tr>
+<tr><td>2031</td><td class="num">&euro;75.00M</td><td class="num">&euro;1,605k</td><td class="num">&euro;535k</td><td class="num">&euro;77.14M</td></tr>
+</table>
+<table>
+<tr><th>Year</th><th class="num">Total revenue</th><th class="num">Total gross margin</th><th class="num">Recurring revenue</th><th class="num">Headcount</th></tr>
+<tr><td>2027</td><td class="num">&euro;4.56M</td><td class="num">&euro;1.62M</td><td class="num">&euro;0.06M</td><td class="num">9</td></tr>
+<tr><td>2028</td><td class="num">&euro;12.22M</td><td class="num">&euro;4.35M</td><td class="num">&euro;0.22M</td><td class="num">16</td></tr>
+<tr><td>2029</td><td class="num">&euro;24.54M</td><td class="num">&euro;8.78M</td><td class="num">&euro;0.54M</td><td class="num">29</td></tr>
+<tr><td>2030</td><td class="num">&euro;46.14M</td><td class="num">&euro;16.55M</td><td class="num">&euro;1.14M</td><td class="num">44</td></tr>
+<tr><td>2031</td><td class="num">&euro;77.14M</td><td class="num">&euro;27.75M</td><td class="num">&euro;2.14M</td><td class="num">59</td></tr>
+</table>
+<h2>Quarterly detail &ndash; 2027</h2>
+<table>
+<tr><th>P&amp;L (&euro;)</th><th class="num">Q1</th><th class="num">Q2</th><th class="num">Q3</th><th class="num">Q4</th><th class="num">Total</th></tr>
+<tr><td>Works revenue</td><td class="num">2,025,000</td><td class="num">225,000</td><td class="num">225,000</td><td class="num">2,025,000</td><td class="num">4,500,000</td></tr>
+<tr><td>Software revenue</td><td class="num">11,250</td><td class="num">11,250</td><td class="num">11,250</td><td class="num">11,250</td><td class="num">45,000</td></tr>
+<tr><td>Maintenance revenue</td><td class="num">3,750</td><td class="num">3,750</td><td class="num">3,750</td><td class="num">3,750</td><td class="num">15,000</td></tr>
+<tr><td><strong>Total revenue</strong></td><td class="num"><strong>2,040,000</strong></td><td class="num"><strong>240,000</strong></td><td class="num"><strong>240,000</strong></td><td class="num"><strong>2,040,000</strong></td><td class="num"><strong>4,560,000</strong></td></tr>
+<tr><td>Cost of sales</td><td class="num">1,316,250</td><td class="num">146,250</td><td class="num">146,250</td><td class="num">1,316,250</td><td class="num">2,925,000</td></tr>
+<tr><td><strong>Gross margin</strong></td><td class="num"><strong>723,750</strong></td><td class="num"><strong>93,750</strong></td><td class="num"><strong>93,750</strong></td><td class="num"><strong>723,750</strong></td><td class="num"><strong>1,635,000</strong></td></tr>
+</table>
+<table>
+<tr><th>Cashflow (&euro;)</th><th class="num">Q1</th><th class="num">Q2</th><th class="num">Q3</th><th class="num">Q4</th></tr>
+<tr><td>Receipts</td><td class="num">1,865,000</td><td class="num">315,000</td><td class="num">265,000</td><td class="num">2,175,000</td></tr>
+<tr><td>Payments</td><td class="num">1,615,000</td><td class="num">500,000</td><td class="num">510,000</td><td class="num">1,605,000</td></tr>
+<tr><td>Net flow</td><td class="num positive">+250,000</td><td class="num">-185,000</td><td class="num">-245,000</td><td class="num positive">+570,000</td></tr>
+</table>
+<table>
+<tr><th>Working capital / BFR (&euro;)</th><th class="num">Q1</th><th class="num">Q2</th><th class="num">Q3</th><th class="num">Q4</th></tr>
+<tr><td>Receivables</td><td class="num">550,000</td><td class="num">320,000</td><td class="num">280,000</td><td class="num">650,000</td></tr>
+<tr><td>Inventory</td><td class="num">350,000</td><td class="num">160,000</td><td class="num">170,000</td><td class="num">380,000</td></tr>
+<tr><td>Payables</td><td class="num">-420,000</td><td class="num">-140,000</td><td class="num">-150,000</td><td class="num">-450,000</td></tr>
+<tr><td><strong>BFR</strong></td><td class="num"><strong>480,000</strong></td><td class="num"><strong>340,000</strong></td><td class="num"><strong>300,000</strong></td><td class="num"><strong>580,000</strong></td></tr>
+</table>
+<h2>Quarterly detail &ndash; 2028</h2>
+<table>
+<tr><th>P&amp;L (&euro;)</th><th class="num">Q1</th><th class="num">Q2</th><th class="num">Q3</th><th class="num">Q4</th><th class="num">Total</th></tr>
+<tr><td>Works revenue</td><td class="num">5,400,000</td><td class="num">600,000</td><td class="num">600,000</td><td class="num">5,400,000</td><td class="num">12,000,000</td></tr>
+<tr><td>Software revenue</td><td class="num">41,250</td><td class="num">41,250</td><td class="num">41,250</td><td class="num">41,250</td><td class="num">165,000</td></tr>
+<tr><td>Maintenance revenue</td><td class="num">13,750</td><td class="num">13,750</td><td class="num">13,750</td><td class="num">13,750</td><td class="num">55,000</td></tr>
+<tr><td><strong>Total revenue</strong></td><td class="num"><strong>5,455,000</strong></td><td class="num"><strong>655,000</strong></td><td class="num"><strong>655,000</strong></td><td class="num"><strong>5,455,000</strong></td><td class="num"><strong>12,220,000</strong></td></tr>
+<tr><td>Cost of sales</td><td class="num">3,510,000</td><td class="num">390,000</td><td class="num">390,000</td><td class="num">3,510,000</td><td class="num">7,800,000</td></tr>
+<tr><td><strong>Gross margin</strong></td><td class="num"><strong>1,945,000</strong></td><td class="num"><strong>265,000</strong></td><td class="num"><strong>265,000</strong></td><td class="num"><strong>1,945,000</strong></td><td class="num"><strong>4,420,000</strong></td></tr>
+</table>
+<table>
+<tr><th>Cashflow (&euro;)</th><th class="num">Q1</th><th class="num">Q2</th><th class="num">Q3</th><th class="num">Q4</th></tr>
+<tr><td>Receipts</td><td class="num">5,055,000</td><td class="num">705,000</td><td class="num">605,000</td><td class="num">5,875,000</td></tr>
+<tr><td>Payments</td><td class="num">3,950,000</td><td class="num">965,000</td><td class="num">985,000</td><td class="num">3,990,000</td></tr>
+<tr><td>Net flow</td><td class="num positive">+1,105,000</td><td class="num">-260,000</td><td class="num">-380,000</td><td class="num positive">+1,885,000</td></tr>
+</table>
+<table>
+<tr><th>Working capital / BFR (&euro;)</th><th class="num">Q1</th><th class="num">Q2</th><th class="num">Q3</th><th class="num">Q4</th></tr>
+<tr><td>Receivables</td><td class="num">1,250,000</td><td class="num">620,000</td><td class="num">580,000</td><td class="num">1,450,000</td></tr>
+<tr><td>Inventory</td><td class="num">720,000</td><td class="num">260,000</td><td class="num">280,000</td><td class="num">760,000</td></tr>
+<tr><td>Payables</td><td class="num">-910,000</td><td class="num">-240,000</td><td class="num">-250,000</td><td class="num">-960,000</td></tr>
+<tr><td><strong>BFR</strong></td><td class="num"><strong>1,060,000</strong></td><td class="num"><strong>640,000</strong></td><td class="num"><strong>610,000</strong></td><td class="num"><strong>1,250,000</strong></td></tr>
+</table>
+<p class="callout">Assumptions used: 15 sites (2027), 40 new sites (2028), &euro;300k/site works revenue, &euro;3,000/year/site license, &euro;1,000/year/site maintenance, 35% gross margin on works, seasonality of 45% Q1 / 5% Q2 / 5% Q3 / 45% Q4.</p>
+</section>
+
+<section class="chapter" id="ch15">
+<h1><span class="chnum">15</span>Fundraising Strategy</h1>
+<p>The fundraising aims to accelerate the creation of a European technology player. It finances ECOGRID OS&trade;, the teams, commercial development, demonstrators and seasonal working capital (BFR).</p>
+<table>
+<tr><th>Use</th><th class="num">Estimated share</th></tr>
+<tr><td>Software development</td><td class="num">30%</td></tr>
+<tr><td>Recruitment</td><td class="num">25%</td></tr>
+<tr><td>Commercial development</td><td class="num">20%</td></tr>
+<tr><td>Working capital (BFR)</td><td class="num">15%</td></tr>
+<tr><td>IT infrastructure</td><td class="num">5%</td></tr>
+<tr><td>Communication &amp; marketing</td><td class="num">5%</td></tr>
+</table>
+<p>A first seed phase of &euro;2 to 3 million will build the foundations. An acceleration phase of &euro;5 to 8 million can then be considered to industrialize the model and prepare European expansion.</p>
+</section>
+
+<section class="chapter" id="ch16">
+<h1><span class="chnum">16</span>Risk Analysis and Mitigation Strategy</h1>
+<table>
+<tr><th>Risk</th><th>Mitigation measure</th></tr>
+<tr><td>Commercial pace</td><td>Dedicated sales force, pipeline, multi-site contracts</td></tr>
+<tr><td>Software development</td><td>External partner then in-house development, version-based roadmap</td></tr>
+<tr><td>Manufacturer dependency</td><td>Open, multi-manufacturer architecture</td></tr>
+<tr><td>Seasonality</td><td>Works in Q1/Q4, smoothed recurring revenue, cash reserve</td></tr>
+<tr><td>Working capital (BFR)</td><td>Staged invoicing, monthly monitoring, supplier terms</td></tr>
+<tr><td>Headcount growth</td><td>Progressive recruitment, standardized methods</td></tr>
+<tr><td>Cybersecurity</td><td>MFA, encryption, backups, audits</td></tr>
+<tr><td>Competition</td><td>Campsite specialization, integrated offer, proprietary software</td></tr>
+</table>
+<p>Risk governance relies on commercial, operational and financial KPIs monitored on a monthly basis.</p>
+</section>
+
+<section class="chapter" id="ch17">
+<h1><span class="chnum">17</span>Strategic Roadmap 2027-2031</h1>
+<table>
+<tr><th>Year</th><th>Major milestone</th><th>Financial objective</th></tr>
+<tr><td>2027</td><td>Riva Bella validation and commercial launch</td><td>15 sites; revenue &euro;4.56M</td></tr>
+<tr><td>2028</td><td>Industrialization of deployments</td><td>55 cumulative sites; revenue &euro;12.22M</td></tr>
+<tr><td>2029</td><td>National structuring</td><td>135 sites; revenue &euro;24.54M</td></tr>
+<tr><td>2030</td><td>Southern Europe deployment</td><td>285 sites; revenue &euro;46.14M</td></tr>
+<tr><td>2031</td><td>European reference</td><td>535 sites; revenue &euro;77.14M</td></tr>
+</table>
+<p>The roadmap evolves ECOGRID OS&trade; into a multi-site platform, then AI, then a European platform capable of managing advanced energy services.</p>
+</section>
+
+<section class="chapter" id="ch18">
+<h1><span class="chnum">18</span>Conclusion &amp; Investment Opportunity</h1>
+<p>Investing in Performance ENR means supporting the birth of a technology platform at the intersection of renewable energy, SaaS and energy services. The model combines project profitability, software recurrence and platform potential.</p>
+<ul>
+<li>A large European market that remains under-structured.</li>
+<li>Vertical specialization in outdoor hospitality.</li>
+<li>35% target gross margin on projects.</li>
+<li>Recurring software and maintenance revenue.</li>
+<li>Technology roadmap toward AI, Digital Twin and aggregation.</li>
+</ul>
+</section>
+
+<section class="chapter" id="ch19">
+<h1><span class="chnum">19</span>Why Performance ENR Will Succeed</h1>
+<table>
+<tr><th>Factor</th><th>Advantage</th></tr>
+<tr><td>Turnkey offer</td><td>A single point of contact for the entire value chain</td></tr>
+<tr><td>Proprietary platform</td><td>Valuable technology asset</td></tr>
+<tr><td>Open architecture</td><td>Multi-manufacturer compatibility</td></tr>
+<tr><td>Sector specialization</td><td>Solution designed for campsites</td></tr>
+<tr><td>Managed seasonality</td><td>Organization adapted to Q1/Q4</td></tr>
+<tr><td>Industrialization</td><td>Reproducible methods and consistent quality</td></tr>
+<tr><td>Recurring revenue</td><td>Software and maintenance on every site</td></tr>
+</table>
+<p>Success rests on the combination of energy expertise, proprietary software, sector specialization and a hybrid business model.</p>
+</section>
+
+<section class="chapter" id="ch20">
+<h1><span class="chnum">20</span>General Conclusion &amp; Vision 2035</h1>
+<p>ECOGRID RESORT&trade; is not a simple industrial project: it is an energy transformation platform designed to sustainably support campsites, holiday villages and resorts in their transition toward smarter, more autonomous and higher-performing infrastructure.</p>
+<table>
+<tr><th>2031 objective</th><th class="num">Value</th></tr>
+<tr><td>Smart Grids deployed</td><td class="num">535</td></tr>
+<tr><td>Annual revenue</td><td class="num">&euro;77.14M</td></tr>
+<tr><td>Recurring revenue</td><td class="num">&euro;2.14M</td></tr>
+<tr><td>Gross margin</td><td class="num">&euro;27.75M</td></tr>
+<tr><td>Employees</td><td class="num">59</td></tr>
+<tr><td>Presence</td><td class="num">France, Italy, Spain, Southern Europe</td></tr>
+</table>
+<p>By 2035, ECOGRID OS&trade; aims to become an Energy Operating System integrating decision-making AI, predictive maintenance, digital twins, energy flexibility and automated ESG reporting.</p>
+</section>
+
+<section class="chapter" id="ch21">
+<h1><span class="chnum">21</span>Appendices &ndash; Financial Assumptions and KPIs</h1>
+<table>
+<tr><th>Assumption</th><th class="num">Value</th></tr>
+<tr><td>Average project price</td><td class="num">&euro;300,000 excl. VAT</td></tr>
+<tr><td>Works gross margin</td><td class="num">35%</td></tr>
+<tr><td>ECOGRID OS&trade; license</td><td class="num">&euro;3,000/site/year</td></tr>
+<tr><td>Maintenance</td><td class="num">&euro;1,000/site/year</td></tr>
+<tr><td>Works distribution</td><td class="num">45% Q1 / 5% Q2 / 5% Q3 / 45% Q4</td></tr>
+<tr><td>Cash safety reserve</td><td class="num">&asymp; 6 months of fixed costs</td></tr>
+</table>
+<table>
+<tr><th>KPI</th><th>Description</th></tr>
+<tr><td>Commercial</td><td>Prospects, audits, conversion rate, pipeline</td></tr>
+<tr><td>Operational</td><td>Projects in progress, on-time delivery, availability, after-sales service</td></tr>
+<tr><td>Software</td><td>Active licenses, uptime, compatible equipment</td></tr>
+<tr><td>Financial</td><td>Revenue, gross margin, EBITDA, pre-tax profit, working capital (BFR), cash</td></tr>
+</table>
+</section>
+
+<section class="chapter" id="ch22">
+<h1><span class="chnum">22</span>Long-Term Development &amp; Value Creation Outlook</h1>
+<p>Beyond 2031, Performance ENR can evolve ECOGRID OS&trade; into an energy data and aggregation platform. Each connected site produces data on production, consumption, storage, mobility and maintenance.</p>
+<ul>
+<li>Energy forecasting AI and predictive maintenance.</li>
+<li>European supervision center.</li>
+<li>Digital twins of the establishments.</li>
+<li>Premium services and ESG reporting.</li>
+<li>Expansion toward hotels, marinas, leisure centers and tourist residences.</li>
+<li>Energy aggregation and flexibility monetization.</li>
+</ul>
+</section>
+
+<section class="chapter" id="ch23">
+<h1><span class="chnum">23</span>Operational Execution Plan 2027-2031</h1>
+<ol class="steps">
+<li>Prospect qualification</li>
+<li>Energy audit</li>
+<li>Engineering studies</li>
+<li>Project validation</li>
+<li>Procurement</li>
+<li>Works execution</li>
+<li>Commissioning</li>
+<li>Integration into ECOGRID OS&trade;</li>
+<li>Team training</li>
+<li>Operations and maintenance</li>
+</ol>
+<p>This standardized methodology reduces lead times, improves quality and progressively industrializes deployments across several hundred sites.</p>
+</section>
+
+<section class="chapter" id="ch24">
+<h1><span class="chnum">24</span>Competitive Analysis &amp; Strategic Positioning</h1>
+<p>The market remains fragmented among equipment manufacturers, BMS/BEMS platforms, energy utilities, SaaS monitoring companies and PV installers. No player today vertically combines all the building blocks for outdoor hospitality.</p>
+<table>
+<tr><th>Criterion</th><th>Manufacturers</th><th>BMS</th><th>Energy utilities</th><th>PV installers</th><th>Performance ENR</th></tr>
+<tr><td>Works</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Proprietary software</td><td>Partial</td><td>Yes</td><td>Partial</td><td>No</td><td>Yes</td></tr>
+<tr><td>Multi-manufacturer</td><td>No</td><td>Partial</td><td>Partial</td><td>No</td><td>Yes</td></tr>
+<tr><td>Dedicated to campsites</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
+<tr><td>Maintenance</td><td>Partial</td><td>Partial</td><td>Yes</td><td>Partial</td><td>Yes</td></tr>
+<tr><td>AI / roadmap</td><td>Partial</td><td>Partial</td><td>No</td><td>No</td><td>Yes</td></tr>
+</table>
+<p>Performance ENR replaces the complex coordination of several providers with an integrated offer: engineering, works, software, operations and maintenance.</p>
+</section>
+
+<section class="chapter" id="ch25">
+<h1><span class="chnum">25</span>Barriers to Entry &amp; Sustainable Competitive Advantages</h1>
+<table>
+<tr><th>Barrier</th><th>Impact</th></tr>
+<tr><td>Proprietary software platform</td><td>Very high</td></tr>
+<tr><td>Multi-manufacturer architecture</td><td>Very high</td></tr>
+<tr><td>Energy database</td><td>Very high</td></tr>
+<tr><td>Campsite sector expertise</td><td>Very high</td></tr>
+<tr><td>Client references</td><td>High</td></tr>
+<tr><td>Recurring revenue</td><td>High</td></tr>
+<tr><td>Deployment industrialization</td><td>High</td></tr>
+<tr><td>Partner ecosystem</td><td>Medium to high</td></tr>
+<tr><td>ECOGRID RESORT&trade; brand</td><td>High</td></tr>
+</table>
+<p>The more connected sites grow in number, the more the algorithms, data, commercial references and recurring revenue reinforce the competitive advantage.</p>
+</section>
+
+<section class="chapter" id="ch26">
+<h1><span class="chnum">26</span>ECOGRID OS&trade; Product Roadmap 2027-2035</h1>
+<table>
+<tr><th>Year</th><th>Version</th><th>Main objective</th></tr>
+<tr><td>2027</td><td>V1</td><td>Real-time supervision and commercial launch</td></tr>
+<tr><td>2028</td><td>V2</td><td>Multi-site, APIs, connected maintenance</td></tr>
+<tr><td>2029</td><td>V3</td><td>Energy automation</td></tr>
+<tr><td>2030</td><td>V4</td><td>Artificial intelligence</td></tr>
+<tr><td>2031</td><td>V5</td><td>European platform</td></tr>
+<tr><td>2032</td><td>V6</td><td>Smart Energy Platform</td></tr>
+<tr><td>2033</td><td>V7</td><td>Energy aggregation</td></tr>
+<tr><td>2034</td><td>V8</td><td>Digital Twin</td></tr>
+<tr><td>2035</td><td>V9</td><td>Energy Operating System</td></tr>
+</table>
+<p>Each version strengthens customer satisfaction, potential ARR, intellectual property and barriers to entry.</p>
+</section>
+
+<section class="chapter" id="ch27">
+<h1><span class="chnum">27</span>Performance ENR Valuation &amp; Value Creation</h1>
+<p>The value of Performance ENR should not be analyzed solely as that of a works/integration company. The company aims to evolve the quality of its revenue toward a hybrid model: EBITDA from projects, ARR from software, and data and intellectual property from ECOGRID OS&trade;.</p>
+<table>
+<tr><th>Asset</th><th>Value creation</th></tr>
+<tr><td>Integration</td><td>Immediate gross margin and customer acquisition</td></tr>
+<tr><td>ECOGRID OS&trade;</td><td>Proprietary platform and ARR</td></tr>
+<tr><td>Maintenance</td><td>Customer loyalty and recurring flows</td></tr>
+<tr><td>Data</td><td>AI, optimization and new services</td></tr>
+<tr><td>European expansion</td><td>Multiplication of addressable markets</td></tr>
+</table>
+<p>The challenge is to progressively transform the valuation profile: from an integrator's EBITDA multiple toward a combination of EBITDA + recurring revenue + technology platform.</p>
+</section>
+
+<section class="chapter" id="ch28">
+<h1><span class="chnum">28</span>ESG Impact &amp; Contribution to the Energy Transition</h1>
+<p>ECOGRID RESORT&trade; creates economic, environmental and societal value. The platform increases self-consumption, optimizes batteries, reduces peaks, integrates EV charging stations and produces ESG indicators.</p>
+<table>
+<tr><th>ESG pillar</th><th>Indicators tracked</th></tr>
+<tr><td>Environment</td><td>MWh of solar PV produced, self-consumption rate, CO2 avoided, charging stations managed</td></tr>
+<tr><td>Social</td><td>Jobs created, training, customer satisfaction, safety</td></tr>
+<tr><td>Governance</td><td>Platform uptime, cybersecurity incidents, compliance, reporting</td></tr>
+</table>
+<p>This approach contributes to United Nations SDGs 7, 9, 11, 12, 13 and 17.</p>
+</section>
+
+<section class="chapter" id="ch29">
+<h1><span class="chnum">29</span>Leadership Team, Governance &amp; Advisory Board</h1>
+<p>Governance will be progressively structured around General Management, the Executive Committee, the Advisory Board and shareholders.</p>
+<ul>
+<li>CEO: strategy, investors, partnerships, European development.</li>
+<li>CTO: Smart Grid architecture, engineering department, technical standards.</li>
+<li>Software Management: ECOGRID OS&trade;, AI, APIs, cybersecurity, cloud.</li>
+<li>Sales Management: go-to-market, sales, key accounts, partnerships.</li>
+<li>Operations Management: supervision, support, maintenance, service quality.</li>
+</ul>
+<table>
+<tr><th>Phase</th><th>Governance</th></tr>
+<tr><td>2027</td><td>Founding team and management committee</td></tr>
+<tr><td>2028</td><td>Creation of the Advisory Board</td></tr>
+<tr><td>2029</td><td>CFO arrival and executive committee reinforcement</td></tr>
+<tr><td>2030</td><td>Audit, strategy and compensation committees</td></tr>
+<tr><td>2031</td><td>Standards of an innovative mid-cap company / investment fund</td></tr>
+</table>
+</section>
+
+<section class="chapter" id="ch30">
+<h1><span class="chnum">30</span>Funding Needs &amp; Use of Funds</h1>
+<p>The fundraising aims to accelerate ECOGRID OS&trade;, recruitment, commercial development, working capital (BFR) and the industrialization of deployments.</p>
+<table>
+<tr><th>Phase</th><th>Indicative amount</th><th>Objective</th></tr>
+<tr><td>Seed 2027</td><td>&euro;2 to 3M</td><td>V1 software, Riva Bella, founding team, working capital</td></tr>
+<tr><td>Acceleration 2028-2029</td><td>&euro;5 to 8M</td><td>Industrialization, agencies, developers, commercial growth</td></tr>
+<tr><td>Expansion 2030-2031</td><td>Growth debt / funds / partner</td><td>European deployment</td></tr>
+</table>
+<table>
+<tr><th>Use</th><th class="num">Estimated share</th></tr>
+<tr><td>Software development</td><td class="num">30%</td></tr>
+<tr><td>Recruitment</td><td class="num">25%</td></tr>
+<tr><td>Commercial development</td><td class="num">20%</td></tr>
+<tr><td>Working capital (BFR)</td><td class="num">15%</td></tr>
+<tr><td>IT infrastructure</td><td class="num">5%</td></tr>
+<tr><td>Communication &amp; marketing</td><td class="num">5%</td></tr>
+</table>
+<p>The capital must finance value-creating assets: platform, teams, references, data, recurring revenue and European positioning.</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="wordmark"><span class="eco">ECO</span><span class="grid">GRID</span><span class="resort">RESORT&trade;</span></div>
+  <div class="contact-row">
+    <span>Tel: 04 84 80 22 22</span>
+    <span>Email: contact@ecogrid-resort.com</span>
+    <span>Web: www.ecogrid-resort.com</span>
+  </div>
+  <p class="fine">V4 working document integrating market data, the three-engine model, cashflow seasonality, operational growth, working capital (BFR), the Business Plan, product roadmap, ESG impact, valuation and funding needs. Performance ENR &mdash; Confidential &mdash; July 2026.</p>
+</footer>
+
+</body>
+</html>

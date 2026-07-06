@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ECOGRID RESORT&trade; - The Smart Grid designed for campsites and holiday resorts</title>
+<style>
+  :root{
+    --navy-dark:#0B2A4A;
+    --navy:#163B5B;
+    --teal:#1B6E82;
+    --green:#2E8B45;
+    --green-light:#E8F4EA;
+    --gold-accent:#F2B705;
+    --gray-bg:#F5F7F8;
+    --gray-card:#FFFFFF;
+    --text-dark:#1C2B36;
+    --text-muted:#5B6B75;
+    --before-bg:#EDEFF0;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:0; background:var(--gray-bg); color:var(--text-dark);
+    font-family:Arial, Helvetica, sans-serif; line-height:1.5;
+  }
+  h1,h2,h3,h4{ font-family:"Segoe UI", Arial, Helvetica, sans-serif; font-weight:800; margin:0; color:var(--navy-dark); }
+  .kicker{
+    text-transform:uppercase; letter-spacing:2px; font-size:12px; font-weight:700; color:var(--teal);
+  }
+  .wordmark{ font-family:Arial, Helvetica, sans-serif; font-weight:900; line-height:1; }
+  .wordmark .eco{ color:var(--navy-dark); }
+  .wordmark .grid{ color:var(--green); }
+  .wordmark .resort{ display:block; letter-spacing:6px; font-size:0.30em; font-weight:700; color:var(--navy-dark); margin-top:2px; }
+
+  section{ padding:60px 8vw; }
+  .section-inner{ max-width:1180px; margin:0 auto; }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(120deg, var(--navy-dark) 0%, var(--teal) 100%);
+    color:#fff; padding:56px 8vw 64px; text-align:center;
+  }
+  .hero .wordmark{ font-size:40px; color:#fff; margin-bottom:18px; }
+  .hero .wordmark .eco{ color:#fff; }
+  .hero .wordmark .grid{ color:#8CE0A8; }
+  .hero .wordmark .resort{ color:#DCEFEA; }
+  .hero h1{ color:#fff; font-size:34px; max-width:900px; margin:0 auto 14px; }
+  .hero p.subtitle{ color:#E4F0EE; font-size:17px; max-width:760px; margin:0 auto 30px; }
+  .badges{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
+  .badge{
+    display:flex; align-items:center; gap:8px; background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.35); border-radius:30px; padding:9px 18px;
+    font-size:13px; font-weight:700; color:#fff;
+  }
+  .badge .dot{ width:22px; height:22px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; flex:none; }
+  .badge .dot svg{ width:12px; height:12px; fill:#fff; }
+
+  /* FACTS VS SOLUTION */
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  @media(max-width:860px){ .two-col{ grid-template-columns:1fr; } }
+  .card{ background:var(--gray-card); border-radius:14px; padding:30px; box-shadow:0 4px 18px rgba(11,42,74,0.08); }
+  .card h3{ display:flex; align-items:center; gap:10px; font-size:19px; margin-bottom:18px; }
+  .icon-circle{ width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex:none; }
+  .icon-circle.navy{ background:var(--navy); }
+  .icon-circle.green{ background:var(--green); }
+  .icon-circle svg{ width:18px; height:18px; fill:#fff; }
+  ul.fact-list{ list-style:none; margin:0; padding:0; }
+  ul.fact-list li{ display:flex; gap:10px; padding:9px 0; border-bottom:1px solid #EEF1F2; font-size:14.5px; color:var(--text-dark); }
+  ul.fact-list li:last-child{ border-bottom:none; }
+  ul.fact-list li .mini{ color:var(--teal); font-weight:900; flex:none; }
+  .solution-blocks{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-bottom:16px; }
+  @media(max-width:860px){ .solution-blocks{ grid-template-columns:repeat(2,1fr);} }
+  .tile{ background:var(--green-light); border:1px solid #cfe8d4; border-radius:10px; padding:12px 6px; text-align:center; font-size:11.5px; font-weight:700; color:var(--navy-dark); }
+  .tile .icon-circle{ margin:0 auto 6px; }
+  .arrow-down{ text-align:center; color:var(--green); font-size:20px; margin:4px 0; }
+  .os-callout{ background:var(--navy-dark); color:#fff; border-radius:10px; padding:16px 18px; text-align:center; font-weight:800; letter-spacing:0.5px; }
+  .os-callout span{ color:#8CE0A8; }
+
+  /* BENEFITS */
+  .benefits{ background:var(--gray-bg); }
+  .benefits-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:30px; }
+  @media(max-width:860px){ .benefits-grid{ grid-template-columns:1fr 1fr; } }
+  @media(max-width:560px){ .benefits-grid{ grid-template-columns:1fr; } }
+  .benefit-card{ background:#fff; border-radius:14px; padding:24px 20px; box-shadow:0 3px 14px rgba(11,42,74,0.07); }
+  .benefit-card .icon-circle{ width:46px; height:46px; margin-bottom:14px; }
+  .benefit-card .icon-circle svg{ width:22px; height:22px; }
+  .benefit-card h4{ font-size:16px; margin-bottom:6px; }
+  .benefit-card p{ font-size:13.5px; color:var(--text-muted); margin:0; }
+
+  /* PROCESS RIBBON */
+  .process{ text-align:center; }
+  .process p.tagline{ font-style:italic; color:var(--text-muted); margin-top:6px; }
+  .ribbon{ display:flex; justify-content:space-between; align-items:flex-start; margin-top:40px; position:relative; }
+  .ribbon::before{
+    content:""; position:absolute; top:26px; left:6%; right:6%; height:3px; background:var(--green-light); z-index:0;
+  }
+  .step{ position:relative; z-index:1; flex:1; padding:0 6px; }
+  .step .num{
+    width:52px; height:52px; border-radius:50%; background:var(--green); color:#fff; font-weight:900; font-size:20px;
+    display:flex; align-items:center; justify-content:center; margin:0 auto 12px; box-shadow:0 4px 10px rgba(46,139,69,0.35);
+  }
+  .step h5{ font-size:12.5px; font-weight:800; color:var(--navy-dark); margin:0 0 4px; min-height:32px; }
+  .step p{ font-size:11px; color:var(--text-muted); margin:0; }
+  @media(max-width:860px){ .ribbon{ flex-wrap:wrap; gap:24px 0;} .ribbon::before{display:none;} .step{ flex:0 0 33%; } }
+
+  /* RESULTS PANEL */
+  .results{ background:var(--gray-bg); }
+  .results-panel{ display:grid; grid-template-columns:1fr 1.1fr 1fr; gap:0; align-items:stretch; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 4px 18px rgba(11,42,74,0.08); }
+  @media(max-width:760px){ .results-panel{ grid-template-columns:1fr; } }
+  .rp-col{ padding:34px 26px; text-align:center; }
+  .rp-before{ background:var(--before-bg); }
+  .rp-after{ background:var(--green-light); border-left:3px solid var(--green); border-right:3px solid var(--green); }
+  .rp-col .label{ text-transform:uppercase; font-size:12px; font-weight:800; letter-spacing:1px; color:var(--text-muted); margin-bottom:10px; }
+  .rp-col .figure{ font-size:30px; font-weight:900; color:var(--navy-dark); }
+  .rp-after .figure{ color:var(--green); }
+  .rp-gain{ display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .gain-circle{
+    width:150px; height:150px; border-radius:50%; background:var(--green); color:#fff;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; margin:0 auto 10px;
+    box-shadow:0 8px 22px rgba(46,139,69,0.35);
+  }
+  .gain-circle .amt{ font-size:22px; font-weight:900; }
+  .gain-circle .pct{ font-size:15px; font-weight:700; }
+  .rp-gain .label{ margin-top:6px; }
+  .results-footnotes{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:24px; }
+  @media(max-width:760px){ .results-footnotes{ grid-template-columns:1fr; } }
+  .rf-item{ background:#fff; border-radius:10px; padding:16px; text-align:center; font-size:13px; color:var(--text-dark); box-shadow:0 2px 8px rgba(11,42,74,0.06); }
+  .rf-item .icon-circle{ margin:0 auto 8px; }
+  .results-note{ font-size:11.5px; color:var(--text-muted); text-align:center; margin-top:18px; font-style:italic; }
+
+  /* WHY US */
+  .whyus-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; margin-top:30px; }
+  @media(max-width:900px){ .whyus-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .whyus-grid{ grid-template-columns:1fr;} }
+  .why-item{ text-align:center; padding:10px; }
+  .why-item .icon-circle{ margin:0 auto 12px; width:46px; height:46px; }
+  .why-item h5{ font-size:14px; color:var(--navy-dark); margin:0 0 6px; }
+  .why-item p{ font-size:12.5px; color:var(--text-muted); margin:0; }
+
+  /* FOOTER */
+  footer{ background:var(--navy-dark); color:#fff; padding:44px 8vw; text-align:center; }
+  footer .wordmark{ font-size:22px; margin-bottom:14px;}
+  footer .wordmark .eco{color:#fff;} footer .wordmark .grid{color:#8CE0A8;} footer .wordmark .resort{color:#B9CBD6;}
+  .contact-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:28px; font-size:14px; margin:18px 0 26px; color:#DCE8ED; }
+  .contact-row span{ display:flex; align-items:center; gap:8px; }
+  .cta-btn{
+    display:inline-block; background:var(--green); color:#fff; font-weight:800; padding:13px 34px;
+    border-radius:30px; text-decoration:none; font-size:14px; letter-spacing:0.5px;
+  }
+  footer .fine{ color:#7C93A0; font-size:11.5px; margin-top:26px; }
+
+  .section-head{ text-align:center; max-width:760px; margin:0 auto 10px; }
+  .section-head h2{ font-size:28px; margin-top:6px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wordmark"><span class="eco">ECO</span><span class="grid">GRID</span><span class="resort">RESORT&trade;</span></div>
+  <h1>The Smart Grid designed for campsites and holiday resorts.</h1>
+  <p class="subtitle">Produce, store, control&hellip; and cut your energy costs for good.</p>
+  <div class="badges">
+    <div class="badge"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 2l1.8 5.6H20l-4.6 3.3 1.8 5.6L12 13.2 6.8 16.5l1.8-5.6L4 7.6h6.2z"/></svg></span>INTELLIGENT &mdash; real-time control</div>
+    <div class="badge"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 2C7 2 3 6 3 11c0 5 4 9 9 11 5-2 9-6 9-11 0-5-4-9-9-9zm0 4l4 7h-3v5l-4-7h3z"/></svg></span>COST-EFFECTIVE &mdash; lower costs</div>
+    <div class="badge"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 2C6 6 4 10 4 14a8 8 0 0016 0c0-4-2-8-8-12z"/></svg></span>SUSTAINABLE &mdash; green energy</div>
+    <div class="badge"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.7-8 10-4.5-1.3-8-5-8-10V6z"/></svg></span>SECURE &mdash; reliable &amp; scalable</div>
+  </div>
+</div>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="kicker">Why act now</span>
+      <h2>The facts vs. our solution</h2>
+    </div>
+    <div class="two-col" style="margin-top:30px;">
+      <div class="card">
+        <h3><span class="icon-circle navy"><svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 5l6.9 12H5.1L12 7zm-1 4v4h2v-4h-2zm0 5v2h2v-2h-2z"/></svg></span>THE FACTS</h3>
+        <ul class="fact-list">
+          <li><span class="mini">!</span>Electricity bills rising sharply.</li>
+          <li><span class="mini">!</span>Growth of EV charging infrastructure.</li>
+          <li><span class="mini">!</span>Heavy consumption: pools, restaurants, accommodation.</li>
+          <li><span class="mini">!</span>Increasing environmental &amp; regulatory constraints.</li>
+          <li><span class="mini">!</span>A multiplication of energy equipment that's hard to orchestrate &mdash; PV inverters, batteries, EV chargers, BMS, pool/heating supervision, smart meters &mdash; all working in silos.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12 3.4 13.4 9 19 21 7l-1.4-1.4z"/></svg></span>OUR SOLUTION</h3>
+        <div class="solution-blocks">
+          <div class="tile"><div class="icon-circle green" style="width:30px;height:30px;"><svg viewBox="0 0 24 24"><path d="M12 2C6 6 4 10 4 14a8 8 0 0016 0c0-4-2-8-8-12z"/></svg></div>Solar panels</div>
+          <div class="tile"><div class="icon-circle green" style="width:30px;height:30px;"><svg viewBox="0 0 24 24"><path d="M7 2h10v20H7z"/></svg></div>Battery storage</div>
+          <div class="tile"><div class="icon-circle green" style="width:30px;height:30px;"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h6l-2 8 10-12h-6z"/></svg></div>EV charging</div>
+          <div class="tile"><div class="icon-circle green" style="width:30px;height:30px;"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg></div>Facility &amp; network equipment</div>
+          <div class="tile"><div class="icon-circle green" style="width:30px;height:30px;"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v6l4 2-1 2-5-3V7z"/></svg></div>Smart meters</div>
+        </div>
+        <div class="arrow-down">&#8595;</div>
+        <div class="os-callout">Real-time supervision &amp; optimization &mdash; <span>ECOGRID OS&trade;</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="kicker">Your benefits</span>
+      <h2>Six ways ECOGRID RESORT&trade; pays for itself</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M12 2C6 6 4 10 4 14a8 8 0 0016 0c0-4-2-8-8-12z"/></svg></div>
+        <h4>Cost reduction</h4><p>Up to &minus;30% on the energy bill.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2z"/></svg></div>
+        <h4>More self-consumption</h4><p>Less dependency on the grid.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h6l-2 8 10-12h-6z"/></svg></div>
+        <h4>Optimized subscribed power</h4><p>Fewer peaks, more savings.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v6l4 2-1 2-5-3V7z"/></svg></div>
+        <h4>Smart control</h4><p>Of batteries, chargers and equipment, exactly when needed.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zm2 2v12h12V6z"/></svg></div>
+        <h4>Total supervision</h4><p>One interface to control everything.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M12 2C6 6 4 10 4 14a8 8 0 0016 0c0-4-2-8-8-12z"/></svg></div>
+        <h4>Eco-responsible approach</h4><p>Lower carbon footprint, ready for future regulation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="section-inner">
+    <span class="kicker">Our turnkey offer</span>
+    <h2>Seven steps, one point of contact</h2>
+    <p class="tagline">"A single point of contact, from study to operation."</p>
+    <div class="ribbon">
+      <div class="step"><div class="num">1</div><h5>Energy audit</h5><p>Site &amp; needs analysis</p></div>
+      <div class="step"><div class="num">2</div><h5>Technical studies</h5><p>Sizing &amp; design</p></div>
+      <div class="step"><div class="num">3</div><h5>Works execution</h5><p>Installation by specialized teams</p></div>
+      <div class="step"><div class="num">4</div><h5>Commissioning</h5><p>Testing &amp; training</p></div>
+      <div class="step"><div class="num">5</div><h5>ECOGRID OS&trade; supervision</h5><p>24/7 real-time control</p></div>
+      <div class="step"><div class="num">6</div><h5>Preventive maintenance</h5><p>Regular servicing</p></div>
+      <div class="step"><div class="num">7</div><h5>Continuous optimization</h5><p>Ongoing performance gains</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="results">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="kicker">Concrete results</span>
+      <h2>Illustrative example &mdash; a 350-pitch campsite</h2>
+    </div>
+    <div class="results-panel" style="margin-top:30px;">
+      <div class="rp-col rp-before">
+        <div class="label">Before</div>
+        <div class="figure">&euro;420,000<br>/year</div>
+      </div>
+      <div class="rp-col rp-gain">
+        <div class="gain-circle"><div class="amt">&euro;110,000</div><div class="pct">&minus;26%</div></div>
+        <div class="label">Annual gain</div>
+      </div>
+      <div class="rp-col rp-after">
+        <div class="label">After</div>
+        <div class="figure">&euro;310,000<br>/year</div>
+      </div>
+    </div>
+    <div class="results-footnotes">
+      <div class="rf-item"><div class="icon-circle green" style="width:34px;height:34px;"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v6l4 2-1 2-5-3V7z"/></svg></div>Payback (ROI): 3 to 5 years</div>
+      <div class="rf-item"><div class="icon-circle green" style="width:34px;height:34px;"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></div>Increased asset value of the site</div>
+      <div class="rf-item"><div class="icon-circle green" style="width:34px;height:34px;"><svg viewBox="0 0 24 24"><path d="M12 21s-8-4.6-8-11a5 5 0 019-3 5 5 0 019 3c0 6.4-8 11-8 11z"/></svg></div>Improved guest comfort &amp; satisfaction</div>
+    </div>
+    <p class="results-note">Indicative example based on average data &mdash; each site is unique.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="kicker">Why choose us</span>
+      <h2>Why choose ECOGRID RESORT&trade;</h2>
+    </div>
+    <div class="whyus-grid">
+      <div class="why-item">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M12 2l9 4v6c0 5-3.9 8.7-9 10-5.1-1.3-9-5-9-10V6z"/></svg></div>
+        <h5>Specialized expertise</h5><p>Dedicated to campsites &amp; holiday resorts.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/></svg></div>
+        <h5>Open technology</h5><p>Compatible with leading equipment brands.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 5v6l4 2-1 2-5-3V7z"/></svg></div>
+        <h5>Proprietary platform</h5><p>ECOGRID OS&trade; &mdash; powerful, intuitive, evolving.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12 3.4 13.4 9 19 21 7l-1.4-1.4z"/></svg></div>
+        <h5>Global support</h5><p>Studies, works, software, maintenance, optimization.</p>
+      </div>
+      <div class="why-item">
+        <div class="icon-circle green"><svg viewBox="0 0 24 24"><path d="M12 2C6 6 4 10 4 14a8 8 0 0016 0c0-4-2-8-8-12z"/></svg></div>
+        <h5>Sustainable commitment</h5><p>Eco-responsible solutions for sustainable tourism.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wordmark"><span class="eco">ECO</span><span class="grid">GRID</span><span class="resort">RESORT&trade;</span></div>
+  <div class="contact-row">
+    <span>Tel: 04 84 80 22 22</span>
+    <span>Email: contact@ecogrid-resort.com</span>
+    <span>Web: www.ecogrid-resort.com</span>
+  </div>
+  <a class="cta-btn" href="mailto:contact@ecogrid-resort.com">Contact us</a>
+  <p class="fine">ECOGRID RESORT&trade; is a brand developed by Performance ENR &mdash; RGE-certified renewable energy company, France.</p>
+</footer>
+
+</body>
+</html>

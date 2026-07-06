@@ -1,0 +1,884 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>ECOGRID RESORT™ — Mémorandum d'Investissement</title>
+<style>
+  :root{
+    --navy-dark:#0B2A4A;
+    --navy:#163B5B;
+    --teal:#1B6E82;
+    --green:#2E8B45;
+    --green-light:#E8F4EA;
+    --gold-accent:#F2B705;
+    --gray-bg:#F5F7F8;
+    --gray-card:#FFFFFF;
+    --text-dark:#1C2B36;
+    --text-muted:#5B6B75;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:Arial, Helvetica, sans-serif;
+    margin:0;
+    background:var(--gray-bg);
+    color:var(--text-dark);
+    line-height:1.6;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px 80px;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(135deg, var(--navy-dark) 0%, var(--teal) 100%);
+    color:#fff;
+    padding:56px 24px 40px;
+    text-align:center;
+  }
+  .hero .wrap{padding:0;}
+  .logo{
+    font-family:'Arial Black', Arial, sans-serif;
+    font-weight:900;
+    font-size:20px;
+    letter-spacing:1px;
+    margin-bottom:18px;
+  }
+  .logo .eco{color:#ffffff;}
+  .logo .grid{color:#8FE3A6;}
+  .logo .resort{display:block;font-size:11px;letter-spacing:5px;font-weight:700;color:#DCE9EF;margin-top:2px;}
+  .hero h1{
+    font-size:34px;
+    margin:8px 0 6px;
+    font-weight:900;
+    letter-spacing:.5px;
+  }
+  .hero p.subtitle{
+    font-size:16px;
+    color:#E4EFF2;
+    max-width:720px;
+    margin:0 auto 22px;
+  }
+  .hero .meta{
+    font-size:13px;
+    color:#CFE3EA;
+    margin-bottom:22px;
+    letter-spacing:.5px;
+  }
+  .badges{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;}
+  .badge{
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.35);
+    border-radius:30px;
+    padding:8px 18px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.5px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .badge .dot{
+    width:9px;height:9px;border-radius:50%;
+    background:#8FE3A6;
+    display:inline-block;
+  }
+
+  /* KPI strip */
+  .kpi-strip{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin:-30px auto 40px;
+    max-width:1040px;
+    padding:0 24px;
+  }
+  .kpi-card{
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 6px 18px rgba(11,42,74,0.12);
+    padding:18px 14px;
+    text-align:center;
+  }
+  .kpi-card .num{font-size:24px;font-weight:900;color:var(--navy-dark);}
+  .kpi-card .lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
+
+  /* TOC */
+  .toc-section{margin:40px 0;}
+  .toc-box{
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(11,42,74,0.08);
+    padding:28px 32px;
+  }
+  .toc-box h2{margin-top:0;}
+  .toc-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px 30px;
+    list-style:none;
+    padding:0;margin:0;
+  }
+  .toc-grid li{
+    font-size:14px;
+    padding:6px 0;
+    border-bottom:1px dashed #E1E7EA;
+    color:var(--text-dark);
+  }
+  .toc-grid li a{color:var(--navy);text-decoration:none;font-weight:600;}
+  .toc-grid li a:hover{color:var(--green);}
+  .toc-grid li .n{color:var(--green);font-weight:900;margin-right:6px;}
+
+  /* Section kicker + headings */
+  .chapter{margin:52px 0;}
+  .kicker{
+    display:inline-block;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:6px;
+  }
+  h1.chapter-title{
+    font-size:26px;
+    color:var(--navy-dark);
+    margin:0 0 18px;
+    padding-bottom:10px;
+    border-bottom:3px solid var(--green);
+    display:flex;align-items:baseline;gap:10px;
+  }
+  h1.chapter-title .chno{
+    color:var(--green);
+    font-weight:900;
+    font-size:30px;
+  }
+  h2{color:var(--green);font-size:18px;margin:26px 0 10px;}
+  p{color:var(--text-dark);font-size:15px;}
+  ul.bullets{margin:10px 0;padding-left:0;list-style:none;}
+  ul.bullets li{
+    position:relative;
+    padding:6px 0 6px 26px;
+    font-size:15px;
+  }
+  ul.bullets li:before{
+    content:"";
+    position:absolute;left:0;top:13px;
+    width:9px;height:9px;
+    background:var(--green);
+    border-radius:50%;
+  }
+  ol.steps{margin:10px 0;padding-left:0;list-style:none;counter-reset:step;}
+  ol.steps li{
+    position:relative;
+    padding:8px 0 8px 40px;
+    font-size:15px;
+    counter-increment:step;
+  }
+  ol.steps li:before{
+    content:counter(step);
+    position:absolute;left:0;top:6px;
+    width:26px;height:26px;line-height:26px;
+    text-align:center;
+    background:var(--green);
+    color:#fff;font-weight:800;font-size:13px;
+    border-radius:50%;
+  }
+
+  /* Cards */
+  .card{
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(11,42,74,0.08);
+    padding:24px 28px;
+    margin:16px 0;
+  }
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0;}
+  .stat-card{
+    background:var(--green-light);
+    border:1px solid #CDE7D2;
+    border-radius:10px;
+    padding:16px 18px;
+    text-align:center;
+  }
+  .stat-card .num{font-size:22px;font-weight:900;color:var(--green);}
+  .stat-card .lbl{font-size:12px;color:var(--text-muted);margin-top:4px;}
+
+  /* Tables */
+  table{
+    border-collapse:collapse;
+    width:100%;
+    margin:18px 0;
+    background:#fff;
+    box-shadow:0 2px 10px rgba(11,42,74,0.06);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  th,td{
+    border:1px solid #E1E7EA;
+    padding:10px 12px;
+    font-size:13.5px;
+    text-align:left;
+  }
+  th{
+    background:var(--navy);
+    color:#fff;
+    font-weight:700;
+    text-transform:uppercase;
+    font-size:11.5px;
+    letter-spacing:.4px;
+  }
+  tbody tr:nth-child(even){background:var(--gray-bg);}
+  td.num, th.num{text-align:right;}
+  td.pos{color:var(--green);font-weight:700;}
+
+  .callout{
+    background:var(--green-light);
+    border-left:4px solid var(--green);
+    padding:14px 20px;
+    border-radius:6px;
+    font-size:14.5px;
+    color:var(--text-dark);
+    margin:16px 0;
+  }
+
+  /* Footer */
+  .footer-band{
+    background:var(--navy-dark);
+    color:#fff;
+    padding:40px 24px;
+    text-align:center;
+    margin-top:60px;
+  }
+  .footer-band .logo{justify-content:center;display:flex;flex-direction:column;align-items:center;}
+  .footer-band .contact{
+    display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+    margin-top:18px;font-size:14px;color:#CFE3EA;
+  }
+  .footer-band .contact strong{color:#fff;}
+  .footer-band .confidential{
+    margin-top:24px;font-size:11px;color:#7F97A6;letter-spacing:.5px;
+  }
+
+  @media (max-width:720px){
+    .kpi-strip{grid-template-columns:1fr 1fr;}
+    .toc-grid{grid-template-columns:1fr;}
+    .card-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="logo"><span class="eco">ECO</span><span class="grid">GRID</span><span class="resort">RESORT™</span></div>
+    <h1>Mémorandum d'Investissement</h1>
+    <p class="subtitle">Le Smart Grid conçu pour les campings et villages vacances — Produisez, stockez, pilotez… et réduisez durablement vos coûts énergétiques.</p>
+    <div class="meta">Performance ENR &nbsp;•&nbsp; Version V4 complète — 30 chapitres &nbsp;•&nbsp; Confidentiel &nbsp;•&nbsp; Juillet 2026</div>
+    <div class="badges">
+      <div class="badge"><span class="dot"></span>INTELLIGENT</div>
+      <div class="badge"><span class="dot"></span>ÉCONOMIQUE</div>
+      <div class="badge"><span class="dot"></span>DURABLE</div>
+      <div class="badge"><span class="dot"></span>SÉCURISÉ</div>
+    </div>
+  </div>
+</div>
+
+<div class="kpi-strip">
+  <div class="kpi-card"><div class="num">535</div><div class="lbl">Sites connectés 2031</div></div>
+  <div class="kpi-card"><div class="num">77,14 M€</div><div class="lbl">CA annuel 2031</div></div>
+  <div class="kpi-card"><div class="num">27,75 M€</div><div class="lbl">Marge brute 2031</div></div>
+  <div class="kpi-card"><div class="num">2-3 M€</div><div class="lbl">Levée d'amorçage</div></div>
+</div>
+
+<div class="wrap">
+
+  <div class="card" style="margin-top:0;">
+    <h2 style="margin-top:0;">Indicateurs clés</h2>
+    <table>
+      <tr><th>Indicateur clé</th><th>Valeur</th></tr>
+      <tr><td>Marché européen estimé</td><td>≈ 22 800 à 23 200 campings</td></tr>
+      <tr><td>Objectif 2031</td><td>535 sites connectés</td></tr>
+      <tr><td>CA moyen par projet</td><td>300 000 € HT</td></tr>
+      <tr><td>Marge brute cible travaux</td><td>35 %</td></tr>
+      <tr><td>Licence ECOGRID OS™</td><td>3 000 €/site/an</td></tr>
+      <tr><td>Maintenance &amp; supervision</td><td>1 000 €/site/an</td></tr>
+      <tr><td>CA total 2031</td><td>77,14 M€</td></tr>
+      <tr><td>Marge brute 2031</td><td>27,75 M€</td></tr>
+    </table>
+  </div>
+
+  <div class="toc-section">
+    <div class="toc-box">
+      <span class="kicker">Sommaire</span>
+      <h2 style="color:var(--navy-dark);margin-top:4px;">30 chapitres</h2>
+      <ul class="toc-grid">
+        <li><a href="#ch1"><span class="n">01</span>Executive Summary</a></li>
+        <li><a href="#ch2"><span class="n">02</span>Constat</a></li>
+        <li><a href="#ch3"><span class="n">03</span>Opportunité de marché</a></li>
+        <li><a href="#ch4"><span class="n">04</span>Marché cible</a></li>
+        <li><a href="#ch5"><span class="n">05</span>Vision</a></li>
+        <li><a href="#ch6"><span class="n">06</span>La Solution ECOGRID RESORT™</a></li>
+        <li><a href="#ch7"><span class="n">07</span>Offre clé en main</a></li>
+        <li><a href="#ch8"><span class="n">08</span>ECOGRID OS™</a></li>
+        <li><a href="#ch9"><span class="n">09</span>Cas d'usage – Camping Riva Bella</a></li>
+        <li><a href="#ch10"><span class="n">10</span>Modèle économique</a></li>
+        <li><a href="#ch11"><span class="n">11</span>Business Model &amp; stratégie de croissance</a></li>
+        <li><a href="#ch12"><span class="n">12</span>Stratégie commerciale et Go-to-Market</a></li>
+        <li><a href="#ch13"><span class="n">13</span>Organisation et montée en puissance opérationnelle</a></li>
+        <li><a href="#ch14"><span class="n">14</span>Business Plan &amp; prévisions financières</a></li>
+        <li><a href="#ch15"><span class="n">15</span>Stratégie de financement et levée de fonds</a></li>
+        <li><a href="#ch16"><span class="n">16</span>Analyse des risques et stratégie de maîtrise</a></li>
+        <li><a href="#ch17"><span class="n">17</span>Feuille de route stratégique 2027-2031</a></li>
+        <li><a href="#ch18"><span class="n">18</span>Conclusion &amp; opportunité d'investissement</a></li>
+        <li><a href="#ch19"><span class="n">19</span>Pourquoi Performance ENR réussira</a></li>
+        <li><a href="#ch20"><span class="n">20</span>Conclusion générale &amp; Vision 2035</a></li>
+        <li><a href="#ch21"><span class="n">21</span>Annexes - hypothèses financières et KPI</a></li>
+        <li><a href="#ch22"><span class="n">22</span>Perspectives de développement &amp; création de valeur long terme</a></li>
+        <li><a href="#ch23"><span class="n">23</span>Plan d'exécution opérationnel 2027-2031</a></li>
+        <li><a href="#ch24"><span class="n">24</span>Analyse concurrentielle &amp; positionnement stratégique</a></li>
+        <li><a href="#ch25"><span class="n">25</span>Barrières à l'entrée &amp; avantages concurrentiels durables</a></li>
+        <li><a href="#ch26"><span class="n">26</span>Roadmap produit ECOGRID OS™ 2027-2035</a></li>
+        <li><a href="#ch27"><span class="n">27</span>Valorisation de Performance ENR &amp; création de valeur</a></li>
+        <li><a href="#ch28"><span class="n">28</span>Impact ESG &amp; contribution à la transition énergétique</a></li>
+        <li><a href="#ch29"><span class="n">29</span>Équipe dirigeante, gouvernance &amp; Advisory Board</a></li>
+        <li><a href="#ch30"><span class="n">30</span>Besoin de financement &amp; utilisation des fonds</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CH 1 -->
+  <div class="chapter" id="ch1">
+    <h1 class="chapter-title"><span class="chno">01</span> Executive Summary</h1>
+    <p>ECOGRID RESORT™ est une plateforme technologique développée par Performance ENR pour accompagner la transition énergétique des campings, villages vacances et resorts. L'objectif est de transformer chaque établissement en micro-réseau énergétique intelligent capable de produire, stocker, piloter et optimiser son énergie.</p>
+    <p>La solution combine ingénierie, intégration, travaux, logiciel propriétaire ECOGRID OS™, supervision, maintenance et optimisation continue. Elle répond à la fragmentation actuelle des équipements énergétiques : photovoltaïque, batteries, bornes de recharge, GTB, piscines, pompes, climatisation et compteurs fonctionnent encore trop souvent en silos.</p>
+    <h2>Trois moteurs économiques</h2>
+    <ul class="bullets">
+      <li><strong>Pôle 1 — Intégration &amp; Travaux Smart Grid :</strong> 300 k€ HT par site, marge brute cible de 35 %, activité concentrée en T1 et T4.</li>
+      <li><strong>Pôle 2 — ECOGRID OS™ :</strong> licence annuelle de 3 000 € HT par site, revenus récurrents à forte marge.</li>
+      <li><strong>Pôle 3 — Exploitation &amp; Maintenance :</strong> contrat annuel de 1 000 € HT par site, supervision, SAV et optimisation continue.</li>
+    </ul>
+    <table>
+      <tr><th>Année</th><th class="num">Nouveaux sites</th><th class="num">Sites cumulés</th><th class="num">CA total</th><th class="num">Marge brute</th></tr>
+      <tr><td>2027</td><td class="num">15</td><td class="num">15</td><td class="num">4,56 M€</td><td class="num">1,62 M€</td></tr>
+      <tr><td>2028</td><td class="num">40</td><td class="num">55</td><td class="num">12,22 M€</td><td class="num">4,35 M€</td></tr>
+      <tr><td>2029</td><td class="num">80</td><td class="num">135</td><td class="num">24,54 M€</td><td class="num">8,78 M€</td></tr>
+      <tr><td>2030</td><td class="num">150</td><td class="num">285</td><td class="num">46,14 M€</td><td class="num">16,55 M€</td></tr>
+      <tr><td>2031</td><td class="num">250</td><td class="num">535</td><td class="num">77,14 M€</td><td class="num">27,75 M€</td></tr>
+    </table>
+    <p>L'ambition est de faire de Performance ENR non seulement un intégrateur de Smart Grids, mais un acteur européen de l'Energy Tech spécialisé dans l'hôtellerie de plein air.</p>
+  </div>
+
+  <!-- CH 2 -->
+  <div class="chapter" id="ch2">
+    <h1 class="chapter-title"><span class="chno">02</span> Constat</h1>
+    <p>Les campings montent en gamme : mobil-homes climatisés, piscines, restaurants, spas, bornes de recharge, équipements connectés et services numériques accroissent fortement les consommations. L'énergie devient un facteur de compétitivité et non plus une simple charge.</p>
+    <ul class="bullets">
+      <li>Les équipements sont pilotés séparément par les portails fabricants.</li>
+      <li>Les données sont dispersées entre onduleurs, batteries, bornes, GTB, compteurs et outils internes.</li>
+      <li>L'autoconsommation reste limitée faute d'orchestration globale.</li>
+      <li>Les batteries, pompes, piscines et bornes ne sont pas optimisées ensemble.</li>
+      <li>La maintenance reste principalement corrective.</li>
+    </ul>
+    <div class="callout">Cette fragmentation crée une opportunité : passer d'une logique d'équipements à une logique de système d'exploitation énergétique.</div>
+  </div>
+
+  <!-- CH 3 -->
+  <div class="chapter" id="ch3">
+    <h1 class="chapter-title"><span class="chno">03</span> Opportunité de marché</h1>
+    <table>
+      <tr><th>Zone</th><th class="num">Nombre approximatif de campings</th></tr>
+      <tr><td>France</td><td class="num">≈ 8 100</td></tr>
+      <tr><td>Italie</td><td class="num">≈ 2 300</td></tr>
+      <tr><td>Espagne</td><td class="num">≈ 1 200</td></tr>
+      <tr><td>Europe</td><td class="num">≈ 22 800 à 23 200</td></tr>
+    </table>
+    <p>La France constitue le premier marché européen, suivie de l'Italie et de l'Espagne. Les établissements haut de gamme, multi-services et fortement consommateurs d'énergie forment le cœur de cible d'ECOGRID RESORT™.</p>
+    <table>
+      <tr><th>Indicateur</th><th>Valeur</th></tr>
+      <tr><td>Marché européen</td><td>≈ 23 000 sites</td></tr>
+      <tr><td>Objectif 2031</td><td>535 sites</td></tr>
+      <tr><td>Pénétration 2031</td><td>≈ 2,3 % du marché européen</td></tr>
+    </table>
+    <ul class="bullets">
+      <li>Hausse des coûts de l'énergie.</li>
+      <li>Développement du photovoltaïque et du stockage.</li>
+      <li>Arrivée massive des bornes de recharge.</li>
+      <li>Digitalisation des bâtiments et équipements.</li>
+      <li>Absence de leader vertical dédié à l'hôtellerie de plein air.</li>
+    </ul>
+  </div>
+
+  <!-- CH 4 -->
+  <div class="chapter" id="ch4">
+    <h1 class="chapter-title"><span class="chno">04</span> Marché cible</h1>
+    <p>La stratégie de Performance ENR est sélective : cibler d'abord les établissements où la valeur créée est la plus forte et où le retour sur investissement est le plus lisible.</p>
+    <ul class="bullets">
+      <li><strong>Campings 4★ et 5★ :</strong> plusieurs centaines d'emplacements, piscines, restaurants, climatisation et équipements techniques.</li>
+      <li><strong>Villages vacances :</strong> bâtiments multiples, usages énergétiques distribués et besoin de supervision centralisée.</li>
+      <li><strong>Resorts touristiques :</strong> exigence élevée de continuité de service et image environnementale forte.</li>
+      <li><strong>Groupes multi-sites :</strong> besoin de standardisation, reporting consolidé et supervision centralisée.</li>
+    </ul>
+    <table>
+      <tr><th>Critère de sélection</th><th>Niveau cible</th></tr>
+      <tr><td>Taille</td><td>&gt;150 emplacements</td></tr>
+      <tr><td>Consommation</td><td>Significative et saisonnière</td></tr>
+      <tr><td>Équipements</td><td>Piscines, restauration, CVC, IRVE</td></tr>
+      <tr><td>Potentiel énergétique</td><td>Photovoltaïque, stockage, pilotage</td></tr>
+    </table>
+  </div>
+
+  <!-- CH 5 -->
+  <div class="chapter" id="ch5">
+    <h1 class="chapter-title"><span class="chno">05</span> Vision</h1>
+    <p>La vision de Performance ENR est de construire la référence européenne des Smart Grids pour l'hôtellerie de plein air. L'énergie deviendra un levier de compétitivité aussi important que la qualité des hébergements et des services.</p>
+    <p>ECOGRID RESORT™ permet aux exploitants de reprendre le contrôle de leur énergie : produire localement, maximiser l'autoconsommation, réduire les coûts, piloter intelligemment les usages et simplifier l'exploitation technique.</p>
+    <p>À long terme, les campings évolueront vers des micro-réseaux énergétiques intelligents intégrant production photovoltaïque, batteries, bornes, CVC, eau chaude, pompes, éclairage et données opérationnelles. La valeur résidera dans l'orchestration de ces actifs par ECOGRID OS™.</p>
+  </div>
+
+  <!-- CH 6 -->
+  <div class="chapter" id="ch6">
+    <h1 class="chapter-title"><span class="chno">06</span> La Solution ECOGRID RESORT™</h1>
+    <p>ECOGRID RESORT™ est une solution intégrée conçue pour piloter l'énergie des campings et villages vacances. Elle repose sur quatre piliers : produire, stocker, consommer intelligemment et optimiser.</p>
+    <table>
+      <tr><th>Pilier</th><th>Description</th></tr>
+      <tr><td>Produire</td><td>Photovoltaïque en toiture, ombrières, installations locales et autoconsommation.</td></tr>
+      <tr><td>Stocker</td><td>Batteries pilotées selon production, consommation, météo et priorités.</td></tr>
+      <tr><td>Consommer</td><td>Pilotage des piscines, pompes, CVC, eau chaude, éclairage, bornes VE.</td></tr>
+      <tr><td>Optimiser</td><td>Algorithmes, alertes, maintenance prédictive, reporting et arbitrage énergétique.</td></tr>
+    </table>
+    <p>L'offre couvre l'ensemble du cycle de vie : audit énergétique, ingénierie, réalisation des travaux, digitalisation via ECOGRID OS™, exploitation, maintenance et optimisation continue.</p>
+  </div>
+
+  <!-- CH 7 -->
+  <div class="chapter" id="ch7">
+    <h1 class="chapter-title"><span class="chno">07</span> Offre clé en main</h1>
+    <p>Performance ENR remplace la coordination de multiples intervenants par un interlocuteur unique responsable de la conception, de la réalisation et du suivi du projet.</p>
+    <ol class="steps">
+      <li><strong>Audit énergétique :</strong> analyse des factures, puissances, usages et potentiel solaire.</li>
+      <li><strong>Études et ingénierie :</strong> dimensionnement PV, batteries, bornes, architecture Smart Grid et ROI.</li>
+      <li><strong>Travaux :</strong> fourniture, installation, intégration, essais et mise en service.</li>
+      <li><strong>Intégration ECOGRID OS™ :</strong> connecteurs, tableaux de bord, alertes, scénarios.</li>
+      <li><strong>Formation :</strong> prise en main par les équipes d'exploitation.</li>
+      <li><strong>Exploitation et maintenance :</strong> supervision, SAV, mises à jour, optimisation.</li>
+    </ol>
+    <table>
+      <tr><th>Trimestre</th><th>Activité principale</th></tr>
+      <tr><td>T1</td><td>Travaux, mises en service, réception</td></tr>
+      <tr><td>T2</td><td>Études, préparation, logiciel, maintenance</td></tr>
+      <tr><td>T3</td><td>Supervision, SAV, support, commerce</td></tr>
+      <tr><td>T4</td><td>Travaux, installations, extensions</td></tr>
+    </table>
+  </div>
+
+  <!-- CH 8 -->
+  <div class="chapter" id="ch8">
+    <h1 class="chapter-title"><span class="chno">08</span> ECOGRID OS™</h1>
+    <p>ECOGRID OS™ est le système d'exploitation énergétique de l'hôtellerie de plein air. Il supervise, pilote et optimise l'ensemble des infrastructures énergétiques d'un site depuis une interface unique.</p>
+    <ul class="bullets">
+      <li>Supervision temps réel : production, consommation, batteries, bornes, alarmes.</li>
+      <li>Pilotage énergétique : batteries, bornes, pompes, CVC, eau chaude, éclairage.</li>
+      <li>Optimisation de l'autoconsommation : stockage, arbitrage, priorités d'usage.</li>
+      <li>Maintenance prédictive : détection des dérives avant panne.</li>
+      <li>Reporting énergétique et ESG : économies, CO₂ évité, taux d'autoconsommation.</li>
+      <li>Gestion multi-sites pour groupes de campings.</li>
+    </ul>
+    <p>L'architecture ouverte vise l'intégration des principaux fabricants : Huawei, SMA, Sungrow, GoodWe, Fronius, SolarEdge, Schneider, ABB, Socomec, Siemens et autres fabricants compatibles.</p>
+  </div>
+
+  <!-- CH 9 -->
+  <div class="chapter" id="ch9">
+    <h1 class="chapter-title"><span class="chno">09</span> Cas d'usage – Camping Riva Bella</h1>
+    <table>
+      <tr><th>Indicateur</th><th>Valeur</th></tr>
+      <tr><td>Nombre d'emplacements</td><td>199</td></tr>
+      <tr><td>Dépense énergétique annuelle</td><td>80 000 €</td></tr>
+      <tr><td>Budget Smart Grid</td><td>250 000 €</td></tr>
+      <tr><td>Rôle</td><td>Démonstrateur technique et commercial</td></tr>
+    </table>
+    <p>Riva Bella sert de démonstrateur officiel. Il permettra de valider en conditions réelles le fonctionnement du Smart Grid, de tester ECOGRID OS™, de produire des indicateurs mesurables et de disposer d'une vitrine commerciale.</p>
+    <ul class="bullets">
+      <li>Réduire les dépenses énergétiques.</li>
+      <li>Maximiser l'autoconsommation.</li>
+      <li>Piloter les équipements techniques.</li>
+      <li>Créer une référence commerciale.</li>
+      <li>Standardiser les méthodes pour les futurs déploiements.</li>
+    </ul>
+  </div>
+
+  <!-- CH 10 -->
+  <div class="chapter" id="ch10">
+    <h1 class="chapter-title"><span class="chno">10</span> Modèle économique</h1>
+    <p>Le modèle repose sur trois pôles complémentaires qui n'ont pas la même saisonnalité, la même marge ni la même logique de valorisation.</p>
+    <table>
+      <tr><th>Pôle</th><th>Revenu</th><th>Marge / rôle stratégique</th></tr>
+      <tr><td>Intégration &amp; Travaux Smart Grid</td><td>300 000 € HT / site</td><td>35 % de marge brute ; finance la croissance</td></tr>
+      <tr><td>ECOGRID OS™</td><td>3 000 € HT / site / an</td><td>SaaS, récurrent, forte marge</td></tr>
+      <tr><td>Exploitation &amp; Maintenance</td><td>1 000 € HT / site / an</td><td>Revenus récurrents, fidélisation, SAV</td></tr>
+    </table>
+    <table>
+      <tr><th>Activité</th><th class="num">T1</th><th class="num">T2</th><th class="num">T3</th><th class="num">T4</th></tr>
+      <tr><td>Travaux</td><td class="num">45 %</td><td class="num">5 %</td><td class="num">5 %</td><td class="num">45 %</td></tr>
+      <tr><td>Logiciel</td><td class="num">25 %</td><td class="num">25 %</td><td class="num">25 %</td><td class="num">25 %</td></tr>
+      <tr><td>Maintenance</td><td class="num">25 %</td><td class="num">25 %</td><td class="num">25 %</td><td class="num">25 %</td></tr>
+    </table>
+  </div>
+
+  <!-- CH 11 -->
+  <div class="chapter" id="ch11">
+    <h1 class="chapter-title"><span class="chno">11</span> Business Model &amp; stratégie de croissance</h1>
+    <p>La croissance s'effectue en trois phases : validation du modèle, industrialisation puis accélération européenne. Chaque nouveau client crée une marge immédiate, des revenus récurrents et des données qui enrichissent ECOGRID OS™.</p>
+    <table>
+      <tr><th>Phase</th><th>Période</th><th>Objectif</th></tr>
+      <tr><td>Validation</td><td>2027</td><td>Démonstrateur Riva Bella, 15 sites, V1 ECOGRID OS™</td></tr>
+      <tr><td>Industrialisation</td><td>2028-2029</td><td>55 puis 135 sites, processus standardisés, internalisation logiciel</td></tr>
+      <tr><td>Accélération européenne</td><td>2030-2031</td><td>285 puis 535 sites, groupes multi-sites, Europe du Sud</td></tr>
+    </table>
+    <p>La stratégie vise à faire évoluer Performance ENR d'un intégrateur de projets vers une plateforme technologique génératrice de revenus récurrents.</p>
+  </div>
+
+  <!-- CH 12 -->
+  <div class="chapter" id="ch12">
+    <h1 class="chapter-title"><span class="chno">12</span> Stratégie commerciale et Go-to-Market</h1>
+    <p>Le go-to-market repose sur la preuve, les démonstrateurs, les références et les partenariats. L'objectif n'est pas de couvrir immédiatement toute l'Europe, mais de bâtir rapidement des références fortes dans les zones touristiques prioritaires.</p>
+    <ul class="bullets">
+      <li>Vente directe auprès des campings 4★ et 5★.</li>
+      <li>Développement des groupes régionaux et multi-sites.</li>
+      <li>Partenariats avec bureaux d'études, fabricants et installateurs spécialisés.</li>
+      <li>Présence sur salons : SETT, Atlantica, EquipHotel, EnerGaïa.</li>
+      <li>Marketing digital : livres blancs, webinaires, études de cas, LinkedIn.</li>
+    </ul>
+    <table>
+      <tr><th>Année</th><th class="num">Responsables commerciaux</th></tr>
+      <tr><td>2027</td><td class="num">1</td></tr>
+      <tr><td>2028</td><td class="num">2</td></tr>
+      <tr><td>2029</td><td class="num">4</td></tr>
+      <tr><td>2030</td><td class="num">7</td></tr>
+      <tr><td>2031</td><td class="num">10</td></tr>
+    </table>
+  </div>
+
+  <!-- CH 13 -->
+  <div class="chapter" id="ch13">
+    <h1 class="chapter-title"><span class="chno">13</span> Organisation et montée en puissance opérationnelle</h1>
+    <p>La réussite du plan dépend de la capacité à structurer les équipes au rythme de la croissance. L'organisation est construite autour de la direction, du bureau d'études, du logiciel, du commerce, du SAV et des fonctions support.</p>
+    <table>
+      <tr><th>Fonction</th><th class="num">2027</th><th class="num">2028</th><th class="num">2029</th><th class="num">2030</th><th class="num">2031</th></tr>
+      <tr><td>Direction</td><td class="num">2</td><td class="num">2</td><td class="num">3</td><td class="num">3</td><td class="num">4</td></tr>
+      <tr><td>Bureau d'études / ingénierie</td><td class="num">3</td><td class="num">6</td><td class="num">11</td><td class="num">17</td><td class="num">23</td></tr>
+      <tr><td>Développeurs</td><td class="num">0</td><td class="num">2</td><td class="num">4</td><td class="num">6</td><td class="num">8</td></tr>
+      <tr><td>Commerce</td><td class="num">1</td><td class="num">2</td><td class="num">4</td><td class="num">7</td><td class="num">10</td></tr>
+      <tr><td>SAV &amp; supervision</td><td class="num">1</td><td class="num">2</td><td class="num">4</td><td class="num">7</td><td class="num">10</td></tr>
+      <tr><td>Administration / finance</td><td class="num">2</td><td class="num">2</td><td class="num">3</td><td class="num">4</td><td class="num">4</td></tr>
+      <tr style="font-weight:800;"><td>Total</td><td class="num">9</td><td class="num">16</td><td class="num">29</td><td class="num">44</td><td class="num">59</td></tr>
+    </table>
+    <p>Les frais de structure augmentent fortement à partir de 2029 afin de financer l'ouverture d'agences régionales, l'internalisation logicielle, le renforcement des fonctions support et la structuration financière.</p>
+    <table>
+      <tr><th>Année</th><th class="num">Frais de structure</th></tr>
+      <tr><td>2027</td><td class="num">1,10 M€</td></tr>
+      <tr><td>2028</td><td class="num">1,50 M€</td></tr>
+      <tr><td>2029</td><td class="num">2,40 M€</td></tr>
+      <tr><td>2030</td><td class="num">3,80 M€</td></tr>
+      <tr><td>2031</td><td class="num">5,80 M€</td></tr>
+    </table>
+  </div>
+
+  <!-- CH 14 -->
+  <div class="chapter" id="ch14">
+    <h1 class="chapter-title"><span class="chno">14</span> Business Plan &amp; prévisions financières</h1>
+    <p>Le Business Plan repose sur une croissance progressive du nombre de sites, une marge brute travaux de 35 %, des revenus récurrents logiciels et maintenance, et une gestion prudente de la saisonnalité.</p>
+    <table>
+      <tr><th>Année</th><th class="num">Travaux</th><th class="num">Logiciel</th><th class="num">Maintenance</th><th class="num">CA total</th></tr>
+      <tr><td>2027</td><td class="num">4,50 M€</td><td class="num">45 k€</td><td class="num">15 k€</td><td class="num">4,56 M€</td></tr>
+      <tr><td>2028</td><td class="num">12,00 M€</td><td class="num">165 k€</td><td class="num">55 k€</td><td class="num">12,22 M€</td></tr>
+      <tr><td>2029</td><td class="num">24,00 M€</td><td class="num">405 k€</td><td class="num">135 k€</td><td class="num">24,54 M€</td></tr>
+      <tr><td>2030</td><td class="num">45,00 M€</td><td class="num">855 k€</td><td class="num">285 k€</td><td class="num">46,14 M€</td></tr>
+      <tr><td>2031</td><td class="num">75,00 M€</td><td class="num">1605 k€</td><td class="num">535 k€</td><td class="num">77,14 M€</td></tr>
+    </table>
+    <table>
+      <tr><th>Année</th><th class="num">CA total</th><th class="num">Marge brute totale</th><th class="num">Revenus récurrents</th><th class="num">Effectif</th></tr>
+      <tr><td>2027</td><td class="num">4,56 M€</td><td class="num">1,62 M€</td><td class="num">0,06 M€</td><td class="num">15</td></tr>
+      <tr><td>2028</td><td class="num">12,22 M€</td><td class="num">4,35 M€</td><td class="num">0,22 M€</td><td class="num">55</td></tr>
+      <tr><td>2029</td><td class="num">24,54 M€</td><td class="num">8,78 M€</td><td class="num">0,54 M€</td><td class="num">135</td></tr>
+      <tr><td>2030</td><td class="num">46,14 M€</td><td class="num">16,55 M€</td><td class="num">1,14 M€</td><td class="num">285</td></tr>
+      <tr><td>2031</td><td class="num">77,14 M€</td><td class="num">27,75 M€</td><td class="num">2,14 M€</td><td class="num">535</td></tr>
+    </table>
+  </div>
+
+  <!-- CH 15 -->
+  <div class="chapter" id="ch15">
+    <h1 class="chapter-title"><span class="chno">15</span> Stratégie de financement et levée de fonds</h1>
+    <p>La levée de fonds a pour objectif d'accélérer la création d'un acteur technologique européen. Elle finance ECOGRID OS™, les équipes, le développement commercial, les démonstrateurs et le BFR saisonnier.</p>
+    <table>
+      <tr><th>Usage</th><th class="num">Part estimative</th></tr>
+      <tr><td>Développement logiciel</td><td class="num">30 %</td></tr>
+      <tr><td>Recrutement</td><td class="num">25 %</td></tr>
+      <tr><td>Développement commercial</td><td class="num">20 %</td></tr>
+      <tr><td>BFR</td><td class="num">15 %</td></tr>
+      <tr><td>Infrastructure informatique</td><td class="num">5 %</td></tr>
+      <tr><td>Communication &amp; marketing</td><td class="num">5 %</td></tr>
+    </table>
+    <p>Une première phase d'amorçage de 2 à 3 M€ permet de construire les fondations. Une phase d'accélération de 5 à 8 M€ pourra ensuite être envisagée pour industrialiser le modèle et préparer l'expansion européenne.</p>
+  </div>
+
+  <!-- CH 16 -->
+  <div class="chapter" id="ch16">
+    <h1 class="chapter-title"><span class="chno">16</span> Analyse des risques et stratégie de maîtrise</h1>
+    <table>
+      <tr><th>Risque</th><th>Mesure de maîtrise</th></tr>
+      <tr><td>Rythme commercial</td><td>Force commerciale dédiée, pipeline, contrats multi-sites</td></tr>
+      <tr><td>Développement logiciel</td><td>Partenaire externe puis internalisation, roadmap par versions</td></tr>
+      <tr><td>Dépendance fabricants</td><td>Architecture ouverte multi-constructeurs</td></tr>
+      <tr><td>Saisonnalité</td><td>Travaux T1/T4, revenus récurrents lissés, réserve de trésorerie</td></tr>
+      <tr><td>BFR</td><td>Facturation par étapes, suivi mensuel, conditions fournisseurs</td></tr>
+      <tr><td>Croissance effectifs</td><td>Recrutement progressif, méthodes standardisées</td></tr>
+      <tr><td>Cybersécurité</td><td>MFA, chiffrement, sauvegardes, audits</td></tr>
+      <tr><td>Concurrence</td><td>Spécialisation camping, offre intégrée, logiciel propriétaire</td></tr>
+    </table>
+    <p>La gouvernance des risques s'appuie sur des KPI commerciaux, opérationnels et financiers suivis mensuellement.</p>
+  </div>
+
+  <!-- CH 17 -->
+  <div class="chapter" id="ch17">
+    <h1 class="chapter-title"><span class="chno">17</span> Feuille de route stratégique 2027-2031</h1>
+    <table>
+      <tr><th>Année</th><th>Jalon majeur</th><th>Objectif financier</th></tr>
+      <tr><td>2027</td><td>Validation Riva Bella et lancement commercial</td><td>15 sites ; CA 4,56 M€</td></tr>
+      <tr><td>2028</td><td>Industrialisation des déploiements</td><td>55 sites cumulés ; CA 12,22 M€</td></tr>
+      <tr><td>2029</td><td>Structuration nationale</td><td>135 sites ; CA 24,54 M€</td></tr>
+      <tr><td>2030</td><td>Déploiement Europe du Sud</td><td>285 sites ; CA 46,14 M€</td></tr>
+      <tr><td>2031</td><td>Référence européenne</td><td>535 sites ; CA 77,14 M€</td></tr>
+    </table>
+    <p>La feuille de route fait évoluer ECOGRID OS™ vers une plateforme multi-sites, puis IA, puis plateforme européenne capable de gérer des services énergétiques avancés.</p>
+  </div>
+
+  <!-- CH 18 -->
+  <div class="chapter" id="ch18">
+    <h1 class="chapter-title"><span class="chno">18</span> Conclusion &amp; opportunité d'investissement</h1>
+    <p>Investir dans Performance ENR, c'est accompagner la naissance d'une plateforme technologique à l'intersection des énergies renouvelables, du SaaS et des services énergétiques. Le modèle combine rentabilité projet, récurrence logicielle et potentiel de plateforme.</p>
+    <ul class="bullets">
+      <li>Marché européen important et encore peu structuré.</li>
+      <li>Spécialisation verticale sur l'hôtellerie de plein air.</li>
+      <li>Marge brute cible de 35 % sur les projets.</li>
+      <li>Revenus récurrents logiciels et maintenance.</li>
+      <li>Roadmap technologique vers IA, Digital Twin et agrégation.</li>
+    </ul>
+  </div>
+
+  <!-- CH 19 -->
+  <div class="chapter" id="ch19">
+    <h1 class="chapter-title"><span class="chno">19</span> Pourquoi Performance ENR réussira</h1>
+    <table>
+      <tr><th>Facteur</th><th>Avantage</th></tr>
+      <tr><td>Offre clé en main</td><td>Un interlocuteur unique pour toute la chaîne de valeur</td></tr>
+      <tr><td>Plateforme propriétaire</td><td>Actif technologique valorisable</td></tr>
+      <tr><td>Architecture ouverte</td><td>Compatibilité multi-fabricants</td></tr>
+      <tr><td>Spécialisation métier</td><td>Solution conçue pour les campings</td></tr>
+      <tr><td>Saisonnalité maîtrisée</td><td>Organisation adaptée aux T1/T4</td></tr>
+      <tr><td>Industrialisation</td><td>Méthodes reproductibles et qualité homogène</td></tr>
+      <tr><td>Revenus récurrents</td><td>Logiciel et maintenance sur chaque site</td></tr>
+    </table>
+    <p>La réussite repose sur la combinaison d'une expertise énergétique, d'un logiciel propriétaire, d'une spécialisation sectorielle et d'un modèle économique hybride.</p>
+  </div>
+
+  <!-- CH 20 -->
+  <div class="chapter" id="ch20">
+    <h1 class="chapter-title"><span class="chno">20</span> Conclusion générale &amp; Vision 2035</h1>
+    <p>ECOGRID RESORT™ n'est pas un simple projet industriel : c'est une plateforme de transformation énergétique destinée à accompagner durablement les campings, villages vacances et resorts dans leur transition vers des infrastructures plus intelligentes, plus autonomes et plus performantes.</p>
+    <table>
+      <tr><th>Objectif 2031</th><th>Valeur</th></tr>
+      <tr><td>Smart Grids déployés</td><td>535</td></tr>
+      <tr><td>CA annuel</td><td>77,14 M€</td></tr>
+      <tr><td>Revenus récurrents</td><td>2,14 M€</td></tr>
+      <tr><td>Marge brute</td><td>27,75 M€</td></tr>
+      <tr><td>Collaborateurs</td><td>59</td></tr>
+      <tr><td>Présence</td><td>France, Italie, Espagne, Europe du Sud</td></tr>
+    </table>
+    <p>À horizon 2035, ECOGRID OS™ vise à devenir un Energy Operating System intégrant IA décisionnelle, maintenance prédictive, jumeaux numériques, flexibilités énergétiques et reporting ESG automatisé.</p>
+  </div>
+
+  <!-- CH 21 -->
+  <div class="chapter" id="ch21">
+    <h1 class="chapter-title"><span class="chno">21</span> Annexes - hypothèses financières et KPI</h1>
+    <table>
+      <tr><th>Hypothèse</th><th>Valeur</th></tr>
+      <tr><td>Prix moyen projet</td><td>300 000 € HT</td></tr>
+      <tr><td>Marge brute travaux</td><td>35 %</td></tr>
+      <tr><td>Licence ECOGRID OS™</td><td>3 000 €/site/an</td></tr>
+      <tr><td>Maintenance</td><td>1 000 €/site/an</td></tr>
+      <tr><td>Répartition travaux</td><td>45 % T1 / 5 % T2 / 5 % T3 / 45 % T4</td></tr>
+      <tr><td>Trésorerie de sécurité</td><td>≈ 6 mois de frais fixes</td></tr>
+    </table>
+    <table>
+      <tr><th>KPI</th><th>Description</th></tr>
+      <tr><td>Commercial</td><td>Prospects, audits, taux de transformation, pipeline</td></tr>
+      <tr><td>Opérationnel</td><td>Projets en cours, respect délais, disponibilité, SAV</td></tr>
+      <tr><td>Logiciel</td><td>Licences actives, uptime, équipements compatibles</td></tr>
+      <tr><td>Financier</td><td>CA, marge brute, EBITDA, résultat avant impôt, BFR, trésorerie</td></tr>
+    </table>
+  </div>
+
+  <!-- CH 22 -->
+  <div class="chapter" id="ch22">
+    <h1 class="chapter-title"><span class="chno">22</span> Perspectives de développement &amp; création de valeur long terme</h1>
+    <p>Au-delà de 2031, Performance ENR peut faire évoluer ECOGRID OS™ vers une plateforme de données énergétiques et d'agrégation. Chaque site connecté produit des données de production, consommation, stockage, mobilité et maintenance.</p>
+    <ul class="bullets">
+      <li>IA de prévision énergétique et maintenance prédictive.</li>
+      <li>Centre de supervision européen.</li>
+      <li>Jumeaux numériques des établissements.</li>
+      <li>Services premium et reporting ESG.</li>
+      <li>Extension vers hôtels, marinas, bases de loisirs et résidences touristiques.</li>
+      <li>Agrégation énergétique et valorisation de la flexibilité.</li>
+    </ul>
+  </div>
+
+  <!-- CH 23 -->
+  <div class="chapter" id="ch23">
+    <h1 class="chapter-title"><span class="chno">23</span> Plan d'exécution opérationnel 2027-2031</h1>
+    <ol class="steps">
+      <li>Qualification du prospect</li>
+      <li>Audit énergétique</li>
+      <li>Études d'ingénierie</li>
+      <li>Validation du projet</li>
+      <li>Approvisionnement</li>
+      <li>Réalisation des travaux</li>
+      <li>Mise en service</li>
+      <li>Intégration dans ECOGRID OS™</li>
+      <li>Formation des équipes</li>
+      <li>Exploitation et maintenance</li>
+    </ol>
+    <p>Cette méthodologie standardisée permet de réduire les délais, d'améliorer la qualité et d'industrialiser progressivement les déploiements sur plusieurs centaines de sites.</p>
+  </div>
+
+  <!-- CH 24 -->
+  <div class="chapter" id="ch24">
+    <h1 class="chapter-title"><span class="chno">24</span> Analyse concurrentielle &amp; positionnement stratégique</h1>
+    <p>Le marché reste fragmenté entre fabricants d'équipements, plateformes GTB/GTC, énergéticiens, sociétés SaaS de monitoring et installateurs PV. Aucun acteur ne combine aujourd'hui verticalement l'ensemble des briques pour l'hôtellerie de plein air.</p>
+    <table>
+      <tr><th>Critère</th><th>Fabricants</th><th>GTB</th><th>Énergéticiens</th><th>Installateurs PV</th><th>Performance ENR</th></tr>
+      <tr><td>Travaux</td><td>Non</td><td>Non</td><td>Oui</td><td>Oui</td><td>Oui</td></tr>
+      <tr><td>Logiciel propriétaire</td><td>Partiel</td><td>Oui</td><td>Partiel</td><td>Non</td><td>Oui</td></tr>
+      <tr><td>Multi-constructeurs</td><td>Non</td><td>Partiel</td><td>Partiel</td><td>Non</td><td>Oui</td></tr>
+      <tr><td>Dédié campings</td><td>Non</td><td>Non</td><td>Non</td><td>Non</td><td>Oui</td></tr>
+      <tr><td>Maintenance</td><td>Partiel</td><td>Partiel</td><td>Oui</td><td>Partiel</td><td>Oui</td></tr>
+      <tr><td>IA / roadmap</td><td>Partiel</td><td>Partiel</td><td>Non</td><td>Non</td><td>Oui</td></tr>
+    </table>
+    <p>Performance ENR remplace la coordination complexe de plusieurs prestataires par une offre intégrée : ingénierie, travaux, logiciel, exploitation et maintenance.</p>
+  </div>
+
+  <!-- CH 25 -->
+  <div class="chapter" id="ch25">
+    <h1 class="chapter-title"><span class="chno">25</span> Barrières à l'entrée &amp; avantages concurrentiels durables</h1>
+    <table>
+      <tr><th>Barrière</th><th>Impact</th></tr>
+      <tr><td>Plateforme logicielle propriétaire</td><td>Très élevé</td></tr>
+      <tr><td>Architecture multi-constructeurs</td><td>Très élevé</td></tr>
+      <tr><td>Base de données énergétiques</td><td>Très élevé</td></tr>
+      <tr><td>Expertise métier camping</td><td>Très élevé</td></tr>
+      <tr><td>Références clients</td><td>Élevé</td></tr>
+      <tr><td>Revenus récurrents</td><td>Élevé</td></tr>
+      <tr><td>Industrialisation des déploiements</td><td>Élevé</td></tr>
+      <tr><td>Écosystème partenaires</td><td>Moyen à élevé</td></tr>
+      <tr><td>Marque ECOGRID RESORT™</td><td>Élevé</td></tr>
+    </table>
+    <p>Plus le nombre de sites connectés augmente, plus les algorithmes, les données, les références commerciales et les revenus récurrents renforcent l'avantage compétitif.</p>
+  </div>
+
+  <!-- CH 26 -->
+  <div class="chapter" id="ch26">
+    <h1 class="chapter-title"><span class="chno">26</span> Roadmap produit ECOGRID OS™ 2027-2035</h1>
+    <table>
+      <tr><th>Année</th><th>Version</th><th>Objectif principal</th></tr>
+      <tr><td>2027</td><td>V1</td><td>Supervision temps réel et lancement commercial</td></tr>
+      <tr><td>2028</td><td>V2</td><td>Multi-sites, API, maintenance connectée</td></tr>
+      <tr><td>2029</td><td>V3</td><td>Automatisation énergétique</td></tr>
+      <tr><td>2030</td><td>V4</td><td>Intelligence artificielle</td></tr>
+      <tr><td>2031</td><td>V5</td><td>Plateforme européenne</td></tr>
+      <tr><td>2032</td><td>V6</td><td>Smart Energy Platform</td></tr>
+      <tr><td>2033</td><td>V7</td><td>Agrégation énergétique</td></tr>
+      <tr><td>2034</td><td>V8</td><td>Digital Twin</td></tr>
+      <tr><td>2035</td><td>V9</td><td>Energy Operating System</td></tr>
+    </table>
+    <p>Chaque version renforce la satisfaction client, l'ARR potentiel, la propriété intellectuelle et les barrières à l'entrée.</p>
+  </div>
+
+  <!-- CH 27 -->
+  <div class="chapter" id="ch27">
+    <h1 class="chapter-title"><span class="chno">27</span> Valorisation de Performance ENR &amp; création de valeur</h1>
+    <p>La valeur de Performance ENR ne doit pas être analysée uniquement comme celle d'une société de travaux. L'entreprise vise à faire évoluer la qualité de ses revenus vers un modèle hybride : EBITDA issu des projets, ARR issu du logiciel, données et propriété intellectuelle issues d'ECOGRID OS™.</p>
+    <table>
+      <tr><th>Actif</th><th>Création de valeur</th></tr>
+      <tr><td>Intégration</td><td>Marge brute immédiate et acquisition clients</td></tr>
+      <tr><td>ECOGRID OS™</td><td>Plateforme propriétaire et ARR</td></tr>
+      <tr><td>Maintenance</td><td>Fidélisation et flux récurrents</td></tr>
+      <tr><td>Données</td><td>IA, optimisation et nouveaux services</td></tr>
+      <tr><td>Expansion européenne</td><td>Multiplication des marchés adressables</td></tr>
+    </table>
+    <p>L'enjeu est de transformer progressivement le profil de valorisation : d'un multiple d'EBITDA d'intégrateur vers une combinaison EBITDA + revenus récurrents + plateforme technologique.</p>
+  </div>
+
+  <!-- CH 28 -->
+  <div class="chapter" id="ch28">
+    <h1 class="chapter-title"><span class="chno">28</span> Impact ESG &amp; contribution à la transition énergétique</h1>
+    <p>ECOGRID RESORT™ crée de la valeur économique, environnementale et sociétale. La plateforme permet d'augmenter l'autoconsommation, d'optimiser les batteries, de réduire les pointes, d'intégrer les bornes VE et de produire des indicateurs ESG.</p>
+    <table>
+      <tr><th>Pilier ESG</th><th>Indicateurs suivis</th></tr>
+      <tr><td>Environnement</td><td>MWh PV produits, autoconsommation, CO₂ évité, bornes pilotées</td></tr>
+      <tr><td>Social</td><td>Emplois créés, formation, satisfaction client, sécurité</td></tr>
+      <tr><td>Gouvernance</td><td>Disponibilité plateforme, incidents cybersécurité, conformité, reporting</td></tr>
+    </table>
+    <p>La démarche contribue aux ODD 7, 9, 11, 12, 13 et 17 des Nations Unies.</p>
+  </div>
+
+  <!-- CH 29 -->
+  <div class="chapter" id="ch29">
+    <h1 class="chapter-title"><span class="chno">29</span> Équipe dirigeante, gouvernance &amp; Advisory Board</h1>
+    <p>La gouvernance sera structurée progressivement autour de la Direction Générale, du Comité Exécutif, de l'Advisory Board et des actionnaires.</p>
+    <ul class="bullets">
+      <li><strong>CEO :</strong> stratégie, investisseurs, partenariats, développement européen.</li>
+      <li><strong>CTO :</strong> architecture Smart Grid, bureau d'études, standards techniques.</li>
+      <li><strong>Direction Logicielle :</strong> ECOGRID OS™, IA, API, cybersécurité, cloud.</li>
+      <li><strong>Direction Commerciale :</strong> go-to-market, ventes, grands comptes, partenariats.</li>
+      <li><strong>Direction Exploitation :</strong> supervision, support, maintenance, qualité de service.</li>
+    </ul>
+    <table>
+      <tr><th>Phase</th><th>Gouvernance</th></tr>
+      <tr><td>2027</td><td>Équipe fondatrice et comité de direction</td></tr>
+      <tr><td>2028</td><td>Création de l'Advisory Board</td></tr>
+      <tr><td>2029</td><td>Arrivée DAF et renforcement COMEX</td></tr>
+      <tr><td>2030</td><td>Comités audit, stratégie, rémunérations</td></tr>
+      <tr><td>2031</td><td>Standards ETI innovante / fonds d'investissement</td></tr>
+    </table>
+  </div>
+
+  <!-- CH 30 -->
+  <div class="chapter" id="ch30">
+    <h1 class="chapter-title"><span class="chno">30</span> Besoin de financement &amp; utilisation des fonds</h1>
+    <p>La levée de fonds vise à accélérer ECOGRID OS™, les recrutements, le développement commercial, le BFR et l'industrialisation des déploiements.</p>
+    <table>
+      <tr><th>Phase</th><th>Montant indicatif</th><th>Objectif</th></tr>
+      <tr><td>Amorçage 2027</td><td>2 à 3 M€</td><td>V1 logiciel, Riva Bella, équipe fondatrice, BFR</td></tr>
+      <tr><td>Accélération 2028-2029</td><td>5 à 8 M€</td><td>Industrialisation, agences, développeurs, croissance commerciale</td></tr>
+      <tr><td>Expansion 2030-2031</td><td>Dette de croissance / fonds / partenaire</td><td>Déploiement européen</td></tr>
+    </table>
+    <table>
+      <tr><th>Utilisation</th><th class="num">Part estimative</th></tr>
+      <tr><td>Développement logiciel</td><td class="num">30 %</td></tr>
+      <tr><td>Recrutement</td><td class="num">25 %</td></tr>
+      <tr><td>Développement commercial</td><td class="num">20 %</td></tr>
+      <tr><td>BFR</td><td class="num">15 %</td></tr>
+      <tr><td>Infrastructure informatique</td><td class="num">5 %</td></tr>
+      <tr><td>Communication &amp; marketing</td><td class="num">5 %</td></tr>
+    </table>
+    <p>Les capitaux doivent financer des actifs créateurs de valeur : plateforme, équipes, références, données, revenus récurrents et positionnement européen.</p>
+  </div>
+
+</div>
+
+<div class="footer-band">
+  <div class="logo"><span class="eco">ECO</span><span class="grid">GRID</span><span class="resort">RESORT™</span></div>
+  <div class="contact">
+    <span><strong>Tél :</strong> 04 84 80 22 22</span>
+    <span><strong>Email :</strong> contact@ecogrid-resort.com</span>
+    <span><strong>Web :</strong> www.ecogrid-resort.com</span>
+  </div>
+  <div class="confidential">Document de travail V4 — Performance ENR — Confidentiel — Juillet 2026</div>
+</div>
+
+</body>
+</html>

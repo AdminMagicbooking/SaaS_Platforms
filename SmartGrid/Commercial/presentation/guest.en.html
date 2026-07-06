@@ -3,11 +3,11 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 :root{
-  --navy:#071a24; --panel:#0e2a37; --panel2:#103445; --line:#1d4a5e;
-  --teal:#1F7A6D; --teal-br:#34E0C8; --teal-gl:#63E0D2;
-  --solar:#F4B740; --solar2:#FF8A3D; --grid:#7FB2E6;
-  --v2g:#a855f7; --green:#22c55e; --bad:#FF6B6B;
-  --txt:#dfeef0; --mut:#8fa9b1;
+  --navy:#081D30; --panel:#0E2A41; --panel2:#123350; --line:#1E4A66;
+  --teal:#1B6E82; --teal-br:#2E9DB8; --teal-gl:#5FC2D6;
+  --solar:#F2B705; --solar2:#FF8A3D; --grid:#7FB2E6;
+  --smart:#1B6E82; --green:#2E8B45; --bad:#FF6B6B;
+  --txt:#E8F4EA; --mut:#8fa9b1;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -69,7 +69,7 @@ body{
 .stat-card.green .s-val{color:var(--green)}
 .stat-card.teal .s-val{color:var(--teal-gl)}
 .stat-card.solar .s-val{color:var(--solar)}
-.stat-card.v2g .s-val{color:var(--v2g)}
+.stat-card.smart .s-val{color:var(--smart)}
 
 /* progress bar */
 .pbar-wrap{margin-top:6px}
@@ -88,7 +88,7 @@ body{
 .ev-row .ev-info .r1{font-size:13px;color:#cfe6e3;font-weight:600}
 .ev-row .ev-info .r2{font-size:11px;color:var(--mut)}
 .ev-row .ev-kwh{font-family:'IBM Plex Mono';font-weight:700;font-size:13px;color:var(--teal-gl)}
-.ev-v2g{font-size:10px;background:#1e0a38;border:1px solid #5b21b6;border-radius:8px;padding:2px 7px;color:var(--v2g);font-weight:600}
+.ev-smart{font-size:10px;background:#0d2a20;border:1px solid #2a7a30;border-radius:8px;padding:2px 7px;color:var(--green);font-weight:600}
 
 /* chart area */
 .chart-box{
@@ -126,7 +126,7 @@ body{
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="logo">ECOGRID&nbsp;RESORT<b>™</b></div>
-  <div class="site-tag">📍 Camping Riva Bella · Corsica</div>
+  <div class="site-tag">📍 Camping Riva Bella · 199 pitches</div>
   <div class="stay-tag">🌿 Your green stay</div>
   <div class="sp"></div>
   <div class="ecoscore-pill">
@@ -171,10 +171,10 @@ body{
       </div>
     </div>
 
-    <div class="stat-card v2g">
-      <div class="s-lbl">V2G contribution</div>
+    <div class="stat-card smart">
+      <div class="s-lbl">Smart charging</div>
       <div><span class="s-val">18</span><span class="s-unit"> kWh</span></div>
-      <div class="s-sub">fed back to the resort network</div>
+      <div class="s-sub">charged during peak-solar hours</div>
     </div>
   </div>
 
@@ -232,14 +232,14 @@ body{
         <rect x="510" y="26" width="10" height="10" rx="2" fill="var(--grid)" opacity=".7"/>
         <text x="524" y="36" font-size="10" fill="#cfe6e3" font-family="IBM Plex Sans">From grid</text>
         <rect x="510" y="44" width="10" height="10" rx="2" fill="var(--solar)" opacity=".6"/>
-        <text x="524" y="54" font-size="10" fill="#cfe6e3" font-family="IBM Plex Sans">V2G fed back</text>
+        <text x="524" y="54" font-size="10" fill="#cfe6e3" font-family="IBM Plex Sans">Scheduled EV charging</text>
       </svg>
     </div>
 
     <div class="sec-hd">Eco badges earned</div>
     <div class="badge-row">
       <div class="badge earned">🌞 <b>Solar champion</b> · 80%+ renewable</div>
-      <div class="badge earned">⚡ <b>V2G contributor</b> · 10+ kWh back</div>
+      <div class="badge earned">⚡ <b>Smart EV charger</b> · 10+ kWh in solar window</div>
       <div class="badge earned">🌿 <b>Low footprint</b> · -40 kg CO₂</div>
       <div class="badge">🏆 <span style="color:var(--mut)">Green hero</span> · 50 kg CO₂ — 8 kg to go</div>
       <div class="badge">🔋 <span style="color:var(--mut)">Storage booster</span> · charge off-peak 3×</div>
@@ -258,7 +258,7 @@ body{
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
           <div class="ev-kwh">+22 kWh</div>
-          <div class="ev-v2g">V2G −4 kWh</div>
+          <div class="ev-smart">Solar window</div>
         </div>
       </div>
       <div class="ev-row">
@@ -269,7 +269,7 @@ body{
         </div>
         <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
           <div class="ev-kwh">+28 kWh</div>
-          <div class="ev-v2g">V2G −8 kWh</div>
+          <div class="ev-smart">Off-peak</div>
         </div>
       </div>
       <div class="ev-row">
@@ -306,8 +306,4 @@ body{
       <div style="margin-top:10px;background:linear-gradient(90deg,#1a3a1e,#122a16);border:1px solid #2a7a30;border-radius:8px;padding:8px 12px;font-size:12px;color:var(--green);font-weight:600">
         🎁 Share your score → 10% off your next stay
       </div>
-    </div>
-  </div>
-
-</div>
-</body></html>
+    </d

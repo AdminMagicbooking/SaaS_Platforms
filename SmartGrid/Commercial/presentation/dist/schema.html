@@ -1,13 +1,13 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
-<title>ECOGRID — Schéma de flux</title>
+<title>ECOGRID RESORT™ — Architecture ECOGRID OS™</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 :root{
-  --navy:#0B2C3D; --navy2:#0E384C; --ink:#06202C;
-  --teal:#1F7A6D; --teal-br:#34E0C8; --teal-gl:#63E0D2;
-  --solar:#F4B740; --solar2:#FF8A3D;
+  --navy:#0B2A4A; --navy2:#163B5B; --ink:#06202C;
+  --teal:#1B6E82; --teal-br:#2E9DB8; --teal-gl:#5FC2D6;
+  --solar:#F2B705; --solar2:#FF8A3D;
   --grid:#7FB2E6; --grey:#8FA3AD; --line:#1d4a5e;
-  --v2g:#a855f7;
+  --green:#2E8B45; --green-br:#3FBF5E;
   --paper:#0a2230;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -37,7 +37,7 @@ svg{position:absolute;inset:0}
 <div class="stage">
   <div class="hd">
     <div><div class="kick">Comment ça marche</div><div class="brand">ECOGRID&nbsp;RESORT<b>™</b></div></div>
-    <div class="ttl">Solaire · éolien · batteries · V2G — toutes les sources locales<br>orchestrées en temps réel par l'application</div>
+    <div class="ttl">Solaire · éolien · batteries · bornes de recharge — un socle matériel ouvert<br>orchestré en temps réel par ECOGRID OS™</div>
   </div>
 
   <svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
@@ -77,8 +77,8 @@ svg{position:absolute;inset:0}
     <path d="M560,520 C730,520 800,420 900,392" fill="none" stroke="var(--teal-gl)" stroke-width="3.4" class="flow" opacity=".9"/>
     <!-- réseau <-> onduleur (import/export) -->
     <path d="M610,300 C780,250 880,230 980,210" fill="none" stroke="var(--grid)" stroke-width="3.6" class="flow"/>
-    <!-- V2G : bornes VE -> onduleur (retour flux) -->
-    <path d="M892,428 C820,414 720,392 610,368" fill="none" stroke="var(--v2g)" stroke-width="2.2" class="flow-rev" opacity=".72"/>
+    <!-- pilotage : bornes VE <- ECOGRID OS (recharge programmée) -->
+    <path d="M892,428 C820,414 720,392 610,368" fill="none" stroke="var(--green-br)" stroke-width="2.2" class="flow-rev" opacity=".72"/>
 
     <!-- ===== LIENS EMS / APP ===== -->
     <g stroke="#2c6f74" stroke-width="1.4" stroke-dasharray="2 6" opacity=".7" fill="none">
@@ -100,7 +100,7 @@ svg{position:absolute;inset:0}
     </g>
     <text class="lab" x="162" y="196" font-size="16" font-weight="600">Solaire sur site</text>
     <text x="162" y="215" font-size="12" fill="#9fc4bf" font-family="IBM Plex Sans">Ombrières · toitures · pergolas</text>
-    <text class="unit" x="162" y="233" font-size="12.5" fill="var(--solar)">≈ 2 MWc</text>
+    <text class="unit" x="162" y="233" font-size="12.5" fill="var(--solar)">Fronius · SolarEdge · ≈ 2 MWc</text>
 
     <!-- Éolienne (option) -->
     <g filter="url(#sh)">
@@ -120,9 +120,9 @@ svg{position:absolute;inset:0}
 
     <!-- Onduleur -->
     <g filter="url(#sh)"><rect x="468" y="306" width="150" height="86" rx="14" fill="url(#gNode)" stroke="#1f5566"/></g>
-    <text class="lab" x="543" y="342" font-size="16" font-weight="600" text-anchor="middle">Onduleur</text>
-    <text x="543" y="362" font-size="11.5" fill="#9fc4bf" text-anchor="middle" font-family="IBM Plex Sans">hybride</text>
-    <text x="543" y="380" font-size="11" fill="#7f9aa1" text-anchor="middle" font-family="IBM Plex Sans">DC ⇄ AC</text>
+    <text class="lab" x="543" y="336" font-size="16" font-weight="600" text-anchor="middle">Onduleur</text>
+    <text x="543" y="354" font-size="11" fill="#7f9aa1" text-anchor="middle" font-family="IBM Plex Sans">DC ⇄ AC · hybride</text>
+    <text x="543" y="382" font-size="9.5" fill="#6f8a93" text-anchor="middle" font-family="IBM Plex Sans">Huawei · SMA · Sungrow · GoodWe</text>
 
     <!-- Batterie -->
     <g filter="url(#sh)"><rect x="430" y="486" width="160" height="92" rx="14" fill="url(#gNode)" stroke="#1f5566"/></g>
@@ -135,7 +135,7 @@ svg{position:absolute;inset:0}
     <text class="lab" x="512" y="520" font-size="16" font-weight="600">Batterie</text>
     <text x="512" y="539" font-size="11.5" fill="#9fc4bf" font-family="IBM Plex Sans">LFP ≈ 6 MWh</text>
     <text class="unit" x="512" y="556" font-size="12" fill="var(--teal-gl)">SoC 78%</text>
-    <text x="512" y="571" font-size="10.5" fill="var(--v2g)" font-family="IBM Plex Mono" font-weight="600">⇄ V2G prête</text>
+    <text x="512" y="571" font-size="10.5" fill="var(--green-br)" font-family="IBM Plex Mono" font-weight="600">multi-marques compatibles</text>
 
     <!-- Réseau -->
     <g filter="url(#sh)"><rect x="978" y="168" width="150" height="86" rx="14" fill="url(#gNode)" stroke="#1f5566"/></g>
@@ -144,7 +144,7 @@ svg{position:absolute;inset:0}
     </g>
     <text class="lab" x="1052" y="204" font-size="16" font-weight="600">Réseau</text>
     <text x="1052" y="224" font-size="11.5" fill="#9fc4bf" font-family="IBM Plex Sans">import / revente</text>
-    <text class="unit" x="1052" y="244" font-size="12" fill="var(--grid)">+ surplus</text>
+    <text class="unit" x="1052" y="242" font-size="10.5" fill="var(--grid)">Schneider · ABB · Socomec · Siemens</text>
 
     <!-- Usages du site -->
     <g filter="url(#sh)"><rect x="892" y="300" width="236" height="200" rx="16" fill="url(#gNode)" stroke="#1f5566"/></g>
@@ -156,7 +156,7 @@ svg{position:absolute;inset:0}
       <text x="1024" y="392">🏕  Bungalows</text>
       <text x="912" y="424" font-size="12">🔌  Bornes VE (30–50)</text>
     </g>
-    <text x="912" y="440" font-size="10.5" fill="var(--v2g)" font-family="IBM Plex Mono" font-weight="600">    V2G ⇄ bidirectionnel</text>
+    <text x="912" y="440" font-size="10.5" fill="var(--green-br)" font-family="IBM Plex Mono" font-weight="600">    recharge pilotée &amp; programmée</text>
     <rect x="910" y="454" width="200" height="1" fill="#1d4a5e"/>
     <text x="924" y="476" font-size="12" fill="#9fc4bf" font-family="IBM Plex Sans">Charges pilotables &amp; décalables</text>
 
@@ -164,8 +164,8 @@ svg{position:absolute;inset:0}
     <g filter="url(#glow)">
       <circle cx="640" cy="120" r="60" fill="url(#gBrain)" stroke="var(--teal-gl)" stroke-width="2"/>
     </g>
-    <text x="640" y="112" text-anchor="middle" font-family="Sora" font-weight="700" font-size="16" fill="#fff">EMS · IA</text>
-    <text x="640" y="132" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#bdeee6">App ECOGRID</text>
+    <text x="640" y="112" text-anchor="middle" font-family="Sora" font-weight="700" font-size="16" fill="#fff">ECOGRID</text>
+    <text x="640" y="132" text-anchor="middle" font-family="IBM Plex Sans" font-size="11" fill="#bdeee6">OS™</text>
     <text x="640" y="150" text-anchor="middle" font-family="IBM Plex Sans" font-size="9.5" fill="#8fd6cb">pilotage 24/7</text>
   </svg>
 
@@ -174,9 +174,4 @@ svg{position:absolute;inset:0}
     <span><span class="dot" style="background:var(--solar2)"></span>Flux éolien</span>
     <span><span class="dot" style="background:var(--teal-br)"></span>Charge / décharge batterie</span>
     <span><span class="dot" style="background:var(--grid)"></span>Échange réseau (import / revente)</span>
-    <span><span class="dot" style="background:var(--v2g)"></span>Retour V2G</span>
-    <span><span class="dot" style="background:#2c6f74"></span>Pilotage app / EMS</span>
-  </div>
-  <div class="cap">Schéma conceptuel · dimensionnement pilote indicatif</div>
-</div>
-</body></html>
+    <span><span class="dot" style="background:var(--green-br)"></span>Recharge VE pilot�
