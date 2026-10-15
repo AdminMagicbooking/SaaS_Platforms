@@ -44,6 +44,14 @@ is the right end-state but only if we have resources for it now.
 **Deadline.** TODO
 **Status.** Open
 
+> NOTE (Claude/Franck, 2026-08-09): the Ethical Power quotation v0.2 now
+> offers Jobs Tracker per-user/month as the delivery vehicle for the
+> Estimation Engine's B5/B6 modules — i.e. a second customer beyond CBES on
+> a standalone subscription basis. If Ethical Power signs, option (B)/(C) is
+> chosen de facto, and the per-user price inserted in that quotation becomes
+> the Jobs Tracker pricing precedent. Resolve this decision (and the price)
+> before the priced quotation is issued — not after.
+
 ---
 
 ## D-02 — Embodied-carbon module: one implementation or two?
@@ -126,6 +134,15 @@ product with paying users.
 **Owner.** Franck + Mark (joint)
 **Deadline.** Before the next investor conversation.
 **Status.** Open
+
+> NOTE (Claude/Franck, 2026-08-09): this decision is now on a clock it did not
+> have before. Quotation v0.3 records a proposed WaypointsCreator site-capture
+> module in Annex A of the Ethical Power proposal. If that module is ever sold,
+> spinning WaypointsCreator out or winding it down becomes materially harder
+> and more expensive, because a client contract would depend on it. In effect
+> the Annex answers D-04 in the direction of "keep indefinitely" — by accident,
+> without the debate. Resolve D-04 on its own merits **before** the module
+> moves from annex to quotation. See also D-16.
 
 ---
 
@@ -390,46 +407,148 @@ exposure, not a tidiness question. Rest: next monthly review.
 
 ---
 
-## D-15 — Ethical Estimation Engine: license the IP or sell it?
+## D-15 — Ethical Estimation Engine: the ownership structure
 
-**Context.** The quotation to Ethical Power (v0.1 draft, 2026-08-02, prices
-[TBC], unsigned) presents two IP options and explicitly frames them as
-different deals, not one product at two prices. This is the decision that
-determines whether the Ethical Estimation Engine is a **portfolio product**
-or a **paid bespoke build** — it therefore also decides whether the Play 5
-registration made on 2026-08-09 describes a venture or just a client
-project.
+**Context.** The quotation to Ethical Power presents the commercial terms on
+which the engine is built. **Updated 2026-08-09 (v0.3): the menu of IP options
+was withdrawn and a single route is now proposed** — a new jointly-held
+structure owns the platform IP, in exchange for a **£250,000 cap** on Phase 1
+development including six months of Azure hosting. The same capped approach is
+offered for the EcoGrid Resort software. This decides whether the Ethical
+Estimation Engine is a **portfolio product**, a **paid bespoke build**, or —
+as now proposed — **an interest in a joint venture**.
 
-Related exposure: Ethical Power is now a three-venture counterpart (this
-engine's sole prospective client, EcoGrid's historic partner-in-discussion,
-JobsTracker pitch target). Whichever IP option is chosen, the concentration
-itself deserves a deliberate posture.
+Related exposure: Ethical Power is a three-venture counterpart (this engine's
+sole prospective client, EcoGrid's historic partner-in-discussion, JobsTracker
+pitch target). A shared-ownership structure deepens that concentration
+materially rather than diversifying it.
 
-**Options.**
-- **(A) Option 1 — Coreproma retains IP.** Lower build price, possible
-  ongoing licence fee. Coreproma may license/resell the platform to other
-  EPC contractors and reuse the framework. The engine becomes a real Play 5
-  product with Ethical Power as anchor customer.
-- **(B) Option 2 — Ethical Power owns the IP.** Materially higher build
-  price (compensating lost resale rights). Clean exclusivity for the
-  client; for the portfolio it is revenue, not a product. Play 5 would then
-  be an empty play unless a generic v2 is built later from background IP.
-- **(C) Hybrid.** Option 2 with a carve-out: Coreproma retains rights to
-  reuse generic, non-Ethical-specific components (the quotation already
-  flags this discount possibility). Keeps a path to a future generic
-  product without breaching exclusivity.
+**What was withdrawn (recorded so the reasoning is not lost).**
+- *Licence route* — Coreproma retains IP, lower build price, may resell to
+  other EPCs. This was the only route that preserved Play 5 as an independent
+  venture.
+- *Outright sale* — client owns the code at a materially higher price;
+  revenue, not a product.
+- *Hybrid* — sale with a carve-out letting Coreproma reuse generic components.
 
-**Trade-offs.** (A) maximises long-term optionality but requires appetite
-to actually sell to other EPCs — otherwise the retained IP is worthless and
-the lower price was a gift. (B) maximises near-term cash and simplicity but
-caps the venture at one invoice stream. (C) needs careful contractual
-separation of background/foreground IP — cheap to write now, expensive to
-litigate later.
+**The consequences of proposing only the shared structure.**
+
+1. **Play 5 stops being a venture and becomes a JV interest.** If the IP sits
+   in a jointly-held entity, Coreproma cannot license the engine to other EPC
+   contractors on its own initiative. Whether a Play 5 product still exists
+   depends entirely on the commercialisation clause in the heads of terms —
+   that clause, not the cap, is the commercially decisive term.
+2. **The cap is now the whole downside, not one branch.** £250k is the
+   *bottom* of the realistic £250k–£350k range, so Coreproma absorbs the
+   overrun. Against a £300k midpoint that is roughly £50k of expected margin
+   plus the entire tail. It holds only against a written scope baseline with
+   enforced change control; the proposal's own framing is that requirements
+   will move constantly, which is exactly the combination that fails.
+3. **No fallback exists in the document.** A single-option proposal removes
+   the client's ability to self-select and removes Coreproma's ability to
+   capture more value from a client who wants exclusivity. If Ethical Power's
+   board declines co-ownership — a plausible reaction from an EPC asked to
+   own software jointly with a supplier — the negotiation restarts from zero
+   with nothing else on the page. Hold a fallback position privately.
+4. **The anchor has now been removed.** The £250k cap only reads as a
+   concession against a stated alternative. On 2026-08-09 the £250k–£350k
+   reference range was struck from the client documents and replaced with the
+   claim that comparable builds are *open-ended, with no ceiling*. That is
+   rhetorically stronger and factually softer: it is a qualitative assertion
+   from the party proposing the cap, it invites the reply "prove it", and it
+   sits awkwardly in a document whose stated virtue is candour. The range
+   survives only here, as the internal basis for the number. If the cap is
+   ever challenged, the range is the defence and it is no longer on the page.
+5. **Heads of terms move onto the critical path.** Shareholdings,
+   contributions (is background IP contributed or licensed in?), governance
+   and deadlock, commercialisation rights, exit and continuity, and whether
+   the EcoGrid Resort software sits inside the same structure all have to be
+   negotiated *before* signature, not after. Signature is targeted for end
+   August to hold the mid-December go-live. That is a very short runway for a
+   corporate transaction.
+6. **Extending the cap to EcoGrid is a promise about software with no spec.**
+   EcoGrid Resort has no product code and no engineering scope. The £250k
+   figure cannot simply be copied across; the documents say "scope to be
+   defined separately" and that wording must survive negotiation.
+
+**Payment schedule** — £60,000 induction on signature, 70% of the balance on
+first-module delivery (£133,000), 30% in Q1 2027 (£57,000). ⚠ Taken literally
+as £60k *plus* 70% *plus* 30% of the total this sums to £310,000 and breaks the
+cap; the documents assume the induction fee is credited within the £250,000.
+Confirm before issue.
+
+**Options now.**
+- **(A) Proceed as proposed** — single shared-ownership route, capped. Accept
+  that Play 5's future rests on the commercialisation clause.
+- **(B) Proceed, but negotiate a reseller carve-out** giving Coreproma the
+  right to license a generic version to other EPCs, with proceeds shared.
+  Preserves the venture inside the structure. **Recommended if (A) is chosen.**
+- **(C) Restore a fallback route privately** — not in the document, but agreed
+  internally, so a board rejection of co-ownership does not end the deal.
 
 **Owner.** Franck (technical/IP) + Mark (commercial)
-**Deadline.** Before the priced quotation is issued (it carries 30-day
-validity from issue; the schedule already assumed a w/c 2026-08-04 start,
-so every week of delay pushes the mid-November go-live).
+**Deadline.** Heads of terms drafting must start immediately if signature is
+to happen by end August 2026 and hold the mid-December go-live.
+**Status.** Open
+
+---
+
+## D-16 — Two proposed modules: investor portal and drone site capture
+
+**Context.** On 2026-08-09 two additional modules were proposed for the
+Ethical Estimation Engine and recorded in **Annex A** of quotation v0.3 as
+indicative only — deliberately outside the priced scope so they cannot delay
+the signature or breach the Phase 1 scope freeze. They now need a portfolio
+decision, not just a client one.
+
+**Module 1 — Investor portal.** Give third-party investors on a project
+(including the French project) permissioned access to the documents relevant
+to an investment decision and the reports produced as work proceeds.
+
+*Assessment:* the strongest of the two. It is mostly a permissioned external
+role over data the platform already generates, not a second application. The
+real argument for building it properly is **portfolio reuse**: EcoGrid Resort
+(Play 4) is built on an SPV-per-site model with three named investor profiles
+and needs exactly this. One portal, two plays.
+
+*Open:* (a) the investing entity and its jurisdiction — UK or France —
+because disclosure duties toward investors differ and shape the design;
+take legal advice before build, not after. (b) A role on the estimation
+platform, or a separate application? Large cost difference. (c) Hard
+segregation: tender pricing, margin and the rate library must never be
+reachable by an external user, and an investor who also backs a competitor is
+a realistic scenario, not a hypothetical.
+
+**Module 2 — Site capture (WaypointsCreator).** Drone imagery of a site
+feeding terrain, dated risk evidence and progress reporting.
+
+*Assessment:* the software half is defensible — WaypointsCreator already does
+survey grids, 3D terrain simulation and DJI mission export, and the engine
+already ingests GEOALT terrain, so site capture genuinely feeds Step 2. The
+**service** half is a different business: commercial site survey flying in the
+UK is a Specific category activity requiring a CAA Operational Authorisation,
+an operations manual, a certified remote pilot (RPC-L1, replacing the legacy
+GVC) and third-party insurance under EC 785/2004. Neither Coreproma nor
+WaypointsCreator holds any of that — WaypointsCreator sells planning software
+to pilots, it does not fly. Scope was fixed at **software only** on
+2026-08-09; the flying obligations sit with the client or its surveyor.
+
+*Open:* (a) confirm in writing who holds the Operational Authorisation and
+insurance before any flight is planned through the platform. (b) **D-04.**
+(c) Whether either module is actually demanded by Ethical Power or merely
+available from Coreproma — a module that exists because we own the asset,
+rather than because the client has the problem, is the wrong reason to build.
+
+**Options (both modules).**
+- **(A) Keep in Annex A** until the estimating core is live, then scope and
+  quote separately. Current position, and the recommended one.
+- **(B) Promote Module 1 only** to a priced Q1 2027 line, on the strength of
+  the EcoGrid reuse case.
+- **(C) Drop Module 2** and resolve D-04 independently.
+
+**Owner.** Franck (technical, D-04) + Mark (commercial, demand)
+**Deadline.** Module 1 jurisdiction question: before any design work.
+Everything else: after Phase 1 go-live.
 **Status.** Open
 
 ---

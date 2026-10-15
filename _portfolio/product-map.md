@@ -65,7 +65,7 @@ narrative see `ecosystem-vision.md`.
 | **WaypointsCreator** | 3 | DJI drone planning (B2C/B2B) | Live | Node/Express + React + Cesium | €20 / €30 per month | EUR |
 | **GTTourz** | 3 | Supercar driving-tour operator ops (B2B) | Live — several features in progress | Next.js 16 + Prisma 6 + Azure Blob; Claude Haiku 4.5; Google Maps; Twilio; SendGrid; Xero | TBD (not in brain) | TBD |
 | **EcoGrid Resort** | 4 | Energy — resort/campsite micro-grids (B2B + assets) | Commercial / investor stage; pilot site (88 kWc, Corsica) live on FusionSolar; no product code | TBD (EMS SaaS planned; AI dispatch) | Hybrid: EPC margin + SaaS licence + energy revenues (no tiers yet) | EUR |
-| **Ethical Estimation Engine** | 5 | Solar EPC tender estimation (B2B) | Pre-contract — quotation draft v0.1 (2026-08-02) unsigned; Phase 1 ≈151 p-days; target go-live 2026-11-14 | Azure App Service + PostgreSQL + Queues; Entra ID B2B; Three.js | Bespoke build (day-rate TBC) + hosting + support; productisation depends on D-15 | GBP |
+| **Ethical Estimation Engine** | 5 | Solar EPC tender estimation (B2B) | Pre-contract — quotation draft v0.3 (2026-08-09) unsigned; Phase 1 ≈151 p-days + Jobs Tracker workspace, go-live ≈2026-12-18; Q1 2027 for supplier mgmt, reporting, rate intelligence | Azure App Service + PostgreSQL + Queues; Entra ID B2B; Three.js | Bespoke build (day-rate TBC) + hosting + support; productisation depends on D-15 | GBP |
 
 ## Notable cross-product themes
 
