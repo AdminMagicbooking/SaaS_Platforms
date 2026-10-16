@@ -31,7 +31,7 @@ Once CBES has signed, the deck's traction slide can say "under contract". Until 
 - **Initial Term** and **Renewal Term**: as defined in clause 5.
 - **Order Form**: the schedule to this Agreement signed by both parties that identifies the Customer, the Authorised User counts, the Fees and the Start Date.
 - **Start Date**: the date stated in the Order Form from which Subscription Fees are payable.
-- **Data Protection Legislation**: the UK GDPR, the Data Protection Act 2018 and all other applicable UK law on the processing of personal data.
+- **Data Protection Legislation**: the UK GDPR, the Data Protection Act 2018, and, where the Customer is established in the EU, the EU GDPR, together with all other applicable law on the processing of personal data.
 - **Business Day**: Monday to Friday excluding public holidays in England.
 
 1.2 **Interpretation.** Clause and schedule headings do not affect interpretation. "Including" means "including without limitation". If the Order Form conflicts with these terms, the Order Form prevails for that Customer only. Schedules form part of this Agreement.
@@ -198,14 +198,14 @@ This Order Form is made under the Jobs Tracker Subscription Agreement at the Sup
 
 | Item | Detail |
 | --- | --- |
-| Customer | Gaswise \[full legal name\] \[Limited\], company no. [________], registered office [________] |
+| Customer | Gaswise \[full legal name\] \[Limited\], a company registered in Ireland under CRO number [________], registered office [________], Drogheda, Co. Louth, Ireland; VAT number \[IE________\] |
 | Customer contact for notices | \[Name, title, e-mail\] |
 | Supplier contact for notices | Franck Merlin, Director, Workwiz Limited, support@jobstracker.work |
 | Effective Date | Date of last signature |
 | Start Date (fees payable from) | 1 November 2026 |
 | Field Users included | 70 at £30 per user per month |
 | Admin Users included | 10 at £50 per user per month |
-| Minimum monthly fee | £2,600 (70 × £30 + 10 × £50) |
+| Minimum monthly fee | £2,600 (70 × £30 + 10 × £50). All Fees are payable in pounds sterling. The Customer is established in Ireland: UK VAT is not charged and the reverse charge applies; the Customer accounts for Irish VAT |
 | Set-up Fee | £4,000, invoiced on the Effective Date |
 | Set-up scope | Tenant and branding; RAMS and document templates from Customer's existing documents; work statuses; import of workers, clients and open jobs from \[Excel / current system: \_\_\_\_\_\_\]; Sage mapping; two remote training sessions |
 | Target go-live | End of November 2026, subject to clause 3.2 |
@@ -221,7 +221,7 @@ This Order Form is made under the Jobs Tracker Subscription Agreement at the Sup
 
 ## Schedule 3 — Data processing terms
 
-These terms apply to personal data in Customer Data and are intended to satisfy Article 28(3) UK GDPR.
+These terms apply to personal data in Customer Data and are intended to satisfy Article 28(3) UK GDPR. Where the Customer is established in the EU (Gaswise), references to UK GDPR include the EU GDPR as it applies to the Customer, and the Supplier's hosting of personal data in the United Kingdom is a transfer made in reliance on the European Commission's adequacy decision for the United Kingdom.
 
 **Processing details**
 
