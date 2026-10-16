@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accounts Register</title>
+<meta name="description" content="Social and app-store accounts per product in the SaaS_Projects portfolio — LinkedIn, Facebook, Instagram, iOS, Android.">
+<style>
+:root{--bg:#f6f7f9;--panel:#fff;--ink:#1a1d23;--mute:#5f6670;--line:#e2e5ea;--accent:#2563eb;
+ --ok:#16a34a;--okbg:#e8f7ec;--warn:#b45309;--warnbg:#fdf3e2;--na:#6b7280;--nabg:#eef0f3;--todo:#9333ea;--todobg:#f3e8ff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1217;--panel:#171b22;--ink:#e6e9ee;--mute:#9aa3ad;--line:#2a3039;
+ --okbg:#12301b;--warnbg:#3a2a10;--nabg:#232832;--todobg:#2c1a40}}
+:root[data-theme="dark"]{--bg:#0f1217;--panel:#171b22;--ink:#e6e9ee;--mute:#9aa3ad;--line:#2a3039;--okbg:#12301b;--warnbg:#3a2a10;--nabg:#232832;--todobg:#2c1a40}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,"Segoe UI",Roboto,Arial,sans-serif;padding:24px 16px}
+main{max-width:1280px;margin:0 auto}
+h1{font-size:24px;margin:0 0 4px}
+.sub{color:var(--mute);margin:0 0 18px;font-size:14px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;align-items:center}
+button{font:inherit;font-size:13px;padding:6px 12px;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:13px;color:var(--mute);margin-left:auto}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+.b-live{background:var(--okbg);color:var(--ok)}.b-known{background:var(--warnbg);color:var(--warn)}
+.b-todo{background:var(--todobg);color:var(--todo)}.b-na{background:var(--nabg);color:var(--na)}
+.wrap{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:980px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mute);background:var(--bg);position:sticky;top:0}
+td.proj{min-width:200px}
+td.proj b{display:block;font-size:15px}
+td.proj small{color:var(--mute);display:block;font-size:12px}
+td.proj a{color:var(--accent);font-size:12px;text-decoration:none}
+.cell{min-width:170px}
+.cell select{font:inherit;font-size:12px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);padding:2px 4px;margin-bottom:4px}
+.cell input{width:100%;font:inherit;font-size:13px;border:1px solid transparent;border-radius:6px;background:transparent;color:var(--ink);padding:3px 6px}
+.cell input:focus{border-color:var(--accent);outline:none;background:var(--bg)}
+.cell input::placeholder{color:var(--mute);opacity:.7}
+.cell .note{font-size:11px;color:var(--mute);margin-top:2px;padding:0 6px}
+tr.na-row td{opacity:.75}
+.foot{font-size:12px;color:var(--mute);margin-top:14px}
+.foot code{font-size:11px;background:var(--nabg);padding:1px 4px;border-radius:4px}
+.saved{font-size:12px;color:var(--ok);display:none}
+</style>
+</head>
+<body>
+<main>
+<h1>Accounts Register</h1>
+<p class="sub">Social and app-store accounts per product. Seeded from <code>SaaS_Projects</code> on 16 Oct 2026 — the workspace documents <strong>no handles or logins</strong>, so almost every cell is a placeholder. Edit inline; changes save in this browser. Export to commit the result.</p>
+
+<div class="toolbar">
+ <button class="primary" id="export-json">Export JSON</button>
+ <button id="export-md">Export Markdown</button>
+ <button id="reset">Reset to seed</button>
+ <span class="saved" id="saved">Saved</span>
+ <div class="legend">
+  <span><span class="badge b-live">Live</span> account exists, URL known</span>
+  <span><span class="badge b-known">Known · no handle</span> account implied by docs, identifier missing</span>
+  <span><span class="badge b-todo">Placeholder</span> nothing documented</span>
+  <span><span class="badge b-na">N/A</span> deliberately none</span>
+ </div>
+</div>
+
+<div class="wrap">
+<table id="tbl">
+<thead><tr>
+ <th>Product</th><th>LinkedIn</th><th>Facebook</th><th>Instagram</th><th>iOS · App Store</th><th>Android · Google Play</th>
+</tr></thead>
+<tbody></tbody>
+</table>
+</div>
+
+<p class="foot">Sources: <code>projects-status.html</code> (Jobs Tracker iOS 1.0 approved 14 Oct 2026, Android 1.6.1 versionCode 10; supercars.tours Facebook Page sharing + CampaignBuilder Facebook Login for Business, 14 Oct), <code>coreproma/product-spec.md</code> (PWA, Capacitor iOS/Android, Instagram/Facebook publishing feature, TikTok copy), <code>Gaswise/FEATURE-INVENTORY.md</code> (native apps built, not in stores), <code>_portfolio/linkedin-drafts/</code> (drafts only, no page named), <code>_portfolio/products-index.json</code>. No Apple Developer / Play Console account owner, no page admin, no login e-mail is recorded anywhere in the workspace — add a "Credentials / owner" column if that is the intent.</p>
+</main>
+
+<script>
+const PLATFORMS=["linkedin","facebook","instagram","ios","android"];
+const STATUS={live:"Live",known:"Known · no handle",todo:"Placeholder",na:"N/A"};
+const SEED=[
+ {id:"coreproma",name:"COREPROMA",play:"Play 1 · Construction PM SaaS",site:"https://coreproma.com",
+  linkedin:{s:"known",v:"",n:"LinkedIn draft exists (_portfolio/linkedin-drafts/coreproma.md); no page URL"},
+  facebook:{s:"known",v:"",n:"Spec lists Facebook publishing as a feature; no page recorded"},
+  instagram:{s:"known",v:"",n:"Spec lists Instagram publishing; no handle recorded"},
+  ios:{s:"known",v:"",n:"Capacitor iOS build in stack; PWA install documented; no App Store listing recorded"},
+  android:{s:"known",v:"",n:"Capacitor Android build in stack; no Play listing recorded"}},
+ {id:"jobstracker",name:"Jobs Tracker",play:"Play 1 · Field-ops for trades",site:"https://jobstracker.work",
+  linkedin:{s:"known",v:"",n:"LinkedIn draft exists; no page URL"},
+  facebook:{s:"todo",v:"",n:""},
+  instagram:{s:"todo",v:"",n:""},
+  ios:{s:"live",v:"",n:"Worker app 1.0 approved on App Store 14 Oct 2026; 1.0.1 (build 7) cut. Store URL not recorded — paste it"},
+  android:{s:"live",v:"",n:"Worker app 1.6.1 (versionCode 10); landing page shows live Play badge. Store URL not recorded"}},
+ {id:"supercars",name:"supercars.tours",play:"Play 3 · Driving-tours guide (ex-GTTourz)",site:"https://supercars.tours",
+  linkedin:{s:"todo",v:"",n:""},
+  facebook:{s:"live",v:"",n:"Facebook Page connected via CampaignBuilder (Facebook Login for Business); article/event sharing live 14 Oct. Page name/URL not recorded"},
+  instagram:{s:"todo",v:"",n:""},
+  ios:{s:"na",v:"",n:"Guests use mobile browser; no app-store install (spec §3)"},
+  android:{s:"na",v:"",n:"Same — web only"}},
+ {id:"campaignbuilder",name:"CampaignBuilder",play:"Internal · outbound engine",site:"https://campaign.coreproma.com",
+  linkedin:{s:"na",v:"",n:"Internal tool; decision: no LinkedIn/Meta scraping"},
+  facebook:{s:"na",v:"",n:"Holds the Meta app (Facebook Login for Business) used by products — record the Meta app ID here if useful"},
+  instagram:{s:"na",v:"",n:""},
+  ios:{s:"na",v:"",n:""},
+  android:{s:"na",v:"",n:""}},
+ {id:"emailrelay",name:"EmailRelay",play:"Estate-agency e-mail SaaS",site:"",
+  linkedin:{s:"known",v:"",n:"LinkedIn draft exists; no page URL"},
+  facebook:{s:"todo",v:"",n:""},instagram:{s:"todo",v:"",n:""},
+  ios:{s:"na",v:"",n:"No mobile app in spec"},android:{s:"na",v:"",n:"No mobile app in spec"}},
+ {id:"findallproperty",name:"FindAllProperty",play:"UK PropTech · pre-launch",site:"",
+  linkedin:{s:"known",v:"",n:"Pre-launch teaser draft exists; no page URL"},
+  facebook:{s:"todo",v:"",n:""},instagram:{s:"todo",v:"",n:""},
+  ios:{s:"todo",v:"",n:""},android:{s:"todo",v:"",n:""}},
+ {id:"waypointscreator",name:"WaypointsCreator Mission Control",play:"Drone mission planning",site:"",
+  linkedin:{s:"known",v:"",n:"LinkedIn draft exists; no page URL"},
+  facebook:{s:"todo",v:"",n:""},instagram:{s:"todo",v:"",n:""},
+  ios:{s:"na",v:"",n:"Desktop/web tool; pushes to DJI devices over USB — no app"},
+  android:{s:"na",v:"",n:"Same"}},
+ {id:"ecogrid",name:"EcoGrid Resort (SmartGrid)",play:"Play 4 · Energy — investor stage, confidential",site:"",
+  linkedin:{s:"todo",v:"",n:"marketing_ready:false — no public content until cleared"},
+  facebook:{s:"todo",v:"",n:""},instagram:{s:"todo",v:"",n:""},
+  ios:{s:"todo",v:"",n:"No product code yet"},android:{s:"todo",v:"",n:"No product code yet"}},
+ {id:"ethical-engine",name:"Ethical Estimation Engine",play:"Play 5 · EPC tendering — commercial in confidence",site:"",
+  linkedin:{s:"na",v:"",n:"No public content allowed (products-index notes)"},
+  facebook:{s:"na",v:"",n:""},instagram:{s:"na",v:"",n:""},
+  ios:{s:"na",v:"",n:""},android:{s:"na",v:"",n:""}},
+ {id:"gaswise",name:"Gaswise",play:"Jobs Tracker branch pilot",site:"",
+  linkedin:{s:"todo",v:"",n:""},facebook:{s:"todo",v:"",n:""},instagram:{s:"todo",v:"",n:""},
+  ios:{s:"known",v:"",n:"Capacitor iOS builds green on CI; not in the store"},
+  android:{s:"known",v:"",n:"APK builds; not in the store"}}
+];
+const KEY="accounts-register-v1";
+let data;
+function load(){try{const s=localStorage.getItem(KEY);if(s){data=JSON.parse(s);return}}catch(e){}data=JSON.parse(JSON.stringify(SEED))}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data));const el=document.getElementById("saved");el.style.display="inline";clearTimeout(save.t);save.t=setTimeout(()=>el.style.display="none",1200)}catch(e){}}
+function ph(p){return {linkedin:"linkedin.com/company/…",facebook:"facebook.com/…",instagram:"@handle",ios:"apps.apple.com/… or Bundle ID",android:"play.google.com/… or package name"}[p]}
+function render(){
+ const tb=document.querySelector("#tbl tbody");tb.innerHTML="";
+ data.forEach((row,ri)=>{
+  const tr=document.createElement("tr");
+  const allNa=PLATFORMS.every(p=>row[p].s==="na");if(allNa)tr.className="na-row";
+  tr.innerHTML=`<td class="proj"><b>${row.name}</b><small>${row.play}</small>${row.site?`<a href="${row.site}" target="_blank" rel="noopener">${row.site.replace(/^https?:\/\//,"")}</a>`:""}</td>`;
+  PLATFORMS.forEach(p=>{
+   const c=row[p];const td=document.createElement("td");td.className="cell";
+   const sel=document.createElement("select");
+   for(const k in STATUS){const o=document.createElement("option");o.value=k;o.textContent=STATUS[k];if(k===c.s)o.selected=true;sel.appendChild(o)}
+   sel.className="st";sel.addEventListener("change",()=>{c.s=sel.value;save();render()});
+   const badge=document.createElement("span");badge.className="badge b-"+c.s;badge.textContent=STATUS[c.s];badge.style.marginLeft="6px";
+   const inp=document.createElement("input");inp.value=c.v;inp.placeholder=c.s==="na"?"—":ph(p);
+   inp.addEventListener("input",()=>{c.v=inp.value;save()});
+   const note=document.createElement("input");note.className="note";note.value=c.n;note.placeholder="note";note.style.fontSize="11px";
+   note.addEventListener("input",()=>{c.n=note.value;save()});
+   td.append(sel,badge,inp,note);tr.appendChild(td);
+  });
+  tb.appendChild(tr);
+ });
+}
+function dl(name,txt,type){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type}));a.download=name;a.click()}
+document.getElementById("export-json").onclick=()=>dl("accounts-register.json",JSON.stringify(data,null,2),"application/json");
+document.getElementById("export-md").onclick=()=>{
+ let md="# Accounts Register\n\n| Product | LinkedIn | Facebook | Instagram | iOS | Android |\n|---|---|---|---|---|---|\n";
+ data.forEach(r=>{md+=`| ${r.name} | `+PLATFORMS.map(p=>{const c=r[p];return `${STATUS[c.s]}${c.v?" — "+c.v:""}${c.n?" _("+c.n+")_":""}`}).join(" | ")+" |\n"});
+ dl("accounts-register.md",md,"text/markdown")};
+document.getElementById("reset").onclick=()=>{if(confirm("Discard your edits and reload the seed?")){try{localStorage.removeItem(KEY)}catch(e){}load();render()}};
+load();render();
+</script>
+</body>
+</html>
