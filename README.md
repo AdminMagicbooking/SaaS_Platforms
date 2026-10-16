@@ -40,6 +40,8 @@ SaaS_Projects/
   coreproma/                 construction project management SaaS
                              (product-spec.md + business-plan.md)
   emailrelay/                multilingual email-to-WhatsApp bridge
+  ethical-engine/            solar EPC tender estimation platform
+                             (product-spec.md; source docs in Ethical/ pending D-14)
   findallproperty/           UK property valuation + neighbourhood intel
                              (product-spec.md + business-plan.md)
   gttourz/                   supercar driving-tour operator platform
@@ -97,10 +99,14 @@ Take it as an invitation to schedule a short sync.
 
 ## Status
 
-- **Products documented:** **7 of 7** (COREPROMA, EmailRelay, FindAllProperty,
-  GTTourz, Jobs Tracker, WaypointsCreator, EcoGrid Resort). GTTourz brain landed
-  2026-05-23; EcoGrid Resort added 2026-06-02 as **Play 4 (Energy / Smart Grid)**,
-  at commercial / investor stage (no code yet).
+- **Products documented:** **8 of 8** (COREPROMA, EmailRelay, Ethical
+  Estimation Engine, FindAllProperty, GTTourz, Jobs Tracker, WaypointsCreator,
+  EcoGrid Resort). GTTourz brain landed 2026-05-23; EcoGrid Resort added
+  2026-06-02 as **Play 4 (Energy / Smart Grid)**, at commercial / investor
+  stage (no code yet). Ethical Estimation Engine registered 2026-08-09 as
+  **Play 5 (EPC tendering)** — pre-contract, quotation draft v0.1 unsigned;
+  whether it is a product or a bespoke client build hinges on the IP option
+  (**D-15**).
 - **Business plans:** Play 1 only (FindAllProperty, COREPROMA, Jobs Tracker)
   — draft v0.1 created 2026-05-23. One consolidated Play 1 plan at
   `_portfolio/play-1-business-plan.md`. Plays 2 and 3 deferred.

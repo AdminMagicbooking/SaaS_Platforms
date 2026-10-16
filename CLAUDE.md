@@ -18,6 +18,8 @@ Remote: `https://github.com/AdminMagicbooking/SaaS_Platforms.git` (GitHub).
 - `coreproma/` — COREPROMA (construction-management SaaS): business plan + product spec
 - `SmartGrid/` — SmartGrid / ECOGRID commercial docs and product spec
 - `gttourz/` — GTTourz brain + business plans
+- `ethical-engine/` — Ethical Estimation Engine (solar EPC tender estimation):
+  product spec; client source docs currently in `Ethical/` (placement → D-14)
 - `findallproperty/`, `jobstracker/`, `emailrelay/`, `waypointscreator/` — venture entries
 - `_portfolio/`, `_templates/` — shared portfolio assets and templates
 - `dashboard.html` — portfolio dashboard

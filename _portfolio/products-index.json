@@ -2,7 +2,7 @@
   "_meta": {
     "purpose": "Machine-readable index of all products in the SaaS portfolio. Consumed by CampaignBuilder and any other tool that needs to iterate over product specs without parsing markdown.",
     "schema_version": 1,
-    "last_updated": "2026-05-23",
+    "last_updated": "2026-08-09",
     "notes": "Each entry's 'sections' map gives the exact markdown heading text for canonical sections. A consumer can extract a section by finding that heading and reading until the next same-level heading. Sections may be null if the brain does not contain them in this format."
   },
   "products": [
@@ -129,6 +129,47 @@
         "value_props": null,
         "legal": null,
         "ecosystem": null
+      }
+    },
+    {
+      "slug": "smartgrid",
+      "name": "EcoGrid Resort",
+      "spec_path": "SmartGrid/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/SmartGrid/product-spec.md",
+      "marketing_ready": false,
+      "notes": "Play 4 (Energy / Smart Grid), commercial / investor stage, no product code yet. The spec is an internal working document (French, confidential) with NO ai_safe YAML frontmatter and unwrapped pilot-customer data in its section 6. Consumers must NOT generate autoreplies or social posts for this product until a public-safe spec with frontmatter exists. Only the sections mapped below are cleared for extraction.",
+      "sections": {
+        "positioning": "## 0. En une phrase",
+        "features": "## 2. Le concept — quatre briques, un cœur logiciel",
+        "audiences": "## 3. Le marché — tourisme de plein air, Europe du Sud",
+        "pricing": null,
+        "faq": null,
+        "value_props": null,
+        "legal": null,
+        "ecosystem": null,
+        "tech_stack": null,
+        "pilot_context": null
+      }
+    },
+    {
+      "slug": "ethical-engine",
+      "name": "Ethical Estimation Engine",
+      "spec_path": "ethical-engine/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/ethical-engine/product-spec.md",
+      "marketing_ready": false,
+      "notes": "Play 5 (EPC tendering), pre-contract: quotation draft v0.1 unsigned, all prices TBC, commercial in confidence. Both ai_safe frontmatter flags are false. Consumers must NOT generate autoreplies, social posts, or any public content about this product or its client. Entry exists for internal discovery only.",
+      "sections": {
+        "positioning": "## 1. Product at a Glance",
+        "audiences": "## 2. Who It's For",
+        "differentiation": "## 3. The Positioning (what makes us different)",
+        "flow": "## 4. How It Works — The End-to-End Flow",
+        "features": "## 5. Full Functionality List",
+        "ecosystem": "## 7. The Ecosystem It Belongs To",
+        "legal": "## 8. Legal & Commercial Posture (Summary)",
+        "pricing": "## 11. Pricing & Plans",
+        "tech_stack": "## 12. Tech Stack (reference)",
+        "faq": null,
+        "value_props": null
       }
     }
   ],
