@@ -6,6 +6,10 @@
     {
       "route": "/",
       "rewrite": "/index.html"
+    },
+    {
+      "route": "/teaser",
+      "rewrite": "/teaser/index.html"
     }
   ],
   "responseOverrides": {
