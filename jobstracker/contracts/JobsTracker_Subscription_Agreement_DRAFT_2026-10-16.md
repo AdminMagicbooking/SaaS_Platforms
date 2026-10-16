@@ -52,11 +52,11 @@ Once CBES has signed, the deck's traction slide can say "under contract". Until 
 
 ## 3. Set-up, data import and go-live
 
-3.1 **Scope.** The Set-up Fee covers: creation of the Customer's tenant with its branding and enabled modules; configuration of work statuses, job types and approval rules; creation of RAMS and other document templates from the Customer's existing documents; mapping to the Customer's payroll export (Sage or as named in the Order Form); import of the Customer's worker, client and open-job data from the files the Customer supplies; and up to \[two\] remote training sessions for Admin Users.
+3.1 **Scope.** The Set-up Fee covers: creation of the Customer's tenant with its branding and enabled modules; configuration of work statuses, job types and approval rules; creation of RAMS and other document templates from the Customer's existing documents; mapping to the Customer's payroll export (Sage or as named in the Order Form); import of the Customer's worker, client and open-job data from the files the Customer supplies; and up to two remote training sessions for Admin Users.
 
-3.2 **Customer inputs.** The Customer shall supply the data, documents and a named decision-maker within \[10\] Business Days of the Effective Date. Delays in Customer inputs extend the go-live date day for day and do not delay the Start Date by more than \[30\] days.
+3.2 **Customer inputs.** The Customer shall supply the data, documents and a named decision-maker within 10 Business Days of the Effective Date. Delays in Customer inputs extend the go-live date day for day and do not delay the Start Date by more than 30 days.
 
-3.3 **Acceptance.** The Supplier notifies the Customer when set-up is complete. The Customer has \[10\] Business Days to test and report any failure of the configured Service to match the Order Form. The Supplier corrects reported failures; if none are reported in that period, set-up is accepted.
+3.3 **Acceptance.** The Supplier notifies the Customer when set-up is complete. The Customer has 10 Business Days to test and report any failure of the configured Service to match the Order Form. The Supplier corrects reported failures; if none are reported in that period, set-up is accepted.
 
 3.4 **Storage.** The Set-up Fee includes 25 GB of storage for photographs, video and documents. Additional storage is available in packs at the rates published in the Service.
 
@@ -108,7 +108,7 @@ Once CBES has signed, the deck's traction slide can say "under contract". Until 
 
 7.3 **Hosting.** Customer Data is hosted on Microsoft Azure in the United Kingdom. The Supplier shall not transfer Customer Data outside the UK without the Customer's prior written consent and appropriate safeguards, except for sub-processors listed in Schedule 3.
 
-7.4 **Security.** The Supplier maintains appropriate technical and organisational measures including encryption in transit and at rest, role-based access, logging of access to Customer Data, and daily backups retained for \[30\] days. The Supplier notifies the Customer without undue delay, and in any case within 48 hours, of becoming aware of a personal data breach affecting Customer Data.
+7.4 **Security.** The Supplier maintains appropriate technical and organisational measures including encryption in transit and at rest, role-based access, logging of access to Customer Data, and daily backups retained for 30 days. The Supplier notifies the Customer without undue delay, and in any case within 48 hours, of becoming aware of a personal data breach affecting Customer Data.
 
 7.5 **Worker location and monitoring.** The Service records Field User location at tap-in and tap-out, during a route when the user has started one, and vehicle position where the Customer connects a telematics device. The Customer, as employer and controller, is responsible for having a lawful basis for this processing, for informing its workers in a privacy notice, for a data protection impact assessment where required, and for configuring the Service so that tracking is limited to working time. The Supplier provides the configuration controls and a template worker notice; it does not advise the Customer on employment law.
 
@@ -136,7 +136,7 @@ Once CBES has signed, the deck's traction slide can say "under contract". Until 
 
 9.3 **Nothing excluded by law.** Nothing in this Agreement limits liability for death or personal injury caused by negligence, fraud, or any liability that cannot lawfully be limited.
 
-9.4 **Cap.** Subject to 9.3, each party's total liability under or in connection with this Agreement in any 12-month period is limited to the Fees paid or payable by the Customer in that period, or \[£10,000\] if greater. The cap for the Supplier's breach of clause 7 or Schedule 3 is \[twice\] that amount.
+9.4 **Cap.** Subject to 9.3, each party's total liability under or in connection with this Agreement in any 12-month period is limited to the Fees paid or payable by the Customer in that period, or £10,000 if greater. The cap for the Supplier's breach of clause 7 or Schedule 3 is twice that amount.
 
 9.5 **Excluded losses.** Subject to 9.3, neither party is liable for loss of profit, revenue, business, goodwill or anticipated savings, or for indirect or consequential loss, however arising.
 
@@ -174,9 +174,9 @@ This Order Form is made under the Jobs Tracker Subscription Agreement and papers
 | --- | --- |
 | Customer | Combined Building & Electrical Services \[Limited\], company no. [________], registered office [________] |
 | Customer contact for notices | Tracey \[surname\], CEO, \[e-mail\] |
-| Supplier contact for notices | Franck Merlin, Director, Workwiz Limited, \[e-mail\] |
+| Supplier contact for notices | Franck Merlin, Director, Workwiz Limited, support@jobstracker.work |
 | Effective Date | Date of last signature |
-| Start Date (fees payable from) | \[1 August 2026 / 1 November 2026 — choose: back-date to match invoices already issued, or from signature\] |
+| Start Date (fees payable from) | 1 August 2026 |
 | Field Users included | 30 at £30 per user per month (list rate) |
 | Admin Users included | 4 at £50 per user per month (list rate) |
 | Minimum monthly fee | £1,100 (30 × £30 + 4 × £50) before the pilot partner discount below |
@@ -200,7 +200,7 @@ This Order Form is made under the Jobs Tracker Subscription Agreement at the Sup
 | --- | --- |
 | Customer | Gaswise \[full legal name\] \[Limited\], company no. [________], registered office [________] |
 | Customer contact for notices | \[Name, title, e-mail\] |
-| Supplier contact for notices | Franck Merlin, Director, Workwiz Limited, \[e-mail\] |
+| Supplier contact for notices | Franck Merlin, Director, Workwiz Limited, support@jobstracker.work |
 | Effective Date | Date of last signature |
 | Start Date (fees payable from) | 1 November 2026 |
 | Field Users included | 70 at £30 per user per month |
@@ -211,7 +211,7 @@ This Order Form is made under the Jobs Tracker Subscription Agreement at the Sup
 | Target go-live | End of November 2026, subject to clause 3.2 |
 | Storage included | 25 GB |
 | Payroll export | Sage \[confirm product/version\] |
-| Integrations enabled | \[Telematics: \_\_\_\_\_\_ / none\] |
+| Integrations enabled | Telematics: Kinetic vehicle tracking (Customer's existing account) |
 | Modules enabled | Planner, jobs, timesheets, RAMS, live map, client reports, Sage export |
 | Reference rights | Customer agrees to be named subject to clause 10.2 |
 
@@ -252,8 +252,8 @@ These terms apply to personal data in Customer Data and are intended to satisfy 
 | --- | --- | --- |
 | Microsoft Azure | Hosting, storage, backups | United Kingdom |
 | Apple / Google | Push notifications to the mobile application | UK/EU/US under their standard terms; notification content is limited to job references |
-| \[E-mail provider\] | Transactional e-mail | \[UK/EU\] |
-| \[SMS provider\] | SMS notifications where enabled | \[UK/EU\] |
+| Microsoft Azure Communication Services | Transactional e-mail | United Kingdom / EU |
+| Microsoft Azure Communication Services | SMS notifications where enabled | United Kingdom / EU |
 | Stripe | Payment of storage and SMS packs; no Customer Data beyond billing contact | UK/EU/US under Stripe's UK addendum |
 
 ## Schedule 4 — Support and service levels
@@ -268,15 +268,15 @@ These terms apply to personal data in Customer Data and are intended to satisfy 
 | 97.0% to 98.99% | 10% |
 | Below 97.0% | 25% |
 
-**Support.** By e-mail to \[support e-mail\] and through the in-app help, Monday to Friday 08:00–18:00 UK time excluding public holidays. Out of hours, Priority 1 incidents may be reported by \[phone/SMS to \_\_\_\_\_\_\].
+**Support.** By e-mail to support@jobstracker.work and through the in-app help, Monday to Friday 08:00–18:00 UK time excluding public holidays (Business Hours). Outside Business Hours the same address is monitored for Priority 1 incidents on a best-efforts basis; response-time commitments run from the start of the next Business Hours.
 
 | Priority | Definition | Response | Target resolution or workaround |
 | --- | --- | --- | --- |
-| P1 | Service unavailable for all users, or data loss | 1 hour, 24/7 | 4 hours |
+| P1 | Service unavailable for all users, or data loss | 1 Business Hour | 4 Business Hours |
 | P2 | Core function (tap-in, planner, payroll export) unusable for many users | 4 Business Hours | 1 Business Day |
 | P3 | Function degraded, workaround exists | 1 Business Day | Next scheduled release |
 | P4 | Question, cosmetic issue, feature request | 2 Business Days | At the Supplier's discretion |
 
 **Maintenance and releases.** Releases are deployed outside 06:00–20:00 UK time; release notes are published in the Service. The mobile application is updated through the app stores; the Customer should allow automatic updates on Field Users' devices.
 
-**Backups.** Daily, retained \[30\] days, stored in the UK. Restoration of Customer Data from backup on the Customer's request, where the loss was not caused by the Supplier, is chargeable at \[£\_\_/hour\].
+**Backups.** Daily, retained 30 days, stored in the UK. Restoration of Customer Data from backup on the Customer's request, where the loss was not caused by the Supplier, is chargeable at £120 per hour.
