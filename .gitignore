@@ -1,0 +1,11 @@
+
+# Marketing video renders, editable-project zips and audio stems stay local
+# (scripts, briefs and storyboards in marketing/video/ remain tracked)
+jobstracker/marketing/video/**/*.mp4
+jobstracker/marketing/video/**/*.mov
+jobstracker/marketing/video/**/*.zip
+jobstracker/marketing/video/**/*.wav
+jobstracker/marketing/video/**/media/
+
+# Prospect lists contain third-party personal data: never commit
+jobstracker/prospects/
