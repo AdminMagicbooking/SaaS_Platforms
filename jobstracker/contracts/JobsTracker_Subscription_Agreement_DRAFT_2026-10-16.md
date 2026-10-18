@@ -173,7 +173,7 @@ This Order Form is made under the Jobs Tracker Subscription Agreement and papers
 | Item | Detail |
 | --- | --- |
 | Customer | Combined Building & Electrical Services \[Limited\], company no. [________], registered office [________] |
-| Customer contact for notices | Tracey \[surname\], CEO, \[e-mail\] |
+| Customer contact for notices | Tracey Colwill, CEO, \[e-mail\] |
 | Supplier contact for notices | Franck Merlin, Director, Workwiz Limited, support@jobstracker.work |
 | Effective Date | Date of last signature |
 | Start Date (fees payable from) | 1 August 2026 |
