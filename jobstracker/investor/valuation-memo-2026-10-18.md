@@ -51,7 +51,7 @@ The 36-month model built today (JobsTracker_Financial_Model_2026-10-18.xlsx) rep
 
 1. The line on slide 15 "either option needs a seed round during year two" contradicts the model. An investor who runs the spreadsheet will see it. Reword to: "a seed round in year two is optional — it buys speed, not survival."
 2. "Why do you need £1m?" becomes the hard question. The honest answer is that the round is a 15-month fully-funded budget *if sales are zero*; with sales, it funds acceleration (a bigger dev team, more marketing) rather than survival. Say that; it is a capital-efficiency pitch and investors like it.
-3. The cost base in the deck has no founder salary. If you intend to pay yourself from the round, put it in the use of funds now; discovering it in diligence looks like concealment.
+3. Founder salary of £4,000 a month (decided 18 Oct) is now in the model and in the use-of-funds table on slide 16, taken out of contingency; totals unchanged.
 
 ## 6. Order of work
 
