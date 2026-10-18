@@ -22,13 +22,16 @@ Date: 18 October 2026 · Internal, for Franck · Not legal or tax advice: the SE
 
 Reading: at £36k ARR you are priced on team, product and pipeline, not on revenue. Your comparables are founder-track-record pre-seeds, which in the UK sit at £2–4m pre-money for a founder with a prior exit or a prior £2m-revenue business.
 
-## 3. The two structural problems to fix before talking price
+## 3. Raising into Workwiz: what it costs and how to work around it
 
-**(a) Workwiz is the wrong vehicle.** An investor buying Workwiz shares buys every Workwiz product (CampaignBuilder, the other SaaS lines) — either they are getting more than they pay for, or you are giving away things that are not for sale. Every investor will ask for a clean cap table around Jobs Tracker alone.
+Decision (Franck, 18 Oct): the round goes into Workwiz Limited. No new company. So the two consequences below are facts to manage, not problems to fix.
 
-**(b) No SEIS/EIS costs you 30–50% of the angel's cheque.** A UK angel putting £100k into an SEIS company gets £50k back in income-tax relief (EIS: £30k) plus CGT exemption. Without it, your £3m is their £4.5–6m on an after-tax basis, and most UK angel syndicates will not look at a non-SEIS/EIS pre-seed at all.
+**(a) No SEIS/EIS.** A UK angel loses the 50%/30% income-tax relief and the CGT exemption. On an after-tax basis your £3m pre-money reads like £4.5–6m to them against a competing SEIS deal, and many UK angel syndicates screen out non-SEIS/EIS pre-seeds altogether. Work-arounds, in order of value:
+- **Target investors who do not benefit from SEIS/EIS anyway**: non-UK-taxpayer angels (Malta, EU, US — your own network), family offices and corporate/strategic investors (a Sage partner, a telematics vendor, a trades-sector group, a construction-tech holding), and revenue-based or venture-debt lenders for part of the amount. For these the relief is irrelevant and the pitch is unchanged.
+- **For UK taxpayers, price for it**: expect to give 20–30% more equity than the ranges in section 4, or offer a convertible loan note with interest and a discount — CLNs are the normal non-SEIS instrument and are easier for a UK angel to justify without relief.
+- **Say it up front** (the vehicle line on slide 16 already does). An investor who discovers it in diligence walks; one who is told on page 16 and still asks for a call is a real lead.
 
-**Both point to the same fix: a new company, "Jobs Tracker Ltd", with the IP, contracts and CampaignBuilder licence assigned to it.** The Jobs Tracker *trade* only began in 2026, so a new company carrying it on may meet the SEIS "new qualifying trade under three years" test and the EIS seven-year test, even though Workwiz does not. SEIS allows £250k; EIS the rest. HMRC advance assurance takes 4–8 weeks — start it now, in parallel with the campaign. The IP transfer is a taxable disposal from Workwiz and must be done at market value with proper paper; that is the specialist's job. If the adviser says the Newco cannot qualify, the fallback is to price 20–30% lower than the ranges below, because that is roughly what the lost relief is worth to the investor.
+**(b) The investor buys all of Workwiz.** Shares in Workwiz carry CampaignBuilder and every other Workwiz product. Handle it in the term sheet rather than the structure: use-of-proceeds clause restricted to Jobs Tracker; reporting and board/observer rights on Jobs Tracker KPIs; a schedule listing the Workwiz IP so there is no argument later about what the investor owns a share of. Two things to decide before the first call: whether you are happy that the investor's stake extends to CampaignBuilder and the other products (they will value that at zero but own a piece of it), and what the Workwiz balance sheet and historical accounts look like, because they will be read — a 2003 company brings 20 years of filings into diligence.
 
 ## 4. Recommended terms
 
@@ -36,7 +39,7 @@ Reading: at £36k ARR you are priced on team, product and pipeline, not on reven
 |---|---|---|
 | Opening pre-money | £3.5m (12.5% sold) | £5.0m (16.7% sold) |
 | Floor pre-money | £2.5m (16.7% sold) | £3.5m (22.2% sold) |
-| Instrument | Priced round if Newco + SEIS/EIS is in place; otherwise an ASA with a £3m cap and 20% discount, converting at the seed | Priced round; £1m on an ASA leaves too much undefined |
+| Instrument | Priced round for non-UK or strategic investors; for UK angels, a convertible loan note (8% coupon, 20% discount, £3m cap) is the usual non-SEIS form | Priced round; needs a fund or strategic lead |
 | Lead | Angel syndicate or a pre-seed fund (SFC, Haatch, Fuel, Ascension type) with a board observer | Needs a fund lead; angels alone rarely fill £1m |
 | Founder stake after | 83–88% (plus option pool to create: 10% post-money) | 78–83% |
 
@@ -55,9 +58,9 @@ The 36-month model built today (JobsTracker_Financial_Model_2026-10-18.xlsx) rep
 
 ## 6. Order of work
 
-1. Specialist call this week: Newco + IP assignment + SEIS/EIS advance assurance (accountant or a firm such as SeedLegals/Vestd for the paperwork). Decision gates the vehicle line on slide 16.
-2. Decide founder salary and whether the £1m option is a real plan or an anchor. Update slide 15 wording and slide 16 table accordingly.
-3. Build the target list (20+ named angels/funds in UK construction-tech and vertical SaaS) and sequence: warm intros first, CampaignBuilder outbound to the rest.
+1. Build the target list with the SEIS constraint in mind: non-UK angels in your network first, then strategic/corporate investors in the trades supply chain, then UK funds that do non-SEIS deals. Warm intros before CampaignBuilder outbound.
+2. Get Workwiz's last three years of accounts and the current cap table ready — they go in the data room with the deck and the model.
+3. Decide whether the £1m option is a real plan or an anchor; it needs a lead that angels alone will not provide.
 
 ## Sources
 
