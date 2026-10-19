@@ -9,7 +9,7 @@ Prepared 18 October 2026. Send from fmworkwiz@gmail.com or a jobstracker.work ad
 - The Workwiz / non-EIS point is in every e-mail. Said upfront it costs nothing; discovered later it costs the deal.
 - Follow up once after 7 working days (template at the end). Then stop.
 - Where the investor has a form, the e-mail body is also the form answer; the short-form field answers are at the end.
-- Replace `[...]` placeholders before sending. Keep the subject lines; they are written to be read on a phone.
+- Placeholders are filled; check the To: line on each before sending. Keep the subject lines; they are written to be read on a phone.
 
 ---
 
@@ -32,11 +32,11 @@ I built it alone, with AI, in four weeks to first production release. Before thi
 
 I'm raising £500k into Workwiz Limited, the 2003 company that owns the product — so this is not SEIS/EIS eligible, which is why I'm writing to Playfair rather than a syndicate. One trades salesperson and two AI-native developers; the model shows cash-positive around month 8 and £0.7m ARR run-rate at month 12.
 
-Deck and 36-month model attached; I've also submitted through your form. I'm in London monthly — 30 minutes in the week of [date]?
+Deck and 36-month model attached; I've also submitted through your form. I'm in London monthly — 30 minutes when I'm next there, or a call before then?
 
 Franck Merlin
 Founder, Jobs Tracker · Workwiz Limited
-[phone] · jobstracker.work
++44 7986 766 787 · jobstracker.work
 
 ---
 
@@ -59,7 +59,7 @@ Raising £500k (with a £1m option that adds national marketing) into Workwiz Li
 Deck and model attached. Happy to do a call at any hour that suits Berlin.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -78,7 +78,7 @@ I built it alone with AI in four weeks; before that I founded MagicBooking (UK, 
 Deck and 36-month model attached. In London monthly; happy to come to you.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -96,10 +96,10 @@ The part that fits your thesis: I built the whole thing alone with AI-assisted e
 
 Raising £500k into Workwiz Limited (2003 company; not SEIS/EIS, which I know doesn't matter to a fund). Model: cash-positive around month 8, £0.7m ARR run-rate at month 12, 10,000 UK prospects already loaded in our own outbound engine.
 
-Deck and model attached. 30 minutes in London in the week of [date]?
+Deck and model attached. 30 minutes in London when I'm next there, or a call before then?
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -118,7 +118,7 @@ I'm raising £500k, with a £1m plan that adds national marketing and an onboard
 Deck and 36-month model attached. Happy to take a call at any European hour.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -137,7 +137,7 @@ I'm raising £500k into Workwiz Limited (UK, 2003 — no SEIS/EIS, which doesn't
 Deck and model attached. I'd welcome 30 minutes with whoever covers construction software in Europe.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -156,7 +156,7 @@ Raising £500k into Workwiz Limited (2003 company, not SEIS/EIS). A €250–500
 Deck and model attached. In London monthly.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -179,7 +179,7 @@ Deck et modèle financier sur 36 mois en pièces jointes (en anglais). Je suis d
 Cordialement,
 
 Franck Merlin
-Fondateur, Jobs Tracker · Workwiz Limited · [téléphone]
+Fondateur, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -200,7 +200,7 @@ Raising £500k (≈ €600k) into Workwiz Limited, the UK company (2003) that ow
 Deck and 36-month model attached.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -219,7 +219,7 @@ Founder-built alone with AI in four weeks; I previously founded MagicBooking (£
 If a member would sponsor the application I'd welcome the introduction; deck and model attached.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -236,7 +236,7 @@ Raising £500k, or £1m with national marketing, into Workwiz Limited — a 2003
 Founder-built with AI in four weeks; previously founded MagicBooking (UK, £2m+ revenue). Deck and 36-month model attached.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -248,7 +248,7 @@ Hello,
 
 Jobs Tracker: planner, engineer app, van GPS, RAMS and Sage for trades contractors with 15–60 engineers, UK and Ireland. CBES (30 engineers) live since August, CEO testimonial; Gaswise (70 engineers) signed at list price plus £4,000 set-up. Built alone with AI in four weeks. Prior company MagicBooking (£2m+ revenue). Raising £500k into Workwiz Limited (2003, non-EIS). Deck and model attached.
 
-Franck Merlin · Founder · [phone]
+Franck Merlin · Founder · +44 7986 766 787
 
 ---
 
@@ -265,7 +265,7 @@ CBES (Bristol, 30 engineers) live since August with a CEO testimonial; Gaswise (
 Deck and model attached.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
@@ -281,7 +281,7 @@ I'm raising £500k into Workwiz Limited, the UK company that owns the product. I
 
 Deck and model attached.
 
-Franck Merlin · [phone]
+Franck Merlin · +44 7986 766 787
 
 ---
 
@@ -298,7 +298,7 @@ The company is UK (Workwiz Limited, 2003; not SEIS/EIS). Ireland is a market we 
 Founder-built alone with AI in four weeks; previously founded MagicBooking (UK, £2m+ revenue). Raising £500k. Deck and model attached.
 
 Franck Merlin
-Founder, Jobs Tracker · Workwiz Limited · [phone]
+Founder, Jobs Tracker · Workwiz Limited · +44 7986 766 787
 
 ---
 
