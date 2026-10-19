@@ -4,3 +4,6 @@ jobstracker/marketing/video/
 
 # Prospect lists contain third-party personal data: never commit
 jobstracker/prospects/
+
+# Generated Outlook draft files (contain the deck and model as attachments)
+jobstracker/investor/outreach-drafts/
