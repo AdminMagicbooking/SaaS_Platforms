@@ -134,8 +134,8 @@
     {
       "slug": "smartgrid",
       "name": "EcoGrid Resort",
-      "spec_path": "SmartGrid/product-spec.md",
-      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/SmartGrid/product-spec.md",
+      "spec_path": "ecogrid-resort/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/ecogrid-resort/product-spec.md",
       "marketing_ready": false,
       "notes": "Play 4 (Energy / Smart Grid), commercial / investor stage, no product code yet. The spec is an internal working document (French, confidential) with NO ai_safe YAML frontmatter and unwrapped pilot-customer data in its section 6. Consumers must NOT generate autoreplies or social posts for this product until a public-safe spec with frontmatter exists. Only the sections mapped below are cleared for extraction.",
       "sections": {

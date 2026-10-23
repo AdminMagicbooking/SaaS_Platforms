@@ -7,27 +7,52 @@ repository.
 
 `SaaS_Projects` is a **portfolio / command-center** workspace — a collection of
 independent SaaS ventures, each in its own subdirectory, holding business plans,
-product specs, "brains", and scaffolding. It does **not** contain the production
-application code for those ventures; each product is developed and deployed from
-its own separate repository.
+product specs, "brains", commercial material, partner correspondence and
+investor material. It does **not** contain the production application code for
+those ventures; each product is developed and deployed from its own separate
+repository.
 
 Remote: `https://github.com/AdminMagicbooking/SaaS_Platforms.git` (GitHub).
 
 ## Layout
 
 - `coreproma/` — COREPROMA (construction-management SaaS): business plan + product spec
-- `SmartGrid/` — SmartGrid / ECOGRID commercial docs and product spec
+- `ecogrid-resort/` — EcoGrid Resort (ex-SmartGrid): commercial docs, investor
+  package, product spec. App code: `D:\ClaudeProjects\EcoGridResort`
 - `gttourz/` — GTTourz brain + business plans
 - `ethical-engine/` — Ethical Estimation Engine (solar EPC tender estimation):
   product spec; client source docs currently in `Ethical/` (placement → D-14)
 - `findallproperty/`, `jobstracker/`, `emailrelay/`, `waypointscreator/` — venture entries
 - `_portfolio/`, `_templates/` — shared portfolio assets and templates
-- `dashboard.html` — portfolio dashboard
+- `projects-status.html`, `accounts-register.html` — portfolio dashboards
 - `CONVENTIONS.md` — workspace conventions
+
+## Per-venture `journal.md` — mandatory
+
+Each venture folder has a `journal.md` at its root. It is the venture's memory
+of what was done **in this workspace**: documents produced, partner
+interactions, decisions, links to the app repo. It is an **event log**, not a
+product document — product content lives in `product-spec.md` / `brain.md`.
+
+Rule: **after any session that creates, changes or discusses something in a
+venture folder, append a dated entry to that folder's `journal.md`** before
+finishing. Newest entry at the bottom. Format:
+
+```
+## YYYY-MM-DD — short title
+- What was done (files created/changed, with relative paths)
+- Who was involved (partner, contact, Franck/Mark)
+- Decisions taken or left open (link D-xx in _portfolio/decisions-ouvertes.md)
+- Next step, if any
+```
+
+If a venture folder has no `journal.md` yet, create one from
+`ecogrid-resort/journal.md` as the model.
 
 ## Conventions
 
 See `CONVENTIONS.md` for naming and structure rules across venture folders.
+Folders are kebab-case lowercase (`ecogrid-resort/`, not `EcoGridResort/`).
 
 ## Note
 

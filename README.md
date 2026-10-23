@@ -47,7 +47,7 @@ SaaS_Projects/
   gttourz/                   supercar driving-tour operator platform
   jobstracker/               field-ops platform for construction trades
                              (product-spec.md + business-plan.md)
-  SmartGrid/                 EcoGrid Resort — solar micro-grid platform for
+  ecogrid-resort/            EcoGrid Resort — solar micro-grid platform for
                              southern-European resorts & campsites
                              (product-spec.md + commercial / investor decks)
   waypointscreator/          DJI drone mission planning
