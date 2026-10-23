@@ -7,7 +7,7 @@ play_name: standalone-bet
 website: https://supercars.tours
 repo: null  # D:\ClaudeProjects\supercars.tours — TODO: GitHub URL
 languages: [en]
-pricing_currency: EUR  # proposed supplier prices in EUR; billing currency not confirmed (D-06)
+pricing_currency: EUR  # proposed supplier prices in EUR; billing currency not confirmed
 pricing_model: supplier-listings-and-sponsorship  # free for owners, operators and event organisers
 target_audiences: [supercar-owners, supercar-tour-operators, supercar-service-suppliers]
 ai_safe_for_autoreply: false  # prices are proposals, team and traction unconfirmed — route to human
@@ -237,7 +237,7 @@ inactive pending regulatory assessment.
 ## 11. Pricing & packages (PROPOSED — not confirmed with any customer)
 
 Proposed in EUR; billing currency, VAT treatment and tax basis to be confirmed
-before quoting (D-06).
+before quoting.
 
 | Offer | Proposed range | Modelling assumption |
 |---|---|---|

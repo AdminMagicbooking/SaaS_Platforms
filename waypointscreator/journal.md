@@ -13,11 +13,12 @@ the bottom; never rewrite old ones.
 - **Partners / contacts:** Ethan Avalon (AvalonERP, US) — prospective
   reseller. Site-capture module proposed to Ethical Power in the Estimation
   Engine quotation's non-binding Annex A.
-- **Open decisions:** D-04 (WaypointsCreator's future).
+- **Open decisions:** WaypointsCreator's future (keep, fold into the Ethical
+  engine as site capture, or drop).
 
 ## Log
 
 ## 2026-10-23 — Journal created
 - Created this `journal.md` (portfolio-wide rollout).
 - Involved: Franck, Claude.
-- Next: add the app's GitHub URLs; resolve D-04.
+- Next: add the app's GitHub URLs; decide the product's future.

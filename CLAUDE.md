@@ -23,7 +23,7 @@ Venture folder → app repo (code + Azure deployment, under `D:\ClaudeProjects\`
 | `coreproma/` | `COREPROMA` | construction-management SaaS |
 | `ecogrid-resort/` | `EcoGridResort` | ex-`SmartGrid/`, renamed 2026-10-23 |
 | `jobstracker/` | `JobsTracker` | field-ops SaaS; `gaswise/` = customer material |
-| `ethical-engine/` | `Ethical` | Estimation Engine; client docs in root `Ethical/` (D-14) |
+| `ethical-engine/` | `Ethical` | Estimation Engine; client source docs in `client-docs/` |
 | `supercars-tours/` | `supercars.tours` | |
 | `waypointscreator/` | `Waypoints` (+ `Waypoints-promo`) | |
 | `gttourz/` | — none yet | `TourzManager` is not this product |
@@ -31,7 +31,10 @@ Venture folder → app repo (code + Azure deployment, under `D:\ClaudeProjects\`
 | `emailrelay/` | — none | |
 | `campaignbuilder/` | `CampaignBuilder` | internal marketing tool, consumes this repo; journal only |
 
-- `_portfolio/`, `_templates/` — shared portfolio assets and templates
+- `_portfolio/` — **only** `products-index.json` and `voice-and-tone.md`, the two
+  files CampaignBuilder fetches from GitHub raw. Nothing else lives there.
+- `_templates/` — templates for new products / docs
+- `campaignbuilder/integration-contract.md` — how CampaignBuilder reads this repo
 - `projects-status.html`, `accounts-register.html` — portfolio dashboards
 - `CONVENTIONS.md` — workspace conventions
 
@@ -50,7 +53,7 @@ finishing. Newest entry at the bottom. Format:
 ## YYYY-MM-DD — short title
 - What was done (files created/changed, with relative paths)
 - Who was involved (partner, contact, Franck/Mark)
-- Decisions taken or left open (link D-xx in _portfolio/decisions-ouvertes.md)
+- Decisions taken or left open (the journal is the decision record)
 - Next step, if any
 ```
 

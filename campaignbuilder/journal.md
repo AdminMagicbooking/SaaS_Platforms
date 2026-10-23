@@ -16,7 +16,7 @@ rewrite old ones.
 - **App repo (code + Azure deployment):** `D:\ClaudeProjects\CampaignBuilder`
   — TODO: add GitHub URL.
 - **This folder:** this journal. Integration contract lives in
-  `_portfolio/campaignbuilder-integration.md` (v0.1, 2026-05-22); do not
+  `integration-contract.md` in this folder (v0.1, 2026-05-22); do not
   duplicate it here.
 - **Repo dependencies it is sensitive to:**
   - a product folder rename changes `spec_path` / `raw_url` in
@@ -31,11 +31,13 @@ rewrite old ones.
   (frontmatter parser, INTERNAL stripper, section extractor, cache, audit
   log, approval UI, routing table, confidence gate, Key Vault secret,
   monitoring) — status unknown in this workspace; TODO: mark what is done.
+- **`_portfolio/` now holds only the two files this tool fetches:**
+  `products-index.json` and `voice-and-tone.md`. Nothing else goes there.
 
 ## Log
 
 ## 2026-05-22 — Integration contract written
-- `_portfolio/campaignbuilder-integration.md` v0.1.
+- Integration contract v0.1 written (now `campaignbuilder/integration-contract.md`).
 
 ## 2026-10-23 — Folder created
 - Created `campaignbuilder/` and this journal so the tool has a home in the

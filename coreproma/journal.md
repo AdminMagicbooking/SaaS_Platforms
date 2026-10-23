@@ -15,8 +15,7 @@ old ones.
   - `product-spec.md` — canonical product spec (read by CampaignBuilder)
   - `business-plan.md` — Play 1 one-pager (draft v0.1, 2026-05-23)
   - `contracts/` — customer agreements (see its README)
-- **Related elsewhere:** `_portfolio/play-1-business-plan.md` (consolidated
-  Play 1 plan); `ethical-engine/` (Ethical Estimation Engine, delivered under
+- **Related elsewhere:** `ethical-engine/` (Ethical Estimation Engine, delivered under
   the COREPROMA brand); Innovate UK grant application (tracked outside this
   folder).
 - **Partners / contacts:**
@@ -24,7 +23,7 @@ old ones.
     for the individual subscription
   - SudIngénierie — partnership expected to open doors for the MOE module
   - Ethan Avalon (AvalonERP, US) — prospective reseller, induction to end Q1 2027
-- **Open decisions:** D-06 currency policy (EUR + GBP dual pricing); fundraising
+- **Open decisions:** currency policy (EUR + GBP dual pricing); fundraising
   — COREPROMA is part of the raise but Jobs Tracker (UK) leads it.
 
 ## Log
