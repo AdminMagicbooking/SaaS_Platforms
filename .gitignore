@@ -1,9 +1,20 @@
+# Scratch / build output
+tmp/
+output/
+**/working/
+**/.build/
+**/__pycache__/
+*.pyc
+node_modules/
 
-# Marketing video projects stay local (renders, zips, audio, scripts, briefs)
-jobstracker/marketing/video/
+# Office lock files
+.~lock.*#
+~$*
 
-# Prospect lists contain third-party personal data: never commit
-jobstracker/prospects/
+# Prospect lists and anything with personal contact data (CONVENTIONS section 7)
+**/prospects/
+_private/
 
-# Generated Outlook draft files (contain the deck and model as attachments)
-jobstracker/investor/outreach-drafts/
+# OS noise
+Thumbs.db
+.DS_Store
