@@ -16,13 +16,21 @@ Remote: `https://github.com/AdminMagicbooking/SaaS_Platforms.git` (GitHub).
 
 ## Layout
 
-- `coreproma/` — COREPROMA (construction-management SaaS): business plan + product spec
-- `ecogrid-resort/` — EcoGrid Resort (ex-SmartGrid): commercial docs, investor
-  package, product spec. App code: `D:\ClaudeProjects\EcoGridResort`
-- `gttourz/` — GTTourz brain + business plans
-- `ethical-engine/` — Ethical Estimation Engine (solar EPC tender estimation):
-  product spec; client source docs currently in `Ethical/` (placement → D-14)
-- `findallproperty/`, `jobstracker/`, `emailrelay/`, `waypointscreator/` — venture entries
+Venture folder → app repo (code + Azure deployment, under `D:\ClaudeProjects\`):
+
+| Folder | App repo | Notes |
+|---|---|---|
+| `coreproma/` | `COREPROMA` | construction-management SaaS |
+| `ecogrid-resort/` | `EcoGridResort` | ex-`SmartGrid/`, renamed 2026-10-23 |
+| `jobstracker/` | `JobsTracker` | field-ops SaaS; `gaswise/` = customer material |
+| `ethical-engine/` | `Ethical` | Estimation Engine; client docs in root `Ethical/` (D-14) |
+| `supercars-tours/` | `supercars.tours` | |
+| `waypointscreator/` | `Waypoints` (+ `Waypoints-promo`) | |
+| `gttourz/` | — none yet | `TourzManager` is not this product |
+| `findallproperty/` | — none | |
+| `emailrelay/` | — none | |
+
+`CampaignBuilder` (app repo exists) has no venture folder here yet.
 - `_portfolio/`, `_templates/` — shared portfolio assets and templates
 - `projects-status.html`, `accounts-register.html` — portfolio dashboards
 - `CONVENTIONS.md` — workspace conventions
