@@ -171,6 +171,25 @@
         "faq": null,
         "value_props": null
       }
+    },
+    {
+      "slug": "supercars-tours",
+      "name": "SuperCars.Tours",
+      "spec_path": "supercars-tours/product-spec.md",
+      "raw_url": "https://raw.githubusercontent.com/AdminMagicbooking/SaaS_Platforms/main/supercars-tours/product-spec.md",
+      "marketing_ready": false,
+      "notes": "Play 3 standalone bet. Public comparison guide + supplier directory for supercar owners (https://supercars.tours). Live site, pre-revenue. Spec has frontmatter: ai_safe_for_social_post true (positioning/audiences only), ai_safe_for_autoreply false — prices are proposals, team unconfirmed. Never publish pricing or 'first/only' claims. Distinct from GTTourz.",
+      "sections": {
+        "positioning": "## 3. Positioning — what makes it different",
+        "features": "## 5. Functionality",
+        "audiences": "## 2. Who it is for",
+        "pricing": null,
+        "faq": "## 10. FAQ — for the email auto-responder",
+        "value_props": null,
+        "legal": "## 8. Legal posture (summary — not legal advice)",
+        "ecosystem": "## 7. Ecosystem",
+        "tech_stack": null
+      }
     }
   ],
   "canonical_section_definitions": {

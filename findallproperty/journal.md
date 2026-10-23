@@ -9,8 +9,8 @@ the bottom; never rewrite old ones.
 - **Product:** FindAllProperty — UK property valuation + neighbourhood intel.
   Play 1. Free for consumers; partner-referral revenue model implied but not
   formalised (blocker noted 2026-05-23).
-- **App repo:** none in `D:\ClaudeProjects` (confirmed 2026-10-23) — TODO:
-  state where the code lives, if anywhere (Property Scraper?).
+- **App repo (code + Azure deployment):** `D:\ClaudeProjects\PropertyyScrapper`
+  (Property Scraper — linked 2026-10-23) — TODO: add GitHub URL.
 - **This folder:**
   - `product-spec.md` — canonical spec; `business-plan.md` — Play 1 one-pager
   - `FindAllProperty_InvestorDeck_v1d_BrightonAnchor.pptx`,
@@ -28,4 +28,5 @@ the bottom; never rewrite old ones.
 ## 2026-10-23 — Journal created
 - Created this `journal.md` (portfolio-wide rollout).
 - Involved: Franck, Claude.
-- Next: state where the code lives.
+- 2026-10-23 (later): app repo linked to `D:\ClaudeProjects\PropertyyScrapper`.
+- Next: add the GitHub URL.

@@ -17,7 +17,8 @@ at the bottom; never rewrite old ones.
     documents
   - `crowdfunding/2026-10-18/working/` — build scripts and QA renders
     (git-ignored)
-  - No `product-spec.md` yet — TODO (CONVENTIONS section 3).
+  - `product-spec.md` — canonical spec (written 2026-10-23 from the
+    crowdfunding pack; autoreply off, social on)
 - **Partners / contacts:** Ethan Avalon (AvalonERP, US) — prospective reseller.
 
 ## Log
@@ -29,4 +30,7 @@ at the bottom; never rewrite old ones.
 ## 2026-10-23 — Journal created
 - Created this `journal.md` (portfolio-wide rollout).
 - Involved: Franck, Claude.
-- Next: add the app's GitHub URL; write `product-spec.md`.
+- 2026-10-23 (later): `product-spec.md` written and registered in
+  `_portfolio/products-index.json` (slug `supercars-tours`).
+- Next: add the app's GitHub URL; confirm supplier prices, then flip
+  `ai_safe_for_autoreply`.
